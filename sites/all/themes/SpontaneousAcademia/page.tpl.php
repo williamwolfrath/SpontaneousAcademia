@@ -85,7 +85,7 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
-   <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US" type="text/javascript"></script><script type="text/javascript">FB.init("bcac58b5ddc610eb725c6e18c24d7e4c");</script>
+  <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US" type="text/javascript"></script><script type="text/javascript">FB.init("990f0319a7449a516ee2032d33478742");</script>
 </head>
 <body class="<?php print $body_classes; ?>">
   <div id="page">
@@ -161,6 +161,13 @@
           <?php if (!empty($tabs)): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
           <?php if (!empty($messages)): print $messages; endif; ?>
           <?php if (!empty($help)): print $help; endif; ?>
+          
+          <?php if ($is_front): ?>
+            <div id="front-content" class="clear-block">
+                <?php print $front_content; ?>
+            </div> <!-- /front-content -->
+          <?php endif; ?>
+          
           <div id="content-content" class="clear-block">
             <fb:login-button v="2" size="medium">Connect with Facebook</fb:login-button>
             <fb:profile-pic uid="loggedinuser" size="square" facebook-logo="true"></fb:profile-pic>
