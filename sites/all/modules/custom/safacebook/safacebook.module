@@ -1,0 +1,24 @@
+<?php
+
+function safacebook_menu() {
+    
+    $items['testpage'] = array(
+	'title' => 'Test Page',
+	'description' => 'For testing',
+	'page callback' => 'safacebook_test',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+ 
+    return $items;
+}
+
+
+
+
+function safacebook_test() {
+    return "Great success!";
+}
+
+
+
