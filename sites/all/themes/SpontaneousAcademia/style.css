@@ -1,0 +1,213 @@
+* {
+    margin:0;
+    padding:0;
+}
+a {
+	color:#4C53E0;
+        text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:focus, a:hover, a:active {
+	color:#EB8518;
+}
+
+body {
+    background: white;
+    color: #888888;
+    font-family: Tahoma, Verdana, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+
+
+div#page {
+    width: 800px;
+    margin: auto;
+}
+
+
+
+div.block div.content {
+    padding: 5px;
+}
+
+
+div#header {
+    overflow: auto;  /* surround every child with its div */
+    margin-bottom: 20px;
+}
+div#header div#logo-title {
+    width: 400px;
+    float: left;
+}
+
+
+
+div#header h1, div.node h2, div.block h2, div.node h1, div#content h1 {
+    font-family: Tahoma, Verdana, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+div.block-user {
+    float: right;
+    width: 400px;
+}
+#block-user-title {
+    float: left;
+    width: 35px;
+    margin-top: 13px;
+}
+.block-user #edit-submit { margin-top: 13px; margin-left: -10px; }
+.block-user label { display: none; }
+div.block-user div.content { float: left; padding: 0; width: 345px;}
+div.block-user .form-item {
+    float: left;
+    width: 130px;
+    margin-bottom: 0;
+}
+div.block-user div.item-list,
+div.block-user div.item-list ul {
+    overflow: auto;
+}
+div.block-user div.item-list li {
+    float: left;
+    font-size: .8em;
+    width: 40%;
+    text-align: left;
+}
+div#block-block-1 {
+    width: 150px;
+    float: right;
+}
+
+
+
+
+div#container {
+    position: relative;
+    width: 800px;
+    margin: auto;
+    clear: both; /* pesky floating header elements */
+}
+
+
+
+
+
+
+
+
+
+
+
+ul#simplemenu {
+    width: 750px;
+    height: 26px;
+    margin: auto;
+}
+ul#simplemenu li {
+    display: block;
+    float: left;
+    background: #888888;
+    width: 125px;
+    height: 20px;
+    line-height: 20px;
+    margin: 3px 4px 0 6px;
+}
+ul#simplemenu li ul li {
+    display: block;
+    background: #888888;
+    height: 20px;
+    line-height: 20px;
+    float: none;
+    width: 125px;
+    margin: 0;
+}
+
+ul#simplemenu li.first {
+    margin-left: 25px;
+}
+ul#simplemenu li ul li.first {
+    margin: 0;
+}
+ul#simplemenu li a {
+    display: block;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+}
+ul#simplemenu li ul li a {
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+ul#simplemenu li a {
+	color:#ffffff;
+        text-decoration: none;
+}
+ul#simplemenu li a:hover { text-decoration: underline; }
+ul#simplemenu li a:focus, ul#simplemenu li a:hover, ul#simplemenu li a:active {
+	color:#000000;
+}
+
+
+
+
+
+div#main-outer {
+    position: relative;
+    overflow: auto;
+    margin-top: 20px;
+}
+
+div#main {
+    float: left;
+    width: 494px;
+    overflow: hidden;
+}
+
+div#main-squeeze {
+    padding: 10px;
+}
+
+div#main div#content div#profile_pics {
+    width: 40%;
+}
+
+div#main div#content-bottom {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+/* sidebar */
+div#sidebar-left {
+    float: left;
+    width: 150px;
+}
+
+
+div#sidebar-right {
+    float: left;
+    width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* generic stuff */
+.item-list ul li {
+    margin: 0;
+}

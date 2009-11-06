@@ -1,0 +1,25 @@
+<?php
+
+
+function ihsgeneral_menu() {
+    
+    $items['testpage'] = array(
+	'title' => 'Test Page',
+	'description' => 'For testing',
+	'page callback' => 'ihsgeneral_main',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+ 
+    return $items;
+}
+
+
+
+
+function ihsgeneral_main() {
+    return "Great success!";
+}
+
+
+

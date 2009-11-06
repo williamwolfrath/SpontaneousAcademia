@@ -1,0 +1,61 @@
+<?php
+
+
+function ihsgeneral_install() {
+	// Use schema API to create database table.
+	//drupal_install_schema('');
+	//drupal_set_message('Tables have been installed.');
+}
+
+function ihsgeneral_uninstall() {
+	// Use schema API to destroy database table.
+	//drupal_uninstall_schema('');
+	//drupal_set_message('Tables have been removed.');
+}
+
+
+function ihsgeneral_schema() {
+    $schema[''] = array(
+		'description' => t(''),
+		'fields' => array(
+			'mid' => array(
+				'type' => 'int',
+				'unsigned' => TRUE,
+				'not null' => TRUE,
+				'default' => 0,
+				'description' => t('The User id')
+			),
+			'tid' => array(
+				'type' => 'int',
+				'unsigned' => TRUE,
+				'not null' => TRUE,
+				'default' => 0,
+				'description' => t('The Transaction id')
+			),
+			'expire_date' => array(
+				'description' => t('the date of payment'),
+				'type' => 'datetime',
+				'not null' => false,
+			),
+			'cron' => array(
+				'type' => 'int',
+				'unsigned' => TRUE,
+				'size' => "tiny",
+				'not null' => TRUE,
+				'default' => 0,
+			),
+			'is_cancel' => array(
+				'type' => 'int',
+				'size' => 'tiny',
+				'unsigned' => TRUE,
+				'not null' => TRUE,
+				'default' => 0,
+			),
+		),
+		'primary key' => array(
+			'mid',
+		),
+	);
+	return $schema;
+        
+}

@@ -1,0 +1,4 @@
+API Key:	bcac58b5ddc610eb725c6e18c24d7e4c
+Secret:	ebf737526a3b4ccd2911ec6722d59d5a
+
+All your settings are available in your Developer Dashboard in the future.
