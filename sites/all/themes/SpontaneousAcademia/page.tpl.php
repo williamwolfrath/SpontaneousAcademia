@@ -169,9 +169,21 @@
           <?php endif; ?>
           
           <div id="content-content" class="clear-block">
-            <fb:login-button v="2" size="medium">Connect with Facebook</fb:login-button>
-            <fb:profile-pic uid="loggedinuser" size="square" facebook-logo="true"></fb:profile-pic>
+            
             <?php print $content; ?>
+            
+            <div id="fb">
+              <div id="fp-inner">
+                    <?php if (!$logged_in): ?>
+                            <fb:login-button v="2" size="medium">Connect with Facebook</fb:login-button>
+                    <?php else: ?>
+                            <fb:profile-pic uid="loggedinuser" size="square" facebook-logo="true"></fb:profile-pic>
+                            <fb:name uid="loggedinuser" useyou="false" linked="true"></fb:name>
+                            <div id="profile_pics"></div>
+                    <?php endif; ?> <!-- if logged in/else -->
+              </div>
+            </div>
+            
           </div> <!-- /content-content -->
           <?php //print $feed_icons; ?>
         </div> <!-- /content -->

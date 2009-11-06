@@ -199,8 +199,13 @@ div#sidebar-right {
 
 
 
-
-
+/* facebook */
+div#fb {
+    border: 5px solid red;
+}
+#fp-inner {
+    padding: 5px;
+}
 
 
 
