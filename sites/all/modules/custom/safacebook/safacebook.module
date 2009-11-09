@@ -1,11 +1,20 @@
 <?php
 
 function safacebook_menu() {
+    $items = array();
     
     $items['testpage'] = array(
 	'title' => 'Test Page',
 	'description' => 'For testing',
 	'page callback' => 'safacebook_test',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+    
+    $items['facebook-api-test'] = array(
+	'title' => 'Facebok API Test Page',
+	'description' => 'For testing',
+	'page callback' => 'safacebook_api',
 	'access callback' => true,
 	'type' => MENU_CALLBACK,
     );
@@ -17,8 +26,30 @@ function safacebook_menu() {
 
 
 function safacebook_test() {
-    return "Great success!";
+    drupal_add_js(drupal_get_path('module', 'safacebook') . '/safacebook.js');
+    $output = theme('playground');
+    return $output;
 }
 
 
 
+function safacebook_api() {
+    drupal_add_js(drupal_get_path('module', 'safacebook') . '/safacebook_tester.js');
+    $output = theme('tester');
+    return $output;
+}
+
+
+
+function safacebook_theme() {
+    return array(
+       'playground' => array(
+            'template' => 'tmpl/playground',
+            'arguments' => array(),
+        ),
+       'tester' => array(
+            'template' => 'tmpl/tester',
+            'arguments' => array(),
+        ),
+    );
+}

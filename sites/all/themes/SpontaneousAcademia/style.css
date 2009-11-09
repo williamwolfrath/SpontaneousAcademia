@@ -201,13 +201,16 @@ div#sidebar-right {
 
 /* facebook */
 div#fb {
-    border: 5px solid red;
 }
-#fp-inner {
+#fb-inner {
     padding: 5px;
 }
-
-
+#fb-friends {
+    margin: 20px 0 0 0;
+}
+#fb-status {
+    border: 1px solid black;
+}
 
 
 
