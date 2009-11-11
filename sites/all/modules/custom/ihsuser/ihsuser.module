@@ -1,0 +1,33 @@
+<?php
+
+
+function ihsuser_menu() {
+    
+    $items['ihsusertest'] = array(
+	'title' => 'Test Page',
+	'description' => 'For testing',
+	'page callback' => 'ihsuser_main',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+ 
+    return $items;
+}
+
+
+
+
+function ihsuser_main() {
+    return "Great success!";
+}
+
+
+// implementation of hook_user
+// want to show the most pertinent user role on account view
+function ihsuser_user($op, &$edit, &$account) {
+    //log_debug("The account object is ", $account);
+    //switch($op) {
+	//case 'view':
+	    
+    //}
+}

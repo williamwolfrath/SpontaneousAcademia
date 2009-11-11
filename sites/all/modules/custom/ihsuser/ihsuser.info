@@ -1,0 +1,5 @@
+name = IHS User Module
+description = For reusable IHS user functionality.
+core = 6.x
+version = "6.x-0.1"
+package = IHS
