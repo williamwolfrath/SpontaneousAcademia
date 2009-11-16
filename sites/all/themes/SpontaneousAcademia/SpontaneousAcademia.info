@@ -9,6 +9,7 @@ engine = phptemplate
 core       = 6.x
 
 stylesheets[all][]   = style.css
+scripts[] = safacebook.js
 
   ; Set the conditional stylesheets that are processed by IE.
 ;conditional-stylesheets[if IE][all][] = ie.css

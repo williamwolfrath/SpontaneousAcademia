@@ -1,12 +1,31 @@
 <?php
 
+
+
 function safacebook_menu() {
     $items = array();
+    
+    $items['admin/settings/safacebook'] = array(
+	'title' => 'Facebook Settings',
+	'description' => 'Facebook Key Settings',
+	'page callback' => 'drupal_get_form',
+	'page arguments' => array('safacebook_admin_settings'),
+	'access arguments' => array('administer site configuration'),
+	'type' => MENU_NORMAL_ITEM,
+	'file' => 'safacebook.admin.inc',
+    );
     
     $items['testpage'] = array(
 	'title' => 'Test Page',
 	'description' => 'For testing',
 	'page callback' => 'safacebook_test',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+    $items['frontpage'] = array(
+	'title' => 'Front Page',
+	'description' => 'Front page of the website that does some Facebook initialization',
+	'page callback' => 'front',
 	'access callback' => true,
 	'type' => MENU_CALLBACK,
     );
@@ -19,7 +38,45 @@ function safacebook_menu() {
 	'type' => MENU_CALLBACK,
     );
  
+    $items['front-loggedin'] = array(
+	'title' => 'Logged In',
+	'description' => 'Page to redirect to if the user is logged into Facebook.',
+	'page callback' => 'front_logged_in',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+ 
+    $items['front-notloggedin'] = array(
+	'title' => 'Not logged in.',
+	'description' => 'Page to redirect to if the user is not logged into Facebook.',
+	'page callback' => 'front_not_logged_in',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+ 
+    $items['single-logout'] = array(
+	'title' => 'Logout',
+	'description' => 'To log a user out of both Facebook and the site',
+	'page callback' => 'safacebook_logout',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+ 
     return $items;
+}
+
+
+function front() {
+    //drupal_add_js(drupal_get_path('module', 'safacebook') . '/facebook_front.js');
+    //$output = theme('frontpage');
+    //return $output;
+    /*if ( user_is_logged_in() ) {
+	drupal_goto('front-loggedin');
+    }
+    else {
+	drupal_goto('front-notloggedin');
+    }*/
+    drupal_goto('front-loggedin');
 }
 
 
@@ -40,6 +97,73 @@ function safacebook_api() {
 }
 
 
+// !!!!!
+// make this functionality into a block that will show the facebook button if
+// user not logged in, and check if facebook connected and log user in otherwise....
+function front_logged_in() {
+    // load these values from Drupal
+    //$api_key = '990f0319a7449a516ee2032d33478742';
+    //$secret = 'ea5a4e831d85d77953e298b890fe8dd4';
+    $api_key = variable_get('safacebook_api_key', '');
+    $secret = variable_get('safacebook_secret', '');
+    
+    drupal_add_js(drupal_get_path('module', 'safacebook') . '/facebook_front.js');
+    include_once(drupal_get_path('module', 'safacebook') . '/facebook-platform/php/facebook.php');
+    
+    log_debug('api key is ', $api_key);
+    log_debug('secret is ', $secret);
+    $fb=new Facebook($api_key,$secret);
+    log_debug("got a facebook object: ", $fb);
+    
+    $fb_user=$fb->get_loggedin_user();
+    log_debug("fb_user is ", $fb_user);
+    $output = theme('front_logged_in');
+    
+    return $output;
+}
+
+
+function front_not_logged_in() {    
+    drupal_add_js(drupal_get_path('module', 'safacebook') . '/facebook_not_logged_in.js');
+    include_once(drupal_get_path('module', 'safacebook') . '/facebook-platform/php/facebook.php');
+    
+    // if the user is logged into facebook, log them into our site here
+    // if can't find their Facebook ID in the system, that means they haven't registered
+    $api_key = variable_get('safacebook_api_key', '');
+    $secret = variable_get('safacebook_secret', '');
+    log_debug('api key is ', $api_key);
+    log_debug('secret is ', $secret);
+    $fb=new Facebook($api_key,$secret);
+    log_debug("got a facebook object: ", $fb);
+    $fb_user=$fb->get_loggedin_user();
+    log_debug("fb_user is ", $fb_user);
+    if ($fb_user) {
+	log_debug("User is logged into facebook!");
+	if (!user_is_logged_in()) {
+	    login_user($fb_user);
+	    drupal_goto('front-loggedin');
+	}
+	else {
+	    log_debug("FB: User is already logged into your site.");
+	    drupal_goto('front-loggedin');
+	}
+    }
+    else {
+	log_debug("User is NOT logged into facebook.");
+    }
+    
+    $output = theme('front_not_logged_in');
+    return $output;
+}
+
+
+
+function safacebook_logout() {
+    return "LogOut";
+}
+
+
+
 
 function safacebook_theme() {
     return array(
@@ -51,5 +175,56 @@ function safacebook_theme() {
             'template' => 'tmpl/tester',
             'arguments' => array(),
         ),
+       'frontpage' => array(
+            'template' => 'tmpl/frontpage',
+            'arguments' => array(),
+        ),
+       'front_logged_in' => array(
+            'template' => 'tmpl/front-logged-in',
+            'arguments' => array(),
+        ),
+       'front_not_logged_in' => array(
+            'template' => 'tmpl/front-not-logged-in',
+            'arguments' => array(),
+        ),
     );
+}
+
+
+
+function _create_facebook_user($fbid, $uid) {
+    $fbuser = (object) NULL;
+    $fbuser->type = 'facebook_user';
+    $fbuser->title = $fbid;
+    $fbuser->uid = 0;
+    $fbuser->created = strtotime("now");
+    $fbuser->changed = strtotime("now");
+    $fbuser->status = 0;
+    $fbuser->comment = 0;
+    $fbuser->promote = 0;
+    $fbuser->moderate = 0;
+    $fbuser->sticky = 0;
+
+    // add CCK field data
+    $fbuser->field_site_id[0]['value'] = $uid;
+
+    // save node
+    node_save($fbuser);
+}
+
+
+function login_user($fb_user) {
+    log_debug("login user: fb_user is ", $fb_user);
+    $result = db_query("SELECT * FROM {node} WHERE title = '%s' ", $fb_user);
+    if ($fb_mapping = db_fetch_object($result)) {
+	log_debug("fb mapping is ", $fb_mapping);
+	$node = node_load($fb_mapping->nid);
+	log_debug("node obj is ", $node);
+	$uid = $node->field_site_id[0][value];
+	log_debug('fb mapping uid: ', $uid);
+	$site_user = user_load($uid);
+	log_debug("site user: ", $site_user);
+	user_external_login_register($site_user->name, 'safacebook');
+	log_debug("user is now logged in");
+    }
 }
