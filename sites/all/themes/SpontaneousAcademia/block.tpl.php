@@ -26,7 +26,7 @@
  * @see template_preprocess_block()
  */
 ?>
-<div id="block-<?php print $block->module .'-'. $block->delta; ?>" class="block block-<?php print $block->module ?>">
+<div id="block-<?php print $block->module .'-'. $block->delta; ?>" class="block block-<?php print $block->module ?> <?php if (function_exists('block_class')) print block_class($block); ?> ">
 <?php if ($block->subject): ?>
   <?php print $block->subject ?>
 <?php endif;?>
