@@ -83,11 +83,15 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
+  <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US" type="text/javascript"></script> <!-- make sure this loads before others that need it! -->
+  <script type="text/javascript">
+//FB.init("990f0319a7449a516ee2032d33478742", "xd_receiver.htm", {"reloadIfSessionStateChanged":true, "ifUserConnected":"front-loggedin", "ifUserNotConnected":"front-anonymous"});
+//FB.init("990f0319a7449a516ee2032d33478742", "xd_receiver.htm", {"reloadIfSessionStateChanged":true});
+//FB.init("990f0319a7449a516ee2032d33478742");
+</script>
   <?php print $scripts; ?>
   <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
-<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US" type="text/javascript"></script><script type="text/javascript">
-//FB.init("990f0319a7449a516ee2032d33478742", "xd_receiver.htm", {"reloadIfSessionStateChanged":true, "ifUserConnected":"front-loggedin", "ifUserNotConnected":"front-anonymous"});
-FB.init("990f0319a7449a516ee2032d33478742", "xd_receiver.htm", {"reloadIfSessionStateChanged":true});</script>
+
 </head>
 
 

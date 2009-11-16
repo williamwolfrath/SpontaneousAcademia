@@ -189,13 +189,77 @@ function jiiwiz_one_restaurant_review_list_item($rr_info)
 //}
 
 function SpontaneousAcademia_preprocess_page(&$vars, $hook) {
-   $my_menu = menu_tree($menu_name = 'primary-links');
-   log_debug('primary links: ', $my_menu);
+    global $user;
+    //$curr_uri = check_plain(request_uri());
+    //log_debug('curr uri: ', $curr_uri);
+    include_once(drupal_get_path('module', 'safacebook') . '/facebook-platform/php/facebook.php');
+    $api_key = variable_get('safacebook_api_key', '');
+    $secret = variable_get('safacebook_secret', '');
+    log_debug('api key is ', $api_key);
+    log_debug('secret is ', $secret);
+    $fb=new Facebook($api_key,$secret);
+    log_debug("got a facebook object: ", $fb);
+    $fb_user=$fb->get_loggedin_user();
+    log_debug("fb_user is ", $fb_user);
+
+    // if the user is logged into facebook, log them into the site if they aren't already.
+    // don't log the user in if it's the logout link...
+    // if the user is NOT logged into facebook but is still logged in, log them out
+    if ( user_is_logged_in() ) {
+        log_debug("User is logged in... user obj is ", $user);
+        if (!$fb_user) {
+            log_debug("no FB user, logging out...");
+            drupal_goto('logout');  // reload current page to correctly show User Welcome block
+        }
+    }
+    else {
+        log_debug("user is not logged in...");
+        if ($fb_user) {
+            log_debug("trying to log in user...");
+            _login_user($fb_user);
+            global $base_root;
+            $url = $base_root . request_uri();
+            drupal_goto($url);  // reload current page to correctly show User Welcome block
+        }
+    }
 }
+
+
+
+function _login_user($fb_user) {
+    log_debug("login user: fb_user is ", $fb_user);
+    $result = db_query("SELECT * FROM {node} WHERE title = '%s' ", $fb_user);
+    if ($fb_mapping = db_fetch_object($result)) {
+	log_debug("fb mapping is ", $fb_mapping);
+	$node = node_load($fb_mapping->nid);
+	log_debug("node obj is ", $node);
+	$uid = $node->field_site_id[0][value];
+	log_debug('fb mapping uid: ', $uid);
+	$site_user = user_load($uid);
+	log_debug("site user: ", $site_user);
+	user_external_login_register($site_user->name, 'safacebook');
+	log_debug("user is now logged in");
+    }
+}
+
 
 
 function SpontaneousAcademia_preprocess_block(&$vars, $hook) {
   log_debug('preprocess block...');
   //log_debug('hook is ', $hook);
   //log_debug('vars: ', $vars);
+}
+
+// add the user's main role name to the template
+function SpontaneousAcademia_preprocess_user_profile(&$vars) {
+    //log_debug('preprocess user profile');
+    //log_debug('vars is ', $vars);
+    //log_debug('The user object is ', $vars['user']);
+    $vars['main_role'] = '';
+    foreach ($vars['account']->roles as $role) {
+        if (!($role == 'authenticated user')) {
+            // get the first role that is NOT auth user
+            $vars['main_role'] = $role;
+        }
+    }
 }

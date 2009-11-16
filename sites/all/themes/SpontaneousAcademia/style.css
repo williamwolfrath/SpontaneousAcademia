@@ -2,6 +2,10 @@
     margin:0;
     padding:0;
 }
+/* generic stuff */
+.item-list ul li {
+    margin: 0;
+}
 a {
 	color:#4C53E0;
         text-decoration: none;
@@ -11,12 +15,15 @@ a:focus, a:hover, a:active {
 	color:#EB8518;
 }
 
+
+
 body {
     background: white;
     color: #888888;
     font-family: Tahoma, Verdana, Helvetica, Arial, sans-serif;
     font-weight: normal;
-    font-size: 13px;
+    /*font-size: 13px;*/
+    font-size: 62.5%;
 }
 
 
@@ -47,6 +54,9 @@ div#header div#logo-title {
 div#header h1, div.node h2, div.block h2, div.node h1, div#content h1 {
     font-family: Tahoma, Verdana, Helvetica, Arial, sans-serif;
     font-weight: normal;
+}
+div#header h1 {
+    font-size: 2.7em;
 }
 div.block-user {
     float: right;
@@ -98,8 +108,7 @@ div#container {
 
 
 
-
-
+/* dropdown menu */
 ul#simplemenu {
     width: 750px;
     height: 26px;
@@ -123,7 +132,9 @@ ul#simplemenu li ul li {
     width: 125px;
     margin: 0;
 }
-
+ul#simplemenu ul {
+    width: 125px;
+}
 ul#simplemenu li.first {
     margin-left: 25px;
 }
@@ -135,6 +146,7 @@ ul#simplemenu li a {
     margin: auto;
     width: 80%;
     text-align: center;
+    font-size: 13px;  /* don't want to let it get bigger than the menu */
 }
 ul#simplemenu li ul li a {
     display: block;
@@ -160,21 +172,17 @@ div#main-outer {
     overflow: auto;
     margin-top: 20px;
 }
-
 div#main {
     float: left;
     width: 494px;
     overflow: hidden;
 }
-
 div#main-squeeze {
     padding: 10px;
 }
-
 div#main div#content div#profile_pics {
     width: 40%;
 }
-
 div#main div#content-bottom {
     margin-top: 20px;
 }
@@ -188,13 +196,14 @@ div#main div#content-bottom {
 div#sidebar-left {
     float: left;
     width: 150px;
+    font-size: 1.3em;
 }
-
-
 div#sidebar-right {
     float: left;
     width: 150px;
+    font-size: 1.3em;
 }
+
 
 
 
@@ -211,11 +220,61 @@ div#fb {
 #fb-status {
     border: 1px solid black;
 }
-
-
-
-
-/* generic stuff */
-.item-list ul li {
-    margin: 0;
+.facebook-login {
+    width: 150px;
+    float: right;
 }
+
+
+
+/* profile*/
+.profile .picture {
+    float: none;
+    margin: 0 10px 0 0;
+    width: 200px;
+    float: left;
+}
+div.content-profile-display {
+    border: none;
+    padding: 0;
+    color: #000000;
+}
+.profile h3 {
+    border: none;
+    display: none;
+}
+.profile .profile-role {
+    font-size: 22px;
+    color: #000000;
+}
+
+
+
+/* groups */
+#content .view-og,
+#content .view-og-my,
+#content .view-og-members {
+    font-size: 1.2em;
+}
+#content .view-og table td {
+    padding: 4px 6px 4px 1px;
+}
+#content .view-og-my table,
+#content .view-og-members table {
+    width: 100%;
+}
+#content .view-og-my table td,
+#content .view-og-members table td {
+    width: 33%;
+    padding: 4px 15px 4px 1px;
+}
+
+
+
+
+/* views */
+.views-exposed-form label { font-weight: normal; }
+.view .item-list li { margin-bottom: 10px; }
+
+
+
