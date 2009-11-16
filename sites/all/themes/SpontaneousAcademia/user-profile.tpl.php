@@ -44,5 +44,12 @@
  */
 ?>
 <div class="profile">
-  <?php print $user_profile; ?>
+  <?php print $profile['user_picture']; ?>
+  <div class="profile-role">
+    <?php print $main_role; ?>
+  </div>
+  <?php print $profile['content_profile']; ?>
+  <?php //print $user_profile; ?>
 </div>
+<?php //print '<pre>'. check_plain(print_r($profile, 1)) .'</pre>'; ?>
+<?php //print '<pre>'. check_plain(print_r($user, 1)) .'</pre>'; ?>

@@ -23,5 +23,7 @@
  * @see template_preprocess_user_profile_item()
  */
 ?>
+Begin User Profile Item<br/>
 <dt<?php print $attributes; ?>><?php print $title; ?></dt>
 <dd<?php print $attributes; ?>><?php print $value; ?></dd>
+End User Profile Item<br/>
