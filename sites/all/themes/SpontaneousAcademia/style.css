@@ -2,9 +2,27 @@
     margin:0;
     padding:0;
 }
+ul {
+    list-style-position: inside;
+    list-style-type: none;    
+}
+
+
+div#temp-home-link a {
+    display: block;
+    width: 250px;
+    height: 30px;
+    position: relative;
+    left: 50px;
+    top: 35px;
+}
+
+
+
 /* generic stuff */
 .item-list ul li {
     margin: 0;
+    list-style-type: none;
 }
 a {
 	color:#4C53E0;
@@ -29,8 +47,9 @@ body {
 
 
 div#page {
-    width: 800px;
+    /*width: 800px;*/
     margin: auto;
+    color: #000000;
 }
 
 
@@ -40,14 +59,24 @@ div.block div.content {
 }
 
 
+
+
 div#header {
     overflow: auto;  /* surround every child with its div */
-    margin-bottom: 20px;
+    height: 405px;
+    background: url(images/header-bg.jpg) no-repeat center;
 }
 div#header div#logo-title {
     width: 400px;
     float: left;
 }
+div#header-region {
+    width: 800px;
+    margin: auto;
+    height: 405px;
+    position: relative;
+}
+
 
 
 
@@ -87,8 +116,25 @@ div.block-user div.item-list li {
 }
 div#block-block-1 {
     width: 150px;
-    float: right;
+    position: absolute;
+    bottom: 7px;
+    color: white;
+    font-size: 1.5em;
 }
+div#block-block-1 a:link,
+div#block-block-1 a:visited {
+    color: black;
+}
+div#block-block-1 a:hover {
+    color: white;
+}
+.block {
+    font-size: 1.3em;
+}
+div.sidebar .block {
+    font-size: 1em;
+}
+
 
 
 
@@ -103,6 +149,10 @@ div#container {
 
 
 
+div#navigation {
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
 
 
 
@@ -165,6 +215,13 @@ ul#simplemenu li a:focus, ul#simplemenu li a:hover, ul#simplemenu li a:active {
 
 
 
+div#primary {
+    border-bottom: 1px solid #888888;
+}
+div#primary ul.links li {
+    border: 1px solid #333333;
+}
+
 
 
 div#main-outer {
@@ -174,8 +231,9 @@ div#main-outer {
 }
 div#main {
     float: left;
-    width: 494px;
+    font-size: 1.3em;
     overflow: hidden;
+    width: 100%;
 }
 div#main-squeeze {
     padding: 10px;
@@ -186,7 +244,9 @@ div#main div#content div#profile_pics {
 div#main div#content-bottom {
     margin-top: 20px;
 }
-
+body.sidebar-right #main {
+    width: 580px;
+}
 
 
 
@@ -197,12 +257,26 @@ div#sidebar-left {
     float: left;
     width: 150px;
     font-size: 1.3em;
+    text-align: left;
 }
 div#sidebar-right {
     float: left;
     width: 150px;
     font-size: 1.3em;
 }
+body.front div#sidebar-right {
+    background: #efefef;
+}
+div#sidebar-left .block ul {
+    padding: 0;
+}
+body.front #sidebar-right {
+    width: 220px;
+}
+#sidebar-right .block {
+    margin-bottom: 20px;
+}
+
 
 
 
@@ -220,16 +294,41 @@ div#fb {
 #fb-status {
     border: 1px solid black;
 }
+#fb-picture {
+    margin: 0 10px 0 0;
+    width: 110px;
+    float: left;
+}
 .facebook-login {
     width: 150px;
-    float: right;
+    position: absolute;
+    bottom: 10px;
+}
+body.page-user #header #fb-login {
+    /*display: none;*/
+}
+#fb-active-users { height: 170px; background: #efefef; }
+#fb-active-users .fb-active-user {
+    float: left;
+    width: 50px;
+    height: 50px;
+    padding: 2px;
+}
+div .block-safacebook {
+    overflow: auto;
+    /*height: 120px;*/
+    background: #efefef;
+}
+div#fb-active-users-title {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    padding: 4px;
 }
 
 
 
 /* profile*/
 .profile .picture {
-    float: none;
     margin: 0 10px 0 0;
     width: 200px;
     float: left;
@@ -254,7 +353,7 @@ div.content-profile-display {
 #content .view-og,
 #content .view-og-my,
 #content .view-og-members {
-    font-size: 1.2em;
+    /*font-size: 1.2em;*/
 }
 #content .view-og table td {
     padding: 4px 6px 4px 1px;
@@ -271,10 +370,91 @@ div.content-profile-display {
 
 
 
+/* nodes - general */
+.node .meta {
+    margin-bottom: 20px;
+}
+
+
+
+/* job postings */
+div.job-posting-description {
+    margin-top: 20px;
+}
+
+
+
+
 
 /* views */
 .views-exposed-form label { font-weight: normal; }
 .view .item-list li { margin-bottom: 10px; }
+/* recent posts */
+.column div.view-recent-posts {
+    width: 66%;
+    font-size: .8em;
+}
+div.view-recent-posts .views-row-odd,
+div.view-recent-posts .views-row-even {
+    margin-bottom: 30px;
+}
+div.view-recent-posts .node .meta {
+    margin-bottom: 3px;
+}
 
 
 
+/* recent posts */
+div.recent-post-user-picture {
+    float: left;
+    width: 60px;
+    min-height: 80px;
+    background: #c4c4c4;
+    margin-right: 10px;
+}
+div.recent-post-user-picture img {
+    padding: 3px 5px 0 5px;
+}
+div.recent-posts-content {
+}
+.recent-post-user-name,
+.recent-post-user-type {
+    padding-left: 5px;
+}
+.recent-post-user-type {
+    color: #666666;
+    font-variant: small-caps;
+    padding-bottom: 3px;
+    font-size: .9em;
+}
+
+
+
+
+/* forms */
+.form-item .description {
+    font-size: 1em;
+}
+form#user-register fieldset,
+form#user-register .form-item {
+}
+
+
+
+
+/* trumba */
+div#trumba-promo {
+    width: 150px;
+}
+
+
+
+
+
+/* search */
+#search-block-form label {
+    display: none;
+}
+body.front .block-search {
+    background: #efefef;
+}

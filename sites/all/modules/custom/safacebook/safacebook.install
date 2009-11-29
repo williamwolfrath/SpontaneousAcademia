@@ -4,58 +4,48 @@
 
 function safacebook_install() {
 	// Use schema API to create database table.
-	//drupal_install_schema('');
-	//drupal_set_message('Tables have been installed.');
+	drupal_install_schema('safacebook');
+	drupal_set_message('Facebook tables have been installed.');
 }
 
 function safacebook_uninstall() {
 	// Use schema API to destroy database table.
-	//drupal_uninstall_schema('');
-	//drupal_set_message('Tables have been removed.');
+	drupal_uninstall_schema('safacebook');
+	drupal_set_message('Facebook tables have been removed.');
 }
 
 
 function safacebook_schema() {
-    $schema[''] = array(
-		'description' => t(''),
+    $schema['facebook_mapping'] = array(
+		'description' => t('Maps Facebook users to site users for single login.'),
 		'fields' => array(
-			'mid' => array(
+			'facebook_id' => array(
+				'type' => 'varchar',
+				'not null' => TRUE,
+				'length' => '100',
+				'default' => '',
+				'description' => t('A Facebook user id.')
+			),
+			'uid' => array(
 				'type' => 'int',
 				'unsigned' => TRUE,
 				'not null' => TRUE,
 				'default' => 0,
-				'description' => t('The User id')
+				'description' => t('The Site User id')
 			),
-			'tid' => array(
-				'type' => 'int',
-				'unsigned' => TRUE,
-				'not null' => TRUE,
-				'default' => 0,
-				'description' => t('The Transaction id')
-			),
-			'expire_date' => array(
-				'description' => t('the date of payment'),
+			'created' => array(
+				'description' => t('The date created.'),
 				'type' => 'datetime',
-				'not null' => false,
-			),
-			'cron' => array(
-				'type' => 'int',
-				'unsigned' => TRUE,
-				'size' => "tiny",
 				'not null' => TRUE,
-				'default' => 0,
-			),
-			'is_cancel' => array(
-				'type' => 'int',
-				'size' => 'tiny',
-				'unsigned' => TRUE,
-				'not null' => TRUE,
-				'default' => 0,
 			),
 		),
 		'primary key' => array(
-			'mid',
+			'facebook_id',
 		),
+		'indexes' => array(
+			'facebook_id' => array("facebook_id"),
+			'uid' => array("uid"),
+		)
 	);
 	return $schema;
         

@@ -26,8 +26,19 @@ function ihsuser_main() {
 // want to show the most pertinent user role on account view
 function ihsuser_user($op, &$edit, &$account) {
     //log_debug("The account object is ", $account);
-    //switch($op) {
+    switch($op) {
 	//case 'view':
-	    
-    //}
+	case 'load':
+	    //log_debug("ihsuser");
+	    $main_role = '';
+	    foreach ($account->roles as $role) {
+		if (!($role == 'authenticated user')) {
+		    // get the first role that is NOT auth user
+		    $main_role = $role;
+		}
+	    }
+	    $account->user_type = $main_role;
+	    //log_debug("altered user: ", $account);
+	    break;
+    }
 }

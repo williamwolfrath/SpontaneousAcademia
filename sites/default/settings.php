@@ -1,5 +1,5 @@
 <?php
-// $Id: default.settings.php,v 1.8.2.1 2008/08/13 06:52:36 dries Exp $
+// $Id: default.settings.php,v 1.8.2.4 2009/09/14 12:59:18 goba Exp $
 
 /**
  * @file
@@ -89,8 +89,7 @@
  *   $db_url = 'mysqli://username:password@localhost/databasename';
  *   $db_url = 'pgsql://username:password@localhost/databasename';
  */
-#$db_url = 'mysqli://urbaninterns_dev:Rosie_25@urbaninterns_dev.db.3521200.hostedresource.com/urbaninterns_dev';
-$db_url = 'mysqli://root:root@localhost:8889/ihs';
+$db_url = 'mysqli://gemiinii_spontan:LDefQgls@localhost/gemiinii_spontan';
 $db_prefix = '';
 
 /**
@@ -109,7 +108,7 @@ $update_free_access = FALSE;
  *
  * If you are experiencing issues with different site domains,
  * uncomment the Base URL statement below (remove the leading hash sign)
- * and fill in the URL to your Drupal installation.
+ * and fill in the absolute URL to your Drupal installation.
  *
  * You might also want to force users to use a given domain.
  * See the .htaccess file for more information.
@@ -143,9 +142,21 @@ ini_set('session.cache_limiter',    'none');
 ini_set('session.cookie_lifetime',  2000000);
 ini_set('session.gc_maxlifetime',   200000);
 ini_set('session.save_handler',     'user');
+ini_set('session.use_cookies',      1);
 ini_set('session.use_only_cookies', 1);
 ini_set('session.use_trans_sid',    0);
 ini_set('url_rewriter.tags',        '');
+
+/**
+ * If you encounter a situation where users post a large amount of text, and
+ * the result is stripped out upon viewing but can still be edited, Drupal's
+ * output filter may not have sufficient memory to process it. If you
+ * experience this issue, you may wish to uncomment the following two lines
+ * and increase the limits of these variables. For more information, see
+ * http://php.net/manual/en/pcre.configuration.php.
+ */
+# ini_set('pcre.backtrack_limit', 200000);
+# ini_set('pcre.recursion_limit', 200000);
 
 /**
  * Drupal automatically generates a unique session cookie name for each site
@@ -170,9 +181,9 @@ ini_set('url_rewriter.tags',        '');
  *
  * Remove the leading hash signs to enable.
  */
-$conf = array(
+# $conf = array(
 #   'site_name' => 'My Drupal site',
-#'theme_default' => 'greenNblack',
+#   'theme_default' => 'minnelli',
 #   'anonymous' => 'Visitor',
 /**
  * A custom theme can be set for the off-line page. This applies when the site
@@ -182,7 +193,7 @@ $conf = array(
  * theme. It is located inside 'modules/system/maintenance-page.tpl.php'.
  * Note: This setting does not apply to installation and update pages.
  */
-  'maintenance_theme' => 'greenNblack',
+#   'maintenance_theme' => 'minnelli',
 /**
  * reverse_proxy accepts a boolean value.
  *
@@ -211,7 +222,7 @@ $conf = array(
  * your web server spoofing the X-Forwarded-For headers.
  */
 #   'reverse_proxy_addresses' => array('a.b.c.d', ...),
- );
+# );
 
 /**
  * String overrides:

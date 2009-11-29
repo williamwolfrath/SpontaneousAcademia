@@ -44,12 +44,18 @@
  */
 ?>
 <div class="profile">
-  <?php print $profile['user_picture']; ?>
+  <div id="fb-picture">
+    <?php
+          $facebook_pic_main = safacebook_get_user_photo_main($account->uid);
+    ?>
+    <img src="<?php print $facebook_pic_main; ?>" />
+  </div>
   <div class="profile-role">
-    <?php print $main_role; ?>
+    <?php //print $main_role; ?>
+    <?php print $account->user_type; ?>
   </div>
   <?php print $profile['content_profile']; ?>
   <?php //print $user_profile; ?>
 </div>
-<?php //print '<pre>'. check_plain(print_r($profile, 1)) .'</pre>'; ?>
+<?php //print '<pre>'. check_plain(print_r($account, 1)) .'</pre>'; ?>
 <?php //print '<pre>'. check_plain(print_r($user, 1)) .'</pre>'; ?>

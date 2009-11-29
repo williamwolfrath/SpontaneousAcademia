@@ -2364,8 +2364,10 @@ function user_register_submit($form, &$form_state) {
       // Create new user account, no administrator approval required.
       $op = $notify ? 'register_admin_created' : 'register_no_approval_required';
       _user_mail_notify($op, $account);
+      // HACK
       if ($notify) {
-        drupal_set_message(t('Password and further instructions have been e-mailed to the new user <a href="@url">%name</a>.', array('@url' => url("user/$account->uid"), '%name' => $account->name)));
+        //drupal_set_message(t('Password and further instructions have been e-mailed to the new user <a href="@url">%name</a>.', array('@url' => url("user/$account->uid"), '%name' => $account->name)));
+        drupal_set_message(t('Thank you for registering'));
       }
       else {
         drupal_set_message(t('Your password and further instructions have been sent to your e-mail address.'));

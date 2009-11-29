@@ -97,8 +97,13 @@
 
 <body class="<?php print $body_classes; ?>">
 
+<script type="text/javascript">
+  FB.init('990f0319a7449a516ee2032d33478742', "xd_receiver.htm", {"reloadIfSessionStateChanged":true});
+</script>
+
   <div id="page">
     <div id="header">
+      
       <div id="logo-title">
 
         <?php if (!empty($logo)): ?>
@@ -120,12 +125,9 @@
         </div> <!-- /name-and-slogan -->
       </div> <!-- /logo-title -->
 
-      <?php if (!empty($search_box)): ?>
-        <div id="search-box"><?php print $search_box; ?></div>
-      <?php endif; ?>
-
       <?php if (!empty($header)): ?>
         <div id="header-region">
+          <div id="temp-home-link"><a href="/">&nbsp;</a></div>
           <?php print $header; ?>
         </div>
       <?php endif; ?>
@@ -138,7 +140,7 @@
       
         <?php if (!empty($primary_links)): ?>
           <div id="primary" class="clear-block">
-            <?php //print theme('links', $primary_links, array('class' => 'links primary-links')); ?>
+            <?php print theme('links', $primary_links, array('class' => 'links primary-links')); ?>
             <?php //print menu_tree($menu_name = 'primary-links'); ?>
           </div>
         <?php endif; ?>
