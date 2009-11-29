@@ -1,0 +1,13 @@
+;$Id;
+name = Media Mover Views
+description = Provides Media Mover Views integration
+package = "Media Mover"
+dependencies[] = media_mover_api 
+dependencies[] = views
+core=6.x
+; Information added by drupal.org packaging script on 2009-10-13
+version = "6.x-1.0-beta4"
+core = "6.x"
+project = "media_mover"
+datestamp = "1255453564"
+

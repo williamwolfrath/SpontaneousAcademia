@@ -1,0 +1,455 @@
+<?php    
+// $Id: job_posting.install,v 1.1.2.5 2009/02/17 17:47:12 gmarus Exp $
+    
+/**
+ * @file job_posting.install
+ * installation of auxiliary schema for job posting nodes
+ * 
+ * @ingroup job_posting
+ */
+    
+/**
+ * Implementation of hook_install()
+ */
+function job_posting_install() {
+  drupal_install_schema('job_posting');
+  // load up country data
+  db_query("INSERT INTO {job_posting_country} (name) VALUES
+        ('Afghanistan'),
+        ('Albania'),
+        ('Algeria'),
+        ('American Samoa'),
+        ('Andorra'),
+        ('Angola'),
+        ('Anguilla'),
+        ('Antarctica'),
+        ('Antigua and Barbuda'),
+        ('Argentina'),
+        ('Armenia'),
+        ('Aruba'),
+        ('Australia'),
+        ('Austria'),
+        ('Azerbaijan'),
+        ('Bahamas'),
+        ('Bahrain'),
+        ('Bangladesh'),
+        ('Barbados'),
+        ('Belarus'),
+        ('Belgium'),
+        ('Belize'),
+        ('Benin'),
+        ('Bermuda'),
+        ('Bhutan'),
+        ('Bolivia'),
+        ('Bosnia and Herzegovina'),
+        ('Botswana'),
+        ('Bouvet Island'),
+        ('Brazil'),
+        ('British Indian Ocean Territory'),
+        ('Brunei'),
+        ('Bulgaria'),
+        ('Burkina Faso'),
+        ('Burundi'),
+        ('Cambodia'),
+        ('Cameroon'),
+        ('Canada'),
+        ('Cape Verde'),
+        ('Cayman Islands'),
+        ('Central African Republic'),
+        ('Chad'),
+        ('Chile'),
+        ('China'),
+        ('Christmas Island'),
+        ('Cocos (Keeling) Islands'),
+        ('Colombia'),
+        ('Comoros'),
+        ('Congo'),
+        ('Congo, The Democratic Republic of the'),
+        ('Cook Islands'),
+        ('Costa Rica'),
+        ('Côte d’Ivoire'),
+        ('Croatia'),
+        ('Cuba'),
+        ('Cyprus'),
+        ('Czech Republic'),
+        ('Denmark'),
+        ('Djibouti'),
+        ('Dominica'),
+        ('Dominican Republic'),
+        ('East Timor'),
+        ('Ecuador'),
+        ('Egypt'),
+        ('El Salvador'),
+        ( 'Equatorial Guinea'),
+        ('Eritrea'),
+        ('Estonia'),
+        ('Ethiopia'),
+        ('Falkland Islands'),
+        ('Faroe Islands'),
+        ('Fiji Islands'),
+        ('Finland'),
+        ('France'),
+        ('French Guiana'),
+        ('French Polynesia'),
+        ('French Southern territories'),
+        ('Gabon'),
+        ('Gambia'),
+        ('Georgia'),
+        ('Germany'),
+        ('Ghana'),
+        ('Gibraltar'),
+        ('Greece'),
+        ('Greenland'),
+        ('Grenada'),
+        ('Guadeloupe'),
+        ('Guam'),
+        ('Guatemala'),
+        ('Guinea'),
+        ('Guinea-Bissau'),
+        ('Guyana'),
+        ('Haiti'),
+        ('Heard Island and McDonald Islands'),
+        ('Holy See (Vatican City State)'),
+        ('Honduras'),
+        ('Hong Kong'),
+        ('Hungary'),
+        ('Iceland'),
+        ('India'),
+        ('Indonesia'),
+        ('Iran'),
+        ('Iraq'),
+        ('Ireland'),
+        ('Israel'),
+        ('Italy'),
+        ('Jamaica'),
+        ('Japan'),
+        ('Jordan'),
+        ('Kazakstan'),
+        ('Kenya'),
+        ('Kiribati'),
+        ('Kuwait'),
+        ('Kyrgyzstan'),
+        ('Laos'),
+        ('Latvia'),
+        ('Lebanon'),
+        ('Lesotho'),
+        ('Liberia'),
+        ('Libyan Arab Jamahiriya'),
+        ('Liechtenstein'),
+        ('Lithuania'),
+        ('Luxembourg'),
+        ('Macao'),
+        ('Macedonia'),
+        ('Madagascar'),
+        ('Malawi'),
+        ('Malaysia'),
+        ('Maldives'),
+        ('Mali'),
+        ('Malta'),
+        ('Marshall Islands'),
+        ('Martinique'),
+        ('Mauritania'),
+        ('Mauritius'),
+        ('Mayotte'),
+        ('Mexico'),
+        ('Micronesia, Federated States of'),
+        ('Moldova'),
+        ('Monaco'),
+        ('Mongolia'),
+        ('Montserrat'),
+        ('Morocco'),
+        ('Mozambique'),
+        ('Myanmar'),
+        ('Namibia'),
+        ('Nauru'),
+        ('Nepal'),
+        ('Netherlands'),
+        ('Netherlands Antilles'),
+        ('New Caledonia'),
+        ('New Zealand'),
+        ('Nicaragua'),
+        ('Niger'),
+        ('Nigeria'),
+        ('Niue'),
+        ('Norfolk Island'),
+        ('North Korea'),
+        ('Northern Mariana Islands'),
+        ('Norway'),
+        ('Oman'),
+        ('Pakistan'),
+        ('Palau'),
+        ('Palestine'),
+        ('Panama'),
+        ('Papua New Guinea'),
+        ('Paraguay'),
+        ('Peru'),
+        ('Philippines'),
+        ('Pitcairn'),
+        ('Poland'),
+        ('Portugal'),
+        ('Puerto Rico'),
+        ('Qatar'),
+        ('Réunion'),
+        ('Romania'),
+        ('Russian Federation'),
+        ('Rwanda'),
+        ('Saint Helena'),
+        ('Saint Kitts and Nevis'),
+        ('Saint Lucia'),
+        ('Saint Pierre and Miquelon'),
+        ('Saint Vincent and the Grenadines'),
+        ('Samoa'),
+        ('San Marino'),
+        ('Sao Tome and Principe'),
+        ('Saudi Arabia'),
+        ('Senegal'),
+        ('Seychelles'),
+        ('Sierra Leone'),
+        ('Singapore'),
+        ('Slovakia'),
+        ('Slovenia'),
+        ('Solomon Islands'),
+        ('Somalia'),
+        ('South Africa'),
+        ('South Georgia and the South Sandwich Islands'),
+        ('South Korea'),
+        ('Spain'),
+        ('Sri Lanka'),
+        ('Sudan'),
+        ('Suriname'),
+        ('Svalbard and Jan Mayen'),
+        ('Swaziland'),
+        ('Sweden'),
+        ('Switzerland'),
+        ('Syria'),
+        ('Taiwan'),
+        ('Tajikistan'),
+        ('Tanzania'),
+        ('Thailand'),
+        ('Togo'),
+        ('Tokelau'),
+        ('Tonga'),
+        ('Trinidad and Tobago'),
+        ('Tunisia'),
+        ('Turkey'),
+        ('Turkmenistan'),
+        ('Turks and Caicos Islands'),
+        ('Tuvalu'),
+        ('Uganda'),
+        ('Ukraine'),
+        ('United Arab Emirates'),
+        ('United Kingdom'),
+        ('United States'),
+        ('United States Minor Outlying Islands'),
+        ('Uruguay'),
+        ('Uzbekistan'),
+        ('Vanuatu'),
+        ('Venezuela'),
+        ('Vietnam'),
+        ('Virgin Islands, British'),
+        ('Virgin Islands, U.S.'),
+        ('Wallis and Futuna'),
+        ('Western Sahara'),
+        ('Yemen'),
+        ('Yugoslavia'),
+        ('Zambia'),
+        ('Zimbabwe')
+  ");
+}
+    
+/**
+ * Implementation of hook_uninstall()
+ */
+function job_posting_uninstall() {
+  drupal_uninstall_schema('job_posting');
+  // do additional cleanup by removing any remaining module-related node content
+  if (db_result(db_query("SELECT COUNT(*) FROM {node} WHERE type = 'job_posting'"))) {
+    // get all nids of type 'job_posting'
+    $sql = "SELECT nid FROM {node} WHERE type = 'job_posting'";
+    $result = db_query(db_rewrite_sql($sql));
+    while ($data = db_fetch_object($result)) {
+      // use separate delete queries for ANSI compatibility even
+      // though mysql supports multi-table deletes
+      db_query("DELETE FROM {node} WHERE nid = %d", $data->nid);
+      db_query("DELETE FROM {node_revisions} WHERE nid = %d", $data->nid);
+      db_query("DELETE FROM {node_comment_statistics} WHERE nid = %d", $data->nid);
+    }
+  }
+  // remove module-specific vars from variables table
+  variable_del('job_posting_reference_prefix');
+  variable_del('job_posting_block_num_posts');
+  variable_del('job_posting_sort_order');
+  variable_del('job_posting_limit_per_page');
+}
+    
+/**
+ * Implementation of hook_schema()
+ */
+function job_posting_schema() {
+  // main table for storing job posting node data
+  $schema['job_posting'] = array(
+    'description' => t('Stores node data particular to job postings.'),
+    'fields' => array(
+      'nid' => array(
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      'default' => 0,
+      'description' => t('Holds the {node}.nid this posting refers to.'),
+      ),
+      'vid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => t('Holds the most recent {node_revisions}.vid 
+          for this nid.'),
+      ),
+      'city' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('Holds the string identifying the city location 
+          for the job posting.'),
+      ),
+      'state' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('Holds the string identifing the state/province 
+          location for the job posting.'),
+      ),
+      'cid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => t('Holds the {job_posting_country}.cid country 
+          location for the job posting.'),
+      ),
+      'employer' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('Holds the string employer name sponsoring the job 
+          posting.'),
+      ),
+      'website' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('Holds the string identifying the employer 
+          website url.'),
+      ),
+      'contact' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('Holds string identifying the name of the 
+          main contact person.'),    
+      ),
+      'email' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('Holds string identifying contact person email address.'),    
+      ),
+      'deadline' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => t('Holds an integer unix timestamp denoting the 
+          deadline for job posting applications, in the poster\'s localtime.'),
+      ),
+      'expires' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 1,
+        'description' => t('Holds an int representing a boolean denoting whether
+          a node should expire after the timestamp in {job_posting}.deadline has passed.'),
+      ),
+      'applink' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 1,
+        'description' => t('Holds an int representing a boolean denoting whether
+          a node should provide application processing (1) or for information only (0).'),
+      ),
+    ),
+    'indexes' => array(
+      'nid' => array('nid'),
+    ),
+    'unique key' => array(
+      'vid' => array('vid'),
+    ),
+    'primary key' => array('nid', 'vid'),    
+  );
+        
+  $schema['job_posting_country'] = array(
+    'description' => t('Stores information on countries.'),
+    'fields' => array(
+      'cid' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => t('Holds an autoincrementing primary id for each country.'),
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('Holds a string denoting the official country name.'),
+      ),
+    ),
+    'primary key' => array('cid'),
+  );
+        
+  return $schema;
+}
+
+/**
+ * Implementation of hook_update_n()
+ */
+function job_posting_update_6101() {
+  $ret = array();
+  db_add_field($ret, 'job_posting', 'expires', 
+    array(
+      'type' => 'int',
+      'size' => 'tiny',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      'default' => 1,
+      'description' => t('Holds an int representing a boolean denoting whether
+        a node should expire after the timestamp in {job_posting}.deadline has passed.'),
+    )
+  );
+  return $ret;  
+}
+
+function job_posting_update_6102() {
+  $ret = array();
+  db_add_field($ret, 'job_posting', 'applink',
+    array(
+      'type' => 'int',
+      'size' => 'tiny',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      'default' => 1,
+      'description' => t('Holds an int representing a boolean denoting whether
+        a node should provide application processing (1) or for information only (0).'),
+    )
+  );
+  return $ret; 
+}
