@@ -1,0 +1,58 @@
+<?php
+
+
+function satrumba_menu() {
+    
+    $items['trumba-test'] = array(
+	'title' => '',
+	'description' => 'For testing',
+	'page callback' => 'satrumba_test',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+    
+    
+    $items['trumba-promo'] = array(
+	'title' => '',
+	'description' => '',
+	'page callback' => 'satrumba_promo',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+
+    return $items;
+}
+
+
+
+
+
+
+function satrumba_test() {
+    drupal_set_html_head('<script type="text/javascript" src="http://www.trumba.com/scripts/spuds.js"></script>'); // only non-ugly way to load external js
+    drupal_add_js(drupal_get_path('module', 'satrumba') . '/satrumba.js');
+    $output = theme('satrumba');
+    return $output;
+}
+
+
+function satrumba_promo() {
+    drupal_set_html_head('<script type="text/javascript" src="http://www.trumba.com/scripts/spuds.js"></script>'); // only non-ugly way to load external js
+    drupal_add_js(drupal_get_path('module', 'satrumba') . '/satrumba.js');
+    $output = theme('satrumba-promo');
+    return $output;
+}
+
+
+function satrumba_theme() {
+    return array(
+       'satrumba' => array(
+            'template' => 'tmpl/satrumba',
+            'arguments' => array(),
+        ),
+       'satrumba-promo' => array(
+            'template' => 'tmpl/satrumba-promo',
+            'arguments' => array(),
+        ),
+    );
+}
