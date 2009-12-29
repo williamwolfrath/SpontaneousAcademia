@@ -1,0 +1,10 @@
+; $Id: get_content_type.info,v 1.1.4.1 2008/03/03 18:14:23 nancyw Exp $
+name = Get Content Type
+description = "Selects nodes by content type and displays them."
+core = 6.x 
+; Information added by drupal.org packaging script on 2008-10-31
+version = "6.x-1.2"
+core = "6.x"
+project = "get_content_type"
+datestamp = "1225418712"
+

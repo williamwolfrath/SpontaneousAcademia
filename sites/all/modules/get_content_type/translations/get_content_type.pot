@@ -1,0 +1,125 @@
+# $Id: get_content_type.pot,v 1.1.2.2 2008/10/31 02:00:58 nancyw Exp $
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  get_content_type.module,v 1.1.4.3 2008/10/30 19:28:53 nancyw
+#  get_content_type.info,v 1.1.4.1 2008/03/03 18:14:23 nancyw
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2008-10-30 22:00-0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: get_content_type.module:35
+msgid "FALSE"
+msgstr ""
+
+#: get_content_type.module:40
+msgid "list"
+msgstr ""
+
+#: get_content_type.module:52
+msgid "title"
+msgstr ""
+
+#: get_content_type.module:72
+msgid "!0 Content"
+msgstr ""
+
+#: get_content_type.module:76;80
+msgid "!0 and !1 Content"
+msgstr ""
+
+#: get_content_type.module:99
+msgid "!type created by !name on !date."
+msgstr ""
+
+#: get_content_type.module:107
+msgid "RSS - !type"
+msgstr ""
+
+#: get_content_type.module:113
+msgid "There were no nodes found of the @type type."
+msgstr ""
+
+#: get_content_type.module:149
+msgid "Content types"
+msgstr ""
+
+#: get_content_type.module:150
+msgid "Choose the content types you wish to display."
+msgstr ""
+
+#: get_content_type.module:156
+msgid "Teaser"
+msgstr ""
+
+#: get_content_type.module:156
+msgid "Full node"
+msgstr ""
+
+#: get_content_type.module:156
+msgid "As a list of titles"
+msgstr ""
+
+#: get_content_type.module:157
+msgid "Show teaser"
+msgstr ""
+
+#: get_content_type.module:158
+msgid "Show the content in teaser format."
+msgstr ""
+
+#: get_content_type.module:165
+msgid "How many per page"
+msgstr ""
+
+#: get_content_type.module:166
+msgid "The display will be formatted into a series of pages with this many posts per page."
+msgstr ""
+
+#: get_content_type.module:173
+msgid "By sticky and created date (descending)"
+msgstr ""
+
+#: get_content_type.module:173
+msgid "Alphabetically by title"
+msgstr ""
+
+#: get_content_type.module:174
+msgid "Sort Order"
+msgstr ""
+
+#: get_content_type.module:181
+msgid "Show my selections"
+msgstr ""
+
+#: get_content_type.module:254
+msgid "The get_content_type module fills an oversight by the D5 developers. When they moved the part of CCK (sometimes called CCK-Lite) into core for creating new content types, they forgot the analog to \"taxonomy/term/xxx,\" that is \"node/type/xxx.\" This simple module provides that function."
+msgstr ""
+
+#: get_content_type.module:230;237
+msgid "List nodes of a specified type."
+msgstr ""
+
+#: get_content_type.module:0
+msgid "get_content_type"
+msgstr ""
+
+#: get_content_type.info:0
+msgid "Get Content Type"
+msgstr ""
+
+#: get_content_type.info:0
+msgid "Selects nodes by content type and displays them."
+msgstr ""
+
