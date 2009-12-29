@@ -128,6 +128,7 @@
       <?php if (!empty($header)): ?>
         <div id="header-region">
           <div id="temp-home-link"><a href="/">&nbsp;</a></div>
+          <div id="block-menu-simplemenu"><div id="simplemenu-content"></div></div>
           <?php print $header; ?>
         </div>
       <?php endif; ?>
@@ -137,23 +138,16 @@
     <div id="container" class="clear-block">
 
       <div id="navigation" class="menu <?php if (!empty($primary_links)) { print "withprimary"; } if (!empty($secondary_links)) { print " withsecondary"; } ?> ">
-      
-        <?php if (!empty($primary_links)): ?>
-          <div id="primary" class="clear-block">
-            <?php print theme('links', $primary_links, array('class' => 'links primary-links')); ?>
-            <?php //print menu_tree($menu_name = 'primary-links'); ?>
-          </div>
-        <?php endif; ?>
 
-
-
-        <?php if (!empty($secondary_links)): ?>
-          <div id="secondary" class="clear-block">
-            <?php print theme('links', $secondary_links, array('class' => 'links secondary-links')); ?>
-          </div>
-        <?php endif; ?>
+        <!-- secondary links normally go here -->
       </div> <!-- /navigation -->
-
+      
+          <?php //if (!empty($content_top)): ?>
+            <div id="content-top" class="clear-block">
+              <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title; ?><span id="feed-icons"><?php print $feed_icons; ?></span></h1><?php endif; ?>
+             <?php print $content_top; ?>
+            </div>
+          <?php //endif; ?>
 
       <?php if (!empty($left)): ?>
         <div id="sidebar-left" class="column sidebar">
@@ -164,11 +158,14 @@
 
 
       <div id="main" class="column"><div id="main-squeeze">
-        <?php if (!empty($breadcrumb)): ?><div id="breadcrumb"><?php print $breadcrumb; ?></div><?php endif; ?>
+        <?php if (!empty($breadcrumb)): ?><div id="breadcrumb"><?php //print $breadcrumb; ?></div><?php endif; ?>
         <?php if (!empty($mission)): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
 
         <div id="content">
-          <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+          
+          
+          
+          
           <?php if (!empty($tabs)): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
           <?php if (!empty($messages)): print $messages; endif; ?>
           <?php if (!empty($help)): print $help; endif; ?>
@@ -186,7 +183,14 @@
             
             
           </div> <!-- /content-content -->
-          <?php //print $feed_icons; ?>
+          
+          <?php if (!empty($content_bottom)): ?>
+              <div id="content-bottom" class="clear-block">
+                  <?php print $content_bottom; ?>
+              </div> <!-- /content-bottom -->
+          <?php endif; ?>
+          
+          
         </div> <!-- /content -->
         
       </div></div> <!-- /main-squeeze /main -->

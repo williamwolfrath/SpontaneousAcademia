@@ -536,7 +536,19 @@ function mm_cck_field_filefield(&$node, $field, $filepath, $configuration) {
   $new_file['list'] = $configuration['field_save_list'];
 
   // Add the file on to the node
-  $node->{$field['field_name']}[] = $new_file;
+  //$node->{$field['field_name']}[] = $new_file;
+  
+  // Do any files already exist on this node?
+  if (! is_array($node->{$field['field_name']})) {
+    $node->{$field['field_name']} = array($new_file);
+  }
+  elseif ($node->{$field['field_name']}[0] == null)  {
+    $node->{$field['field_name']}[0] = $new_file;
+  }
+  else {
+        $node->{$field['field_name']}[] = $new_file;
+  }
+  
   // Save the node
   node_save($node);
   // Clear the cache

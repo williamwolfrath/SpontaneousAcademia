@@ -25,10 +25,11 @@ function safacebook_menu() {
 	'type' => MENU_CALLBACK,
     );
     
-    $items['facebook-api-test'] = array(
+    $items['facebook-api-test/%'] = array(
 	'title' => 'Facebok API Test Page',
 	'description' => 'For testing',
 	'page callback' => 'safacebook_api',
+	'page arguments' => array(1),
 	'access callback' => true,
 	'type' => MENU_CALLBACK,
     );
@@ -49,9 +50,12 @@ function safacebook_init() {
     // don't log the user in if it's the logout link...
     // if the user is NOT logged into facebook but is still logged in, log them out
     // don't worry about the admin user
+    
+    // ALSO check the user role. if IHS staff, ignore. can maybe store the role
+    // in the session upon user load
     if ( !($user->uid == 1) ) {
 	
-	$fb = _get_facebook();
+	$fb = _get_facebook(true); // prevents loading from cache
 	$fb_user=$fb->get_loggedin_user();
 	//log_debug("fb_user is ", $fb_user);
 	
@@ -83,6 +87,9 @@ function safacebook_init() {
 }
 
 
+// Can I store the path to the Facebook user picture?
+// i do believe that is not considered information
+
 /* implementation of hook user */
 function safacebook_user($op, &$edit, &$account) {
     //log_debug("hook user(safacebook)");
@@ -103,6 +110,16 @@ function safacebook_user($op, &$edit, &$account) {
 	
     }
 }
+
+
+
+function safacebook_api($uid) {
+    drupal_add_js(drupal_get_path('module', 'safacebook') . '/safacebook_tester.js');
+    $output = theme('tester');
+    return $output;
+    //return 'uid: ' . $uid;
+}
+
 
 
 
@@ -145,8 +162,8 @@ function safacebook_test() {
     
     $fb = _get_facebook();
     $fbuser = $fb->require_login();
-   //log_debug('fbuser object: ', $fbuser);
-    $user_details = $fb->api_client->users_getInfo($fbuser, 'last_name, first_name, pic');
+    //log_debug('fbuser object: ', $fbuser);
+    $user_details = _get_facebook_user_details($fb, $fbuser, FALSE);
    //log_debug('user details: ', $user_details);
     //log_debug("first name: ", $user_details['0']['first_name']);
     
@@ -156,16 +173,7 @@ function safacebook_test() {
 
 
 
-function safacebook_api() {
-    /*drupal_add_js(drupal_get_path('module', 'safacebook') . '/safacebook_tester.js');
-    $output = theme('tester');
-    return $output;*/
-    $fbid = safacebook_get_facebook_id(4);
-    if ( $fbid ) {
-	return $fbid;
-    }
-    return "No such user.";
-}
+
 
 
 
@@ -181,21 +189,36 @@ function safacebook_block($op='list', $delta=0, $edit=array()) {
 	case 'view':
 	    $fb = _get_facebook();
 	    $active_user_list = array();
-	    $query = "SELECT * FROM {users} u ";
-	    $query .= "INNER JOIN {facebook_mapping} fm on u.uid=fm.uid ";
-	    $query .= "ORDER BY u.created DESC LIMIT 8";
+	    $query = _block_get_query();
+	    //log_debug("query is ", $query);
 	    $result = db_query($query);
 	    while ( $fbuser = db_fetch_object($result) ) {
 		//log_debug('block: fbuser: ', $fbuser);
-		$user_details = $fb->api_client->users_getInfo($fbuser->facebook_id, 'last_name, first_name, pic_square');
+		$user_details = _get_facebook_user_details($fb, $fbuser->facebook_id);
 		//log_debug('user details: ', $user_details);
-		$active_user_list[] = $user_details;
+		if ( $user_details ) {
+		    $active_user_list[] = $user_details;
+		}
 	    }
-	   //log_debug("active user list: ", $active_user_list);
+	    //log_debug("active user list: ", $active_user_list);
 	    $block['content'] = theme('active_users', $active_user_list);
 	    return $block;
     }
 }
+
+
+// if we don't need any user info, can just select from facebook_mapping instead of joining
+function _block_get_query() {
+    $query = "SELECT * FROM {users} u ";
+    $query .= "INNER JOIN {facebook_mapping} fm on u.uid=fm.uid ";
+    $query .= "WHERE u.uid > 1 ";
+    $query .= "ORDER BY u.created DESC LIMIT 8";
+    return $query;
+}
+
+
+
+
 
 function safacebook_theme() {
     return array(
@@ -227,6 +250,10 @@ function safacebook_theme() {
 }
 
 
+
+function safacebook_cron() {
+    // clear the cache of facebook user info
+}
 
 
 
@@ -283,31 +310,81 @@ function safacebook_get_user_photo_main($uid) {
     $fb = _get_facebook();
     if ($fb_mapping = db_fetch_object($result)) {
 	$user_details = $fb->api_client->users_getInfo($fb_mapping->facebook_id, 'pic');
-	log_debug("main- user details: ", $user_details);
+	//log_debug("main- user details: ", $user_details);
 	return $user_details[0]['pic'];
     }
     return '';
 }
 
 
+// Need caching in these facebook functions
 function safacebook_get_user_photo_square($uid) {
     $result = db_query("SELECT * FROM {facebook_mapping} WHERE uid = '%d' ", $uid);
-    $fb = _get_facebook();
+    
     if ($fb_mapping = db_fetch_object($result)) {
-	$user_details = $fb->api_client->users_getInfo($fb_mapping->facebook_id, 'pic_square');
-	return $user_details[0]['pic_square'];
+	$fb = _get_facebook();
+	//log_debug("trying to get user details for uid ", $uid);
+	$user_details = _get_facebook_user_details($fb, $fb_mapping->facebook_id); 
+	//$user_details = $fb->api_client->users_getInfo($fb_mapping->facebook_id, 'pic_square');
+	//log_debug("square: got user details: ", $user_details);
+	if ( $user_details[0] ) {
+	    return $user_details[0]['pic_square'];
+	}
     }
     return '';
 }
 
 
-function _get_facebook() {
-    // have this check the session for a fb object first?
-    $api_key = variable_get('safacebook_api_key', '');
-    $secret = variable_get('safacebook_secret', '');
-    //log_debug('api key is ', $api_key);
-    //log_debug('secret is ', $secret);
-    $fb=new Facebook($api_key,$secret);
+// private functions
+function _get_facebook_user_details($fb, $fbuser, $reset = FALSE) {
+    //log_debug('get facebook user details function. reset is ', $reset);
+    $user_details = NULL;
+    $cache_key = 'safacebook_fbuser_' . $fbuser;
+    //log_debug('cache key is ', $cache_key);
+    if ( !$reset && ($cache = cache_get($cache_key)) && !empty($cache->data) ) {
+	//log_debug('getting user details for ' . $cache_key . ' from cache.');
+	$user_details = unserialize($cache->data);
+    }
+    else {
+	//log_debug('no cache OR reset - trying to get new user details obj');
+	$user_details = $fb->api_client->users_getInfo($fbuser, 'last_name, first_name, pic, pic_square');
+	cache_set($cache_key, serialize($user_details), 'cache');
+    }
+    //log_debug('got user_details: ', $user_details);
+    return $user_details;
+}
+
+
+
+function _get_facebook_user_photo_square_from_cache($uid) {
+    
+}
+
+
+function _get_facebook($reset = false) {
+    static $fb;
+    
+    //log_debug("get_facebook function. reset is ", $reset);
     //log_debug("got a facebook object: ", $fb);
+    
+    if ( !isset($fb) || $reset ) {
+	//log_debug("no static or reset. reset is ", $reset);
+	if ( !$reset && ($cache = cache_get('safacebook_fb')) && !empty($cache->data) ) {
+	    //log_debug("getting from cache");
+	    $fb = unserialize($cache->data);
+	}
+	else {
+	    //log_debug('generating anew...');
+	    $api_key = variable_get('safacebook_api_key', '');
+	    $secret = variable_get('safacebook_secret', '');
+	    //log_debug('api key is ', $api_key);
+	    //log_debug('secret is ', $secret);
+	    $fb=new Facebook($api_key,$secret);
+	    cache_set('safacebook_fb', serialize($fb), 'cache');
+	}	
+    }
+    
+    //log_debug('finally got a fb object: ', $fb);
     return $fb;
 }
+

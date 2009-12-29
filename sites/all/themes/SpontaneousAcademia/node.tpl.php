@@ -50,7 +50,11 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
 
-<?php print $picture ?>
+<?php
+    $recent_post_user = user_load($uid);
+    $facebook_pic_square = safacebook_get_user_photo_square($uid);
+  ?>
+  <img src="<?php print $facebook_pic_square; ?>" />
 
 <?php if (!$page): ?>
   <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
@@ -70,5 +74,6 @@
     <?php print $content ?>
   </div>
 
+   links follow
   <?php print $links; ?>
 </div>

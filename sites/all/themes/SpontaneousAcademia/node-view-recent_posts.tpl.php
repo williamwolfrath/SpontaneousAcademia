@@ -50,6 +50,7 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
 
+<div class="recent-post-user-picture-top"></div>
 <div class="recent-post-user-picture">
   <?php //print $picture ?>
   <?php
@@ -64,6 +65,7 @@
      <?php print $recent_post_user->user_type; ?>
   </div>
 </div>
+<div class="recent-post-user-picture-bottom"></div>
 
 <div class="recent-posts-content">
 <?php if (!$page): ?>

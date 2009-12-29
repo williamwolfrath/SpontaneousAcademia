@@ -9,7 +9,10 @@ engine = phptemplate
 core       = 6.x
 
 stylesheets[all][]   = style.css
+stylesheets[all][] = droppy.css
 scripts[] = safacebook.js
+scripts[] = jquery.droppy.js
+scripts[] = kosmos.js
 
   ; Set the conditional stylesheets that are processed by IE.
 ;conditional-stylesheets[if IE][all][] = ie.css
