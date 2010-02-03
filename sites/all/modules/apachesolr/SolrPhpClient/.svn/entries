@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="22"
+   name=""
+   committed-date="2009-11-09T22:46:54.183340Z"
+   url="http://solr-php-client.googlecode.com/svn/trunk"
+   last-author="donovan.jimenez"
+   kind="dir"
+   uuid="e73431f4-bb50-11dd-afb1-a7db9ebf18e3"
+   repos="http://solr-php-client.googlecode.com/svn"
+   revision="22"/>
+<entry
+   name="Apache"
+   kind="dir"/>
+<entry
+   committed-rev="3"
+   name="COPYING"
+   text-time="2010-01-28T07:51:59.000000Z"
+   committed-date="2009-01-22T04:01:15.494114Z"
+   checksum="7b1ac8e503016b26a651af1fc0e5da60"
+   last-author="donovan.jimenez"
+   kind="file"
+   prop-time="2010-01-28T07:51:59.000000Z"/>
+</wc-entries>

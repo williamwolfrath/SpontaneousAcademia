@@ -12,6 +12,23 @@ function satrumba_menu() {
     );
     
     
+    $items['trumba'] = array(
+	'title' => '',
+	'description' => 'Main Calendar Page',
+	'page callback' => 'satrumba_main',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+    
+    
+    $items['trumba-event-submit'] = array(
+	'title' => '',
+	'description' => 'For submitting events to Trumba.',
+	'page callback' => 'satrumba_event_submit',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
+    
     $items['trumba-promo'] = array(
 	'title' => '',
 	'description' => '',
@@ -36,6 +53,27 @@ function satrumba_test() {
 }
 
 
+
+function satrumba_main() {
+    drupal_set_html_head('<script type="text/javascript" src="http://www.trumba.com/scripts/spuds.js"></script>'); // only non-ugly way to load external js
+    drupal_set_html_head('<script id="trumbaSubmitEventJS" type="text/javascript" src="http://www.trumba.com/ea/scripts/submitevent.js"></script>');
+    drupal_add_js(drupal_get_path('module', 'satrumba') . '/satrumba.js');
+    $output = theme('satrumba');
+    return $output;
+}
+
+
+
+function satrumba_event_submit() {
+    drupal_set_html_head('<script type="text/javascript" src="http://www.trumba.com/scripts/spuds.js"></script>'); // only non-ugly way to load external js
+    drupal_add_js(drupal_get_path('module', 'satrumba') . '/satrumba.js');
+    $output = theme('satrumba-event-submit');
+    return $output;
+}
+
+
+
+
 function satrumba_promo() {
     drupal_set_html_head('<script type="text/javascript" src="http://www.trumba.com/scripts/spuds.js"></script>'); // only non-ugly way to load external js
     drupal_add_js(drupal_get_path('module', 'satrumba') . '/satrumba.js');
@@ -44,10 +82,18 @@ function satrumba_promo() {
 }
 
 
+
+
+
+
 function satrumba_theme() {
     return array(
        'satrumba' => array(
             'template' => 'tmpl/satrumba',
+            'arguments' => array(),
+        ),
+       'satrumba-event-submit' => array(
+            'template' => 'tmpl/satrumba-event-submit',
             'arguments' => array(),
         ),
        'satrumba-promo' => array(

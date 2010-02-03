@@ -1,0 +1,42 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ *   Builds links to post pages to twitter.
+ */
+
+/**
+ * Implementation of hook_update_N().
+ */
+function tweet_update_6300() {
+  if (module_exists('shorten')) {
+    $method = variable_get('tweet_method', 'curl');
+    variable_set('shorten_method', $method);
+    variable_del('tweet_method');
+
+    $service = variable_get('tweet_service', 'is.gd');
+    variable_set('shorten_service', $service);
+    variable_del('tweet_service');
+
+    $backup = variable_get('tweet_service_backup', 'TinyURL');
+    variable_set('shorten_service_backup', $backup);
+    variable_del('tweet_service_backup');
+  }
+  return array(array('success' => TRUE, 'query' => t('Settings converted from Tweet to Shorten.')));
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function tweet_uninstall() {
+  variable_del('tweet_node_vocabs');
+  variable_del('tweet_new_window');
+  variable_del('tweet_exclude');
+  variable_del('tweet_format');
+  variable_del('tweet_teaser');
+  variable_del('tweet_image');
+  variable_del('tweet_types');
+  variable_del('tweet_node');
+  variable_del('tweet_text');
+}

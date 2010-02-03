@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="22"
+   name=""
+   committed-date="2009-11-09T22:46:54.183340Z"
+   url="http://solr-php-client.googlecode.com/svn/trunk/Apache/Solr"
+   last-author="donovan.jimenez"
+   kind="dir"
+   uuid="e73431f4-bb50-11dd-afb1-a7db9ebf18e3"
+   repos="http://solr-php-client.googlecode.com/svn"
+   revision="22"/>
+<entry
+   name="Service"
+   kind="dir"/>
+<entry
+   committed-rev="15"
+   name="Document.php"
+   text-time="2010-01-28T08:05:44.000000Z"
+   committed-date="2009-08-04T17:53:08.241264Z"
+   checksum="320e1ef60d2f184a03071504ab431273"
+   last-author="donovan.jimenez"
+   kind="file"
+   prop-time="2010-01-28T08:05:44.000000Z"/>
+<entry
+   committed-rev="19"
+   name="Response.php"
+   text-time="2010-01-28T08:05:44.000000Z"
+   committed-date="2009-08-12T14:08:42.973721Z"
+   checksum="00b564254ee86a65cdcb003213240357"
+   last-author="donovan.jimenez"
+   kind="file"
+   prop-time="2010-01-28T08:05:44.000000Z"/>
+<entry
+   committed-rev="22"
+   name="Service.php"
+   text-time="2010-01-28T08:05:44.000000Z"
+   committed-date="2009-11-09T22:46:54.183340Z"
+   checksum="dfb3545075473e9f7db376e4c7a53e21"
+   last-author="donovan.jimenez"
+   kind="file"
+   prop-time="2010-01-28T08:05:44.000000Z"/>
+</wc-entries>

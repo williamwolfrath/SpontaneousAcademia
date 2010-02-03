@@ -39,12 +39,27 @@ function safacebook_menu() {
 
 
 
+
+function _stats_test() {
+    global $user;
+    $uid = $user->uid;
+    //log_debug("user id: ", $uid);
+    $post_count = user_stats_get_stats('post_count', $uid);
+    //log_debug("post count: ", $post_count);
+}
+
+
+
+
+
 function safacebook_init() {
+    //_stats_test();
    //log_debug("hello YOO HOO");
     global $user;
     //log_debug("current user obj: ", $user);
     $curr_uri = check_plain(request_uri());
     //log_debug('curr uri: ', $curr_uri);
+    //log_debug('curr uri starts with ', substr($curr_uri,0,14));
     
     // if the user is logged into facebook, log them into the site if they aren't already.
     // don't log the user in if it's the logout link...
@@ -53,14 +68,12 @@ function safacebook_init() {
     
     // ALSO check the user role. if IHS staff, ignore. can maybe store the role
     // in the session upon user load
-    if ( !($user->uid == 1) ) {
+    if ( !( ($user->uid == 1) || ($user->name == 'admin') ) ) {
 	
 	$fb = _get_facebook(true); // prevents loading from cache
 	$fb_user=$fb->get_loggedin_user();
-	//log_debug("fb_user is ", $fb_user);
 	
 	if ( user_is_logged_in() ) {
-	    //log_debug("User is logged in... user obj is ", $user);
 	    if (!$fb_user) {
 	        //log_debug("no FB user, logging out...");
 	        //log_debug("curr ui is ", $curr_uri);
@@ -76,11 +89,19 @@ function safacebook_init() {
 	    if ( $curr_uri == "/user" ) {
 		drupal_goto("/");
 	    }
-	    if ($fb_user) {
+	    if ($fb_user) {  // if connected to Facebook...
 	        //log_debug("trying to log in user...");
-	        if (!($curr_uri == '/user/register') ) {
+	        if (!($curr_uri == '/user/register') ) {  // don't log them in if they're trying to register
 		    safacebook_login_user($fb_user);  // in safacebook module
 	        }
+	    }
+	    else {  // user not connected to facebook. don't let them register
+		if (substr($curr_uri,0,14) == '/user/register') {
+		    if (isset($_REQUEST['destination'])) {
+			unset($_REQUEST['destination']);
+		    }
+		    drupal_goto('');
+		}
 	    }
 	}
     }
@@ -103,6 +124,9 @@ function safacebook_user($op, &$edit, &$account) {
 	    _create_facebook_user_mapping($fb_user, $edit['uid']);
 	   //log_debug("facebook user created...");
 	    break;
+	case 'load':  // add any pertinent facebook account details to user object
+	    $account->facebook_id = safacebook_get_facebook_id($account->uid);
+	    break;
 	case 'delete':
 	    // remove fb mapping entry
 	    db_query("DELETE FROM {facebook_mapping} WHERE uid='%d'", $account->uid);
@@ -118,6 +142,13 @@ function safacebook_api($uid) {
     $output = theme('tester');
     return $output;
     //return 'uid: ' . $uid;
+}
+
+
+
+function safacebook_link_alter(&$node, &$links) {
+    //log_debug("hook link alter. node is ", $node);
+    //log_debug("hook link alter. links is ", $links);
 }
 
 
@@ -164,7 +195,6 @@ function safacebook_test() {
     $fbuser = $fb->require_login();
     //log_debug('fbuser object: ', $fbuser);
     $user_details = _get_facebook_user_details($fb, $fbuser, FALSE);
-   //log_debug('user details: ', $user_details);
     //log_debug("first name: ", $user_details['0']['first_name']);
     
     $output = theme('playground', $fbuser, $user_details);
@@ -189,16 +219,21 @@ function safacebook_block($op='list', $delta=0, $edit=array()) {
 	case 'view':
 	    $fb = _get_facebook();
 	    $active_user_list = array();
-	    $query = _block_get_query();
+	    //$query = _block_get_query();
+	    $query = _block_get_most_active_users_ever_query();
+	    //$query = _block_get_recent_active_users_query();
 	    //log_debug("query is ", $query);
-	    $result = db_query($query);
+	    //$result = db_query($query);
+	    //$result = db_query_range($query, time(), time(), 0, 8);
+	    $result = db_query_range($query, 0, 8);
 	    while ( $fbuser = db_fetch_object($result) ) {
 		//log_debug('block: fbuser: ', $fbuser);
-		$user_details = _get_facebook_user_details($fb, $fbuser->facebook_id);
+		//$user_details = _get_facebook_user_details($fb, $fbuser->facebook_id);
 		//log_debug('user details: ', $user_details);
-		if ( $user_details ) {
-		    $active_user_list[] = $user_details;
-		}
+		//if ( $user_details ) {
+		 //   $active_user_list[] = $user_details;
+		    $active_user_list[] = $fbuser;
+		//}
 	    }
 	    //log_debug("active user list: ", $active_user_list);
 	    $block['content'] = theme('active_users', $active_user_list);
@@ -208,6 +243,7 @@ function safacebook_block($op='list', $delta=0, $edit=array()) {
 
 
 // if we don't need any user info, can just select from facebook_mapping instead of joining
+// planning to possibly split out different queries for a setting in the admin...
 function _block_get_query() {
     $query = "SELECT * FROM {users} u ";
     $query .= "INNER JOIN {facebook_mapping} fm on u.uid=fm.uid ";
@@ -215,6 +251,52 @@ function _block_get_query() {
     $query .= "ORDER BY u.created DESC LIMIT 8";
     return $query;
 }
+
+
+function _block_get_most_active_users_ever_query() {
+    // leave out my test accounts for now..
+    $query = "SELECT u.*, fm.facebook_id, COUNT(c.cid) count 
+		FROM {users} u
+		LEFT JOIN {node} n ON u.uid = n.uid
+		LEFT JOIN {comments} c ON c.uid = u.uid
+		INNER JOIN {facebook_mapping} fm on u.uid = fm.uid 
+		WHERE u.uid > 1
+		  AND (n.uid = u.uid OR c.uid = u.uid)
+		  AND u.status = 1
+		  AND (u.name <> 'bill' AND u.name <> 'domo') 
+		GROUP BY n.uid
+		ORDER BY count DESC";
+    return $query;
+}
+
+
+// most active in past week
+function _block_get_recent_active_users_query() {
+    $query = "SELECT u.*, fm.facebook_id, SUM(count) sum FROM (
+		(
+		SELECT u.uid, COUNT(DISTINCT(n.nid)) count
+		FROM {users} u
+		LEFT JOIN {node} n ON u.uid = n.uid
+		WHERE u.uid <> 0
+		  AND n.created > %d - (7 * 24 * 60 * 60)
+		GROUP BY u.uid
+		) UNION (
+		SELECT u.uid, COUNT(DISTINCT(c.cid)) count
+		FROM {users} u
+		LEFT JOIN {comments} c ON c.uid = u.uid
+		WHERE u.uid <> 0
+		  AND c.timestamp > %d - (7 * 24 * 60 * 60)
+		GROUP BY u.uid
+		)
+		ORDER BY count DESC
+		) as x
+		GROUP BY uid
+		ORDER BY count DESC";
+		//, time(), time(), 
+		//0, 8);
+    return $query;
+}
+
 
 
 
@@ -253,6 +335,7 @@ function safacebook_theme() {
 
 function safacebook_cron() {
     // clear the cache of facebook user info
+    watchdog("safacebook", "safacebook_cron begin");
 }
 
 
@@ -342,13 +425,11 @@ function _get_facebook_user_details($fb, $fbuser, $reset = FALSE) {
     $cache_key = 'safacebook_fbuser_' . $fbuser;
     //log_debug('cache key is ', $cache_key);
     if ( !$reset && ($cache = cache_get($cache_key)) && !empty($cache->data) ) {
-	//log_debug('getting user details for ' . $cache_key . ' from cache.');
 	$user_details = unserialize($cache->data);
     }
     else {
-	//log_debug('no cache OR reset - trying to get new user details obj');
 	$user_details = $fb->api_client->users_getInfo($fbuser, 'last_name, first_name, pic, pic_square');
-	cache_set($cache_key, serialize($user_details), 'cache');
+	cache_set($cache_key, serialize($user_details), 'cache', time() + (60*60*6));  // cache for 6 hours? 
     }
     //log_debug('got user_details: ', $user_details);
     return $user_details;
@@ -368,13 +449,10 @@ function _get_facebook($reset = false) {
     //log_debug("got a facebook object: ", $fb);
     
     if ( !isset($fb) || $reset ) {
-	//log_debug("no static or reset. reset is ", $reset);
 	if ( !$reset && ($cache = cache_get('safacebook_fb')) && !empty($cache->data) ) {
-	    //log_debug("getting from cache");
 	    $fb = unserialize($cache->data);
 	}
 	else {
-	    //log_debug('generating anew...');
 	    $api_key = variable_get('safacebook_api_key', '');
 	    $secret = variable_get('safacebook_secret', '');
 	    //log_debug('api key is ', $api_key);

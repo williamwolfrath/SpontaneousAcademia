@@ -1,0 +1,15 @@
+; $Id: notifications_views_savedsearches.info,v 1.1 2009/12/18 15:47:47 aronnovak Exp $
+name = Views Saved Searches Subscriptions
+description = Allows users to subscribe to feeds and be notified when they are updated
+package = "Notifications"
+dependencies[] = notifications
+dependencies[] = views_savedsearches
+core = 6.x
+
+
+; Information added by drupal.org packaging script on 2009-12-18
+version = "6.x-1.0-beta2"
+core = "6.x"
+project = "views_savedsearches"
+datestamp = "1261152102"
+

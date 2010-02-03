@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="22"
+   name=""
+   committed-date="2009-11-09T22:46:54.183340Z"
+   url="http://solr-php-client.googlecode.com/svn/trunk/Apache"
+   last-author="donovan.jimenez"
+   kind="dir"
+   uuid="e73431f4-bb50-11dd-afb1-a7db9ebf18e3"
+   repos="http://solr-php-client.googlecode.com/svn"
+   revision="22"/>
+<entry
+   name="Solr"
+   kind="dir"/>
+</wc-entries>

@@ -1,0 +1,231 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ *   Builds links to post pages to twitter.
+ */
+
+/**
+ * Implementation of hook_help().
+ */
+function tweet_help($path, $arg) {
+  $output = '';
+  switch ($path) {
+    case "admin/help#tweet":
+      $output = '<p>'. t("This module builds links to post pages to twitter.") .'</p>';
+      break;
+  }
+  return $output;
+}
+
+/**
+ * Implementation of hook_link().
+ */
+function tweet_link($type, $node = NULL, $teaser = FALSE) {
+  if ($type == 'node' && in_array($node->type, variable_get('tweet_types', _tweet_node_types())) && !_tweet_exclude($node->nid)) {
+    $title = variable_get('tweet_title', 1);
+    if (!$teaser) {
+      $link_type = variable_get('tweet_node', 'icon');
+      if ($link_type != 'none') {
+        $links['tweet'] = _tweet_to_twitter($link_type, '', $node->nid);
+        return $links;
+      }
+    }
+    else {
+      $link_type = variable_get('tweet_teaser', 'none');
+      if ($link_type != 'none') {
+        $links['tweet'] = _tweet_to_twitter($link_type, '', $node->nid);
+        return $links;
+      }
+    }
+  }
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function tweet_menu() {
+  $items = array();
+  $items['admin/settings/tweet'] = array(
+    'title' => 'Tweet',
+    'description' => 'Adjust certain display settings for Tweet.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tweet_admin'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'tweet.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Returns a link from _tweet_to_twitter().
+ */
+function tweet_to_twitter($type = 'icon', $title = TRUE, $nid = '') {
+  $array = _tweet_to_twitter($type, $title, $nid);
+  return l($array['title'], $array['href'], array('attributes' => $array['attributes'], 'query' => $array['query'], 'absolute' => TRUE, 'html' => $array['html']));
+}
+
+/**
+ * Creates a link to post a URL and optionally title to twitter.  Uses the
+ * current page by default.
+ *
+ * @param $type
+ *   Specifies what will show up in the link: the twitter icon, the twitter icon
+ *   and text, or just text. Pass 'icon' to show just the icon, 'icon_text' to
+ *   show the icon and text, and 'text' to show just the text. Required if
+ *   display options for nodes are set to 'none' on the settings page.
+ * @param $format
+ *   A string representing the tweet text, optionally with the case-insensitive
+ *   tokens [url], [title], and [node-tags]. If not passed, the format from the settings page
+ *   will be used.
+ * @param $nid
+ *   The NID of the node for which the twitter link should be constructed, or
+ *   the absolute URL of the page for which the twitter link should be
+ *   constructed. If the URL given is not the current URL, and if $nid is not a
+ *   NID, the title must be set manually (instead of using the [title] token) or
+ *   it will be incorrect.
+ * @return
+ *   A themed link to post the specified or current page to twitter.
+ */
+function _tweet_to_twitter($type = '', $format = '', $nid = '') {
+  $q = '';
+  $node_tags = '';
+  if (is_numeric($nid)) {
+    $q = url('node/'. $nid, array('absolute' => TRUE));
+    $node_tag_vocabs = variable_get('tweet_node_vocabs', array());
+    foreach ($node_tag_vocabs as $vid => $enabled) {
+      if ($enabled) {
+        $node = node_load(array('nid' => $nid));
+        $terms = taxonomy_node_get_terms_by_vocabulary($node, $vid);
+        foreach ($terms as $term) {
+          $node_tags .= ' #'. check_plain($term->name);
+        }
+      }
+    }
+  }
+  $url = $q;
+  if (module_exists('shorten')) {
+    $url = shorten_url($q);
+  }
+  $title = _tweet_get_title($nid);
+
+  if (!$format) {
+    $format = variable_get('tweet_format', '[url] [title][node-tags]');
+  }
+  $tweet = _tweet_process($format, array('[url]' => $url, '[title]' => $title, '[node-tags]' => check_plain($node_tags)));
+
+  $path = 'http://twitter.com/home';
+  $text = (variable_get('tweet_text', t('Post to Twitter')) == t('Post to Twitter')) ? t('Post to Twitter') : variable_get('tweet_text', t('Post to Twitter'));
+  $image_location = drupal_get_path('module', 'tweet') .'/icon.png';
+  $image = theme('image', variable_get('tweet_image', $image_location), $text, $text);
+  if (!$type) {
+    //Note that $type can be 'none', in which case nothing shows up.
+    $type = variable_get('tweet_node', 'icon');
+  }
+  if ($type == 'icon') {
+    $show = $image;
+  }
+  elseif ($type == 'icon_text') {
+    $show = $image .' '. $text;
+  }
+  elseif ($type == 'text') {
+    $show = $text;
+  }
+  $attributes = array('class' => 'tweet', 'rel' => 'nofollow');
+  if (variable_get('tweet_new_window', 'target') == 'target') {
+    $attributes['target'] = '_blank';
+  }
+  elseif (variable_get('tweet_new_window', 'target') == 'js') {
+    $attributes['onclick'] = "window.open('$path?status=$tweet','twitter','')";
+    $path = $_GET['q'];
+    $tweet = 'sent';
+  }
+  return array('title' => $show, 'href' => $path, 'attributes' => $attributes, 'query' => 'status='. $tweet, 'html' => TRUE);
+}
+
+/**
+ * Determines what will be in the tweet itself.
+ *
+ * @param $format
+ *   A string containing the text of the tweet before it gets processed.
+ * @param $tokens
+ *   An associative array where keys represent text that will be replaced by
+ *   their value in $format.
+ * @return
+ *   The URL-ready tweet text.
+ */
+function _tweet_process($format = '', $tokens = array()) {
+  if (!$format) {
+    $format = variable_get('tweet_format', '[url] [title][node-tags]');
+  }
+  foreach ($tokens as $search => $replace) {
+    $format = str_ireplace($search, $replace, $format);
+  }
+  $format = drupal_urlencode($format);
+  //The #, &, and / characters get double-encoded by drupal_urlencode, but they must appear single-encoded for Twitter to recognize them.
+  //Spaces are manually encoded to plus signs for clarity of whitespace at the end of the tweet.
+  $format = str_replace(array('%2523', '%2526', '%252F', '%20'), array('%23', '%26', '%2F', '+'), $format);
+  return $format;
+}
+
+/**
+ * Returns the title of the node for which the NID was passed or the current
+ * page. Note that there is no good way to get the page title for a page that is
+ * not the current page. We assume the title is the same as the title of the
+ * node if a node is being viewed, but this is often not the case when certain
+ * modules are being used. In this case, it is recommended that you manually
+ * pass the title to tweet_to_twitter().
+ *
+ * @param $nid
+ *   The NID of the node for which to return the title.  If not passed, uses the
+ *   current page.
+ * @return
+ *   The title of the node for the NID passed or the title of the current page.
+ */
+function _tweet_get_title($nid = '') {
+  if (is_numeric($nid)) {
+    $node = node_load(array('nid' => $nid));
+    $title = $node->title;
+  }
+  else {
+    $title = drupal_get_title();
+  }
+  if (drupal_strlen($title) > 120) {
+    //"\xE2\x80\xA6" is the UTF8 character sequence for the ellipsis, which must be enclosed in double quotes.
+    //Neither the literal binary character (…) nor the HTML entity (&hellip;) work on all operating systems.
+    $title = drupal_substr($title, 0, 119) ."\xE2\x80\xA6";
+  }
+  return $title;
+}
+
+/**
+ * Excludes certain Node IDs from displaying links.
+ *
+ * @param $nid
+ *   The NID to check for exclusion.
+ * @return
+ *   TRUE if the node should be excluded, or FALSE if it should not.
+ */
+function _tweet_exclude($nid) {
+  $exclude = explode(',', variable_get('tweet_exclude', ''));
+  $excludes = array();
+  foreach ($exclude as $check) {
+    $excludes[] = trim($check);
+  }
+  if (!empty($excludes)) {
+    if (in_array($nid, $excludes)) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Helper function to provide node types in the format array(TYPE => TYPE).
+ */
+function _tweet_node_types() {
+  $a = array_keys(node_get_types());
+  $return = drupal_map_assoc($a);
+  return $return;
+}

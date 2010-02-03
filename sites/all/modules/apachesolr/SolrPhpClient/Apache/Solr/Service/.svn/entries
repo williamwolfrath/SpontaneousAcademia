@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="15"
+   name=""
+   committed-date="2009-08-04T17:53:08.241264Z"
+   url="http://solr-php-client.googlecode.com/svn/trunk/Apache/Solr/Service"
+   last-author="donovan.jimenez"
+   kind="dir"
+   uuid="e73431f4-bb50-11dd-afb1-a7db9ebf18e3"
+   repos="http://solr-php-client.googlecode.com/svn"
+   revision="22"/>
+<entry
+   committed-rev="15"
+   name="Balancer.php"
+   text-time="2010-01-28T08:05:44.000000Z"
+   committed-date="2009-08-04T17:53:08.241264Z"
+   checksum="f0ad682e8167aa05dc29c160adb3402a"
+   last-author="donovan.jimenez"
+   kind="file"
+   prop-time="2010-01-28T08:05:44.000000Z"/>
+</wc-entries>

@@ -7,9 +7,9 @@
     
     <script type="text/javascript">
         $Trumba.addSpud({
-        webName: "first-top-level-calendar",
+        webName: "kosmos-main",
         spudType : "upcoming" ,
-        teaserBase : "http://sa.wilwolf.com/trumba-test" });
+        teaserBase : "http://www.kosmosonline.org/trumba-test" });
     </script>
     <noscript>Your browser must support JavaScript to view this content. 
         Please enable JavaScript in your browser settings then try again. 

@@ -1,0 +1,15 @@
+<?php
+// $Id: diggthis.install,v 1.1 2008/08/18 19:11:55 yaph Exp $
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function diggthis_uninstall() {
+  variable_del('diggthis_button_skin');
+  variable_del('diggthis_button_bgcolor');
+  variable_del('diggthis_button_weight');
+  variable_del('diggthis_node_types');
+  variable_del('diggthis_api');
+  variable_del('diggthis_stories_domain');
+  variable_del('diggthis_cache_lifetime');
+}
