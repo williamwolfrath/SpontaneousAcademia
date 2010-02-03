@@ -21,7 +21,7 @@
 ?>
 <div class="highlighted-user-photo">
   <?php
-    log_debug("uid:: ", $fields['uid']->content);
+    //log_debug("uid:: ", $fields['uid']->content);
     $highlighted_user = user_load($fields['uid']->content);
     $facebook_pic_square = safacebook_get_user_photo_square($fields['uid']->content);
   ?>
