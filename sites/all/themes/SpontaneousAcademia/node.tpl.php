@@ -50,19 +50,45 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
 
-<?php
-    $recent_post_user = user_load($uid);
-    $facebook_pic_square = safacebook_get_user_photo_square($uid);
-  ?>
-  <img src="<?php print $facebook_pic_square; ?>" />
+
+<div class="facebook-user-picture">
+   <div class="facebook-user-picture-inner">
+   <div class="post-count">
+     <?php print user_stats_get_stats('post_count', $node->uid); ?>
+  </div>
+        <?php
+            $recent_post_user = user_load($uid);
+            //log_debug('recent post user: ', $recent_post_user);
+            $fbid = $recent_post_user->facebook_id;
+            if (!$fbid) { $fbid = '0'; }  // for some crazy reason which I have yet to discover, omitting this causes all fp:profile-pic calls to return a silhouette. in some browsers. in some views. odd.
+            //$facebook_pic_square = safacebook_get_user_photo_square($uid);
+        ?>
+    <?php if ( strlen($picture) > 31): ?>
+        <a href="/user/<?php print $recent_post_user->uid; ?>"><?php print $picture ?></a>
+    <?php else: ?>
+        <a href="/user/<?php print $recent_post_user->uid; ?>"><fb:profile-pic uid="<?php print $fbid;?>"  size="square" facebook-logo="true" linked="false"></fb:profile-pic></a>
+    <?php endif; ?>
+   </div>
+    
+  <div class="recent-post-user-name">
+    <?php print $recent_post_user->name; ?>
+  </div>
+  <div class="recent-post-user-type">
+     <?php print $recent_post_user->user_type; ?>
+  </div>
+</div>
+
+
 
 <?php if (!$page): ?>
   <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
 <?php endif; ?>
 
+
+  
   <div class="meta">
   <?php if ($submitted): ?>
-    <span class="submitted"><?php print $submitted ?></span>
+    <span class="submitted"><?php print $date; ?><?php //print $submitted ?></span>
   <?php endif; ?>
 
   <?php if ($terms): ?>
@@ -73,7 +99,23 @@
   <div class="content">
     <?php print $content ?>
   </div>
+<?php
+print theme("vote_up_down_widget$style", $node->nid, 'node'); 
+?><?php
+print theme("vote_up_down_points$style", $node->nid, 'node'); 
+?>
+  
 
-   links follow
-  <?php print $links; ?>
+  <?php if (!$teaser): ?>
+            <?php print $links; ?>
+  <?php else: ?>
+      <?php if (user_is_logged_in()): ?>
+           <?php print $links; ?>
+           
+      <?php endif; ?>
+  <?php endif; ?>
+  
+
+  
+  <?php //log_debug('node obj: ', $node); ?>
 </div>

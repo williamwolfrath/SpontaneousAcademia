@@ -44,12 +44,20 @@
  */
 ?>
 <div class="profile">
+  <?php if ( strlen($profile['user_picture']) > 31 ): // prints an empty div if not pic - check string length ?>
+    <div id="fb-picture">
+     <?php print $profile['user_picture']; ?>
+    </div>
+  <?php else: ?>
   <div id="fb-picture">
-    <?php
-          $facebook_pic_main = safacebook_get_user_photo_main($account->uid);
-    ?>
-    <img src="<?php print $facebook_pic_main; ?>" />
+      <?php
+        $profile_user = user_load($account->uid);
+        $fbid = $profile_user->facebook_id;
+        if (!$fbid) { $fbid = '0'; }  // for some crazy reason which I have yet to discover, omitting this causes all fp:profile-pic calls to return a silhouette. in some browsers. in some views. odd.
+  ?>
+  <fb:profile-pic uid="<?php print $fbid;?>"  size="small" facebook-logo="true" linked="false"></fb:profile-pic>
   </div>
+  <?php endif; ?>
   <div class="profile-role">
     <?php //print $main_role; ?>
     <?php print $account->user_type; ?>

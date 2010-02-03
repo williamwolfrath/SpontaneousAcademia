@@ -294,3 +294,19 @@ function SpontaneousAcademia_preprocess_user_profile(&$vars) {
         }
     }
 }
+
+
+function SpontaneousAcademia_breadcrumb($breadcrumb) {
+    if (!empty($breadcrumb)) {
+        // add the current page title to the breadcrumb
+        if (drupal_get_title()!='Home'){
+            if ($breadcrumb[0]='Home') {
+                unset($breadcrumb[0]);
+                array_unshift($breadcrumb, array_shift($breadcrumb) );
+                return '<div class="breadcrumb">'. implode(' &raquo; ', $breadcrumb) .'</div>';
+            }else {
+                return '<div class="breadcrumb">'. implode(' &raquo; ', $breadcrumb) .'</div>';
+            }
+        }
+    }
+}

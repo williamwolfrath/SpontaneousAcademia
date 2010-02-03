@@ -83,6 +83,12 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
+  <!--[if IE 7]>
+		<link rel="stylesheet" href="/sites/all/themes/SpontaneousAcademia/style-IE7.css" type="text/css" media="all" />
+	<![endif]-->
+	<!--[if IE 6]>
+		<link rel="stylesheet" href="/sites/all/themes/SpontaneousAcademia/style-IE6.css" type="text/css" media="all" />
+	<![endif]-->
   <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US" type="text/javascript"></script> <!-- make sure this loads before others that need it! -->
   <script type="text/javascript">
 //FB.init("990f0319a7449a516ee2032d33478742", "xd_receiver.htm", {"reloadIfSessionStateChanged":true, "ifUserConnected":"front-loggedin", "ifUserNotConnected":"front-anonymous"});
@@ -91,17 +97,20 @@
 </script>
   <?php print $scripts; ?>
   <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
-
 </head>
 
 
 <body class="<?php print $body_classes; ?>">
 
 <script type="text/javascript">
-  FB.init('990f0319a7449a516ee2032d33478742', "xd_receiver.htm", {"reloadIfSessionStateChanged":true});
+  FB.init('990f0319a7449a516ee2032d33478742', "/xd_receiver.htm", {"reloadIfSessionStateChanged":true});
 </script>
 
+
+ <div id="beta">BETA</div>
+ 
   <div id="page">
+    <div id="page-inner">
     <div id="header">
       
       <div id="logo-title">
@@ -128,7 +137,14 @@
       <?php if (!empty($header)): ?>
         <div id="header-region">
           <div id="temp-home-link"><a href="/">&nbsp;</a></div>
-          <div id="block-menu-simplemenu"><div id="simplemenu-content"></div></div>
+	   <?php if ($is_front): ?>
+             <div class="front-page-header-text">
+                 <div class="node"><h2>Liberty.<br/>Academia.<br/>Opportunities and <br/>Advice.</h2>
+                 <div class="content">Advance a free society. Further your research and teaching. Get inspiration and advice. Create a profile and browse our listings of opportunities, resources, events, groups and more.
+                 </div>
+                 </div>
+             </div>
+          <?php endif; ?>
           <?php print $header; ?>
         </div>
       <?php endif; ?>
@@ -136,9 +152,10 @@
     </div> <!-- /header -->
 
     <div id="container" class="clear-block">
-
+      <div id="colors-bg-image"></div>
       <div id="navigation" class="menu <?php if (!empty($primary_links)) { print "withprimary"; } if (!empty($secondary_links)) { print " withsecondary"; } ?> ">
-
+        <?php if (!empty($breadcrumb)): ?><div id="breadcrumb"><?php print $breadcrumb; ?></div><?php endif; ?>
+	<?php print $navbar; ?>
         <!-- secondary links normally go here -->
       </div> <!-- /navigation -->
       
@@ -158,7 +175,7 @@
 
 
       <div id="main" class="column"><div id="main-squeeze">
-        <?php if (!empty($breadcrumb)): ?><div id="breadcrumb"><?php //print $breadcrumb; ?></div><?php endif; ?>
+        
         <?php if (!empty($mission)): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
 
         <div id="content">
@@ -217,8 +234,19 @@
     </div> <!-- /footer-wrapper -->
 
     <?php print $closure; ?>
-
+  </div> <!-- page-inner -->
   </div> <!-- /page -->
+
+
+  <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    try {
+	var pageTracker = _gat._getTracker("UA-12550479-1");
+	pageTracker._trackPageview();
+    } catch(err) {}</script>
 
 </body>
 </html>

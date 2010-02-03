@@ -1,11 +1,8 @@
 <?php
-// $Id: node-og-group-post.tpl.php,v 1.3 2008/11/09 17:17:54 weitzman Exp $
+// $Id: node.tpl.php,v 1.4.2.1 2009/08/10 10:48:33 goba Exp $
 
 /**
- * @file node-og-group-post.tpl.php
- * 
- * Og has added a brief section at bottom for printing links to affiliated groups.
- * This template is used by default for non group nodes.
+ * @file node.tpl.php
  *
  * Theme implementation to display a node.
  *
@@ -18,7 +15,7 @@
  *   format_date()).
  * - $links: Themed links like "Read more", "Add new comment", etc. output
  *   from theme_links().
- * - $name: Themed username of node author output from theme_user().
+ * - $name: Themed username of node author output from theme_username().
  * - $node_url: Direct url of the current node.
  * - $terms: the themed list of taxonomy term links output from theme_links().
  * - $submitted: themed submission information output from
@@ -53,15 +50,43 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
 
-<?php print $picture ?>
+<div class="facebook-user-picture">
+   <div class="facebook-user-picture-inner">
+   <div class="post-count">
+     <?php print user_stats_get_stats('post_count', $node->uid); ?>
+  </div>
+  <?php //print $picture ?>
+  <?php
+    $recent_post_user = user_load($uid);
+    //log_debug('recent post user: ', $recent_post_user);
+    $fbid = $recent_post_user->facebook_id;
+    if (!$fbid) { $fbid = '0'; }  // for some crazy reason which I have yet to discover, omitting this causes all fp:profile-pic calls to return a silhouette. in some browsers. in some views. odd.
+    //$facebook_pic_square = safacebook_get_user_photo_square($uid);
+  ?>
+  <?php if ( strlen($picture) > 31): ?>
+        <a href="/user/<?php print $recent_post_user->uid; ?>"><?php print $picture ?></a>
+    <?php else: ?>
+         <a href="/user/<?php print $recent_post_user->uid; ?>"><fb:profile-pic uid="<?php print $fbid;?>"  size="square" facebook-logo="true" linked="false"></fb:profile-pic></a>
+   <?php endif; ?>
+   </div>   
+
+  <div class="recent-post-user-name">
+    <?php print $recent_post_user->name; ?>
+  </div>
+  <div class="recent-post-user-type">
+     <?php print $recent_post_user->user_type; ?>
+  </div>
+</div>
 
 <?php if (!$page): ?>
   <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
 <?php endif; ?>
 
+
+  
   <div class="meta">
   <?php if ($submitted): ?>
-    <span class="submitted"><?php print $submitted ?></span>
+    <span class="submitted"><?php print $date; ?><?php //print $submitted ?></span>
   <?php endif; ?>
 
   <?php if ($terms): ?>
@@ -72,11 +97,17 @@
   <div class="content">
     <?php print $content ?>
   </div>
-  
-  <?php if ($node->og_groups && $page) {
-          print '<div class="groups">'. t('Groups'). ': ';
-          print '<div class="links">'.  $og_links['view']. '</div></div>';
-   } ?>
-   
-  <?php print $links; ?>
+
+  <?php if (!$teaser): ?>
+        <?php if (!user_is_logged_in()): ?>
+            <div id="node-fb-login"><a onclick="FB.Connect.requireSession(); return false;" href="#"><img id="fb_login_image" src="/sites/all/themes/SpontaneousAcademia/images/login-button.gif" alt="Connect" /></a> to post comments.</div>
+        <?php else: ?>
+            <?php print $links; ?>
+        <?php endif; ?>
+  <?php else: ?>
+      <?php if (user_is_logged_in()): ?>
+           <?php print $links; ?>
+      <?php endif; ?>
+  <?php endif; ?>
+  <?php //log_debug('node obj: ', $node); ?>
 </div>

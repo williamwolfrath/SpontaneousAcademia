@@ -50,14 +50,26 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
 
-<div class="recent-post-user-picture-top"></div>
+<div class="recent-post-user-picture-wrapper">
 <div class="recent-post-user-picture">
+   <div class="recent-post-user-picture-inner">
+   <div class="post-count">
+     <?php print user_stats_get_stats('post_count', $node->uid); ?>
+  </div>
   <?php //print $picture ?>
   <?php
-    $recent_post_user = user_load($uid);
-    $facebook_pic_square = safacebook_get_user_photo_square($uid);
+   $recent_post_user = user_load($uid);
+   $fbid = $recent_post_user->facebook_id;
+   if (!$fbid) { $fbid = '0'; }  // for some crazy reason which I have yet to discover, omitting this causes all fp:profile-pic calls to return a silhouette. in some browsers. in some views. odd.
+    //$facebook_pic_square = safacebook_get_user_photo_square($uid);
   ?>
-  <img src="<?php print $facebook_pic_square; ?>" />
+  <?php if ( strlen($picture) > 31): ?>
+        <a href="/user/<?php print $recent_post_user->uid; ?>"><?php print $picture ?></a>
+    <?php else: ?>
+        <a href="/user/<?php print $recent_post_user->uid; ?>"><fb:profile-pic uid="<?php print $fbid;?>"  size="square" facebook-logo="true" linked="false"></fb:profile-pic></a>
+    <?php endif; ?>
+ </div>
+
   <div class="recent-post-user-name">
     <?php print $recent_post_user->name; ?>
   </div>
@@ -65,27 +77,35 @@
      <?php print $recent_post_user->user_type; ?>
   </div>
 </div>
-<div class="recent-post-user-picture-bottom"></div>
+</div>
+
 
 <div class="recent-posts-content">
 <?php if (!$page): ?>
   <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
 <?php endif; ?>
 
+  <div class="path">
+      <?php print str_replace("/", " - ", drupal_get_path_alias($node->path)); ?>
+  </div>
   <div class="meta">
-    <span class="recent-post-user"><?php print $name; ?></span>
-  <?php if ($submitted): ?>
-    <span class="submitted"><?php //print $submitted ?></span>
-  <?php endif; ?>
-
   <?php if ($terms): ?>
-    <div class="terms terms-inline"><?php print $terms ?></div>
+    <div class="terms terms-inline">
+        <?php //print $terms ?>
+        
+    </div>
   <?php endif;?>
   </div>
 
   <div class="content">
     <?php print $content ?>
+    <?php if ($teaser): ?>
+    <div class="node-more-link"><?php print l('More', $node->path); ?></div>
+  <?php endif; ?>
   </div>
+  
+  
+  
   <?php //log_debug("node content: ", $node->content); ?>
   <?php //print $links; ?>
 </div>
