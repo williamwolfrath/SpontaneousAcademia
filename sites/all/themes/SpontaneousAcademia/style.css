@@ -1076,7 +1076,19 @@ div.highlighted-user-photo {
 form#user-register fieldset,
 form#user-register .form-item {
 }
+form#user-register div.description {
+    margin-bottom: 30px;
+}
 
+/* register form */
+table#field_research_interests_values,
+table#field_courses_taught_values,
+table#field_memberships_affiliations_values,
+table#field_profile_websites_values {
+    margin: 20px 0;
+    background-color: #e9e9e9;
+}
+table#field_profile_websites_values, table#field_memberships_affiliations_values { margin-bottom: 0; }
 
 
 

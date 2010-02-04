@@ -8,19 +8,27 @@ drupal_add_css(drupal_get_path('module', 'privatemsg') . '/styles/privatemsg-vie
 <div class="privatemsg-box-fb" id="privatemsg-mid-<?php print $mid; ?>">
   <div class="left-column">
     <div class="avatar-fb">
-      <?php print $author_picture; ?>
+      <?php //print $author_picture; ?>
       <?php //log_debug('the pmsg is ', $message); ?>
       
       <div class="facebook-user-picture">
-  <div class="post-count">
-     <?php print user_stats_get_stats('post_count', $message['author']->uid); ?>
-  </div>
-  <?php //print $picture ?>
-  <?php
-    $pmsg_user = user_load($message['author']->uid);
-    //$facebook_pic_square = safacebook_get_user_photo_square($uid);
-  ?>
-  <fb:profile-pic uid="<?php print $pmsg_user->facebook_id;?>"  size="square" facebook-logo="true"></fb:profile-pic>
+        <div class="facebook-user-picture-inner">
+          <div class="post-count">
+              <?php print user_stats_get_stats('post_count', $message['author']->uid); ?>
+          </div>
+          <?php
+              $pmsg_user = user_load($message['author']->uid);
+              //$facebook_pic_square = safacebook_get_user_photo_square($uid);
+              $fbid = $pmsg_user->facebook_id;
+              if (!$fbid) { $fbid = '0'; }  // for some crazy reason which I have yet to discover, omitting this causes all fp:profile-pic calls to return a silhouette. in some browsers. in some views. odd.
+          ?>
+          <?php if ( $author_picture ): ?>
+            <a href="/user/<?php print $pmsg_user->uid; ?>"><?php print $author_picture ?></a>
+          <?php else: ?>
+            <a href="/user/<?php print $pmsg_user->uid; ?>"><fb:profile-pic uid="<?php print $fbid;?>"  size="square" facebook-logo="true" linked="false"></fb:profile-pic></a>
+          <?php endif; ?>
+        </div>
+        
   <div class="post-user-name">
     <?php print $pmsg_user->name; ?>
   </div>
