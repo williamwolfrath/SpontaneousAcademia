@@ -1,0 +1,163 @@
+div#container {
+    /*z-index: -10;*/
+    z-index: 1;
+    position: relative;
+}
+/* featured-faculty */
+/*div.block-featured-faculty {*/
+/*    width: 480px;*/
+/*    position: relative;*/
+/*    float: right;*/
+/*    right: 30px;*/
+/*    top: 30px;*/
+/*    z-index: 0;*/
+/*}*/
+
+div.view div.view-content h2 {
+    font-size: 1.3em;
+}
+
+div.block-featured-faculty div.views-field-field-featured-img-fid img {
+    position: absolute;
+    left: -20px;
+}
+
+
+
+div#block-menu-primary-links > .content > ul.menu {
+    padding: 0;
+}
+div#block-menu-primary-links ul.droppy {
+    padding: 0;
+    height: 20px;
+    background: transparent;
+}
+div#block-menu-primary-links .content {
+    background: url(images/nav.gif) no-repeat;
+}
+/* revised nav */
+div#primary-links-top {
+    height: 7px;
+    line-height: 7px;
+    width: 462px;
+    background: white;
+    font-size: 0;
+    background: url(images/nav-top.gif) top left no-repeat;
+}
+div#primary-links-bottom {
+    height: 9px;
+    line-height: 9px;
+    width: 462px;
+    background: blue;
+    font-size: 0;
+    background: url(images/nav-bottom.gif) top left no-repeat;
+}
+
+
+
+
+div#footer #block-menu-menu-footer-menu ul.menu li.first {
+    margin-left: 40px;
+}
+
+
+
+
+div.facebook-login {
+    width: 160px;
+    position: absolute;
+    top: 325px;
+    left: 0;
+    height: 34px;
+    /*z-index: 10;*/
+}
+
+
+div.block-featured-faculty {
+   /*display: none;*/
+}
+
+div.block-featured-faculty div.views-row-first {
+    position: relative;
+}
+div.block-featured-faculty div.views-field-title {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 120px;
+    color: #ffffff;
+    font-size: 16pt;
+    text-align: left;
+}
+div.block-featured-faculty div.views-field-body {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    width: 120px;
+    color: #ffffff;
+    font-size: 8pt;
+}
+div.block-featured-faculty div.views-field-field-featured-img-fid {
+    height: 350px;
+}
+div.block-featured-faculty div.views-field-field-featured-img-fid img {
+    position: absolute;
+    left: -20px;
+    background-color: transparent;
+}
+div.block-featured-faculty div.view-featured-faculty {
+    background-color: transparent;
+}
+
+
+div.recent-post-user-picture {
+    height: 110px;
+}
+div.recent-post-user-picture-wrapper {
+    float: left;
+    height: 110px;
+    width: 60px;
+    margin-right: 10px;
+}
+
+
+
+
+
+/* browse */
+form#views-exposed-form-browse-page-1 {
+    
+}
+form#views-exposed-form-browse-page-1 div.views-exposed-widget {
+    margin-bottom: 20px;
+}
+form#views-exposed-form-browse-page-1 div.views-exposed-widget + div {
+}
+
+input.autocomplete,
+input.form-autocomplete {
+    position: relative;
+    z-index: 100;
+}
+
+
+
+
+div.content-profile-display div.content {
+    padding-left: 0px;
+}
+
+
+
+#content-top {
+    min-height: 45px;
+}
+
+
+
+/* vote */
+.vote-up-down-widget {
+    position: absolute;
+    bottom: 15px;
+    left: 350px;
+}
