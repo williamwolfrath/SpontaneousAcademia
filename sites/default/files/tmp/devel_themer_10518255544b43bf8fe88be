@@ -1,0 +1,611 @@
+a:49:{s:6:"thmr_1";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:5:"#type";s:9:"textfield";s:6:"#title";s:9:"View name";s:12:"#description";s:308:"This is the unique name of the view. It must contain only alphanumeric characters and underscores; it is used to identify the view internally and to generate unique theming template names for this view. If overriding a module provided view, the name must not be changed or instead a new view will be created.";s:9:"#required";b:1;s:10:"#maxlength";i:32;s:14:"#default_value";s:0:"";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:4:"name";}s:14:"#array_parents";a:1:{i:0;s:4:"name";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:6:"#input";b:1;s:5:"#size";i:60;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:4:"name";s:3:"#id";s:9:"edit-name";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:6:"thmr_3";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:5:"#type";s:9:"textfield";s:6:"#title";s:16:"View description";s:12:"#description";s:95:"This description will appear on the Views administrative UI to tell you what the view is about.";s:14:"#default_value";s:0:"";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:11:"description";}s:14:"#array_parents";a:1:{i:0;s:11:"description";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#size";i:60;s:10:"#maxlength";i:128;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:11:"description";s:3:"#id";s:16:"edit-description";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:6:"thmr_5";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:5:"#type";s:9:"textfield";s:6:"#title";s:8:"View tag";s:12:"#description";s:99:"Enter an optional tag for this view; it is used only to help sort views on the administrative page.";s:14:"#default_value";s:0:"";s:18:"#autocomplete_path";s:33:"admin/views/ajax/autocomplete/tag";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:3:"tag";}s:14:"#array_parents";a:1:{i:0;s:3:"tag";}s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#size";i:60;s:10:"#maxlength";i:128;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:3:"tag";s:3:"#id";s:8:"edit-tag";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:6:"thmr_7";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:5:"radio";s:6:"#title";s:77:"Node<div class="description">Nodes are a Drupal site's primary content.</div>";s:13:"#return_value";s:4:"node";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:20:"edit-base-table-node";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:6:"thmr_9";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:5:"radio";s:6:"#title";s:77:"Comment<div class="description">Comments are responses to node content.</div>";s:13:"#return_value";s:8:"comments";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:24:"edit-base-table-comments";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_11";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:5:"radio";s:6:"#title";s:82:"File<div class="description">Files maintained by Drupal and various modules.</div>";s:13:"#return_value";s:5:"files";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:21:"edit-base-table-files";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_13";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:5:"radio";s:6:"#title";s:71:"IP addresses<div class="description">Users and their IP addresses</div>";s:13:"#return_value";s:14:"user_stats_ips";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:30:"edit-base-table-user-stats-ips";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_15";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:5:"radio";s:6:"#title";s:93:"Node revision<div class="description">Node revisions are a history of changes to nodes.</div>";s:13:"#return_value";s:14:"node_revisions";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:30:"edit-base-table-node-revisions";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_17";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:5:"radio";s:6:"#title";s:72:"Term<div class="description">Taxonomy terms are attached to nodes.</div>";s:13:"#return_value";s:9:"term_data";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:25:"edit-base-table-term-data";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.005000000000000000104083408558608425664715468883514404296875;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_19";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:5:"radio";s:6:"#title";s:80:"User<div class="description">Users who have created accounts on your site.</div>";s:13:"#return_value";s:5:"users";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:21:"edit-base-table-users";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.00600000000000000012490009027033011079765856266021728515625;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_21";a:2:{s:9:"variables";a:1:{s:7:"element";a:29:{s:5:"#type";s:6:"radios";s:6:"#title";s:9:"View type";s:12:"#description";s:223:"The view type is the primary table for which information is being retrieved. The view type controls what arguments, fields, sort criteria and filters are available, so once this is set it <strong>cannot be changed</strong>.";s:14:"#default_value";s:4:"node";s:8:"#options";a:7:{s:4:"node";s:77:"Node<div class="description">Nodes are a Drupal site's primary content.</div>";s:8:"comments";s:77:"Comment<div class="description">Comments are responses to node content.</div>";s:5:"files";s:82:"File<div class="description">Files maintained by Drupal and various modules.</div>";s:14:"user_stats_ips";s:71:"IP addresses<div class="description">Users and their IP addresses</div>";s:14:"node_revisions";s:93:"Node revision<div class="description">Node revisions are a history of changes to nodes.</div>";s:9:"term_data";s:72:"Term<div class="description">Taxonomy terms are attached to nodes.</div>";s:5:"users";s:80:"User<div class="description">Users who have created accounts on your site.</div>";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:14:"#array_parents";a:1:{i:0;s:10:"base_table";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:13:"expand_radios";}s:5:"#name";s:10:"base_table";s:3:"#id";s:15:"edit-base-table";s:6:"#value";s:4:"node";s:4:"node";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:77:"Node<div class="description">Nodes are a Drupal site's primary content.</div>";s:13:"#return_value";s:4:"node";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:20:"edit-base-table-node";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:8:"comments";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:77:"Comment<div class="description">Comments are responses to node content.</div>";s:13:"#return_value";s:8:"comments";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:24:"edit-base-table-comments";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:5:"files";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:82:"File<div class="description">Files maintained by Drupal and various modules.</div>";s:13:"#return_value";s:5:"files";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:21:"edit-base-table-files";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:14:"user_stats_ips";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:71:"IP addresses<div class="description">Users and their IP addresses</div>";s:13:"#return_value";s:14:"user_stats_ips";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:30:"edit-base-table-user-stats-ips";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:14:"node_revisions";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:93:"Node revision<div class="description">Node revisions are a history of changes to nodes.</div>";s:13:"#return_value";s:14:"node_revisions";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:30:"edit-base-table-node-revisions";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:9:"term_data";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:72:"Term<div class="description">Taxonomy terms are attached to nodes.</div>";s:13:"#return_value";s:9:"term_data";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:25:"edit-base-table-term-data";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.005000000000000000104083408558608425664715468883514404296875;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:5:"users";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:80:"User<div class="description">Users who have created accounts on your site.</div>";s:13:"#return_value";s:5:"users";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:21:"edit-base-table-users";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.00600000000000000012490009027033011079765856266021728515625;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:9:"#children";s:2610:"<span id="thmr_7" class="thmr_call">
+  <div class="form-item" id="edit-base-table-node-wrapper">
+ <label class="option" for="edit-base-table-node"><input type="radio" id="edit-base-table-node" name="base_table" value="node"  checked="checked"  class="form-radio" /> Node<div class="description">Nodes are a Drupal site's primary content.</div></label>
+</div>
+</span>
+
+<span id="thmr_9" class="thmr_call">
+  <div class="form-item" id="edit-base-table-comments-wrapper">
+ <label class="option" for="edit-base-table-comments"><input type="radio" id="edit-base-table-comments" name="base_table" value="comments"   class="form-radio" /> Comment<div class="description">Comments are responses to node content.</div></label>
+</div>
+</span>
+
+<span id="thmr_11" class="thmr_call">
+  <div class="form-item" id="edit-base-table-files-wrapper">
+ <label class="option" for="edit-base-table-files"><input type="radio" id="edit-base-table-files" name="base_table" value="files"   class="form-radio" /> File<div class="description">Files maintained by Drupal and various modules.</div></label>
+</div>
+</span>
+
+<span id="thmr_13" class="thmr_call">
+  <div class="form-item" id="edit-base-table-user-stats-ips-wrapper">
+ <label class="option" for="edit-base-table-user-stats-ips"><input type="radio" id="edit-base-table-user-stats-ips" name="base_table" value="user_stats_ips"   class="form-radio" /> IP addresses<div class="description">Users and their IP addresses</div></label>
+</div>
+</span>
+
+<span id="thmr_15" class="thmr_call">
+  <div class="form-item" id="edit-base-table-node-revisions-wrapper">
+ <label class="option" for="edit-base-table-node-revisions"><input type="radio" id="edit-base-table-node-revisions" name="base_table" value="node_revisions"   class="form-radio" /> Node revision<div class="description">Node revisions are a history of changes to nodes.</div></label>
+</div>
+</span>
+
+<span id="thmr_17" class="thmr_call">
+  <div class="form-item" id="edit-base-table-term-data-wrapper">
+ <label class="option" for="edit-base-table-term-data"><input type="radio" id="edit-base-table-term-data" name="base_table" value="term_data"   class="form-radio" /> Term<div class="description">Taxonomy terms are attached to nodes.</div></label>
+</div>
+</span>
+
+<span id="thmr_19" class="thmr_call">
+  <div class="form-item" id="edit-base-table-users-wrapper">
+ <label class="option" for="edit-base-table-users"><input type="radio" id="edit-base-table-users" name="base_table" value="users"   class="form-radio" /> User<div class="description">Users who have created accounts on your site.</div></label>
+</div>
+</span>
+
+";}}s:4:"type";s:4:"func";}s:7:"thmr_24";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:5:"#type";s:6:"submit";s:6:"#value";s:4:"Next";s:9:"#validate";a:1:{i:0;s:26:"views_ui_add_form_validate";}s:7:"#submit";a:1:{i:0;s:24:"views_ui_add_form_submit";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:11:"edit-submit";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_23";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:5:"#type";s:6:"submit";s:6:"#value";s:4:"Next";s:9:"#validate";a:1:{i:0;s:26:"views_ui_add_form_validate";}s:7:"#submit";a:1:{i:0;s:24:"views_ui_add_form_submit";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:11:"edit-submit";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_26";a:2:{s:9:"variables";a:1:{s:7:"element";a:19:{s:3:"#id";s:33:"edit-views-ui-add-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"fb8fb94d6540795d7fc178e23896331f";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.00600000000000000012490009027033011079765856266021728515625;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"fb8fb94d6540795d7fc178e23896331f";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_29";a:2:{s:9:"variables";a:1:{s:7:"element";a:31:{s:4:"name";a:24:{s:5:"#type";s:9:"textfield";s:6:"#title";s:9:"View name";s:12:"#description";s:308:"This is the unique name of the view. It must contain only alphanumeric characters and underscores; it is used to identify the view internally and to generate unique theming template names for this view. If overriding a module provided view, the name must not be changed or instead a new view will be created.";s:9:"#required";b:1;s:10:"#maxlength";i:32;s:14:"#default_value";s:0:"";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:4:"name";}s:14:"#array_parents";a:1:{i:0;s:4:"name";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:6:"#input";b:1;s:5:"#size";i:60;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:4:"name";s:3:"#id";s:9:"edit-name";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:11:"description";a:24:{s:5:"#type";s:9:"textfield";s:6:"#title";s:16:"View description";s:12:"#description";s:95:"This description will appear on the Views administrative UI to tell you what the view is about.";s:14:"#default_value";s:0:"";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:11:"description";}s:14:"#array_parents";a:1:{i:0;s:11:"description";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#size";i:60;s:10:"#maxlength";i:128;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:11:"description";s:3:"#id";s:16:"edit-description";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:3:"tag";a:24:{s:5:"#type";s:9:"textfield";s:6:"#title";s:8:"View tag";s:12:"#description";s:99:"Enter an optional tag for this view; it is used only to help sort views on the administrative page.";s:14:"#default_value";s:0:"";s:18:"#autocomplete_path";s:33:"admin/views/ajax/autocomplete/tag";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:3:"tag";}s:14:"#array_parents";a:1:{i:0;s:3:"tag";}s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#size";i:60;s:10:"#maxlength";i:128;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:3:"tag";s:3:"#id";s:8:"edit-tag";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:10:"base_table";a:30:{s:5:"#type";s:6:"radios";s:6:"#title";s:9:"View type";s:12:"#description";s:223:"The view type is the primary table for which information is being retrieved. The view type controls what arguments, fields, sort criteria and filters are available, so once this is set it <strong>cannot be changed</strong>.";s:14:"#default_value";s:4:"node";s:8:"#options";a:7:{s:4:"node";s:77:"Node<div class="description">Nodes are a Drupal site's primary content.</div>";s:8:"comments";s:77:"Comment<div class="description">Comments are responses to node content.</div>";s:5:"files";s:82:"File<div class="description">Files maintained by Drupal and various modules.</div>";s:14:"user_stats_ips";s:71:"IP addresses<div class="description">Users and their IP addresses</div>";s:14:"node_revisions";s:93:"Node revision<div class="description">Node revisions are a history of changes to nodes.</div>";s:9:"term_data";s:72:"Term<div class="description">Taxonomy terms are attached to nodes.</div>";s:5:"users";s:80:"User<div class="description">Users who have created accounts on your site.</div>";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:14:"#array_parents";a:1:{i:0;s:10:"base_table";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:13:"expand_radios";}s:5:"#name";s:10:"base_table";s:3:"#id";s:15:"edit-base-table";s:6:"#value";s:4:"node";s:4:"node";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:77:"Node<div class="description">Nodes are a Drupal site's primary content.</div>";s:13:"#return_value";s:4:"node";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:20:"edit-base-table-node";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:8:"comments";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:77:"Comment<div class="description">Comments are responses to node content.</div>";s:13:"#return_value";s:8:"comments";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:24:"edit-base-table-comments";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:5:"files";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:82:"File<div class="description">Files maintained by Drupal and various modules.</div>";s:13:"#return_value";s:5:"files";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:21:"edit-base-table-files";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:14:"user_stats_ips";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:71:"IP addresses<div class="description">Users and their IP addresses</div>";s:13:"#return_value";s:14:"user_stats_ips";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:30:"edit-base-table-user-stats-ips";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:14:"node_revisions";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:93:"Node revision<div class="description">Node revisions are a history of changes to nodes.</div>";s:13:"#return_value";s:14:"node_revisions";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:30:"edit-base-table-node-revisions";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:9:"term_data";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:72:"Term<div class="description">Taxonomy terms are attached to nodes.</div>";s:13:"#return_value";s:9:"term_data";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:25:"edit-base-table-term-data";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.005000000000000000104083408558608425664715468883514404296875;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:5:"users";a:22:{s:5:"#type";s:5:"radio";s:6:"#title";s:80:"User<div class="description">Users who have created accounts on your site.</div>";s:13:"#return_value";s:5:"users";s:14:"#default_value";s:4:"node";s:11:"#attributes";a:0:{}s:8:"#parents";a:1:{i:0;s:10:"base_table";}s:3:"#id";s:21:"edit-base-table-users";s:5:"#ahah";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:7:"#weight";d:0.00600000000000000012490009027033011079765856266021728515625;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:10:"base_table";s:6:"#value";s:4:"node";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:9:"#children";s:2610:"<span id="thmr_7" class="thmr_call">
+  <div class="form-item" id="edit-base-table-node-wrapper">
+ <label class="option" for="edit-base-table-node"><input type="radio" id="edit-base-table-node" name="base_table" value="node"  checked="checked"  class="form-radio" /> Node<div class="description">Nodes are a Drupal site's primary content.</div></label>
+</div>
+</span>
+
+<span id="thmr_9" class="thmr_call">
+  <div class="form-item" id="edit-base-table-comments-wrapper">
+ <label class="option" for="edit-base-table-comments"><input type="radio" id="edit-base-table-comments" name="base_table" value="comments"   class="form-radio" /> Comment<div class="description">Comments are responses to node content.</div></label>
+</div>
+</span>
+
+<span id="thmr_11" class="thmr_call">
+  <div class="form-item" id="edit-base-table-files-wrapper">
+ <label class="option" for="edit-base-table-files"><input type="radio" id="edit-base-table-files" name="base_table" value="files"   class="form-radio" /> File<div class="description">Files maintained by Drupal and various modules.</div></label>
+</div>
+</span>
+
+<span id="thmr_13" class="thmr_call">
+  <div class="form-item" id="edit-base-table-user-stats-ips-wrapper">
+ <label class="option" for="edit-base-table-user-stats-ips"><input type="radio" id="edit-base-table-user-stats-ips" name="base_table" value="user_stats_ips"   class="form-radio" /> IP addresses<div class="description">Users and their IP addresses</div></label>
+</div>
+</span>
+
+<span id="thmr_15" class="thmr_call">
+  <div class="form-item" id="edit-base-table-node-revisions-wrapper">
+ <label class="option" for="edit-base-table-node-revisions"><input type="radio" id="edit-base-table-node-revisions" name="base_table" value="node_revisions"   class="form-radio" /> Node revision<div class="description">Node revisions are a history of changes to nodes.</div></label>
+</div>
+</span>
+
+<span id="thmr_17" class="thmr_call">
+  <div class="form-item" id="edit-base-table-term-data-wrapper">
+ <label class="option" for="edit-base-table-term-data"><input type="radio" id="edit-base-table-term-data" name="base_table" value="term_data"   class="form-radio" /> Term<div class="description">Taxonomy terms are attached to nodes.</div></label>
+</div>
+</span>
+
+<span id="thmr_19" class="thmr_call">
+  <div class="form-item" id="edit-base-table-users-wrapper">
+ <label class="option" for="edit-base-table-users"><input type="radio" id="edit-base-table-users" name="base_table" value="users"   class="form-radio" /> User<div class="description">Users who have created accounts on your site.</div></label>
+</div>
+</span>
+
+";s:8:"#printed";b:1;}s:6:"submit";a:24:{s:5:"#type";s:6:"submit";s:6:"#value";s:4:"Next";s:9:"#validate";a:1:{i:0;s:26:"views_ui_add_form_validate";}s:7:"#submit";a:1:{i:0;s:24:"views_ui_add_form_submit";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:11:"edit-submit";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:11:"#parameters";a:2:{i:0;s:17:"views_ui_add_form";i:1;a:6:{s:4:"view";N;s:7:"storage";N;s:9:"submitted";b:0;s:5:"input";a:0:{}s:6:"method";s:4:"post";s:4:"post";a:0:{}}}s:9:"#build_id";s:37:"form-29cd5cb19fea697cd145e557ff99d7c3";s:5:"#type";s:4:"form";s:11:"#programmed";b:0;s:13:"form_build_id";a:20:{s:5:"#type";s:6:"hidden";s:6:"#value";s:37:"form-29cd5cb19fea697cd145e557ff99d7c3";s:3:"#id";s:37:"form-29cd5cb19fea697cd145e557ff99d7c3";s:5:"#name";s:13:"form_build_id";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:13:"form_build_id";}s:14:"#array_parents";a:1:{i:0;s:13:"form_build_id";}s:7:"#weight";d:0.005000000000000000104083408558608425664715468883514404296875;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:6:"#token";s:17:"views_ui_add_form";s:10:"form_token";a:20:{s:3:"#id";s:33:"edit-views-ui-add-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"fb8fb94d6540795d7fc178e23896331f";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.00600000000000000012490009027033011079765856266021728515625;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"fb8fb94d6540795d7fc178e23896331f";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:7:"form_id";a:20:{s:5:"#type";s:6:"hidden";s:6:"#value";s:17:"views_ui_add_form";s:3:"#id";s:22:"edit-views-ui-add-form";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:7:"form_id";}s:14:"#array_parents";a:1:{i:0;s:7:"form_id";}s:7:"#weight";d:0.007000000000000000145716771982051795930601656436920166015625;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:7:"form_id";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:3:"#id";s:17:"views-ui-add-form";s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:5:"#tree";b:0;s:8:"#parents";a:0:{}s:7:"#method";s:4:"post";s:7:"#action";s:22:"/admin/build/views/add";s:9:"#validate";a:1:{i:0;s:26:"views_ui_add_form_validate";}s:7:"#submit";a:1:{i:0;s:24:"views_ui_add_form_submit";}s:12:"#after_build";a:1:{i:0;s:20:"wysiwyg_process_form";}s:5:"#post";a:0:{}s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:17:"#after_build_done";b:1;s:6:"#title";N;s:9:"#children";s:5218:"<span id="thmr_1" class="thmr_call">
+  <div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">View name: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="32" name="name" id="edit-name" size="60" value="" class="form-text required" />
+ <div class="description">This is the unique name of the view. It must contain only alphanumeric characters and underscores; it is used to identify the view internally and to generate unique theming template names for this view. If overriding a module provided view, the name must not be changed or instead a new view will be created.</div>
+</div>
+</span>
+
+<span id="thmr_3" class="thmr_call">
+  <div class="form-item" id="edit-description-wrapper">
+ <label for="edit-description">View description: </label>
+ <input type="text" maxlength="128" name="description" id="edit-description" size="60" value="" class="form-text" />
+ <div class="description">This description will appear on the Views administrative UI to tell you what the view is about.</div>
+</div>
+</span>
+
+<span id="thmr_5" class="thmr_call">
+  <div class="form-item" id="edit-tag-wrapper">
+ <label for="edit-tag">View tag: </label>
+ <input type="text" maxlength="128" name="tag" id="edit-tag" size="60" value="" class="form-text form-autocomplete" />
+ <div class="description">Enter an optional tag for this view; it is used only to help sort views on the administrative page.</div>
+</div>
+<input class="autocomplete" type="hidden" id="edit-tag-autocomplete" value="http://sa.wilwolf.com/admin/views/ajax/autocomplete/tag" disabled="disabled" /></span>
+
+<span id="thmr_21" class="thmr_call">
+  <div class="form-item">
+ <label>View type: </label>
+ <div class="form-radios"><span id="thmr_7" class="thmr_call">
+  <div class="form-item" id="edit-base-table-node-wrapper">
+ <label class="option" for="edit-base-table-node"><input type="radio" id="edit-base-table-node" name="base_table" value="node"  checked="checked"  class="form-radio" /> Node<div class="description">Nodes are a Drupal site's primary content.</div></label>
+</div>
+</span>
+
+<span id="thmr_9" class="thmr_call">
+  <div class="form-item" id="edit-base-table-comments-wrapper">
+ <label class="option" for="edit-base-table-comments"><input type="radio" id="edit-base-table-comments" name="base_table" value="comments"   class="form-radio" /> Comment<div class="description">Comments are responses to node content.</div></label>
+</div>
+</span>
+
+<span id="thmr_11" class="thmr_call">
+  <div class="form-item" id="edit-base-table-files-wrapper">
+ <label class="option" for="edit-base-table-files"><input type="radio" id="edit-base-table-files" name="base_table" value="files"   class="form-radio" /> File<div class="description">Files maintained by Drupal and various modules.</div></label>
+</div>
+</span>
+
+<span id="thmr_13" class="thmr_call">
+  <div class="form-item" id="edit-base-table-user-stats-ips-wrapper">
+ <label class="option" for="edit-base-table-user-stats-ips"><input type="radio" id="edit-base-table-user-stats-ips" name="base_table" value="user_stats_ips"   class="form-radio" /> IP addresses<div class="description">Users and their IP addresses</div></label>
+</div>
+</span>
+
+<span id="thmr_15" class="thmr_call">
+  <div class="form-item" id="edit-base-table-node-revisions-wrapper">
+ <label class="option" for="edit-base-table-node-revisions"><input type="radio" id="edit-base-table-node-revisions" name="base_table" value="node_revisions"   class="form-radio" /> Node revision<div class="description">Node revisions are a history of changes to nodes.</div></label>
+</div>
+</span>
+
+<span id="thmr_17" class="thmr_call">
+  <div class="form-item" id="edit-base-table-term-data-wrapper">
+ <label class="option" for="edit-base-table-term-data"><input type="radio" id="edit-base-table-term-data" name="base_table" value="term_data"   class="form-radio" /> Term<div class="description">Taxonomy terms are attached to nodes.</div></label>
+</div>
+</span>
+
+<span id="thmr_19" class="thmr_call">
+  <div class="form-item" id="edit-base-table-users-wrapper">
+ <label class="option" for="edit-base-table-users"><input type="radio" id="edit-base-table-users" name="base_table" value="users"   class="form-radio" /> User<div class="description">Users who have created accounts on your site.</div></label>
+</div>
+</span>
+
+</div>
+ <div class="description">The view type is the primary table for which information is being retrieved. The view type controls what arguments, fields, sort criteria and filters are available, so once this is set it <strong>cannot be changed</strong>.</div>
+</div>
+</span>
+
+<span id="thmr_23" class="thmr_call">
+  <span id="thmr_24" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit" value="Next"  class="form-submit" />
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-29cd5cb19fea697cd145e557ff99d7c3" value="form-29cd5cb19fea697cd145e557ff99d7c3"  />
+<span id="thmr_26" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-views-ui-add-form-form-token" value="fb8fb94d6540795d7fc178e23896331f"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-views-ui-add-form" value="views_ui_add_form"  />
+";}}s:4:"type";s:4:"func";}s:7:"thmr_32";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:12:"views_access";s:16:"access_arguments";s:14:"a:1:{i:0;b:1;}";s:13:"page_callback";s:10:"views_page";s:14:"page_arguments";s:51:"a:2:{i:0;s:18:"highlighted_groups";i:1;s:4:"page";}";s:5:"title";s:6:"Groups";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:4:"1077";s:4:"plid";s:1:"0";s:9:"link_path";s:2:"og";s:11:"router_path";s:2:"og";s:10:"link_title";s:6:"Groups";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"0";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:4:"1077";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:2:"og";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_33";a:2:{s:9:"variables";a:5:{s:4:"link";s:73:"<span id="thmr_32" class="thmr_call">
+  <a href="/og">Groups</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";s:5:"first";}s:4:"type";s:4:"func";}s:7:"thmr_34";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:22:"privatemsg_user_access";s:16:"access_arguments";s:6:"a:0:{}";s:13:"page_callback";s:15:"drupal_get_form";s:14:"page_arguments";s:48:"a:2:{i:0;s:15:"privatemsg_list";i:1;s:4:"list";}";s:5:"title";s:8:"Messages";s:14:"title_callback";s:25:"privatemsg_title_callback";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:4:"1124";s:4:"plid";s:1:"0";s:9:"link_path";s:8:"messages";s:11:"router_path";s:8:"messages";s:10:"link_title";s:8:"Messages";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"0";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:4:"1124";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:8:"messages";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_35";a:2:{s:9:"variables";a:5:{s:4:"link";s:81:"<span id="thmr_34" class="thmr_call">
+  <a href="/messages">Messages</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";N;}s:4:"type";s:4:"func";}s:7:"thmr_36";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:12:"views_access";s:16:"access_arguments";s:73:"a:1:{i:0;a:2:{i:0;s:17:"views_check_roles";i:1;a:1:{i:0;a:1:{i:2;i:2;}}}}";s:13:"page_callback";s:10:"views_page";s:14:"page_arguments";s:41:"a:2:{i:0;s:9:"og_unread";i:1;s:4:"page";}";s:5:"title";s:9:"My Unread";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:3:"384";s:4:"plid";s:1:"0";s:9:"link_path";s:5:"group";s:11:"router_path";s:5:"group";s:10:"link_title";s:9:"My Unread";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"0";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:3:"384";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:5:"group";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_37";a:2:{s:9:"variables";a:5:{s:4:"link";s:79:"<span id="thmr_36" class="thmr_call">
+  <a href="/group">My Unread</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";N;}s:4:"type";s:4:"func";}s:7:"thmr_38";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";a:1:{i:1;s:22:"user_uid_optional_load";}s:16:"to_arg_functions";s:42:"a:1:{i:1;s:24:"user_uid_optional_to_arg";}";s:15:"access_callback";s:16:"user_view_access";s:16:"access_arguments";s:14:"a:1:{i:0;i:1;}";s:13:"page_callback";s:9:"user_view";s:14:"page_arguments";s:14:"a:1:{i:0;i:1;}";s:5:"title";s:10:"My account";s:14:"title_callback";s:15:"user_page_title";s:15:"title_arguments";s:14:"a:1:{i:0;i:1;}";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:2:"21";s:4:"plid";s:1:"0";s:9:"link_path";s:6:"user/%";s:11:"router_path";s:6:"user/%";s:10:"link_title";s:10:"My account";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"0";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:2:"21";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:6:"user/1";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_39";a:2:{s:9:"variables";a:5:{s:4:"link";s:81:"<span id="thmr_38" class="thmr_call">
+  <a href="/user/1">My account</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";N;}s:4:"type";s:4:"func";}s:7:"thmr_40";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:16:"_node_add_access";s:16:"access_arguments";s:6:"a:0:{}";s:13:"page_callback";s:13:"node_add_page";s:14:"page_arguments";s:6:"a:0:{}";s:5:"title";s:14:"Create content";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:2:"11";s:4:"plid";s:1:"0";s:9:"link_path";s:8:"node/add";s:11:"router_path";s:8:"node/add";s:10:"link_title";s:14:"Create content";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"1";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"1";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:2:"11";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:8:"node/add";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_41";a:2:{s:9:"variables";a:5:{s:4:"link";s:87:"<span id="thmr_40" class="thmr_call">
+  <a href="/node/add">Create content</a></span>
+
+";s:12:"has_children";s:1:"1";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";N;}s:4:"type";s:4:"func";}s:7:"thmr_42";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:17:"user_is_logged_in";s:16:"access_arguments";s:6:"a:0:{}";s:13:"page_callback";s:11:"user_logout";s:14:"page_arguments";s:6:"a:0:{}";s:5:"title";s:7:"Log out";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:1:"4";s:4:"plid";s:1:"0";s:9:"link_path";s:6:"logout";s:11:"router_path";s:6:"logout";s:10:"link_title";s:7:"Log out";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:2:"10";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:1:"4";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:6:"logout";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_43";a:2:{s:9:"variables";a:5:{s:4:"link";s:78:"<span id="thmr_42" class="thmr_call">
+  <a href="/logout">Log out</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";s:4:"last";}s:4:"type";s:4:"func";}s:7:"thmr_44";a:2:{s:9:"variables";a:1:{s:4:"tree";s:927:"<span id="thmr_33" class="thmr_call">
+  <li class="leaf first"><span id="thmr_32" class="thmr_call">
+  <a href="/og">Groups</a></span>
+
+</li>
+</span>
+
+<span id="thmr_35" class="thmr_call">
+  <li class="leaf"><span id="thmr_34" class="thmr_call">
+  <a href="/messages">Messages</a></span>
+
+</li>
+</span>
+
+<span id="thmr_37" class="thmr_call">
+  <li class="leaf"><span id="thmr_36" class="thmr_call">
+  <a href="/group">My Unread</a></span>
+
+</li>
+</span>
+
+<span id="thmr_39" class="thmr_call">
+  <li class="leaf"><span id="thmr_38" class="thmr_call">
+  <a href="/user/1">My account</a></span>
+
+</li>
+</span>
+
+<span id="thmr_41" class="thmr_call">
+  <li class="collapsed"><span id="thmr_40" class="thmr_call">
+  <a href="/node/add">Create content</a></span>
+
+</li>
+</span>
+
+<span id="thmr_43" class="thmr_call">
+  <li class="leaf last"><span id="thmr_42" class="thmr_call">
+  <a href="/logout">Log out</a></span>
+
+</li>
+</span>
+
+";}s:4:"type";s:4:"func";}s:7:"thmr_45";a:2:{s:9:"variables";a:12:{s:14:"template_files";a:3:{i:0;s:10:"block-left";i:1;s:10:"block-user";i:2;s:12:"block-user-1";}s:5:"block";O:8:"stdClass":17:{s:3:"bid";s:2:"32";s:6:"module";s:4:"user";s:5:"delta";s:1:"1";s:5:"theme";s:10:"pushbutton";s:6:"status";s:1:"1";s:6:"weight";s:2:"-6";s:6:"region";s:4:"left";s:6:"custom";s:1:"0";s:8:"throttle";s:1:"0";s:10:"visibility";s:1:"0";s:5:"pages";s:0:"";s:5:"title";s:0:"";s:5:"cache";s:2:"-1";s:7:"enabled";b:1;s:10:"page_match";b:1;s:7:"subject";s:8:"gemiinii";s:7:"content";s:998:"<span id="thmr_44" class="thmr_call">
+  <ul class="menu"><span id="thmr_33" class="thmr_call">
+  <li class="leaf first"><span id="thmr_32" class="thmr_call">
+  <a href="/og">Groups</a></span>
+
+</li>
+</span>
+
+<span id="thmr_35" class="thmr_call">
+  <li class="leaf"><span id="thmr_34" class="thmr_call">
+  <a href="/messages">Messages</a></span>
+
+</li>
+</span>
+
+<span id="thmr_37" class="thmr_call">
+  <li class="leaf"><span id="thmr_36" class="thmr_call">
+  <a href="/group">My Unread</a></span>
+
+</li>
+</span>
+
+<span id="thmr_39" class="thmr_call">
+  <li class="leaf"><span id="thmr_38" class="thmr_call">
+  <a href="/user/1">My account</a></span>
+
+</li>
+</span>
+
+<span id="thmr_41" class="thmr_call">
+  <li class="collapsed"><span id="thmr_40" class="thmr_call">
+  <a href="/node/add">Create content</a></span>
+
+</li>
+</span>
+
+<span id="thmr_43" class="thmr_call">
+  <li class="leaf last"><span id="thmr_42" class="thmr_call">
+  <a href="/logout">Log out</a></span>
+
+</li>
+</span>
+
+</ul></span>
+
+";}s:5:"zebra";s:3:"odd";s:2:"id";i:1;s:9:"directory";s:17:"themes/pushbutton";s:8:"is_admin";b:1;s:8:"is_front";b:0;s:9:"logged_in";b:1;s:12:"db_is_active";b:1;s:4:"user";O:8:"stdClass":27:{s:3:"uid";s:1:"1";s:4:"name";s:8:"gemiinii";s:4:"pass";s:32:"3d517f8924ac7fd03699a29d97dc52d9";s:4:"mail";s:27:"william.wolfrath2@gmail.com";s:4:"mode";s:1:"0";s:4:"sort";s:1:"0";s:9:"threshold";s:1:"0";s:5:"theme";s:0:"";s:9:"signature";s:0:"";s:16:"signature_format";s:1:"0";s:7:"created";s:10:"1256146829";s:6:"access";s:10:"1262731092";s:5:"login";s:10:"1262650311";s:6:"status";s:1:"1";s:8:"timezone";N;s:8:"language";s:0:"";s:7:"picture";s:0:"";s:4:"init";s:26:"william.wolfrath@gmail.com";s:4:"data";s:6:"a:0:{}";s:13:"timezone_name";s:0:"";s:3:"sid";s:32:"6768f008b5f354d3c897bdc2f5270e7f";s:8:"hostname";s:13:"74.73.251.113";s:9:"timestamp";s:10:"1262731147";s:5:"cache";s:1:"0";s:7:"session";s:80:"node_overview_filter|a:1:{i:0;a:2:{i:0;s:4:"type";i:1;s:16:"scholarship_page";}}";s:5:"roles";a:1:{i:2;s:18:"authenticated user";}s:9:"og_groups";a:0:{}}s:11:"block_zebra";s:3:"odd";s:8:"block_id";i:1;}s:4:"type";s:3:"tpl";}s:7:"thmr_31";a:2:{s:9:"variables";a:1:{s:6:"region";s:4:"left";}s:4:"type";s:4:"func";}s:7:"thmr_50";a:2:{s:9:"variables";a:1:{s:10:"breadcrumb";a:2:{i:0;s:20:"<a href="/">Home</a>";i:1;s:38:"<a href="/admin/build/views">Views</a>";}}s:4:"type";s:4:"func";}s:7:"thmr_52";a:2:{s:9:"variables";a:1:{s:4:"link";a:24:{s:4:"href";s:17:"admin/build/views";s:4:"path";s:22:"admin/build/views/list";s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:11:"user_access";s:16:"access_arguments";s:34:"a:1:{i:0;s:16:"administer views";}";s:13:"page_callback";s:19:"views_ui_list_views";s:14:"page_arguments";s:6:"a:0:{}";s:3:"fit";s:2:"15";s:12:"number_parts";s:1:"4";s:10:"tab_parent";s:17:"admin/build/views";s:8:"tab_root";s:17:"admin/build/views";s:5:"title";s:4:"List";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:3:"136";s:14:"block_callback";s:0:"";s:11:"description";s:0:"";s:8:"position";s:0:"";s:6:"weight";s:2:"-1";s:4:"file";s:42:"sites/all/modules/views/includes/admin.inc";s:7:"options";a:0:{}s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_53";a:2:{s:9:"variables";a:1:{s:4:"link";s:86:"<span id="thmr_52" class="thmr_call">
+  <a href="/admin/build/views">List</a></span>
+
+";}s:4:"type";s:4:"func";}s:7:"thmr_54";a:2:{s:9:"variables";a:1:{s:4:"link";a:24:{s:4:"path";s:21:"admin/build/views/add";s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:11:"user_access";s:16:"access_arguments";s:34:"a:1:{i:0;s:16:"administer views";}";s:13:"page_callback";s:17:"views_ui_add_page";s:14:"page_arguments";s:6:"a:0:{}";s:3:"fit";s:2:"15";s:12:"number_parts";s:1:"4";s:10:"tab_parent";s:17:"admin/build/views";s:8:"tab_root";s:17:"admin/build/views";s:5:"title";s:3:"Add";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:3:"128";s:14:"block_callback";s:0:"";s:11:"description";s:0:"";s:8:"position";s:0:"";s:6:"weight";s:1:"0";s:4:"file";s:42:"sites/all/modules/views/includes/admin.inc";s:4:"href";s:21:"admin/build/views/add";s:7:"options";a:0:{}s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_55";a:2:{s:9:"variables";a:2:{s:4:"link";s:104:"<span id="thmr_54" class="thmr_call">
+  <a href="/admin/build/views/add" class="active">Add</a></span>
+
+";s:6:"active";b:1;}s:4:"type";s:4:"func";}s:7:"thmr_56";a:2:{s:9:"variables";a:1:{s:4:"link";a:24:{s:4:"path";s:24:"admin/build/views/import";s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:11:"user_access";s:16:"access_arguments";s:34:"a:1:{i:0;s:16:"administer views";}";s:13:"page_callback";s:15:"drupal_get_form";s:14:"page_arguments";s:38:"a:1:{i:0;s:20:"views_ui_import_page";}";s:3:"fit";s:2:"15";s:12:"number_parts";s:1:"4";s:10:"tab_parent";s:17:"admin/build/views";s:8:"tab_root";s:17:"admin/build/views";s:5:"title";s:6:"Import";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:3:"128";s:14:"block_callback";s:0:"";s:11:"description";s:0:"";s:8:"position";s:0:"";s:6:"weight";s:1:"0";s:4:"file";s:42:"sites/all/modules/views/includes/admin.inc";s:4:"href";s:24:"admin/build/views/import";s:7:"options";a:0:{}s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_57";a:2:{s:9:"variables";a:1:{s:4:"link";s:95:"<span id="thmr_56" class="thmr_call">
+  <a href="/admin/build/views/import">Import</a></span>
+
+";}s:4:"type";s:4:"func";}s:7:"thmr_58";a:2:{s:9:"variables";a:1:{s:4:"link";a:24:{s:4:"path";s:23:"admin/build/views/tools";s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:11:"user_access";s:16:"access_arguments";s:34:"a:1:{i:0;s:16:"administer views";}";s:13:"page_callback";s:15:"drupal_get_form";s:14:"page_arguments";s:38:"a:1:{i:0;s:20:"views_ui_admin_tools";}";s:3:"fit";s:2:"15";s:12:"number_parts";s:1:"4";s:10:"tab_parent";s:17:"admin/build/views";s:8:"tab_root";s:17:"admin/build/views";s:5:"title";s:5:"Tools";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:3:"128";s:14:"block_callback";s:0:"";s:11:"description";s:0:"";s:8:"position";s:0:"";s:6:"weight";s:1:"0";s:4:"file";s:42:"sites/all/modules/views/includes/admin.inc";s:4:"href";s:23:"admin/build/views/tools";s:7:"options";a:0:{}s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_59";a:2:{s:9:"variables";a:1:{s:4:"link";s:93:"<span id="thmr_58" class="thmr_call">
+  <a href="/admin/build/views/tools">Tools</a></span>
+
+";}s:4:"type";s:4:"func";}s:7:"thmr_62";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:6:"#title";s:16:"Search this site";s:5:"#type";s:9:"textfield";s:5:"#size";i:15;s:14:"#default_value";s:0:"";s:11:"#attributes";a:1:{s:5:"title";s:39:"Enter the terms you wish to search for.";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:17:"search_theme_form";}s:14:"#array_parents";a:1:{i:0;s:17:"search_theme_form";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:10:"#maxlength";i:128;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:17:"search_theme_form";s:3:"#id";s:24:"edit-search-theme-form-1";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_65";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Search";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:13:"edit-submit-1";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_64";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Search";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:13:"edit-submit-1";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_67";a:2:{s:9:"variables";a:1:{s:7:"element";a:19:{s:3:"#id";s:33:"edit-search-theme-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_61";a:2:{s:9:"variables";a:12:{s:14:"template_files";a:0:{}s:4:"form";a:30:{s:17:"search_theme_form";a:24:{s:6:"#title";s:16:"Search this site";s:5:"#type";s:9:"textfield";s:5:"#size";i:15;s:14:"#default_value";s:0:"";s:11:"#attributes";a:1:{s:5:"title";s:39:"Enter the terms you wish to search for.";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:17:"search_theme_form";}s:14:"#array_parents";a:1:{i:0;s:17:"search_theme_form";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:10:"#maxlength";i:128;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:17:"search_theme_form";s:3:"#id";s:24:"edit-search-theme-form-1";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:6:"submit";a:22:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Search";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:13:"edit-submit-1";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:7:"#submit";a:1:{i:0;s:22:"search_box_form_submit";}s:9:"#validate";a:1:{i:0;s:24:"search_box_form_validate";}s:11:"#parameters";a:2:{i:0;s:17:"search_theme_form";i:1;a:3:{s:7:"storage";N;s:9:"submitted";b:0;s:4:"post";a:0:{}}}s:9:"#build_id";s:37:"form-8b40d625d5872f5f5d1bd106fdf31300";s:5:"#type";s:6:"markup";s:11:"#programmed";b:0;s:13:"form_build_id";a:20:{s:5:"#type";s:6:"hidden";s:6:"#value";s:37:"form-8b40d625d5872f5f5d1bd106fdf31300";s:3:"#id";s:37:"form-8b40d625d5872f5f5d1bd106fdf31300";s:5:"#name";s:13:"form_build_id";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:13:"form_build_id";}s:14:"#array_parents";a:1:{i:0;s:13:"form_build_id";}s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:6:"#token";s:17:"search_theme_form";s:10:"form_token";a:20:{s:3:"#id";s:33:"edit-search-theme-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:7:"form_id";a:20:{s:5:"#type";s:6:"hidden";s:6:"#value";s:17:"search_theme_form";s:3:"#id";s:22:"edit-search-theme-form";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:7:"form_id";}s:14:"#array_parents";a:1:{i:0;s:7:"form_id";}s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:7:"form_id";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:3:"#id";s:17:"search-theme-form";s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:5:"#tree";b:0;s:8:"#parents";a:0:{}s:7:"#method";s:4:"post";s:7:"#action";s:22:"/admin/build/views/add";s:12:"#after_build";a:1:{i:0;s:20:"wysiwyg_process_form";}s:5:"#post";a:0:{}s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:17:"#after_build_done";b:1;s:6:"#theme";s:17:"search_theme_form";s:6:"#title";N;s:11:"#theme_used";b:1;s:6:"#value";s:0:"";}s:5:"zebra";s:3:"odd";s:2:"id";i:1;s:9:"directory";s:14:"modules/search";s:8:"is_admin";b:1;s:8:"is_front";b:0;s:9:"logged_in";b:1;s:12:"db_is_active";b:1;s:4:"user";r:1361;s:6:"search";a:3:{s:17:"search_theme_form";s:363:"<span id="thmr_62" class="thmr_call">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text" />
+</div>
+</span>
+
+";s:6:"submit";s:187:"<span id="thmr_64" class="thmr_call">
+  <span id="thmr_65" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit-1" value="Search"  class="form-submit" />
+</span>
+
+</span>
+
+";s:6:"hidden";s:401:"<input type="hidden" name="form_build_id" id="form-8b40d625d5872f5f5d1bd106fdf31300" value="form-8b40d625d5872f5f5d1bd106fdf31300"  />
+<span id="thmr_67" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-search-theme-form-form-token" value="fc65db8fbfe59680f58e3f28e1b5acb8"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  />
+";}s:11:"search_form";s:951:"<span id="thmr_62" class="thmr_call">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text" />
+</div>
+</span>
+
+<span id="thmr_64" class="thmr_call">
+  <span id="thmr_65" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit-1" value="Search"  class="form-submit" />
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-8b40d625d5872f5f5d1bd106fdf31300" value="form-8b40d625d5872f5f5d1bd106fdf31300"  />
+<span id="thmr_67" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-search-theme-form-form-token" value="fc65db8fbfe59680f58e3f28e1b5acb8"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  />
+";}s:4:"type";s:3:"tpl";}s:7:"thmr_70";a:2:{s:9:"variables";a:1:{s:7:"element";a:33:{s:17:"search_theme_form";a:23:{s:6:"#title";s:16:"Search this site";s:5:"#type";s:9:"textfield";s:5:"#size";i:15;s:14:"#default_value";s:0:"";s:11:"#attributes";a:1:{s:5:"title";s:39:"Enter the terms you wish to search for.";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:17:"search_theme_form";}s:14:"#array_parents";a:1:{i:0;s:17:"search_theme_form";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:10:"#maxlength";i:128;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:17:"search_theme_form";s:3:"#id";s:24:"edit-search-theme-form-1";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:6:"submit";a:20:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Search";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:13:"edit-submit-1";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:7:"#submit";a:1:{i:0;s:22:"search_box_form_submit";}s:9:"#validate";a:1:{i:0;s:24:"search_box_form_validate";}s:11:"#parameters";a:2:{i:0;s:17:"search_theme_form";i:1;a:3:{s:7:"storage";N;s:9:"submitted";b:0;s:4:"post";a:0:{}}}s:9:"#build_id";s:37:"form-8b40d625d5872f5f5d1bd106fdf31300";s:5:"#type";s:4:"form";s:11:"#programmed";b:0;s:13:"form_build_id";a:18:{s:5:"#type";s:6:"hidden";s:6:"#value";s:37:"form-8b40d625d5872f5f5d1bd106fdf31300";s:3:"#id";s:37:"form-8b40d625d5872f5f5d1bd106fdf31300";s:5:"#name";s:13:"form_build_id";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:13:"form_build_id";}s:14:"#array_parents";a:1:{i:0;s:13:"form_build_id";}s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:6:"#token";s:17:"search_theme_form";s:10:"form_token";a:18:{s:3:"#id";s:33:"edit-search-theme-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:7:"form_id";a:18:{s:5:"#type";s:6:"hidden";s:6:"#value";s:17:"search_theme_form";s:3:"#id";s:22:"edit-search-theme-form";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:7:"form_id";}s:14:"#array_parents";a:1:{i:0;s:7:"form_id";}s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:7:"form_id";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:3:"#id";s:17:"search-theme-form";s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:5:"#tree";b:0;s:8:"#parents";a:0:{}s:7:"#method";s:4:"post";s:7:"#action";s:22:"/admin/build/views/add";s:12:"#after_build";a:1:{i:0;s:20:"wysiwyg_process_form";}s:5:"#post";a:0:{}s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:17:"#after_build_done";b:1;s:6:"#theme";s:17:"search_theme_form";s:6:"#title";N;s:11:"#theme_used";b:1;s:6:"#value";N;s:7:"#prefix";N;s:7:"#suffix";N;s:9:"#children";s:1052:"<span id="thmr_61" class="thmr_call">
+  <div id="search" class="container-inline">
+  <span id="thmr_62" class="thmr_call">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text" />
+</div>
+</span>
+
+<span id="thmr_64" class="thmr_call">
+  <span id="thmr_65" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit-1" value="Search"  class="form-submit" />
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-8b40d625d5872f5f5d1bd106fdf31300" value="form-8b40d625d5872f5f5d1bd106fdf31300"  />
+<span id="thmr_67" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-search-theme-form-form-token" value="fc65db8fbfe59680f58e3f28e1b5acb8"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  />
+</div>
+</span>
+
+";}}s:4:"type";s:4:"func";}s:7:"thmr_71";a:2:{s:9:"variables";a:0:{}s:4:"type";s:4:"func";}s:7:"thmr_73";a:2:{s:9:"variables";a:2:{s:5:"links";a:3:{s:8:"menu-939";a:3:{s:10:"attributes";a:1:{s:5:"title";s:16:"Mentor & Network";}s:4:"href";s:8:"node/353";s:5:"title";s:16:"MENTOR & NETWORK";}s:8:"menu-666";a:3:{s:10:"attributes";a:1:{s:5:"title";s:18:"Career Development";}s:4:"href";s:8:"node/126";s:5:"title";s:18:"CAREER DEVELOPMENT";}s:8:"menu-911";a:3:{s:10:"attributes";a:1:{s:5:"title";s:22:"Scholarships and Ideas";}s:4:"href";s:8:"node/151";s:5:"title";s:20:"SCHOLARSHIPS & IDEAS";}}s:10:"attributes";a:2:{s:5:"class";s:5:"links";s:2:"id";s:7:"navlist";}}s:4:"type";s:4:"func";}s:7:"thmr_75";a:2:{s:9:"variables";a:2:{s:5:"links";a:3:{s:8:"menu-939";a:3:{s:10:"attributes";a:1:{s:5:"title";s:16:"Mentor & Network";}s:4:"href";s:8:"node/353";s:5:"title";s:16:"MENTOR & NETWORK";}s:8:"menu-666";a:3:{s:10:"attributes";a:1:{s:5:"title";s:18:"Career Development";}s:4:"href";s:8:"node/126";s:5:"title";s:18:"CAREER DEVELOPMENT";}s:8:"menu-911";a:3:{s:10:"attributes";a:1:{s:5:"title";s:22:"Scholarships and Ideas";}s:4:"href";s:8:"node/151";s:5:"title";s:20:"SCHOLARSHIPS & IDEAS";}}s:10:"attributes";a:1:{s:5:"class";s:19:"links primary-links";}}s:4:"type";s:4:"func";}s:7:"thmr_30";a:2:{s:9:"variables";a:42:{s:14:"template_files";a:4:{i:0;s:10:"page-admin";i:1;s:16:"page-admin-build";i:2;s:22:"page-admin-build-views";i:3;s:26:"page-admin-build-views-add";}s:7:"content";s:5387:"<span id="thmr_29" class="thmr_call">
+  <form action="/admin/build/views/add"  accept-charset="UTF-8" method="post" id="views-ui-add-form">
+<div><span id="thmr_1" class="thmr_call">
+  <div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">View name: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="32" name="name" id="edit-name" size="60" value="" class="form-text required" />
+ <div class="description">This is the unique name of the view. It must contain only alphanumeric characters and underscores; it is used to identify the view internally and to generate unique theming template names for this view. If overriding a module provided view, the name must not be changed or instead a new view will be created.</div>
+</div>
+</span>
+
+<span id="thmr_3" class="thmr_call">
+  <div class="form-item" id="edit-description-wrapper">
+ <label for="edit-description">View description: </label>
+ <input type="text" maxlength="128" name="description" id="edit-description" size="60" value="" class="form-text" />
+ <div class="description">This description will appear on the Views administrative UI to tell you what the view is about.</div>
+</div>
+</span>
+
+<span id="thmr_5" class="thmr_call">
+  <div class="form-item" id="edit-tag-wrapper">
+ <label for="edit-tag">View tag: </label>
+ <input type="text" maxlength="128" name="tag" id="edit-tag" size="60" value="" class="form-text form-autocomplete" />
+ <div class="description">Enter an optional tag for this view; it is used only to help sort views on the administrative page.</div>
+</div>
+<input class="autocomplete" type="hidden" id="edit-tag-autocomplete" value="http://sa.wilwolf.com/admin/views/ajax/autocomplete/tag" disabled="disabled" /></span>
+
+<span id="thmr_21" class="thmr_call">
+  <div class="form-item">
+ <label>View type: </label>
+ <div class="form-radios"><span id="thmr_7" class="thmr_call">
+  <div class="form-item" id="edit-base-table-node-wrapper">
+ <label class="option" for="edit-base-table-node"><input type="radio" id="edit-base-table-node" name="base_table" value="node"  checked="checked"  class="form-radio" /> Node<div class="description">Nodes are a Drupal site's primary content.</div></label>
+</div>
+</span>
+
+<span id="thmr_9" class="thmr_call">
+  <div class="form-item" id="edit-base-table-comments-wrapper">
+ <label class="option" for="edit-base-table-comments"><input type="radio" id="edit-base-table-comments" name="base_table" value="comments"   class="form-radio" /> Comment<div class="description">Comments are responses to node content.</div></label>
+</div>
+</span>
+
+<span id="thmr_11" class="thmr_call">
+  <div class="form-item" id="edit-base-table-files-wrapper">
+ <label class="option" for="edit-base-table-files"><input type="radio" id="edit-base-table-files" name="base_table" value="files"   class="form-radio" /> File<div class="description">Files maintained by Drupal and various modules.</div></label>
+</div>
+</span>
+
+<span id="thmr_13" class="thmr_call">
+  <div class="form-item" id="edit-base-table-user-stats-ips-wrapper">
+ <label class="option" for="edit-base-table-user-stats-ips"><input type="radio" id="edit-base-table-user-stats-ips" name="base_table" value="user_stats_ips"   class="form-radio" /> IP addresses<div class="description">Users and their IP addresses</div></label>
+</div>
+</span>
+
+<span id="thmr_15" class="thmr_call">
+  <div class="form-item" id="edit-base-table-node-revisions-wrapper">
+ <label class="option" for="edit-base-table-node-revisions"><input type="radio" id="edit-base-table-node-revisions" name="base_table" value="node_revisions"   class="form-radio" /> Node revision<div class="description">Node revisions are a history of changes to nodes.</div></label>
+</div>
+</span>
+
+<span id="thmr_17" class="thmr_call">
+  <div class="form-item" id="edit-base-table-term-data-wrapper">
+ <label class="option" for="edit-base-table-term-data"><input type="radio" id="edit-base-table-term-data" name="base_table" value="term_data"   class="form-radio" /> Term<div class="description">Taxonomy terms are attached to nodes.</div></label>
+</div>
+</span>
+
+<span id="thmr_19" class="thmr_call">
+  <div class="form-item" id="edit-base-table-users-wrapper">
+ <label class="option" for="edit-base-table-users"><input type="radio" id="edit-base-table-users" name="base_table" value="users"   class="form-radio" /> User<div class="description">Users who have created accounts on your site.</div></label>
+</div>
+</span>
+
+</div>
+ <div class="description">The view type is the primary table for which information is being retrieved. The view type controls what arguments, fields, sort criteria and filters are available, so once this is set it <strong>cannot be changed</strong>.</div>
+</div>
+</span>
+
+<span id="thmr_23" class="thmr_call">
+  <span id="thmr_24" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit" value="Next"  class="form-submit" />
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-29cd5cb19fea697cd145e557ff99d7c3" value="form-29cd5cb19fea697cd145e557ff99d7c3"  />
+<span id="thmr_26" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-views-ui-add-form-form-token" value="fb8fb94d6540795d7fc178e23896331f"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-views-ui-add-form" value="views_ui_add_form"  />
+
+</div></form>
+</span>
+
+";s:11:"show_blocks";b:1;s:13:"show_messages";b:1;s:5:"zebra";s:3:"odd";s:2:"id";i:1;s:9:"directory";s:17:"themes/pushbutton";s:8:"is_admin";b:1;s:8:"is_front";b:0;s:9:"logged_in";b:1;s:12:"db_is_active";b:1;s:4:"user";r:1361;s:4:"left";s:1226:"<span id="thmr_31" class="thmr_call">
+  <span id="thmr_45" class="thmr_call">
+  <div class="block block-user" id="block-user-1">
+  <div class="title"><h3>gemiinii</h3></div>
+  <div class="content"><span id="thmr_44" class="thmr_call">
+  <ul class="menu"><span id="thmr_33" class="thmr_call">
+  <li class="leaf first"><span id="thmr_32" class="thmr_call">
+  <a href="/og">Groups</a></span>
+
+</li>
+</span>
+
+<span id="thmr_35" class="thmr_call">
+  <li class="leaf"><span id="thmr_34" class="thmr_call">
+  <a href="/messages">Messages</a></span>
+
+</li>
+</span>
+
+<span id="thmr_37" class="thmr_call">
+  <li class="leaf"><span id="thmr_36" class="thmr_call">
+  <a href="/group">My Unread</a></span>
+
+</li>
+</span>
+
+<span id="thmr_39" class="thmr_call">
+  <li class="leaf"><span id="thmr_38" class="thmr_call">
+  <a href="/user/1">My account</a></span>
+
+</li>
+</span>
+
+<span id="thmr_41" class="thmr_call">
+  <li class="collapsed"><span id="thmr_40" class="thmr_call">
+  <a href="/node/add">Create content</a></span>
+
+</li>
+</span>
+
+<span id="thmr_43" class="thmr_call">
+  <li class="leaf last"><span id="thmr_42" class="thmr_call">
+  <a href="/logout">Log out</a></span>
+
+</li>
+</span>
+
+</ul></span>
+
+</div>
+</div></span>
+
+</span>
+
+";s:5:"right";s:0:"";s:6:"header";s:0:"";s:6:"footer";s:0:"";s:6:"layout";s:4:"left";s:10:"head_title";s:14:"Views | Kosmos";s:9:"base_path";s:1:"/";s:10:"front_page";s:1:"/";s:10:"breadcrumb";s:141:"<span id="thmr_50" class="thmr_call">
+  <div class="breadcrumb"><a href="/">Home</a> » <a href="/admin/build/views">Views</a></div></span>
+
+";s:10:"feed_icons";s:0:"";s:14:"footer_message";s:0:"";s:4:"head";s:286:"<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+    <link href="sites/all/modules/devel/devel_themer_ie_fix.css" rel="stylesheet" type="text/css" media="screen" />
+<![endif]-->
+<link rel="shortcut icon" href="/misc/favicon.ico" type="image/x-icon" />
+";s:4:"help";N;s:8:"language";O:8:"stdClass":12:{s:8:"language";s:2:"en";s:4:"name";s:7:"English";s:6:"native";s:7:"English";s:9:"direction";i:0;s:7:"enabled";i:1;s:7:"plurals";i:0;s:7:"formula";s:0:"";s:6:"domain";s:0:"";s:6:"prefix";s:0:"";s:6:"weight";i:0;s:10:"javascript";s:0:"";s:3:"dir";s:3:"ltr";}s:4:"logo";s:27:"/themes/pushbutton/logo.png";s:8:"messages";s:0:"";s:7:"mission";s:0:"";s:13:"primary_links";a:3:{s:8:"menu-939";a:3:{s:10:"attributes";a:1:{s:5:"title";s:16:"Mentor & Network";}s:4:"href";s:8:"node/353";s:5:"title";s:16:"MENTOR & NETWORK";}s:8:"menu-666";a:3:{s:10:"attributes";a:1:{s:5:"title";s:18:"Career Development";}s:4:"href";s:8:"node/126";s:5:"title";s:18:"CAREER DEVELOPMENT";}s:8:"menu-911";a:3:{s:10:"attributes";a:1:{s:5:"title";s:22:"Scholarships and Ideas";}s:4:"href";s:8:"node/151";s:5:"title";s:20:"SCHOLARSHIPS & IDEAS";}}s:15:"secondary_links";a:0:{}s:10:"search_box";s:1221:"<span id="thmr_70" class="thmr_call">
+  <form action="/admin/build/views/add"  accept-charset="UTF-8" method="post" id="search-theme-form">
+<div><span id="thmr_61" class="thmr_call">
+  <div id="search" class="container-inline">
+  <span id="thmr_62" class="thmr_call">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text" />
+</div>
+</span>
+
+<span id="thmr_64" class="thmr_call">
+  <span id="thmr_65" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit-1" value="Search"  class="form-submit" />
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-8b40d625d5872f5f5d1bd106fdf31300" value="form-8b40d625d5872f5f5d1bd106fdf31300"  />
+<span id="thmr_67" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-search-theme-form-form-token" value="fc65db8fbfe59680f58e3f28e1b5acb8"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  />
+</div>
+</span>
+
+
+</div></form>
+</span>
+
+";s:9:"site_name";s:6:"Kosmos";s:11:"site_slogan";s:0:"";s:3:"css";a:1:{s:3:"all";a:2:{s:6:"module";a:21:{s:21:"modules/node/node.css";b:1;s:24:"modules/system/admin.css";b:1;s:27:"modules/system/defaults.css";b:1;s:25:"modules/system/system.css";b:1;s:31:"modules/system/system-menus.css";b:1;s:21:"modules/user/user.css";b:1;s:46:"sites/all/modules/cck/theme/content-module.css";b:1;s:39:"sites/all/modules/ctools/css/ctools.css";b:1;s:31:"sites/all/modules/date/date.css";b:1;s:55:"sites/all/modules/date/date_popup/themes/datepicker.css";b:1;s:54:"sites/all/modules/date/date_popup/themes/timeentry.css";b:1;s:52:"sites/all/modules/devel/krumo/skins/default/skin.css";b:1;s:40:"sites/all/modules/devel/devel_themer.css";b:1;s:37:"sites/all/modules/extlink/extlink.css";b:1;s:41:"sites/all/modules/filefield/filefield.css";b:1;s:33:"sites/all/modules/og/theme/og.css";b:1;s:39:"sites/all/modules/panels/css/panels.css";b:1;s:39:"sites/all/modules/calendar/calendar.css";b:1;s:30:"misc/farbtastic/farbtastic.css";b:1;s:43:"sites/all/modules/admin_menu/admin_menu.css";b:0;s:48:"sites/all/modules/admin_menu/admin_menu.uid1.css";b:0;}s:5:"theme";a:1:{s:27:"themes/pushbutton/style.css";b:1;}}}s:6:"styles";s:2233:"<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.uid1.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/admin.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/theme/content-module.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/ctools/css/ctools.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/date/date.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/date/date_popup/themes/datepicker.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/date/date_popup/themes/timeentry.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/devel/krumo/skins/default/skin.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/devel/devel_themer.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/extlink/extlink.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/filefield/filefield.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/og/theme/og.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/panels/css/panels.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/calendar/calendar.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/misc/farbtastic/farbtastic.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/themes/pushbutton/style.css?Q" />
+";s:7:"scripts";s:3691:"<script type="text/javascript" src="/misc/jquery.js?Q"></script>
+<script type="text/javascript" src="/misc/drupal.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/devel/krumo/krumo.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/devel/devel_themer.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/devel/ui.mouse.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/devel/ui.draggable.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/extlink/extlink.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/panels/js/panels.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/swftools/shared/swfobject2/swfobject.js?Q"></script>
+<script type="text/javascript" defer="defer" src="/sites/all/modules/admin_menu/admin_menu.js?Q"></script>
+<script type="text/javascript" src="/misc/autocomplete.js?Q"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "thmrStrings": { "themer_info": "Themer info", "toggle_throbber": " \x3cimg src=\"/sites/all/modules/devel/loader-little.gif\" alt=\"loading\" class=\"throbber\" width=\"16\" height=\"16\" style=\"display:none\" /\x3e", "parents": "Parents: ", "function_called": "Function called: ", "template_called": "Template called: ", "candidate_files": "Candidate template files: ", "preprocessors": "Preprocess functions: ", "candidate_functions": "Candidate function names: ", "drupal_api_docs": "link to Drupal API documentation", "source_link_title": "link to source code", "function_arguments": "Function Arguments", "template_variables": "Template Variables", "file_used": "File used: ", "duration": "Duration: ", "api_site": "http://api.drupal.org/", "drupal_version": "6", "source_link": "/devel/source?file=" }, "thmr_popup": "  \x3cdiv id=\"themer-fixeder\"\x3e\n  \x3cdiv id=\"themer-relativer\"\x3e\n  \x3cdiv id=\"themer-popup\"\x3e\n      \x3cdiv class=\"topper\"\x3e\n        \x3cspan class=\"close\"\x3eX\x3c/span\x3e Drupal Themer Information\n      \x3c/div\x3e\n      \x3cdiv id=\"parents\" class=\"row\"\x3e\n\n      \x3c/div\x3e\n      \x3cdiv class=\"info row\"\x3e\n        \x3cdiv class=\"starter\"\x3eClick on any element to see information about the Drupal theme function or template that created it.\x3c/div\x3e\n        \x3cdl\x3e\n          \x3cdt class=\"key-type\"\x3e\n\n          \x3c/dt\x3e\n          \x3cdd class=\"key\"\x3e\n\n          \x3c/dd\x3e\n          \x3cdiv class=\"used\"\x3e\n          \x3c/div\x3e\n          \x3cdt class=\"candidates-type\"\x3e\n\n          \x3c/dt\x3e\n          \x3cdd class=\"candidates\"\x3e\n\n          \x3c/dd\x3e\n          \n          \x3cdt class=\"preprocessors-type\"\x3e\n\n          \x3c/dt\x3e\n          \x3cdd class=\"preprocessors\"\x3e\n\n          \x3c/dd\x3e\n          \n          \x3cdiv class=\"duration\"\x3e\x3c/div\x3e\n        \x3c/dl\x3e\n      \x3c/div\x3e\x3c!-- /info --\x3e\n      \x3cdiv class=\"attributes row\"\x3e\n\n      \x3c/div\x3e\x3c!-- /attributes --\x3e\n    \x3c/div\x3e\x3c!-- /themer-popup --\x3e\n    \x3c/div\x3e\n    \x3c/div\x3e", "extlink": { "extTarget": 0, "extClass": "ext", "extSubdomains": 1, "extExclude": "", "extInclude": "", "extAlert": 0, "extAlertText": "This link will take you to an external web site. We are not responsible for their content.", "mailtoClass": "mailto" }, "admin_menu": { "destination": "destination=admin%2Fbuild%2Fviews%2Fadd", "hash": "2ff50fdc18d0767009e9145751bf9923", "basePath": "/admin_menu", "replacements": { ".admin-menu-users a": "2 / 1" }, "margin_top": 1 } });
+//--><!]]>
+</script>
+";s:4:"tabs";s:714:"<span id="thmr_71" class="thmr_call">
+  <ul class="tabs primary">
+<span id="thmr_53" class="thmr_call">
+  <li ><span id="thmr_52" class="thmr_call">
+  <a href="/admin/build/views">List</a></span>
+
+</li>
+</span>
+
+<span id="thmr_55" class="thmr_call">
+  <li class="active" ><span id="thmr_54" class="thmr_call">
+  <a href="/admin/build/views/add" class="active">Add</a></span>
+
+</li>
+</span>
+
+<span id="thmr_57" class="thmr_call">
+  <li ><span id="thmr_56" class="thmr_call">
+  <a href="/admin/build/views/import">Import</a></span>
+
+</li>
+</span>
+
+<span id="thmr_59" class="thmr_call">
+  <li ><span id="thmr_58" class="thmr_call">
+  <a href="/admin/build/views/tools">Tools</a></span>
+
+</li>
+</span>
+
+</ul>
+</span>
+
+";s:5:"title";s:5:"Views";s:7:"closure";s:0:"";s:12:"body_classes";s:55:"not-front logged-in page-admin one-sidebar sidebar-left";s:15:"content_profile";O:31:"content_profile_theme_variables":2:{s:3:"uid";s:1:"1";s:6:"_cache";a:0:{}}}s:4:"type";s:3:"tpl";}}

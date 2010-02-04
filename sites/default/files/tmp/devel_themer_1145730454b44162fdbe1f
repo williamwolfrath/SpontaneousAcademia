@@ -1,0 +1,1526 @@
+a:43:{s:6:"thmr_2";a:2:{s:9:"variables";a:3:{s:6:"header";a:2:{i:0;s:5:"Token";i:1;s:17:"Replacement value";}s:4:"rows";a:127:{i:0;a:1:{i:0;a:3:{s:4:"data";s:11:"Node tokens";s:5:"class";s:6:"region";s:7:"colspan";i:2;}}i:1;a:2:{i:0;s:5:"[nid]";i:1;s:7:"Node ID";}i:2;a:2:{i:0;s:6:"[type]";i:1;s:9:"Node type";}i:3;a:2:{i:0;s:11:"[type-name]";i:1;s:33:"Node type (user-friendly version)";}i:4;a:2:{i:0;s:10:"[language]";i:1;s:13:"Node language";}i:5;a:2:{i:0;s:7:"[title]";i:1;s:10:"Node title";}i:6;a:2:{i:0;s:11:"[title-raw]";i:1;s:48:"Unfiltered node title. WARNING - raw user input.";}i:7;a:2:{i:0;s:12:"[author-uid]";i:1;s:21:"Node author's user id";}i:8;a:2:{i:0;s:13:"[author-name]";i:1;s:23:"Node author's user name";}i:9;a:2:{i:0;s:17:"[author-name-raw]";i:1;s:50:"Node author's user name. WARNING - raw user input.";}i:10;a:2:{i:0;s:13:"[author-mail]";i:1;s:21:"Node author's e-mail.";}i:11;a:2:{i:0;s:17:"[author-mail-raw]";i:1;s:47:"Node author's e-mail. WARNING - raw user input.";}i:12;a:2:{i:0;s:6:"[term]";i:1;s:25:"Name of top taxonomy term";}i:13;a:2:{i:0;s:10:"[term-raw]";i:1;s:63:"Unfiltered name of top taxonomy term. WARNING - raw user input.";}i:14;a:2:{i:0;s:9:"[term-id]";i:1;s:23:"ID of top taxonomy term";}i:15;a:2:{i:0;s:7:"[vocab]";i:1;s:29:"Name of top term's vocabulary";}i:16;a:2:{i:0;s:11:"[vocab-raw]";i:1;s:67:"Unfiltered name of top term's vocabulary. WARNING - raw user input.";}i:17;a:2:{i:0;s:10:"[vocab-id]";i:1;s:27:"ID of top term's vocabulary";}i:18;a:2:{i:0;s:6:"[yyyy]";i:1;s:31:"Node creation year (four digit)";}i:19;a:2:{i:0;s:4:"[yy]";i:1;s:30:"Node creation year (two digit)";}i:20;a:2:{i:0;s:7:"[month]";i:1;s:31:"Node creation month (full word)";}i:21;a:2:{i:0;s:5:"[mon]";i:1;s:33:"Node creation month (abbreviated)";}i:22;a:2:{i:0;s:4:"[mm]";i:1;s:44:"Node creation month (two digit, zero padded)";}i:23;a:2:{i:0;s:3:"[m]";i:1;s:38:"Node creation month (one or two digit)";}i:24;a:2:{i:0;s:4:"[ww]";i:1;s:30:"Node creation week (two digit)";}i:25;a:2:{i:0;s:6:"[date]";i:1;s:33:"Node creation date (day of month)";}i:26;a:2:{i:0;s:5:"[day]";i:1;s:29:"Node creation day (full word)";}i:27;a:2:{i:0;s:5:"[ddd]";i:1;s:32:"Node creation day (abbreviation)";}i:28;a:2:{i:0;s:4:"[dd]";i:1;s:42:"Node creation day (two digit, zero-padded)";}i:29;a:2:{i:0;s:3:"[d]";i:1;s:36:"Node creation day (one or two digit)";}i:30;a:2:{i:0;s:10:"[mod-????]";i:1;s:151:"All tokens for node creation dates can also be used with with the "mod-" prefix; doing so will use the modification date rather than the creation date.";}i:31;a:2:{i:0;s:6:"[menu]";i:1;s:41:"The name of the menu the node belongs to.";}i:32;a:2:{i:0;s:10:"[menu-raw]";i:1;s:67:"The name of the menu the node belongs to. WARNING - raw user input.";}i:33;a:2:{i:0;s:10:"[menupath]";i:1;s:93:"The menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /.";}i:34;a:2:{i:0;s:14:"[menupath-raw]";i:1;s:130:"The unfiltered menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /. WARNING - raw user input.";}i:35;a:2:{i:0;s:17:"[menu-link-title]";i:1;s:53:"The text used in the menu as link text for this item.";}i:36;a:2:{i:0;s:21:"[menu-link-title-raw]";i:1;s:90:"The unfiltered text used in the menu as link text for this item. WARNING - raw user input.";}i:37;a:2:{i:0;s:8:"[ogname]";i:1;s:18:"Title of top group";}i:38;a:2:{i:0;s:12:"[ogname-raw]";i:1;s:56:"Unfiltered title of top group. WARNING - raw user input.";}i:39;a:2:{i:0;s:7:"[og-id]";i:1;s:15:"ID of top group";}i:40;a:2:{i:0;s:9:"[og-type]";i:1;s:17:"Type of top group";}i:41;a:2:{i:0;s:9:"[ogalias]";i:1;s:28:"URL alias for the top group.";}i:42;a:2:{i:0;s:10:"[termpath]";i:1;s:60:"As [term], but including its supercategories separated by /.";}i:43;a:2:{i:0;s:14:"[termpath-raw]";i:1;s:90:"As [term-raw], but including its supercategories separated by /. WARNING - raw user input.";}i:44;a:2:{i:0;s:11:"[termalias]";i:1;s:23:"URL alias for the term.";}i:45;a:2:{i:0;s:13:"[node-teaser]";i:1;s:16:"The node teaser.";}i:46;a:2:{i:0;s:11:"[node-body]";i:1;s:14:"The node body.";}i:47;a:2:{i:0;s:10:"[node-url]";i:1;s:38:"The node view url for read more links.";}i:48;a:2:{i:0;s:17:"[node-teaser-raw]";i:1;s:49:"Unfiltered node teaser. WARNING - raw user input.";}i:49;a:2:{i:0;s:15:"[node-body-raw]";i:1;s:47:"Unfiltered node body. WARNING - raw user input.";}i:50;a:1:{i:0;a:3:{s:4:"data";s:15:"CCK date tokens";s:5:"class";s:6:"region";s:7:"colspan";i:2;}}i:51;a:2:{i:0;s:24:"[field_start_date-value]";i:1;s:19:"The raw date value.";}i:52;a:2:{i:0;s:23:"[field_start_date-view]";i:1;s:19:"The formatted date.";}i:53;a:2:{i:0;s:28:"[field_start_date-timestamp]";i:1;s:23:"The raw date timestamp.";}i:54;a:2:{i:0;s:23:"[field_start_date-yyyy]";i:1;s:22:"Date year (four digit)";}i:55;a:2:{i:0;s:21:"[field_start_date-yy]";i:1;s:21:"Date year (two digit)";}i:56;a:2:{i:0;s:24:"[field_start_date-month]";i:1;s:22:"Date month (full word)";}i:57;a:2:{i:0;s:22:"[field_start_date-mon]";i:1;s:24:"Date month (abbreviated)";}i:58;a:2:{i:0;s:21:"[field_start_date-mm]";i:1;s:35:"Date month (two digit, zero padded)";}i:59;a:2:{i:0;s:20:"[field_start_date-m]";i:1;s:29:"Date month (one or two digit)";}i:60;a:2:{i:0;s:21:"[field_start_date-ww]";i:1;s:21:"Date week (two digit)";}i:61;a:2:{i:0;s:23:"[field_start_date-date]";i:1;s:22:"Date date (YYYY-MM-DD)";}i:62;a:2:{i:0;s:27:"[field_start_date-datetime]";i:1;s:35:"Date datetime (YYYY-MM-DDTHH:MM:SS)";}i:63;a:2:{i:0;s:22:"[field_start_date-day]";i:1;s:20:"Date day (full word)";}i:64;a:2:{i:0;s:22:"[field_start_date-ddd]";i:1;s:23:"Date day (abbreviation)";}i:65;a:2:{i:0;s:21:"[field_start_date-dd]";i:1;s:33:"Date day (two digit, zero-padded)";}i:66;a:2:{i:0;s:20:"[field_start_date-d]";i:1;s:27:"Date day (one or two digit)";}i:67;a:2:{i:0;s:23:"[field_start_date-time]";i:1;s:8:"Time H:i";}i:68;a:2:{i:0;s:26:"[field_start_date-to-????]";i:1;s:113:"If the field has a to-date defined, the same tokens exist in the form: [to-????], where ???? is the normal token.";}i:69;a:1:{i:0;a:3:{s:4:"data";s:17:"CCK number tokens";s:5:"class";s:6:"region";s:7:"colspan";i:2;}}i:70;a:2:{i:0;s:19:"[field_site_id-raw]";i:1;s:16:"Raw number value";}i:71;a:2:{i:0;s:25:"[field_site_id-formatted]";i:1;s:22:"Formatted number value";}i:72;a:1:{i:0;a:3:{s:4:"data";s:15:"CCK file tokens";s:5:"class";s:6:"region";s:7:"colspan";i:2;}}i:73;a:2:{i:0;s:36:"[field_uploaded_video-filefield-fid]";i:1;s:7:"File ID";}i:74;a:2:{i:0;s:44:"[field_uploaded_video-filefield-description]";i:1;s:16:"File description";}i:75;a:2:{i:0;s:41:"[field_uploaded_video-filefield-filename]";i:1;s:9:"File name";}i:76;a:2:{i:0;s:41:"[field_uploaded_video-filefield-filepath]";i:1;s:9:"File path";}i:77;a:2:{i:0;s:41:"[field_uploaded_video-filefield-filemime]";i:1;s:14:"File MIME type";}i:78;a:2:{i:0;s:41:"[field_uploaded_video-filefield-filesize]";i:1;s:20:"File size (in bytes)";}i:79;a:2:{i:0;s:51:"[field_uploaded_video-filefield-filesize_formatted]";i:1;s:26:"File size (pretty printed)";}i:80;a:2:{i:0;s:37:"[field_uploaded_video-filefield-view]";i:1;s:29:"Fully formatted HTML file tag";}i:81;a:2:{i:0;s:41:"[field_uploaded_video-filefield-onlyname]";i:1;s:27:"File name without extension";}i:82;a:2:{i:0;s:42:"[field_uploaded_video-filefield-extension]";i:1;s:14:"File extension";}i:83;a:2:{i:0;s:31:"[field_flv_video-filefield-fid]";i:1;s:7:"File ID";}i:84;a:2:{i:0;s:39:"[field_flv_video-filefield-description]";i:1;s:16:"File description";}i:85;a:2:{i:0;s:36:"[field_flv_video-filefield-filename]";i:1;s:9:"File name";}i:86;a:2:{i:0;s:36:"[field_flv_video-filefield-filepath]";i:1;s:9:"File path";}i:87;a:2:{i:0;s:36:"[field_flv_video-filefield-filemime]";i:1;s:14:"File MIME type";}i:88;a:2:{i:0;s:36:"[field_flv_video-filefield-filesize]";i:1;s:20:"File size (in bytes)";}i:89;a:2:{i:0;s:46:"[field_flv_video-filefield-filesize_formatted]";i:1;s:26:"File size (pretty printed)";}i:90;a:2:{i:0;s:32:"[field_flv_video-filefield-view]";i:1;s:29:"Fully formatted HTML file tag";}i:91;a:2:{i:0;s:36:"[field_flv_video-filefield-onlyname]";i:1;s:27:"File name without extension";}i:92;a:2:{i:0;s:37:"[field_flv_video-filefield-extension]";i:1;s:14:"File extension";}i:93;a:2:{i:0;s:37:"[field_video_thumbnail-filefield-fid]";i:1;s:7:"File ID";}i:94;a:2:{i:0;s:45:"[field_video_thumbnail-filefield-description]";i:1;s:16:"File description";}i:95;a:2:{i:0;s:42:"[field_video_thumbnail-filefield-filename]";i:1;s:9:"File name";}i:96;a:2:{i:0;s:42:"[field_video_thumbnail-filefield-filepath]";i:1;s:9:"File path";}i:97;a:2:{i:0;s:42:"[field_video_thumbnail-filefield-filemime]";i:1;s:14:"File MIME type";}i:98;a:2:{i:0;s:42:"[field_video_thumbnail-filefield-filesize]";i:1;s:20:"File size (in bytes)";}i:99;a:2:{i:0;s:52:"[field_video_thumbnail-filefield-filesize_formatted]";i:1;s:26:"File size (pretty printed)";}i:100;a:2:{i:0;s:38:"[field_video_thumbnail-filefield-view]";i:1;s:29:"Fully formatted HTML file tag";}i:101;a:2:{i:0;s:42:"[field_video_thumbnail-filefield-onlyname]";i:1;s:27:"File name without extension";}i:102;a:2:{i:0;s:43:"[field_video_thumbnail-filefield-extension]";i:1;s:14:"File extension";}i:103;a:1:{i:0;a:3:{s:4:"data";s:15:"CCK text tokens";s:5:"class";s:6:"region";s:7:"colspan";i:2;}}i:104;a:2:{i:0;s:18:"[field_school-raw]";i:1;s:20:"Raw, unfiltered text";}i:105;a:2:{i:0;s:24:"[field_school-formatted]";i:1;s:27:"Formatted and filtered text";}i:106;a:2:{i:0;s:17:"[field_booey-raw]";i:1;s:20:"Raw, unfiltered text";}i:107;a:2:{i:0;s:23:"[field_booey-formatted]";i:1;s:27:"Formatted and filtered text";}i:108;a:2:{i:0;s:21:"[field_swf_video-raw]";i:1;s:20:"Raw, unfiltered text";}i:109;a:2:{i:0;s:27:"[field_swf_video-formatted]";i:1;s:27:"Formatted and filtered text";}i:110;a:1:{i:0;a:3:{s:4:"data";s:25:"CCK node reference tokens";s:5:"class";s:6:"region";s:7:"colspan";i:2;}}i:111;a:2:{i:0;s:19:"[field_section-nid]";i:1;s:18:"Referenced node ID";}i:112;a:2:{i:0;s:21:"[field_section-title]";i:1;s:21:"Referenced node title";}i:113;a:2:{i:0;s:25:"[field_section-title-raw]";i:1;s:59:"Referenced node unfiltered title. WARNING - raw user input.";}i:114;a:2:{i:0;s:20:"[field_section-link]";i:1;s:43:"Formatted html link to the referenced node.";}i:115;a:2:{i:0;s:20:"[field_section-path]";i:1;s:43:"Relative path alias to the referenced node.";}i:116;a:2:{i:0;s:19:"[field_section-url]";i:1;s:43:"Absolute path alias to the referenced node.";}i:117;a:1:{i:0;a:3:{s:4:"data";s:13:"Global tokens";s:5:"class";s:6:"region";s:7:"colspan";i:2;}}i:118;a:2:{i:0;s:11:"[user-name]";i:1;s:41:"The name of the currently logged in user.";}i:119;a:2:{i:0;s:9:"[user-id]";i:1;s:44:"The user ID of the currently logged in user.";}i:120;a:2:{i:0;s:11:"[user-mail]";i:1;s:50:"The email address of the currently logged in user.";}i:121;a:2:{i:0;s:10:"[site-url]";i:1;s:38:"The url of the current Drupal website.";}i:122;a:2:{i:0;s:11:"[site-name]";i:1;s:39:"The name of the current Drupal website.";}i:123;a:2:{i:0;s:13:"[site-slogan]";i:1;s:41:"The slogan of the current Drupal website.";}i:124;a:2:{i:0;s:14:"[site-mission]";i:1;s:42:"The mission of the current Drupal website.";}i:125;a:2:{i:0;s:11:"[site-mail]";i:1;s:57:"The contact email address for the current Drupal website.";}i:126;a:2:{i:0;s:11:"[site-date]";i:1;s:38:"The current date on the site's server.";}}s:10:"attributes";a:1:{s:5:"class";s:11:"description";}}s:4:"type";s:4:"func";}s:6:"thmr_1";a:2:{s:9:"variables";a:1:{s:4:"type";s:4:"node";}s:4:"type";s:4:"func";}s:6:"thmr_5";a:2:{s:9:"variables";a:3:{s:6:"header";a:2:{i:0;s:10:"Identifier";i:1;s:9:"Behaviour";}s:4:"rows";a:2:{i:0;a:2:{i:0;s:12:"&lt;none&gt;";i:1;s:100:"This will result in a plain text crumb. This identifier should not be used with the pipe (|) symbol.";}i:1;a:2:{i:0;s:16:"&lt;pathauto&gt;";i:1;s:60:"Cleans the given path using your pathauto replacement rules.";}}s:10:"attributes";a:1:{s:5:"class";s:11:"description";}}s:4:"type";s:4:"func";}s:6:"thmr_4";a:2:{s:9:"variables";a:0:{}s:4:"type";s:4:"func";}s:6:"thmr_6";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:5:"#type";s:6:"select";s:6:"#title";s:9:"Node type";s:9:"#required";b:1;s:8:"#options";a:18:{s:18:"classroom_resource";s:18:"Classroom Resource";s:17:"content_type_page";s:17:"Content Type Page";s:5:"event";s:5:"Event";s:10:"flv_upload";s:10:"FLV Upload";s:13:"facebook_user";s:13:"Facebook User";s:22:"front_page_header_text";s:22:"Front Page Header Text";s:5:"group";s:5:"Group";s:10:"group_post";s:10:"Group Post";s:11:"job_posting";s:11:"Job Posting";s:4:"page";s:4:"Page";s:5:"panel";s:5:"Panel";s:7:"profile";s:7:"Profile";s:16:"scholarship_page";s:16:"Scholarship Page";s:20:"section_landing_page";s:20:"Section Landing Page";s:12:"sidebar_item";s:12:"Sidebar Item";s:5:"story";s:5:"Story";s:5:"video";s:5:"Video";s:15:"testcontenttype";s:15:"testcontenttype";}s:12:"#description";s:57:"The node type this custom breadcrumb trail will apply to.";s:14:"#default_value";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:9:"node_type";}s:14:"#array_parents";a:1:{i:0;s:9:"node_type";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:6:"#input";b:1;s:5:"#size";i:0;s:9:"#multiple";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:9:"node_type";s:3:"#id";s:14:"edit-node-type";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:6:"thmr_8";a:2:{s:9:"variables";a:1:{s:7:"element";a:24:{s:5:"#type";s:8:"textarea";s:6:"#title";s:21:"Breadcrumb visibility";s:7:"#access";b:1;s:12:"#description";s:204:"Determine whether this breadcrumb should be displayed by using a snippet of PHP to return TRUE or FALSE. Note that this code has access to the $node variable, and can check its type or any other property.";s:14:"#default_value";s:0:"";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:14:"visibility_php";}s:14:"#array_parents";a:1:{i:0;s:14:"visibility_php";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#cols";i:60;s:5:"#rows";i:5;s:10:"#resizable";b:1;s:8:"#process";a:2:{i:0;s:16:"form_expand_ahah";i:1;s:13:"imce_textarea";}s:5:"#name";s:14:"visibility_php";s:3:"#id";s:19:"edit-visibility-php";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_10";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:5:"#type";s:8:"textarea";s:6:"#title";s:6:"Titles";s:9:"#required";b:1;s:12:"#description";s:60:"A list of titles for the breadcrumb links, one on each line.";s:14:"#default_value";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"titles";}s:14:"#array_parents";a:1:{i:0;s:6:"titles";}s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:6:"#input";b:1;s:5:"#cols";i:60;s:5:"#rows";i:5;s:10:"#resizable";b:1;s:8:"#process";a:2:{i:0;s:16:"form_expand_ahah";i:1;s:13:"imce_textarea";}s:5:"#name";s:6:"titles";s:3:"#id";s:11:"edit-titles";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_12";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:5:"#type";s:8:"textarea";s:6:"#title";s:5:"Paths";s:9:"#required";b:1;s:12:"#description";s:66:"A list of Drupal paths for the breadcrumb links, one on each line.";s:14:"#default_value";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:5:"paths";}s:14:"#array_parents";a:1:{i:0;s:5:"paths";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:6:"#input";b:1;s:5:"#cols";i:60;s:5:"#rows";i:5;s:10:"#resizable";b:1;s:8:"#process";a:2:{i:0;s:16:"form_expand_ahah";i:1;s:13:"imce_textarea";}s:5:"#name";s:5:"paths";s:3:"#id";s:10:"edit-paths";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_14";a:2:{s:9:"variables";a:1:{s:7:"element";a:12:{s:6:"#value";s:12192:"<span id="thmr_1" class="thmr_call">
+  <span id="thmr_2" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Token</th><th>Replacement value</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td class="region" colspan="2">Node tokens</td> </tr>
+ <tr class="even"><td>[nid]</td><td>Node ID</td> </tr>
+ <tr class="odd"><td>[type]</td><td>Node type</td> </tr>
+ <tr class="even"><td>[type-name]</td><td>Node type (user-friendly version)</td> </tr>
+ <tr class="odd"><td>[language]</td><td>Node language</td> </tr>
+ <tr class="even"><td>[title]</td><td>Node title</td> </tr>
+ <tr class="odd"><td>[title-raw]</td><td>Unfiltered node title. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[author-uid]</td><td>Node author's user id</td> </tr>
+ <tr class="odd"><td>[author-name]</td><td>Node author's user name</td> </tr>
+ <tr class="even"><td>[author-name-raw]</td><td>Node author's user name. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[author-mail]</td><td>Node author's e-mail.</td> </tr>
+ <tr class="even"><td>[author-mail-raw]</td><td>Node author's e-mail. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term]</td><td>Name of top taxonomy term</td> </tr>
+ <tr class="even"><td>[term-raw]</td><td>Unfiltered name of top taxonomy term. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term-id]</td><td>ID of top taxonomy term</td> </tr>
+ <tr class="even"><td>[vocab]</td><td>Name of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[vocab-raw]</td><td>Unfiltered name of top term's vocabulary. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[vocab-id]</td><td>ID of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[yyyy]</td><td>Node creation year (four digit)</td> </tr>
+ <tr class="even"><td>[yy]</td><td>Node creation year (two digit)</td> </tr>
+ <tr class="odd"><td>[month]</td><td>Node creation month (full word)</td> </tr>
+ <tr class="even"><td>[mon]</td><td>Node creation month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[mm]</td><td>Node creation month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[m]</td><td>Node creation month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[ww]</td><td>Node creation week (two digit)</td> </tr>
+ <tr class="even"><td>[date]</td><td>Node creation date (day of month)</td> </tr>
+ <tr class="odd"><td>[day]</td><td>Node creation day (full word)</td> </tr>
+ <tr class="even"><td>[ddd]</td><td>Node creation day (abbreviation)</td> </tr>
+ <tr class="odd"><td>[dd]</td><td>Node creation day (two digit, zero-padded)</td> </tr>
+ <tr class="even"><td>[d]</td><td>Node creation day (one or two digit)</td> </tr>
+ <tr class="odd"><td>[mod-????]</td><td>All tokens for node creation dates can also be used with with the "mod-" prefix; doing so will use the modification date rather than the creation date.</td> </tr>
+ <tr class="even"><td>[menu]</td><td>The name of the menu the node belongs to.</td> </tr>
+ <tr class="odd"><td>[menu-raw]</td><td>The name of the menu the node belongs to. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menupath]</td><td>The menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /.</td> </tr>
+ <tr class="odd"><td>[menupath-raw]</td><td>The unfiltered menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menu-link-title]</td><td>The text used in the menu as link text for this item.</td> </tr>
+ <tr class="odd"><td>[menu-link-title-raw]</td><td>The unfiltered text used in the menu as link text for this item. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[ogname]</td><td>Title of top group</td> </tr>
+ <tr class="odd"><td>[ogname-raw]</td><td>Unfiltered title of top group. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[og-id]</td><td>ID of top group</td> </tr>
+ <tr class="odd"><td>[og-type]</td><td>Type of top group</td> </tr>
+ <tr class="even"><td>[ogalias]</td><td>URL alias for the top group.</td> </tr>
+ <tr class="odd"><td>[termpath]</td><td>As [term], but including its supercategories separated by /.</td> </tr>
+ <tr class="even"><td>[termpath-raw]</td><td>As [term-raw], but including its supercategories separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[termalias]</td><td>URL alias for the term.</td> </tr>
+ <tr class="even"><td>[node-teaser]</td><td>The node teaser.</td> </tr>
+ <tr class="odd"><td>[node-body]</td><td>The node body.</td> </tr>
+ <tr class="even"><td>[node-url]</td><td>The node view url for read more links.</td> </tr>
+ <tr class="odd"><td>[node-teaser-raw]</td><td>Unfiltered node teaser. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[node-body-raw]</td><td>Unfiltered node body. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK date tokens</td> </tr>
+ <tr class="even"><td>[field_start_date-value]</td><td>The raw date value.</td> </tr>
+ <tr class="odd"><td>[field_start_date-view]</td><td>The formatted date.</td> </tr>
+ <tr class="even"><td>[field_start_date-timestamp]</td><td>The raw date timestamp.</td> </tr>
+ <tr class="odd"><td>[field_start_date-yyyy]</td><td>Date year (four digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-yy]</td><td>Date year (two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-month]</td><td>Date month (full word)</td> </tr>
+ <tr class="even"><td>[field_start_date-mon]</td><td>Date month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[field_start_date-mm]</td><td>Date month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[field_start_date-m]</td><td>Date month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ww]</td><td>Date week (two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-date]</td><td>Date date (YYYY-MM-DD)</td> </tr>
+ <tr class="odd"><td>[field_start_date-datetime]</td><td>Date datetime (YYYY-MM-DDTHH:MM:SS)</td> </tr>
+ <tr class="even"><td>[field_start_date-day]</td><td>Date day (full word)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ddd]</td><td>Date day (abbreviation)</td> </tr>
+ <tr class="even"><td>[field_start_date-dd]</td><td>Date day (two digit, zero-padded)</td> </tr>
+ <tr class="odd"><td>[field_start_date-d]</td><td>Date day (one or two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-time]</td><td>Time H:i</td> </tr>
+ <tr class="odd"><td>[field_start_date-to-????]</td><td>If the field has a to-date defined, the same tokens exist in the form: [to-????], where ???? is the normal token.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK number tokens</td> </tr>
+ <tr class="odd"><td>[field_site_id-raw]</td><td>Raw number value</td> </tr>
+ <tr class="even"><td>[field_site_id-formatted]</td><td>Formatted number value</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK file tokens</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK text tokens</td> </tr>
+ <tr class="odd"><td>[field_school-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_school-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_booey-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_booey-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_swf_video-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_swf_video-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK node reference tokens</td> </tr>
+ <tr class="even"><td>[field_section-nid]</td><td>Referenced node ID</td> </tr>
+ <tr class="odd"><td>[field_section-title]</td><td>Referenced node title</td> </tr>
+ <tr class="even"><td>[field_section-title-raw]</td><td>Referenced node unfiltered title. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[field_section-link]</td><td>Formatted html link to the referenced node.</td> </tr>
+ <tr class="even"><td>[field_section-path]</td><td>Relative path alias to the referenced node.</td> </tr>
+ <tr class="odd"><td>[field_section-url]</td><td>Absolute path alias to the referenced node.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">Global tokens</td> </tr>
+ <tr class="odd"><td>[user-name]</td><td>The name of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[user-id]</td><td>The user ID of the currently logged in user.</td> </tr>
+ <tr class="odd"><td>[user-mail]</td><td>The email address of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[site-url]</td><td>The url of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-name]</td><td>The name of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-slogan]</td><td>The slogan of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-mission]</td><td>The mission of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-mail]</td><td>The contact email address for the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-date]</td><td>The current date on the site's server.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"tokens";}s:14:"#array_parents";a:2:{i:0;s:4:"help";i:1;s:6:"tokens";}s:7:"#weight";i:0;s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:12:"#description";N;}}s:4:"type";s:4:"func";}s:7:"thmr_15";a:2:{s:9:"variables";a:1:{s:7:"element";a:20:{s:5:"#type";s:8:"fieldset";s:12:"#collapsible";b:1;s:10:"#collapsed";b:1;s:6:"#title";s:18:"Placeholder tokens";s:12:"#description";s:151:"The following placeholder tokens can be used in both paths and titles. When used in a path or title, they will be replaced with the appropriate values.";s:6:"tokens";a:13:{s:6:"#value";s:12192:"<span id="thmr_1" class="thmr_call">
+  <span id="thmr_2" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Token</th><th>Replacement value</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td class="region" colspan="2">Node tokens</td> </tr>
+ <tr class="even"><td>[nid]</td><td>Node ID</td> </tr>
+ <tr class="odd"><td>[type]</td><td>Node type</td> </tr>
+ <tr class="even"><td>[type-name]</td><td>Node type (user-friendly version)</td> </tr>
+ <tr class="odd"><td>[language]</td><td>Node language</td> </tr>
+ <tr class="even"><td>[title]</td><td>Node title</td> </tr>
+ <tr class="odd"><td>[title-raw]</td><td>Unfiltered node title. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[author-uid]</td><td>Node author's user id</td> </tr>
+ <tr class="odd"><td>[author-name]</td><td>Node author's user name</td> </tr>
+ <tr class="even"><td>[author-name-raw]</td><td>Node author's user name. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[author-mail]</td><td>Node author's e-mail.</td> </tr>
+ <tr class="even"><td>[author-mail-raw]</td><td>Node author's e-mail. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term]</td><td>Name of top taxonomy term</td> </tr>
+ <tr class="even"><td>[term-raw]</td><td>Unfiltered name of top taxonomy term. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term-id]</td><td>ID of top taxonomy term</td> </tr>
+ <tr class="even"><td>[vocab]</td><td>Name of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[vocab-raw]</td><td>Unfiltered name of top term's vocabulary. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[vocab-id]</td><td>ID of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[yyyy]</td><td>Node creation year (four digit)</td> </tr>
+ <tr class="even"><td>[yy]</td><td>Node creation year (two digit)</td> </tr>
+ <tr class="odd"><td>[month]</td><td>Node creation month (full word)</td> </tr>
+ <tr class="even"><td>[mon]</td><td>Node creation month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[mm]</td><td>Node creation month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[m]</td><td>Node creation month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[ww]</td><td>Node creation week (two digit)</td> </tr>
+ <tr class="even"><td>[date]</td><td>Node creation date (day of month)</td> </tr>
+ <tr class="odd"><td>[day]</td><td>Node creation day (full word)</td> </tr>
+ <tr class="even"><td>[ddd]</td><td>Node creation day (abbreviation)</td> </tr>
+ <tr class="odd"><td>[dd]</td><td>Node creation day (two digit, zero-padded)</td> </tr>
+ <tr class="even"><td>[d]</td><td>Node creation day (one or two digit)</td> </tr>
+ <tr class="odd"><td>[mod-????]</td><td>All tokens for node creation dates can also be used with with the "mod-" prefix; doing so will use the modification date rather than the creation date.</td> </tr>
+ <tr class="even"><td>[menu]</td><td>The name of the menu the node belongs to.</td> </tr>
+ <tr class="odd"><td>[menu-raw]</td><td>The name of the menu the node belongs to. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menupath]</td><td>The menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /.</td> </tr>
+ <tr class="odd"><td>[menupath-raw]</td><td>The unfiltered menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menu-link-title]</td><td>The text used in the menu as link text for this item.</td> </tr>
+ <tr class="odd"><td>[menu-link-title-raw]</td><td>The unfiltered text used in the menu as link text for this item. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[ogname]</td><td>Title of top group</td> </tr>
+ <tr class="odd"><td>[ogname-raw]</td><td>Unfiltered title of top group. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[og-id]</td><td>ID of top group</td> </tr>
+ <tr class="odd"><td>[og-type]</td><td>Type of top group</td> </tr>
+ <tr class="even"><td>[ogalias]</td><td>URL alias for the top group.</td> </tr>
+ <tr class="odd"><td>[termpath]</td><td>As [term], but including its supercategories separated by /.</td> </tr>
+ <tr class="even"><td>[termpath-raw]</td><td>As [term-raw], but including its supercategories separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[termalias]</td><td>URL alias for the term.</td> </tr>
+ <tr class="even"><td>[node-teaser]</td><td>The node teaser.</td> </tr>
+ <tr class="odd"><td>[node-body]</td><td>The node body.</td> </tr>
+ <tr class="even"><td>[node-url]</td><td>The node view url for read more links.</td> </tr>
+ <tr class="odd"><td>[node-teaser-raw]</td><td>Unfiltered node teaser. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[node-body-raw]</td><td>Unfiltered node body. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK date tokens</td> </tr>
+ <tr class="even"><td>[field_start_date-value]</td><td>The raw date value.</td> </tr>
+ <tr class="odd"><td>[field_start_date-view]</td><td>The formatted date.</td> </tr>
+ <tr class="even"><td>[field_start_date-timestamp]</td><td>The raw date timestamp.</td> </tr>
+ <tr class="odd"><td>[field_start_date-yyyy]</td><td>Date year (four digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-yy]</td><td>Date year (two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-month]</td><td>Date month (full word)</td> </tr>
+ <tr class="even"><td>[field_start_date-mon]</td><td>Date month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[field_start_date-mm]</td><td>Date month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[field_start_date-m]</td><td>Date month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ww]</td><td>Date week (two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-date]</td><td>Date date (YYYY-MM-DD)</td> </tr>
+ <tr class="odd"><td>[field_start_date-datetime]</td><td>Date datetime (YYYY-MM-DDTHH:MM:SS)</td> </tr>
+ <tr class="even"><td>[field_start_date-day]</td><td>Date day (full word)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ddd]</td><td>Date day (abbreviation)</td> </tr>
+ <tr class="even"><td>[field_start_date-dd]</td><td>Date day (two digit, zero-padded)</td> </tr>
+ <tr class="odd"><td>[field_start_date-d]</td><td>Date day (one or two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-time]</td><td>Time H:i</td> </tr>
+ <tr class="odd"><td>[field_start_date-to-????]</td><td>If the field has a to-date defined, the same tokens exist in the form: [to-????], where ???? is the normal token.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK number tokens</td> </tr>
+ <tr class="odd"><td>[field_site_id-raw]</td><td>Raw number value</td> </tr>
+ <tr class="even"><td>[field_site_id-formatted]</td><td>Formatted number value</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK file tokens</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK text tokens</td> </tr>
+ <tr class="odd"><td>[field_school-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_school-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_booey-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_booey-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_swf_video-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_swf_video-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK node reference tokens</td> </tr>
+ <tr class="even"><td>[field_section-nid]</td><td>Referenced node ID</td> </tr>
+ <tr class="odd"><td>[field_section-title]</td><td>Referenced node title</td> </tr>
+ <tr class="even"><td>[field_section-title-raw]</td><td>Referenced node unfiltered title. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[field_section-link]</td><td>Formatted html link to the referenced node.</td> </tr>
+ <tr class="even"><td>[field_section-path]</td><td>Relative path alias to the referenced node.</td> </tr>
+ <tr class="odd"><td>[field_section-url]</td><td>Absolute path alias to the referenced node.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">Global tokens</td> </tr>
+ <tr class="odd"><td>[user-name]</td><td>The name of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[user-id]</td><td>The user ID of the currently logged in user.</td> </tr>
+ <tr class="odd"><td>[user-mail]</td><td>The email address of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[site-url]</td><td>The url of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-name]</td><td>The name of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-slogan]</td><td>The slogan of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-mission]</td><td>The mission of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-mail]</td><td>The contact email address for the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-date]</td><td>The current date on the site's server.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"tokens";}s:14:"#array_parents";a:2:{i:0;s:4:"help";i:1;s:6:"tokens";}s:7:"#weight";i:0;s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:12:"#description";N;s:8:"#printed";b:1;}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:4:"help";}s:14:"#array_parents";a:1:{i:0;s:4:"help";}s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:0;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#value";N;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:9:"#children";s:12241:"<span id="thmr_14" class="thmr_call">
+  <span id="thmr_1" class="thmr_call">
+  <span id="thmr_2" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Token</th><th>Replacement value</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td class="region" colspan="2">Node tokens</td> </tr>
+ <tr class="even"><td>[nid]</td><td>Node ID</td> </tr>
+ <tr class="odd"><td>[type]</td><td>Node type</td> </tr>
+ <tr class="even"><td>[type-name]</td><td>Node type (user-friendly version)</td> </tr>
+ <tr class="odd"><td>[language]</td><td>Node language</td> </tr>
+ <tr class="even"><td>[title]</td><td>Node title</td> </tr>
+ <tr class="odd"><td>[title-raw]</td><td>Unfiltered node title. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[author-uid]</td><td>Node author's user id</td> </tr>
+ <tr class="odd"><td>[author-name]</td><td>Node author's user name</td> </tr>
+ <tr class="even"><td>[author-name-raw]</td><td>Node author's user name. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[author-mail]</td><td>Node author's e-mail.</td> </tr>
+ <tr class="even"><td>[author-mail-raw]</td><td>Node author's e-mail. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term]</td><td>Name of top taxonomy term</td> </tr>
+ <tr class="even"><td>[term-raw]</td><td>Unfiltered name of top taxonomy term. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term-id]</td><td>ID of top taxonomy term</td> </tr>
+ <tr class="even"><td>[vocab]</td><td>Name of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[vocab-raw]</td><td>Unfiltered name of top term's vocabulary. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[vocab-id]</td><td>ID of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[yyyy]</td><td>Node creation year (four digit)</td> </tr>
+ <tr class="even"><td>[yy]</td><td>Node creation year (two digit)</td> </tr>
+ <tr class="odd"><td>[month]</td><td>Node creation month (full word)</td> </tr>
+ <tr class="even"><td>[mon]</td><td>Node creation month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[mm]</td><td>Node creation month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[m]</td><td>Node creation month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[ww]</td><td>Node creation week (two digit)</td> </tr>
+ <tr class="even"><td>[date]</td><td>Node creation date (day of month)</td> </tr>
+ <tr class="odd"><td>[day]</td><td>Node creation day (full word)</td> </tr>
+ <tr class="even"><td>[ddd]</td><td>Node creation day (abbreviation)</td> </tr>
+ <tr class="odd"><td>[dd]</td><td>Node creation day (two digit, zero-padded)</td> </tr>
+ <tr class="even"><td>[d]</td><td>Node creation day (one or two digit)</td> </tr>
+ <tr class="odd"><td>[mod-????]</td><td>All tokens for node creation dates can also be used with with the "mod-" prefix; doing so will use the modification date rather than the creation date.</td> </tr>
+ <tr class="even"><td>[menu]</td><td>The name of the menu the node belongs to.</td> </tr>
+ <tr class="odd"><td>[menu-raw]</td><td>The name of the menu the node belongs to. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menupath]</td><td>The menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /.</td> </tr>
+ <tr class="odd"><td>[menupath-raw]</td><td>The unfiltered menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menu-link-title]</td><td>The text used in the menu as link text for this item.</td> </tr>
+ <tr class="odd"><td>[menu-link-title-raw]</td><td>The unfiltered text used in the menu as link text for this item. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[ogname]</td><td>Title of top group</td> </tr>
+ <tr class="odd"><td>[ogname-raw]</td><td>Unfiltered title of top group. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[og-id]</td><td>ID of top group</td> </tr>
+ <tr class="odd"><td>[og-type]</td><td>Type of top group</td> </tr>
+ <tr class="even"><td>[ogalias]</td><td>URL alias for the top group.</td> </tr>
+ <tr class="odd"><td>[termpath]</td><td>As [term], but including its supercategories separated by /.</td> </tr>
+ <tr class="even"><td>[termpath-raw]</td><td>As [term-raw], but including its supercategories separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[termalias]</td><td>URL alias for the term.</td> </tr>
+ <tr class="even"><td>[node-teaser]</td><td>The node teaser.</td> </tr>
+ <tr class="odd"><td>[node-body]</td><td>The node body.</td> </tr>
+ <tr class="even"><td>[node-url]</td><td>The node view url for read more links.</td> </tr>
+ <tr class="odd"><td>[node-teaser-raw]</td><td>Unfiltered node teaser. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[node-body-raw]</td><td>Unfiltered node body. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK date tokens</td> </tr>
+ <tr class="even"><td>[field_start_date-value]</td><td>The raw date value.</td> </tr>
+ <tr class="odd"><td>[field_start_date-view]</td><td>The formatted date.</td> </tr>
+ <tr class="even"><td>[field_start_date-timestamp]</td><td>The raw date timestamp.</td> </tr>
+ <tr class="odd"><td>[field_start_date-yyyy]</td><td>Date year (four digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-yy]</td><td>Date year (two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-month]</td><td>Date month (full word)</td> </tr>
+ <tr class="even"><td>[field_start_date-mon]</td><td>Date month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[field_start_date-mm]</td><td>Date month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[field_start_date-m]</td><td>Date month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ww]</td><td>Date week (two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-date]</td><td>Date date (YYYY-MM-DD)</td> </tr>
+ <tr class="odd"><td>[field_start_date-datetime]</td><td>Date datetime (YYYY-MM-DDTHH:MM:SS)</td> </tr>
+ <tr class="even"><td>[field_start_date-day]</td><td>Date day (full word)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ddd]</td><td>Date day (abbreviation)</td> </tr>
+ <tr class="even"><td>[field_start_date-dd]</td><td>Date day (two digit, zero-padded)</td> </tr>
+ <tr class="odd"><td>[field_start_date-d]</td><td>Date day (one or two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-time]</td><td>Time H:i</td> </tr>
+ <tr class="odd"><td>[field_start_date-to-????]</td><td>If the field has a to-date defined, the same tokens exist in the form: [to-????], where ???? is the normal token.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK number tokens</td> </tr>
+ <tr class="odd"><td>[field_site_id-raw]</td><td>Raw number value</td> </tr>
+ <tr class="even"><td>[field_site_id-formatted]</td><td>Formatted number value</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK file tokens</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK text tokens</td> </tr>
+ <tr class="odd"><td>[field_school-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_school-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_booey-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_booey-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_swf_video-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_swf_video-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK node reference tokens</td> </tr>
+ <tr class="even"><td>[field_section-nid]</td><td>Referenced node ID</td> </tr>
+ <tr class="odd"><td>[field_section-title]</td><td>Referenced node title</td> </tr>
+ <tr class="even"><td>[field_section-title-raw]</td><td>Referenced node unfiltered title. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[field_section-link]</td><td>Formatted html link to the referenced node.</td> </tr>
+ <tr class="even"><td>[field_section-path]</td><td>Relative path alias to the referenced node.</td> </tr>
+ <tr class="odd"><td>[field_section-url]</td><td>Absolute path alias to the referenced node.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">Global tokens</td> </tr>
+ <tr class="odd"><td>[user-name]</td><td>The name of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[user-id]</td><td>The user ID of the currently logged in user.</td> </tr>
+ <tr class="odd"><td>[user-mail]</td><td>The email address of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[site-url]</td><td>The url of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-name]</td><td>The name of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-slogan]</td><td>The slogan of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-mission]</td><td>The mission of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-mail]</td><td>The contact email address for the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-date]</td><td>The current date on the site's server.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+</span>
+
+";}}s:4:"type";s:4:"func";}s:7:"thmr_16";a:2:{s:9:"variables";a:1:{s:7:"element";a:12:{s:6:"#value";s:502:"<span id="thmr_4" class="thmr_call">
+  <span id="thmr_5" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Identifier</th><th>Behaviour</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td>&lt;none&gt;</td><td>This will result in a plain text crumb. This identifier should not be used with the pipe (|) symbol.</td> </tr>
+ <tr class="even"><td>&lt;pathauto&gt;</td><td>Cleans the given path using your pathauto replacement rules.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"tokens";}s:14:"#array_parents";a:2:{i:0;s:5:"help2";i:1;s:6:"tokens";}s:7:"#weight";i:0;s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:12:"#description";N;}}s:4:"type";s:4:"func";}s:7:"thmr_17";a:2:{s:9:"variables";a:1:{s:7:"element";a:20:{s:5:"#type";s:8:"fieldset";s:12:"#collapsible";b:1;s:10:"#collapsed";b:1;s:6:"#title";s:19:"Special identifiers";s:12:"#description";s:214:"The following identifiers can be used to achieve a special behavior. Identifiers should be added to the paths area in the following format:  identifier|path.<br />For example: <em>&lt;pathauto&gt;</em>|[ogname-raw]";s:6:"tokens";a:13:{s:6:"#value";s:502:"<span id="thmr_4" class="thmr_call">
+  <span id="thmr_5" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Identifier</th><th>Behaviour</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td>&lt;none&gt;</td><td>This will result in a plain text crumb. This identifier should not be used with the pipe (|) symbol.</td> </tr>
+ <tr class="even"><td>&lt;pathauto&gt;</td><td>Cleans the given path using your pathauto replacement rules.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"tokens";}s:14:"#array_parents";a:2:{i:0;s:5:"help2";i:1;s:6:"tokens";}s:7:"#weight";i:0;s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:12:"#description";N;s:8:"#printed";b:1;}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:5:"help2";}s:14:"#array_parents";a:1:{i:0;s:5:"help2";}s:7:"#weight";d:0.005000000000000000104083408558608425664715468883514404296875;s:10:"#processed";b:0;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#value";N;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:9:"#children";s:551:"<span id="thmr_16" class="thmr_call">
+  <span id="thmr_4" class="thmr_call">
+  <span id="thmr_5" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Identifier</th><th>Behaviour</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td>&lt;none&gt;</td><td>This will result in a plain text crumb. This identifier should not be used with the pipe (|) symbol.</td> </tr>
+ <tr class="even"><td>&lt;pathauto&gt;</td><td>Cleans the given path using your pathauto replacement rules.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+</span>
+
+";}}s:4:"type";s:4:"func";}s:7:"thmr_19";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Submit";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:2:{i:0;s:7:"buttons";i:1;s:6:"submit";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:11:"edit-submit";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_18";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Submit";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:2:{i:0;s:7:"buttons";i:1;s:6:"submit";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:11:"edit-submit";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_20";a:2:{s:9:"variables";a:1:{s:7:"element";a:13:{s:6:"submit";a:22:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Submit";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:2:{i:0;s:7:"buttons";i:1;s:6:"submit";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:11:"edit-submit";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:7:"buttons";}s:14:"#array_parents";a:1:{i:0;s:7:"buttons";}s:7:"#weight";d:0.00600000000000000012490009027033011079765856266021728515625;s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:12:"#description";N;s:9:"#children";s:185:"<span id="thmr_18" class="thmr_call">
+  <span id="thmr_19" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit" value="Submit"  class="form-submit" />
+</span>
+
+</span>
+
+";}}s:4:"type";s:4:"func";}s:7:"thmr_22";a:2:{s:9:"variables";a:1:{s:7:"element";a:19:{s:3:"#id";s:39:"edit-custom-breadcrumbs-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"9933bcd9dc040763c52d718f48d76d29";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.008000000000000000166533453693773481063544750213623046875;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"9933bcd9dc040763c52d718f48d76d29";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_25";a:2:{s:9:"variables";a:1:{s:7:"element";a:33:{s:9:"node_type";a:24:{s:5:"#type";s:6:"select";s:6:"#title";s:9:"Node type";s:9:"#required";b:1;s:8:"#options";a:18:{s:18:"classroom_resource";s:18:"Classroom Resource";s:17:"content_type_page";s:17:"Content Type Page";s:5:"event";s:5:"Event";s:10:"flv_upload";s:10:"FLV Upload";s:13:"facebook_user";s:13:"Facebook User";s:22:"front_page_header_text";s:22:"Front Page Header Text";s:5:"group";s:5:"Group";s:10:"group_post";s:10:"Group Post";s:11:"job_posting";s:11:"Job Posting";s:4:"page";s:4:"Page";s:5:"panel";s:5:"Panel";s:7:"profile";s:7:"Profile";s:16:"scholarship_page";s:16:"Scholarship Page";s:20:"section_landing_page";s:20:"Section Landing Page";s:12:"sidebar_item";s:12:"Sidebar Item";s:5:"story";s:5:"Story";s:5:"video";s:5:"Video";s:15:"testcontenttype";s:15:"testcontenttype";}s:12:"#description";s:57:"The node type this custom breadcrumb trail will apply to.";s:14:"#default_value";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:9:"node_type";}s:14:"#array_parents";a:1:{i:0;s:9:"node_type";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:6:"#input";b:1;s:5:"#size";i:0;s:9:"#multiple";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:9:"node_type";s:3:"#id";s:14:"edit-node-type";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:14:"visibility_php";a:25:{s:5:"#type";s:8:"textarea";s:6:"#title";s:21:"Breadcrumb visibility";s:7:"#access";b:1;s:12:"#description";s:204:"Determine whether this breadcrumb should be displayed by using a snippet of PHP to return TRUE or FALSE. Note that this code has access to the $node variable, and can check its type or any other property.";s:14:"#default_value";s:0:"";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:14:"visibility_php";}s:14:"#array_parents";a:1:{i:0;s:14:"visibility_php";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#cols";i:60;s:5:"#rows";i:5;s:10:"#resizable";b:1;s:8:"#process";a:2:{i:0;s:16:"form_expand_ahah";i:1;s:13:"imce_textarea";}s:5:"#name";s:14:"visibility_php";s:3:"#id";s:19:"edit-visibility-php";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:6:"titles";a:24:{s:5:"#type";s:8:"textarea";s:6:"#title";s:6:"Titles";s:9:"#required";b:1;s:12:"#description";s:60:"A list of titles for the breadcrumb links, one on each line.";s:14:"#default_value";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"titles";}s:14:"#array_parents";a:1:{i:0;s:6:"titles";}s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:6:"#input";b:1;s:5:"#cols";i:60;s:5:"#rows";i:5;s:10:"#resizable";b:1;s:8:"#process";a:2:{i:0;s:16:"form_expand_ahah";i:1;s:13:"imce_textarea";}s:5:"#name";s:6:"titles";s:3:"#id";s:11:"edit-titles";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:5:"paths";a:24:{s:5:"#type";s:8:"textarea";s:6:"#title";s:5:"Paths";s:9:"#required";b:1;s:12:"#description";s:66:"A list of Drupal paths for the breadcrumb links, one on each line.";s:14:"#default_value";N;s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:5:"paths";}s:14:"#array_parents";a:1:{i:0;s:5:"paths";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:1;s:11:"#attributes";a:0:{}s:6:"#input";b:1;s:5:"#cols";i:60;s:5:"#rows";i:5;s:10:"#resizable";b:1;s:8:"#process";a:2:{i:0;s:16:"form_expand_ahah";i:1;s:13:"imce_textarea";}s:5:"#name";s:5:"paths";s:3:"#id";s:10:"edit-paths";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:4:"help";a:21:{s:5:"#type";s:8:"fieldset";s:12:"#collapsible";b:1;s:10:"#collapsed";b:1;s:6:"#title";s:18:"Placeholder tokens";s:12:"#description";s:151:"The following placeholder tokens can be used in both paths and titles. When used in a path or title, they will be replaced with the appropriate values.";s:6:"tokens";a:13:{s:6:"#value";s:12192:"<span id="thmr_1" class="thmr_call">
+  <span id="thmr_2" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Token</th><th>Replacement value</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td class="region" colspan="2">Node tokens</td> </tr>
+ <tr class="even"><td>[nid]</td><td>Node ID</td> </tr>
+ <tr class="odd"><td>[type]</td><td>Node type</td> </tr>
+ <tr class="even"><td>[type-name]</td><td>Node type (user-friendly version)</td> </tr>
+ <tr class="odd"><td>[language]</td><td>Node language</td> </tr>
+ <tr class="even"><td>[title]</td><td>Node title</td> </tr>
+ <tr class="odd"><td>[title-raw]</td><td>Unfiltered node title. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[author-uid]</td><td>Node author's user id</td> </tr>
+ <tr class="odd"><td>[author-name]</td><td>Node author's user name</td> </tr>
+ <tr class="even"><td>[author-name-raw]</td><td>Node author's user name. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[author-mail]</td><td>Node author's e-mail.</td> </tr>
+ <tr class="even"><td>[author-mail-raw]</td><td>Node author's e-mail. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term]</td><td>Name of top taxonomy term</td> </tr>
+ <tr class="even"><td>[term-raw]</td><td>Unfiltered name of top taxonomy term. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term-id]</td><td>ID of top taxonomy term</td> </tr>
+ <tr class="even"><td>[vocab]</td><td>Name of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[vocab-raw]</td><td>Unfiltered name of top term's vocabulary. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[vocab-id]</td><td>ID of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[yyyy]</td><td>Node creation year (four digit)</td> </tr>
+ <tr class="even"><td>[yy]</td><td>Node creation year (two digit)</td> </tr>
+ <tr class="odd"><td>[month]</td><td>Node creation month (full word)</td> </tr>
+ <tr class="even"><td>[mon]</td><td>Node creation month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[mm]</td><td>Node creation month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[m]</td><td>Node creation month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[ww]</td><td>Node creation week (two digit)</td> </tr>
+ <tr class="even"><td>[date]</td><td>Node creation date (day of month)</td> </tr>
+ <tr class="odd"><td>[day]</td><td>Node creation day (full word)</td> </tr>
+ <tr class="even"><td>[ddd]</td><td>Node creation day (abbreviation)</td> </tr>
+ <tr class="odd"><td>[dd]</td><td>Node creation day (two digit, zero-padded)</td> </tr>
+ <tr class="even"><td>[d]</td><td>Node creation day (one or two digit)</td> </tr>
+ <tr class="odd"><td>[mod-????]</td><td>All tokens for node creation dates can also be used with with the "mod-" prefix; doing so will use the modification date rather than the creation date.</td> </tr>
+ <tr class="even"><td>[menu]</td><td>The name of the menu the node belongs to.</td> </tr>
+ <tr class="odd"><td>[menu-raw]</td><td>The name of the menu the node belongs to. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menupath]</td><td>The menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /.</td> </tr>
+ <tr class="odd"><td>[menupath-raw]</td><td>The unfiltered menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menu-link-title]</td><td>The text used in the menu as link text for this item.</td> </tr>
+ <tr class="odd"><td>[menu-link-title-raw]</td><td>The unfiltered text used in the menu as link text for this item. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[ogname]</td><td>Title of top group</td> </tr>
+ <tr class="odd"><td>[ogname-raw]</td><td>Unfiltered title of top group. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[og-id]</td><td>ID of top group</td> </tr>
+ <tr class="odd"><td>[og-type]</td><td>Type of top group</td> </tr>
+ <tr class="even"><td>[ogalias]</td><td>URL alias for the top group.</td> </tr>
+ <tr class="odd"><td>[termpath]</td><td>As [term], but including its supercategories separated by /.</td> </tr>
+ <tr class="even"><td>[termpath-raw]</td><td>As [term-raw], but including its supercategories separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[termalias]</td><td>URL alias for the term.</td> </tr>
+ <tr class="even"><td>[node-teaser]</td><td>The node teaser.</td> </tr>
+ <tr class="odd"><td>[node-body]</td><td>The node body.</td> </tr>
+ <tr class="even"><td>[node-url]</td><td>The node view url for read more links.</td> </tr>
+ <tr class="odd"><td>[node-teaser-raw]</td><td>Unfiltered node teaser. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[node-body-raw]</td><td>Unfiltered node body. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK date tokens</td> </tr>
+ <tr class="even"><td>[field_start_date-value]</td><td>The raw date value.</td> </tr>
+ <tr class="odd"><td>[field_start_date-view]</td><td>The formatted date.</td> </tr>
+ <tr class="even"><td>[field_start_date-timestamp]</td><td>The raw date timestamp.</td> </tr>
+ <tr class="odd"><td>[field_start_date-yyyy]</td><td>Date year (four digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-yy]</td><td>Date year (two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-month]</td><td>Date month (full word)</td> </tr>
+ <tr class="even"><td>[field_start_date-mon]</td><td>Date month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[field_start_date-mm]</td><td>Date month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[field_start_date-m]</td><td>Date month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ww]</td><td>Date week (two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-date]</td><td>Date date (YYYY-MM-DD)</td> </tr>
+ <tr class="odd"><td>[field_start_date-datetime]</td><td>Date datetime (YYYY-MM-DDTHH:MM:SS)</td> </tr>
+ <tr class="even"><td>[field_start_date-day]</td><td>Date day (full word)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ddd]</td><td>Date day (abbreviation)</td> </tr>
+ <tr class="even"><td>[field_start_date-dd]</td><td>Date day (two digit, zero-padded)</td> </tr>
+ <tr class="odd"><td>[field_start_date-d]</td><td>Date day (one or two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-time]</td><td>Time H:i</td> </tr>
+ <tr class="odd"><td>[field_start_date-to-????]</td><td>If the field has a to-date defined, the same tokens exist in the form: [to-????], where ???? is the normal token.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK number tokens</td> </tr>
+ <tr class="odd"><td>[field_site_id-raw]</td><td>Raw number value</td> </tr>
+ <tr class="even"><td>[field_site_id-formatted]</td><td>Formatted number value</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK file tokens</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK text tokens</td> </tr>
+ <tr class="odd"><td>[field_school-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_school-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_booey-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_booey-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_swf_video-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_swf_video-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK node reference tokens</td> </tr>
+ <tr class="even"><td>[field_section-nid]</td><td>Referenced node ID</td> </tr>
+ <tr class="odd"><td>[field_section-title]</td><td>Referenced node title</td> </tr>
+ <tr class="even"><td>[field_section-title-raw]</td><td>Referenced node unfiltered title. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[field_section-link]</td><td>Formatted html link to the referenced node.</td> </tr>
+ <tr class="even"><td>[field_section-path]</td><td>Relative path alias to the referenced node.</td> </tr>
+ <tr class="odd"><td>[field_section-url]</td><td>Absolute path alias to the referenced node.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">Global tokens</td> </tr>
+ <tr class="odd"><td>[user-name]</td><td>The name of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[user-id]</td><td>The user ID of the currently logged in user.</td> </tr>
+ <tr class="odd"><td>[user-mail]</td><td>The email address of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[site-url]</td><td>The url of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-name]</td><td>The name of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-slogan]</td><td>The slogan of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-mission]</td><td>The mission of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-mail]</td><td>The contact email address for the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-date]</td><td>The current date on the site's server.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"tokens";}s:14:"#array_parents";a:2:{i:0;s:4:"help";i:1;s:6:"tokens";}s:7:"#weight";i:0;s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:12:"#description";N;s:8:"#printed";b:1;}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:4:"help";}s:14:"#array_parents";a:1:{i:0;s:4:"help";}s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:0;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#value";N;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:9:"#children";s:12241:"<span id="thmr_14" class="thmr_call">
+  <span id="thmr_1" class="thmr_call">
+  <span id="thmr_2" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Token</th><th>Replacement value</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td class="region" colspan="2">Node tokens</td> </tr>
+ <tr class="even"><td>[nid]</td><td>Node ID</td> </tr>
+ <tr class="odd"><td>[type]</td><td>Node type</td> </tr>
+ <tr class="even"><td>[type-name]</td><td>Node type (user-friendly version)</td> </tr>
+ <tr class="odd"><td>[language]</td><td>Node language</td> </tr>
+ <tr class="even"><td>[title]</td><td>Node title</td> </tr>
+ <tr class="odd"><td>[title-raw]</td><td>Unfiltered node title. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[author-uid]</td><td>Node author's user id</td> </tr>
+ <tr class="odd"><td>[author-name]</td><td>Node author's user name</td> </tr>
+ <tr class="even"><td>[author-name-raw]</td><td>Node author's user name. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[author-mail]</td><td>Node author's e-mail.</td> </tr>
+ <tr class="even"><td>[author-mail-raw]</td><td>Node author's e-mail. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term]</td><td>Name of top taxonomy term</td> </tr>
+ <tr class="even"><td>[term-raw]</td><td>Unfiltered name of top taxonomy term. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term-id]</td><td>ID of top taxonomy term</td> </tr>
+ <tr class="even"><td>[vocab]</td><td>Name of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[vocab-raw]</td><td>Unfiltered name of top term's vocabulary. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[vocab-id]</td><td>ID of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[yyyy]</td><td>Node creation year (four digit)</td> </tr>
+ <tr class="even"><td>[yy]</td><td>Node creation year (two digit)</td> </tr>
+ <tr class="odd"><td>[month]</td><td>Node creation month (full word)</td> </tr>
+ <tr class="even"><td>[mon]</td><td>Node creation month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[mm]</td><td>Node creation month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[m]</td><td>Node creation month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[ww]</td><td>Node creation week (two digit)</td> </tr>
+ <tr class="even"><td>[date]</td><td>Node creation date (day of month)</td> </tr>
+ <tr class="odd"><td>[day]</td><td>Node creation day (full word)</td> </tr>
+ <tr class="even"><td>[ddd]</td><td>Node creation day (abbreviation)</td> </tr>
+ <tr class="odd"><td>[dd]</td><td>Node creation day (two digit, zero-padded)</td> </tr>
+ <tr class="even"><td>[d]</td><td>Node creation day (one or two digit)</td> </tr>
+ <tr class="odd"><td>[mod-????]</td><td>All tokens for node creation dates can also be used with with the "mod-" prefix; doing so will use the modification date rather than the creation date.</td> </tr>
+ <tr class="even"><td>[menu]</td><td>The name of the menu the node belongs to.</td> </tr>
+ <tr class="odd"><td>[menu-raw]</td><td>The name of the menu the node belongs to. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menupath]</td><td>The menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /.</td> </tr>
+ <tr class="odd"><td>[menupath-raw]</td><td>The unfiltered menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menu-link-title]</td><td>The text used in the menu as link text for this item.</td> </tr>
+ <tr class="odd"><td>[menu-link-title-raw]</td><td>The unfiltered text used in the menu as link text for this item. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[ogname]</td><td>Title of top group</td> </tr>
+ <tr class="odd"><td>[ogname-raw]</td><td>Unfiltered title of top group. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[og-id]</td><td>ID of top group</td> </tr>
+ <tr class="odd"><td>[og-type]</td><td>Type of top group</td> </tr>
+ <tr class="even"><td>[ogalias]</td><td>URL alias for the top group.</td> </tr>
+ <tr class="odd"><td>[termpath]</td><td>As [term], but including its supercategories separated by /.</td> </tr>
+ <tr class="even"><td>[termpath-raw]</td><td>As [term-raw], but including its supercategories separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[termalias]</td><td>URL alias for the term.</td> </tr>
+ <tr class="even"><td>[node-teaser]</td><td>The node teaser.</td> </tr>
+ <tr class="odd"><td>[node-body]</td><td>The node body.</td> </tr>
+ <tr class="even"><td>[node-url]</td><td>The node view url for read more links.</td> </tr>
+ <tr class="odd"><td>[node-teaser-raw]</td><td>Unfiltered node teaser. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[node-body-raw]</td><td>Unfiltered node body. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK date tokens</td> </tr>
+ <tr class="even"><td>[field_start_date-value]</td><td>The raw date value.</td> </tr>
+ <tr class="odd"><td>[field_start_date-view]</td><td>The formatted date.</td> </tr>
+ <tr class="even"><td>[field_start_date-timestamp]</td><td>The raw date timestamp.</td> </tr>
+ <tr class="odd"><td>[field_start_date-yyyy]</td><td>Date year (four digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-yy]</td><td>Date year (two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-month]</td><td>Date month (full word)</td> </tr>
+ <tr class="even"><td>[field_start_date-mon]</td><td>Date month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[field_start_date-mm]</td><td>Date month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[field_start_date-m]</td><td>Date month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ww]</td><td>Date week (two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-date]</td><td>Date date (YYYY-MM-DD)</td> </tr>
+ <tr class="odd"><td>[field_start_date-datetime]</td><td>Date datetime (YYYY-MM-DDTHH:MM:SS)</td> </tr>
+ <tr class="even"><td>[field_start_date-day]</td><td>Date day (full word)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ddd]</td><td>Date day (abbreviation)</td> </tr>
+ <tr class="even"><td>[field_start_date-dd]</td><td>Date day (two digit, zero-padded)</td> </tr>
+ <tr class="odd"><td>[field_start_date-d]</td><td>Date day (one or two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-time]</td><td>Time H:i</td> </tr>
+ <tr class="odd"><td>[field_start_date-to-????]</td><td>If the field has a to-date defined, the same tokens exist in the form: [to-????], where ???? is the normal token.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK number tokens</td> </tr>
+ <tr class="odd"><td>[field_site_id-raw]</td><td>Raw number value</td> </tr>
+ <tr class="even"><td>[field_site_id-formatted]</td><td>Formatted number value</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK file tokens</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK text tokens</td> </tr>
+ <tr class="odd"><td>[field_school-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_school-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_booey-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_booey-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_swf_video-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_swf_video-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK node reference tokens</td> </tr>
+ <tr class="even"><td>[field_section-nid]</td><td>Referenced node ID</td> </tr>
+ <tr class="odd"><td>[field_section-title]</td><td>Referenced node title</td> </tr>
+ <tr class="even"><td>[field_section-title-raw]</td><td>Referenced node unfiltered title. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[field_section-link]</td><td>Formatted html link to the referenced node.</td> </tr>
+ <tr class="even"><td>[field_section-path]</td><td>Relative path alias to the referenced node.</td> </tr>
+ <tr class="odd"><td>[field_section-url]</td><td>Absolute path alias to the referenced node.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">Global tokens</td> </tr>
+ <tr class="odd"><td>[user-name]</td><td>The name of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[user-id]</td><td>The user ID of the currently logged in user.</td> </tr>
+ <tr class="odd"><td>[user-mail]</td><td>The email address of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[site-url]</td><td>The url of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-name]</td><td>The name of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-slogan]</td><td>The slogan of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-mission]</td><td>The mission of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-mail]</td><td>The contact email address for the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-date]</td><td>The current date on the site's server.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+</span>
+
+";s:8:"#printed";b:1;}s:5:"help2";a:21:{s:5:"#type";s:8:"fieldset";s:12:"#collapsible";b:1;s:10:"#collapsed";b:1;s:6:"#title";s:19:"Special identifiers";s:12:"#description";s:214:"The following identifiers can be used to achieve a special behavior. Identifiers should be added to the paths area in the following format:  identifier|path.<br />For example: <em>&lt;pathauto&gt;</em>|[ogname-raw]";s:6:"tokens";a:13:{s:6:"#value";s:502:"<span id="thmr_4" class="thmr_call">
+  <span id="thmr_5" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Identifier</th><th>Behaviour</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td>&lt;none&gt;</td><td>This will result in a plain text crumb. This identifier should not be used with the pipe (|) symbol.</td> </tr>
+ <tr class="even"><td>&lt;pathauto&gt;</td><td>Cleans the given path using your pathauto replacement rules.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"tokens";}s:14:"#array_parents";a:2:{i:0;s:5:"help2";i:1;s:6:"tokens";}s:7:"#weight";i:0;s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:12:"#description";N;s:8:"#printed";b:1;}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:5:"help2";}s:14:"#array_parents";a:1:{i:0;s:5:"help2";}s:7:"#weight";d:0.005000000000000000104083408558608425664715468883514404296875;s:10:"#processed";b:0;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#value";N;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:9:"#children";s:551:"<span id="thmr_16" class="thmr_call">
+  <span id="thmr_4" class="thmr_call">
+  <span id="thmr_5" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Identifier</th><th>Behaviour</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td>&lt;none&gt;</td><td>This will result in a plain text crumb. This identifier should not be used with the pipe (|) symbol.</td> </tr>
+ <tr class="even"><td>&lt;pathauto&gt;</td><td>Cleans the given path using your pathauto replacement rules.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+</span>
+
+";s:8:"#printed";b:1;}s:7:"buttons";a:14:{s:6:"submit";a:22:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Submit";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:2:{i:0;s:7:"buttons";i:1;s:6:"submit";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:11:"edit-submit";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:7:"buttons";}s:14:"#array_parents";a:1:{i:0;s:7:"buttons";}s:7:"#weight";d:0.00600000000000000012490009027033011079765856266021728515625;s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:12:"#description";N;s:9:"#children";s:185:"<span id="thmr_18" class="thmr_call">
+  <span id="thmr_19" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit" value="Submit"  class="form-submit" />
+</span>
+
+</span>
+
+";s:8:"#printed";b:1;}s:11:"#parameters";a:2:{i:0;s:23:"custom_breadcrumbs_form";i:1;a:3:{s:7:"storage";N;s:9:"submitted";b:0;s:4:"post";a:0:{}}}s:9:"#build_id";s:37:"form-1f56e4f999c3e16638754307158f5a78";s:5:"#type";s:4:"form";s:11:"#programmed";b:0;s:13:"form_build_id";a:20:{s:5:"#type";s:6:"hidden";s:6:"#value";s:37:"form-1f56e4f999c3e16638754307158f5a78";s:3:"#id";s:37:"form-1f56e4f999c3e16638754307158f5a78";s:5:"#name";s:13:"form_build_id";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:13:"form_build_id";}s:14:"#array_parents";a:1:{i:0;s:13:"form_build_id";}s:7:"#weight";d:0.007000000000000000145716771982051795930601656436920166015625;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:6:"#token";s:23:"custom_breadcrumbs_form";s:10:"form_token";a:20:{s:3:"#id";s:39:"edit-custom-breadcrumbs-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"9933bcd9dc040763c52d718f48d76d29";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.008000000000000000166533453693773481063544750213623046875;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"9933bcd9dc040763c52d718f48d76d29";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:7:"form_id";a:20:{s:5:"#type";s:6:"hidden";s:6:"#value";s:23:"custom_breadcrumbs_form";s:3:"#id";s:28:"edit-custom-breadcrumbs-form";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:7:"form_id";}s:14:"#array_parents";a:1:{i:0;s:7:"form_id";}s:7:"#weight";d:0.00899999999999999931998839741709161899052560329437255859375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:7:"form_id";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:3:"#id";s:23:"custom-breadcrumbs-form";s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:5:"#tree";b:0;s:8:"#parents";a:0:{}s:7:"#method";s:4:"post";s:7:"#action";s:35:"/admin/build/custom_breadcrumbs/add";s:9:"#validate";a:1:{i:0;s:32:"custom_breadcrumbs_form_validate";}s:7:"#submit";a:1:{i:0;s:30:"custom_breadcrumbs_form_submit";}s:12:"#after_build";a:1:{i:0;s:20:"wysiwyg_process_form";}s:5:"#post";a:0:{}s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:17:"#after_build_done";b:1;s:6:"#title";N;s:9:"#children";s:16801:"<span id="thmr_6" class="thmr_call">
+  <div class="form-item" id="edit-node-type-wrapper">
+ <label for="edit-node-type">Node type: <span class="form-required" title="This field is required.">*</span></label>
+ <select name="node_type" class="form-select required" id="edit-node-type" ><option value="classroom_resource">Classroom Resource</option><option value="content_type_page">Content Type Page</option><option value="event">Event</option><option value="flv_upload">FLV Upload</option><option value="facebook_user">Facebook User</option><option value="front_page_header_text">Front Page Header Text</option><option value="group">Group</option><option value="group_post">Group Post</option><option value="job_posting">Job Posting</option><option value="page">Page</option><option value="panel">Panel</option><option value="profile">Profile</option><option value="scholarship_page">Scholarship Page</option><option value="section_landing_page">Section Landing Page</option><option value="sidebar_item">Sidebar Item</option><option value="story">Story</option><option value="video">Video</option><option value="testcontenttype">testcontenttype</option></select>
+ <div class="description">The node type this custom breadcrumb trail will apply to.</div>
+</div>
+</span>
+
+<span id="thmr_8" class="thmr_call">
+  <div class="form-item" id="edit-visibility-php-wrapper">
+ <label for="edit-visibility-php">Breadcrumb visibility: </label>
+ <textarea cols="60" rows="5" name="visibility_php" id="edit-visibility-php"  class="form-textarea resizable"></textarea>
+ <div class="description">Determine whether this breadcrumb should be displayed by using a snippet of PHP to return TRUE or FALSE. Note that this code has access to the $node variable, and can check its type or any other property.</div>
+</div>
+</span>
+
+<span id="thmr_10" class="thmr_call">
+  <div class="form-item" id="edit-titles-wrapper">
+ <label for="edit-titles">Titles: <span class="form-required" title="This field is required.">*</span></label>
+ <textarea cols="60" rows="5" name="titles" id="edit-titles"  class="form-textarea resizable required"></textarea>
+ <div class="description">A list of titles for the breadcrumb links, one on each line.</div>
+</div>
+</span>
+
+<span id="thmr_12" class="thmr_call">
+  <div class="form-item" id="edit-paths-wrapper">
+ <label for="edit-paths">Paths: <span class="form-required" title="This field is required.">*</span></label>
+ <textarea cols="60" rows="5" name="paths" id="edit-paths"  class="form-textarea resizable required"></textarea>
+ <div class="description">A list of Drupal paths for the breadcrumb links, one on each line.</div>
+</div>
+</span>
+
+<span id="thmr_15" class="thmr_call">
+  <fieldset class=" collapsible collapsed"><legend>Placeholder tokens</legend><div class="description">The following placeholder tokens can be used in both paths and titles. When used in a path or title, they will be replaced with the appropriate values.</div><span id="thmr_14" class="thmr_call">
+  <span id="thmr_1" class="thmr_call">
+  <span id="thmr_2" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Token</th><th>Replacement value</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td class="region" colspan="2">Node tokens</td> </tr>
+ <tr class="even"><td>[nid]</td><td>Node ID</td> </tr>
+ <tr class="odd"><td>[type]</td><td>Node type</td> </tr>
+ <tr class="even"><td>[type-name]</td><td>Node type (user-friendly version)</td> </tr>
+ <tr class="odd"><td>[language]</td><td>Node language</td> </tr>
+ <tr class="even"><td>[title]</td><td>Node title</td> </tr>
+ <tr class="odd"><td>[title-raw]</td><td>Unfiltered node title. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[author-uid]</td><td>Node author's user id</td> </tr>
+ <tr class="odd"><td>[author-name]</td><td>Node author's user name</td> </tr>
+ <tr class="even"><td>[author-name-raw]</td><td>Node author's user name. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[author-mail]</td><td>Node author's e-mail.</td> </tr>
+ <tr class="even"><td>[author-mail-raw]</td><td>Node author's e-mail. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term]</td><td>Name of top taxonomy term</td> </tr>
+ <tr class="even"><td>[term-raw]</td><td>Unfiltered name of top taxonomy term. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term-id]</td><td>ID of top taxonomy term</td> </tr>
+ <tr class="even"><td>[vocab]</td><td>Name of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[vocab-raw]</td><td>Unfiltered name of top term's vocabulary. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[vocab-id]</td><td>ID of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[yyyy]</td><td>Node creation year (four digit)</td> </tr>
+ <tr class="even"><td>[yy]</td><td>Node creation year (two digit)</td> </tr>
+ <tr class="odd"><td>[month]</td><td>Node creation month (full word)</td> </tr>
+ <tr class="even"><td>[mon]</td><td>Node creation month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[mm]</td><td>Node creation month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[m]</td><td>Node creation month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[ww]</td><td>Node creation week (two digit)</td> </tr>
+ <tr class="even"><td>[date]</td><td>Node creation date (day of month)</td> </tr>
+ <tr class="odd"><td>[day]</td><td>Node creation day (full word)</td> </tr>
+ <tr class="even"><td>[ddd]</td><td>Node creation day (abbreviation)</td> </tr>
+ <tr class="odd"><td>[dd]</td><td>Node creation day (two digit, zero-padded)</td> </tr>
+ <tr class="even"><td>[d]</td><td>Node creation day (one or two digit)</td> </tr>
+ <tr class="odd"><td>[mod-????]</td><td>All tokens for node creation dates can also be used with with the "mod-" prefix; doing so will use the modification date rather than the creation date.</td> </tr>
+ <tr class="even"><td>[menu]</td><td>The name of the menu the node belongs to.</td> </tr>
+ <tr class="odd"><td>[menu-raw]</td><td>The name of the menu the node belongs to. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menupath]</td><td>The menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /.</td> </tr>
+ <tr class="odd"><td>[menupath-raw]</td><td>The unfiltered menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menu-link-title]</td><td>The text used in the menu as link text for this item.</td> </tr>
+ <tr class="odd"><td>[menu-link-title-raw]</td><td>The unfiltered text used in the menu as link text for this item. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[ogname]</td><td>Title of top group</td> </tr>
+ <tr class="odd"><td>[ogname-raw]</td><td>Unfiltered title of top group. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[og-id]</td><td>ID of top group</td> </tr>
+ <tr class="odd"><td>[og-type]</td><td>Type of top group</td> </tr>
+ <tr class="even"><td>[ogalias]</td><td>URL alias for the top group.</td> </tr>
+ <tr class="odd"><td>[termpath]</td><td>As [term], but including its supercategories separated by /.</td> </tr>
+ <tr class="even"><td>[termpath-raw]</td><td>As [term-raw], but including its supercategories separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[termalias]</td><td>URL alias for the term.</td> </tr>
+ <tr class="even"><td>[node-teaser]</td><td>The node teaser.</td> </tr>
+ <tr class="odd"><td>[node-body]</td><td>The node body.</td> </tr>
+ <tr class="even"><td>[node-url]</td><td>The node view url for read more links.</td> </tr>
+ <tr class="odd"><td>[node-teaser-raw]</td><td>Unfiltered node teaser. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[node-body-raw]</td><td>Unfiltered node body. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK date tokens</td> </tr>
+ <tr class="even"><td>[field_start_date-value]</td><td>The raw date value.</td> </tr>
+ <tr class="odd"><td>[field_start_date-view]</td><td>The formatted date.</td> </tr>
+ <tr class="even"><td>[field_start_date-timestamp]</td><td>The raw date timestamp.</td> </tr>
+ <tr class="odd"><td>[field_start_date-yyyy]</td><td>Date year (four digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-yy]</td><td>Date year (two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-month]</td><td>Date month (full word)</td> </tr>
+ <tr class="even"><td>[field_start_date-mon]</td><td>Date month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[field_start_date-mm]</td><td>Date month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[field_start_date-m]</td><td>Date month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ww]</td><td>Date week (two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-date]</td><td>Date date (YYYY-MM-DD)</td> </tr>
+ <tr class="odd"><td>[field_start_date-datetime]</td><td>Date datetime (YYYY-MM-DDTHH:MM:SS)</td> </tr>
+ <tr class="even"><td>[field_start_date-day]</td><td>Date day (full word)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ddd]</td><td>Date day (abbreviation)</td> </tr>
+ <tr class="even"><td>[field_start_date-dd]</td><td>Date day (two digit, zero-padded)</td> </tr>
+ <tr class="odd"><td>[field_start_date-d]</td><td>Date day (one or two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-time]</td><td>Time H:i</td> </tr>
+ <tr class="odd"><td>[field_start_date-to-????]</td><td>If the field has a to-date defined, the same tokens exist in the form: [to-????], where ???? is the normal token.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK number tokens</td> </tr>
+ <tr class="odd"><td>[field_site_id-raw]</td><td>Raw number value</td> </tr>
+ <tr class="even"><td>[field_site_id-formatted]</td><td>Formatted number value</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK file tokens</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK text tokens</td> </tr>
+ <tr class="odd"><td>[field_school-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_school-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_booey-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_booey-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_swf_video-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_swf_video-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK node reference tokens</td> </tr>
+ <tr class="even"><td>[field_section-nid]</td><td>Referenced node ID</td> </tr>
+ <tr class="odd"><td>[field_section-title]</td><td>Referenced node title</td> </tr>
+ <tr class="even"><td>[field_section-title-raw]</td><td>Referenced node unfiltered title. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[field_section-link]</td><td>Formatted html link to the referenced node.</td> </tr>
+ <tr class="even"><td>[field_section-path]</td><td>Relative path alias to the referenced node.</td> </tr>
+ <tr class="odd"><td>[field_section-url]</td><td>Absolute path alias to the referenced node.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">Global tokens</td> </tr>
+ <tr class="odd"><td>[user-name]</td><td>The name of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[user-id]</td><td>The user ID of the currently logged in user.</td> </tr>
+ <tr class="odd"><td>[user-mail]</td><td>The email address of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[site-url]</td><td>The url of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-name]</td><td>The name of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-slogan]</td><td>The slogan of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-mission]</td><td>The mission of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-mail]</td><td>The contact email address for the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-date]</td><td>The current date on the site's server.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+</span>
+
+</fieldset>
+</span>
+
+<span id="thmr_17" class="thmr_call">
+  <fieldset class=" collapsible collapsed"><legend>Special identifiers</legend><div class="description">The following identifiers can be used to achieve a special behavior. Identifiers should be added to the paths area in the following format:  identifier|path.<br />For example: <em>&lt;pathauto&gt;</em>|[ogname-raw]</div><span id="thmr_16" class="thmr_call">
+  <span id="thmr_4" class="thmr_call">
+  <span id="thmr_5" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Identifier</th><th>Behaviour</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td>&lt;none&gt;</td><td>This will result in a plain text crumb. This identifier should not be used with the pipe (|) symbol.</td> </tr>
+ <tr class="even"><td>&lt;pathauto&gt;</td><td>Cleans the given path using your pathauto replacement rules.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+</span>
+
+</fieldset>
+</span>
+
+<span id="thmr_20" class="thmr_call">
+  <span id="thmr_18" class="thmr_call">
+  <span id="thmr_19" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit" value="Submit"  class="form-submit" />
+</span>
+
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-1f56e4f999c3e16638754307158f5a78" value="form-1f56e4f999c3e16638754307158f5a78"  />
+<span id="thmr_22" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-custom-breadcrumbs-form-form-token" value="9933bcd9dc040763c52d718f48d76d29"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-custom-breadcrumbs-form" value="custom_breadcrumbs_form"  />
+";}}s:4:"type";s:4:"func";}s:7:"thmr_28";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:12:"views_access";s:16:"access_arguments";s:14:"a:1:{i:0;b:1;}";s:13:"page_callback";s:10:"views_page";s:14:"page_arguments";s:51:"a:2:{i:0;s:18:"highlighted_groups";i:1;s:4:"page";}";s:5:"title";s:6:"Groups";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:4:"1077";s:4:"plid";s:1:"0";s:9:"link_path";s:2:"og";s:11:"router_path";s:2:"og";s:10:"link_title";s:6:"Groups";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"0";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:4:"1077";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:2:"og";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_29";a:2:{s:9:"variables";a:5:{s:4:"link";s:73:"<span id="thmr_28" class="thmr_call">
+  <a href="/og">Groups</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";s:5:"first";}s:4:"type";s:4:"func";}s:7:"thmr_30";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:22:"privatemsg_user_access";s:16:"access_arguments";s:6:"a:0:{}";s:13:"page_callback";s:15:"drupal_get_form";s:14:"page_arguments";s:48:"a:2:{i:0;s:15:"privatemsg_list";i:1;s:4:"list";}";s:5:"title";s:8:"Messages";s:14:"title_callback";s:25:"privatemsg_title_callback";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:4:"1124";s:4:"plid";s:1:"0";s:9:"link_path";s:8:"messages";s:11:"router_path";s:8:"messages";s:10:"link_title";s:8:"Messages";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"0";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:4:"1124";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:8:"messages";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_31";a:2:{s:9:"variables";a:5:{s:4:"link";s:81:"<span id="thmr_30" class="thmr_call">
+  <a href="/messages">Messages</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";N;}s:4:"type";s:4:"func";}s:7:"thmr_32";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:12:"views_access";s:16:"access_arguments";s:73:"a:1:{i:0;a:2:{i:0;s:17:"views_check_roles";i:1;a:1:{i:0;a:1:{i:2;i:2;}}}}";s:13:"page_callback";s:10:"views_page";s:14:"page_arguments";s:41:"a:2:{i:0;s:9:"og_unread";i:1;s:4:"page";}";s:5:"title";s:9:"My Unread";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:3:"384";s:4:"plid";s:1:"0";s:9:"link_path";s:5:"group";s:11:"router_path";s:5:"group";s:10:"link_title";s:9:"My Unread";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"0";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:3:"384";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:5:"group";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_33";a:2:{s:9:"variables";a:5:{s:4:"link";s:79:"<span id="thmr_32" class="thmr_call">
+  <a href="/group">My Unread</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";N;}s:4:"type";s:4:"func";}s:7:"thmr_34";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";a:1:{i:1;s:22:"user_uid_optional_load";}s:16:"to_arg_functions";s:42:"a:1:{i:1;s:24:"user_uid_optional_to_arg";}";s:15:"access_callback";s:16:"user_view_access";s:16:"access_arguments";s:14:"a:1:{i:0;i:1;}";s:13:"page_callback";s:9:"user_view";s:14:"page_arguments";s:14:"a:1:{i:0;i:1;}";s:5:"title";s:10:"My account";s:14:"title_callback";s:15:"user_page_title";s:15:"title_arguments";s:14:"a:1:{i:0;i:1;}";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:2:"21";s:4:"plid";s:1:"0";s:9:"link_path";s:6:"user/%";s:11:"router_path";s:6:"user/%";s:10:"link_title";s:10:"My account";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"0";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:2:"21";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:6:"user/1";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_35";a:2:{s:9:"variables";a:5:{s:4:"link";s:81:"<span id="thmr_34" class="thmr_call">
+  <a href="/user/1">My account</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";N;}s:4:"type";s:4:"func";}s:7:"thmr_36";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:16:"_node_add_access";s:16:"access_arguments";s:6:"a:0:{}";s:13:"page_callback";s:13:"node_add_page";s:14:"page_arguments";s:6:"a:0:{}";s:5:"title";s:14:"Create content";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:2:"11";s:4:"plid";s:1:"0";s:9:"link_path";s:8:"node/add";s:11:"router_path";s:8:"node/add";s:10:"link_title";s:14:"Create content";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"1";s:8:"expanded";s:1:"0";s:6:"weight";s:1:"1";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:2:"11";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:8:"node/add";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_37";a:2:{s:9:"variables";a:5:{s:4:"link";s:87:"<span id="thmr_36" class="thmr_call">
+  <a href="/node/add">Create content</a></span>
+
+";s:12:"has_children";s:1:"1";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";N;}s:4:"type";s:4:"func";}s:7:"thmr_38";a:2:{s:9:"variables";a:1:{s:4:"link";a:40:{s:14:"load_functions";s:0:"";s:16:"to_arg_functions";s:0:"";s:15:"access_callback";s:17:"user_is_logged_in";s:16:"access_arguments";s:6:"a:0:{}";s:13:"page_callback";s:11:"user_logout";s:14:"page_arguments";s:6:"a:0:{}";s:5:"title";s:7:"Log out";s:14:"title_callback";s:1:"t";s:15:"title_arguments";s:0:"";s:4:"type";s:1:"6";s:11:"description";s:0:"";s:9:"menu_name";s:10:"navigation";s:4:"mlid";s:1:"4";s:4:"plid";s:1:"0";s:9:"link_path";s:6:"logout";s:11:"router_path";s:6:"logout";s:10:"link_title";s:7:"Log out";s:7:"options";a:0:{}s:6:"module";s:6:"system";s:6:"hidden";s:1:"0";s:8:"external";s:1:"0";s:12:"has_children";s:1:"0";s:8:"expanded";s:1:"0";s:6:"weight";s:2:"10";s:5:"depth";s:1:"1";s:10:"customized";s:1:"0";s:2:"p1";s:1:"4";s:2:"p2";s:1:"0";s:2:"p3";s:1:"0";s:2:"p4";s:1:"0";s:2:"p5";s:1:"0";s:2:"p6";s:1:"0";s:2:"p7";s:1:"0";s:2:"p8";s:1:"0";s:2:"p9";s:1:"0";s:7:"updated";s:1:"0";s:15:"in_active_trail";b:0;s:4:"href";s:6:"logout";s:6:"access";b:1;s:17:"localized_options";a:0:{}}}s:4:"type";s:4:"func";}s:7:"thmr_39";a:2:{s:9:"variables";a:5:{s:4:"link";s:78:"<span id="thmr_38" class="thmr_call">
+  <a href="/logout">Log out</a></span>
+
+";s:12:"has_children";s:1:"0";s:4:"menu";s:0:"";s:15:"in_active_trail";b:0;s:11:"extra_class";s:4:"last";}s:4:"type";s:4:"func";}s:7:"thmr_40";a:2:{s:9:"variables";a:1:{s:4:"tree";s:927:"<span id="thmr_29" class="thmr_call">
+  <li class="leaf first"><span id="thmr_28" class="thmr_call">
+  <a href="/og">Groups</a></span>
+
+</li>
+</span>
+
+<span id="thmr_31" class="thmr_call">
+  <li class="leaf"><span id="thmr_30" class="thmr_call">
+  <a href="/messages">Messages</a></span>
+
+</li>
+</span>
+
+<span id="thmr_33" class="thmr_call">
+  <li class="leaf"><span id="thmr_32" class="thmr_call">
+  <a href="/group">My Unread</a></span>
+
+</li>
+</span>
+
+<span id="thmr_35" class="thmr_call">
+  <li class="leaf"><span id="thmr_34" class="thmr_call">
+  <a href="/user/1">My account</a></span>
+
+</li>
+</span>
+
+<span id="thmr_37" class="thmr_call">
+  <li class="collapsed"><span id="thmr_36" class="thmr_call">
+  <a href="/node/add">Create content</a></span>
+
+</li>
+</span>
+
+<span id="thmr_39" class="thmr_call">
+  <li class="leaf last"><span id="thmr_38" class="thmr_call">
+  <a href="/logout">Log out</a></span>
+
+</li>
+</span>
+
+";}s:4:"type";s:4:"func";}s:7:"thmr_41";a:2:{s:9:"variables";a:12:{s:14:"template_files";a:3:{i:0;s:10:"block-left";i:1;s:10:"block-user";i:2;s:12:"block-user-1";}s:5:"block";O:8:"stdClass":17:{s:3:"bid";s:2:"32";s:6:"module";s:4:"user";s:5:"delta";s:1:"1";s:5:"theme";s:10:"pushbutton";s:6:"status";s:1:"1";s:6:"weight";s:2:"-6";s:6:"region";s:4:"left";s:6:"custom";s:1:"0";s:8:"throttle";s:1:"0";s:10:"visibility";s:1:"0";s:5:"pages";s:0:"";s:5:"title";s:0:"";s:5:"cache";s:2:"-1";s:7:"enabled";b:1;s:10:"page_match";b:1;s:7:"subject";s:8:"gemiinii";s:7:"content";s:998:"<span id="thmr_40" class="thmr_call">
+  <ul class="menu"><span id="thmr_29" class="thmr_call">
+  <li class="leaf first"><span id="thmr_28" class="thmr_call">
+  <a href="/og">Groups</a></span>
+
+</li>
+</span>
+
+<span id="thmr_31" class="thmr_call">
+  <li class="leaf"><span id="thmr_30" class="thmr_call">
+  <a href="/messages">Messages</a></span>
+
+</li>
+</span>
+
+<span id="thmr_33" class="thmr_call">
+  <li class="leaf"><span id="thmr_32" class="thmr_call">
+  <a href="/group">My Unread</a></span>
+
+</li>
+</span>
+
+<span id="thmr_35" class="thmr_call">
+  <li class="leaf"><span id="thmr_34" class="thmr_call">
+  <a href="/user/1">My account</a></span>
+
+</li>
+</span>
+
+<span id="thmr_37" class="thmr_call">
+  <li class="collapsed"><span id="thmr_36" class="thmr_call">
+  <a href="/node/add">Create content</a></span>
+
+</li>
+</span>
+
+<span id="thmr_39" class="thmr_call">
+  <li class="leaf last"><span id="thmr_38" class="thmr_call">
+  <a href="/logout">Log out</a></span>
+
+</li>
+</span>
+
+</ul></span>
+
+";}s:5:"zebra";s:3:"odd";s:2:"id";i:1;s:9:"directory";s:17:"themes/pushbutton";s:8:"is_admin";b:1;s:8:"is_front";b:0;s:9:"logged_in";b:1;s:12:"db_is_active";b:1;s:4:"user";O:8:"stdClass":27:{s:3:"uid";s:1:"1";s:4:"name";s:8:"gemiinii";s:4:"pass";s:32:"3d517f8924ac7fd03699a29d97dc52d9";s:4:"mail";s:27:"william.wolfrath2@gmail.com";s:4:"mode";s:1:"0";s:4:"sort";s:1:"0";s:9:"threshold";s:1:"0";s:5:"theme";s:0:"";s:9:"signature";s:0:"";s:16:"signature_format";s:1:"0";s:7:"created";s:10:"1256146829";s:6:"access";s:10:"1262753262";s:5:"login";s:10:"1262650311";s:6:"status";s:1:"1";s:8:"timezone";N;s:8:"language";s:0:"";s:7:"picture";s:0:"";s:4:"init";s:26:"william.wolfrath@gmail.com";s:4:"data";s:6:"a:0:{}";s:13:"timezone_name";s:0:"";s:3:"sid";s:32:"6768f008b5f354d3c897bdc2f5270e7f";s:8:"hostname";s:13:"74.73.251.113";s:9:"timestamp";s:10:"1262753325";s:5:"cache";s:1:"0";s:7:"session";s:80:"node_overview_filter|a:1:{i:0;a:2:{i:0;s:4:"type";i:1;s:16:"scholarship_page";}}";s:5:"roles";a:1:{i:2;s:18:"authenticated user";}s:9:"og_groups";a:0:{}}s:11:"block_zebra";s:3:"odd";s:8:"block_id";i:1;}s:4:"type";s:3:"tpl";}s:7:"thmr_27";a:2:{s:9:"variables";a:1:{s:6:"region";s:4:"left";}s:4:"type";s:4:"func";}s:7:"thmr_46";a:2:{s:9:"variables";a:1:{s:10:"breadcrumb";a:1:{i:0;s:20:"<a href="/">Home</a>";}}s:4:"type";s:4:"func";}s:7:"thmr_48";a:2:{s:9:"variables";a:0:{}s:4:"type";s:4:"func";}s:7:"thmr_50";a:2:{s:9:"variables";a:1:{s:7:"element";a:23:{s:6:"#title";s:16:"Search this site";s:5:"#type";s:9:"textfield";s:5:"#size";i:15;s:14:"#default_value";s:0:"";s:11:"#attributes";a:1:{s:5:"title";s:39:"Enter the terms you wish to search for.";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:17:"search_theme_form";}s:14:"#array_parents";a:1:{i:0;s:17:"search_theme_form";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:10:"#maxlength";i:128;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:17:"search_theme_form";s:3:"#id";s:24:"edit-search-theme-form-1";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}}s:4:"type";s:4:"func";}s:7:"thmr_53";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Search";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:13:"edit-submit-1";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_52";a:2:{s:9:"variables";a:1:{s:7:"element";a:21:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Search";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:13:"edit-submit-1";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_55";a:2:{s:9:"variables";a:1:{s:7:"element";a:19:{s:3:"#id";s:33:"edit-search-theme-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;}}s:4:"type";s:4:"func";}s:7:"thmr_49";a:2:{s:9:"variables";a:12:{s:14:"template_files";a:0:{}s:4:"form";a:30:{s:17:"search_theme_form";a:24:{s:6:"#title";s:16:"Search this site";s:5:"#type";s:9:"textfield";s:5:"#size";i:15;s:14:"#default_value";s:0:"";s:11:"#attributes";a:1:{s:5:"title";s:39:"Enter the terms you wish to search for.";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:17:"search_theme_form";}s:14:"#array_parents";a:1:{i:0;s:17:"search_theme_form";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:10:"#maxlength";i:128;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:17:"search_theme_form";s:3:"#id";s:24:"edit-search-theme-form-1";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:8:"#printed";b:1;}s:6:"submit";a:22:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Search";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:13:"edit-submit-1";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:7:"#submit";a:1:{i:0;s:22:"search_box_form_submit";}s:9:"#validate";a:1:{i:0;s:24:"search_box_form_validate";}s:11:"#parameters";a:2:{i:0;s:17:"search_theme_form";i:1;a:3:{s:7:"storage";N;s:9:"submitted";b:0;s:4:"post";a:0:{}}}s:9:"#build_id";s:37:"form-38dd5355e8e3dc39f8291f18f8b8746a";s:5:"#type";s:6:"markup";s:11:"#programmed";b:0;s:13:"form_build_id";a:20:{s:5:"#type";s:6:"hidden";s:6:"#value";s:37:"form-38dd5355e8e3dc39f8291f18f8b8746a";s:3:"#id";s:37:"form-38dd5355e8e3dc39f8291f18f8b8746a";s:5:"#name";s:13:"form_build_id";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:13:"form_build_id";}s:14:"#array_parents";a:1:{i:0;s:13:"form_build_id";}s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:6:"#token";s:17:"search_theme_form";s:10:"form_token";a:20:{s:3:"#id";s:33:"edit-search-theme-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:7:"form_id";a:20:{s:5:"#type";s:6:"hidden";s:6:"#value";s:17:"search_theme_form";s:3:"#id";s:22:"edit-search-theme-form";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:7:"form_id";}s:14:"#array_parents";a:1:{i:0;s:7:"form_id";}s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:7:"form_id";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:6:"#title";N;s:8:"#printed";b:1;}s:3:"#id";s:17:"search-theme-form";s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:5:"#tree";b:0;s:8:"#parents";a:0:{}s:7:"#method";s:4:"post";s:7:"#action";s:35:"/admin/build/custom_breadcrumbs/add";s:12:"#after_build";a:1:{i:0;s:20:"wysiwyg_process_form";}s:5:"#post";a:0:{}s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:17:"#after_build_done";b:1;s:6:"#theme";s:17:"search_theme_form";s:6:"#title";N;s:11:"#theme_used";b:1;s:6:"#value";s:0:"";}s:5:"zebra";s:3:"odd";s:2:"id";i:1;s:9:"directory";s:14:"modules/search";s:8:"is_admin";b:1;s:8:"is_front";b:0;s:9:"logged_in";b:1;s:12:"db_is_active";b:1;s:4:"user";r:1535;s:6:"search";a:3:{s:17:"search_theme_form";s:363:"<span id="thmr_50" class="thmr_call">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text" />
+</div>
+</span>
+
+";s:6:"submit";s:187:"<span id="thmr_52" class="thmr_call">
+  <span id="thmr_53" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit-1" value="Search"  class="form-submit" />
+</span>
+
+</span>
+
+";s:6:"hidden";s:401:"<input type="hidden" name="form_build_id" id="form-38dd5355e8e3dc39f8291f18f8b8746a" value="form-38dd5355e8e3dc39f8291f18f8b8746a"  />
+<span id="thmr_55" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-search-theme-form-form-token" value="fc65db8fbfe59680f58e3f28e1b5acb8"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  />
+";}s:11:"search_form";s:951:"<span id="thmr_50" class="thmr_call">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text" />
+</div>
+</span>
+
+<span id="thmr_52" class="thmr_call">
+  <span id="thmr_53" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit-1" value="Search"  class="form-submit" />
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-38dd5355e8e3dc39f8291f18f8b8746a" value="form-38dd5355e8e3dc39f8291f18f8b8746a"  />
+<span id="thmr_55" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-search-theme-form-form-token" value="fc65db8fbfe59680f58e3f28e1b5acb8"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  />
+";}s:4:"type";s:3:"tpl";}s:7:"thmr_58";a:2:{s:9:"variables";a:1:{s:7:"element";a:33:{s:17:"search_theme_form";a:23:{s:6:"#title";s:16:"Search this site";s:5:"#type";s:9:"textfield";s:5:"#size";i:15;s:14:"#default_value";s:0:"";s:11:"#attributes";a:1:{s:5:"title";s:39:"Enter the terms you wish to search for.";}s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:17:"search_theme_form";}s:14:"#array_parents";a:1:{i:0;s:17:"search_theme_form";}s:7:"#weight";i:0;s:10:"#processed";b:1;s:12:"#description";N;s:9:"#required";b:0;s:6:"#input";b:1;s:10:"#maxlength";i:128;s:18:"#autocomplete_path";b:0;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:17:"search_theme_form";s:3:"#id";s:24:"edit-search-theme-form-1";s:6:"#value";s:0:"";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:6:"submit";a:20:{s:5:"#type";s:6:"submit";s:6:"#value";s:6:"Search";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:6:"submit";}s:14:"#array_parents";a:1:{i:0;s:6:"submit";}s:7:"#weight";d:0.001000000000000000020816681711721685132943093776702880859375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:2:"op";s:12:"#button_type";s:6:"submit";s:25:"#executes_submit_callback";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:3:"#id";s:13:"edit-submit-1";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:7:"#submit";a:1:{i:0;s:22:"search_box_form_submit";}s:9:"#validate";a:1:{i:0;s:24:"search_box_form_validate";}s:11:"#parameters";a:2:{i:0;s:17:"search_theme_form";i:1;a:3:{s:7:"storage";N;s:9:"submitted";b:0;s:4:"post";a:0:{}}}s:9:"#build_id";s:37:"form-38dd5355e8e3dc39f8291f18f8b8746a";s:5:"#type";s:4:"form";s:11:"#programmed";b:0;s:13:"form_build_id";a:18:{s:5:"#type";s:6:"hidden";s:6:"#value";s:37:"form-38dd5355e8e3dc39f8291f18f8b8746a";s:3:"#id";s:37:"form-38dd5355e8e3dc39f8291f18f8b8746a";s:5:"#name";s:13:"form_build_id";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:13:"form_build_id";}s:14:"#array_parents";a:1:{i:0;s:13:"form_build_id";}s:7:"#weight";d:0.00200000000000000004163336342344337026588618755340576171875;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:6:"#token";s:17:"search_theme_form";s:10:"form_token";a:18:{s:3:"#id";s:33:"edit-search-theme-form-form-token";s:5:"#type";s:5:"token";s:14:"#default_value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:10:"form_token";}s:14:"#array_parents";a:1:{i:0;s:10:"form_token";}s:7:"#weight";d:0.003000000000000000062450045135165055398829281330108642578125;s:10:"#processed";b:0;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:5:"#name";s:10:"form_token";s:6:"#value";s:32:"fc65db8fbfe59680f58e3f28e1b5acb8";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:7:"form_id";a:18:{s:5:"#type";s:6:"hidden";s:6:"#value";s:17:"search_theme_form";s:3:"#id";s:22:"edit-search-theme-form";s:5:"#post";a:0:{}s:11:"#programmed";b:0;s:5:"#tree";b:0;s:8:"#parents";a:1:{i:0;s:7:"form_id";}s:14:"#array_parents";a:1:{i:0;s:7:"form_id";}s:7:"#weight";d:0.0040000000000000000832667268468867405317723751068115234375;s:10:"#processed";b:1;s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:6:"#input";b:1;s:8:"#process";a:1:{i:0;s:16:"form_expand_ahah";}s:5:"#name";s:7:"form_id";s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;}s:3:"#id";s:17:"search-theme-form";s:12:"#description";N;s:11:"#attributes";a:0:{}s:9:"#required";b:0;s:5:"#tree";b:0;s:8:"#parents";a:0:{}s:7:"#method";s:4:"post";s:7:"#action";s:35:"/admin/build/custom_breadcrumbs/add";s:12:"#after_build";a:1:{i:0;s:20:"wysiwyg_process_form";}s:5:"#post";a:0:{}s:10:"#processed";b:0;s:16:"#defaults_loaded";b:1;s:7:"#sorted";b:1;s:17:"#after_build_done";b:1;s:6:"#theme";s:17:"search_theme_form";s:6:"#title";N;s:11:"#theme_used";b:1;s:6:"#value";N;s:7:"#prefix";N;s:7:"#suffix";N;s:9:"#children";s:1052:"<span id="thmr_49" class="thmr_call">
+  <div id="search" class="container-inline">
+  <span id="thmr_50" class="thmr_call">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text" />
+</div>
+</span>
+
+<span id="thmr_52" class="thmr_call">
+  <span id="thmr_53" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit-1" value="Search"  class="form-submit" />
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-38dd5355e8e3dc39f8291f18f8b8746a" value="form-38dd5355e8e3dc39f8291f18f8b8746a"  />
+<span id="thmr_55" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-search-theme-form-form-token" value="fc65db8fbfe59680f58e3f28e1b5acb8"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  />
+</div>
+</span>
+
+";}}s:4:"type";s:4:"func";}s:7:"thmr_61";a:2:{s:9:"variables";a:2:{s:5:"links";a:3:{s:8:"menu-939";a:3:{s:10:"attributes";a:1:{s:5:"title";s:16:"Mentor & Network";}s:4:"href";s:8:"node/353";s:5:"title";s:16:"MENTOR & NETWORK";}s:8:"menu-666";a:3:{s:10:"attributes";a:1:{s:5:"title";s:18:"Career Development";}s:4:"href";s:8:"node/126";s:5:"title";s:18:"CAREER DEVELOPMENT";}s:8:"menu-911";a:3:{s:10:"attributes";a:1:{s:5:"title";s:22:"Scholarships and Ideas";}s:4:"href";s:8:"node/151";s:5:"title";s:20:"SCHOLARSHIPS & IDEAS";}}s:10:"attributes";a:2:{s:5:"class";s:5:"links";s:2:"id";s:7:"navlist";}}s:4:"type";s:4:"func";}s:7:"thmr_63";a:2:{s:9:"variables";a:2:{s:5:"links";a:3:{s:8:"menu-939";a:3:{s:10:"attributes";a:1:{s:5:"title";s:16:"Mentor & Network";}s:4:"href";s:8:"node/353";s:5:"title";s:16:"MENTOR & NETWORK";}s:8:"menu-666";a:3:{s:10:"attributes";a:1:{s:5:"title";s:18:"Career Development";}s:4:"href";s:8:"node/126";s:5:"title";s:18:"CAREER DEVELOPMENT";}s:8:"menu-911";a:3:{s:10:"attributes";a:1:{s:5:"title";s:22:"Scholarships and Ideas";}s:4:"href";s:8:"node/151";s:5:"title";s:20:"SCHOLARSHIPS & IDEAS";}}s:10:"attributes";a:1:{s:5:"class";s:19:"links primary-links";}}s:4:"type";s:4:"func";}s:7:"thmr_26";a:2:{s:9:"variables";a:42:{s:14:"template_files";a:4:{i:0;s:10:"page-admin";i:1;s:16:"page-admin-build";i:2;s:35:"page-admin-build-custom_breadcrumbs";i:3;s:39:"page-admin-build-custom_breadcrumbs-add";}s:7:"content";s:16989:"<span id="thmr_25" class="thmr_call">
+  <form action="/admin/build/custom_breadcrumbs/add"  accept-charset="UTF-8" method="post" id="custom-breadcrumbs-form">
+<div><span id="thmr_6" class="thmr_call">
+  <div class="form-item" id="edit-node-type-wrapper">
+ <label for="edit-node-type">Node type: <span class="form-required" title="This field is required.">*</span></label>
+ <select name="node_type" class="form-select required" id="edit-node-type" ><option value="classroom_resource">Classroom Resource</option><option value="content_type_page">Content Type Page</option><option value="event">Event</option><option value="flv_upload">FLV Upload</option><option value="facebook_user">Facebook User</option><option value="front_page_header_text">Front Page Header Text</option><option value="group">Group</option><option value="group_post">Group Post</option><option value="job_posting">Job Posting</option><option value="page">Page</option><option value="panel">Panel</option><option value="profile">Profile</option><option value="scholarship_page">Scholarship Page</option><option value="section_landing_page">Section Landing Page</option><option value="sidebar_item">Sidebar Item</option><option value="story">Story</option><option value="video">Video</option><option value="testcontenttype">testcontenttype</option></select>
+ <div class="description">The node type this custom breadcrumb trail will apply to.</div>
+</div>
+</span>
+
+<span id="thmr_8" class="thmr_call">
+  <div class="form-item" id="edit-visibility-php-wrapper">
+ <label for="edit-visibility-php">Breadcrumb visibility: </label>
+ <textarea cols="60" rows="5" name="visibility_php" id="edit-visibility-php"  class="form-textarea resizable"></textarea>
+ <div class="description">Determine whether this breadcrumb should be displayed by using a snippet of PHP to return TRUE or FALSE. Note that this code has access to the $node variable, and can check its type or any other property.</div>
+</div>
+</span>
+
+<span id="thmr_10" class="thmr_call">
+  <div class="form-item" id="edit-titles-wrapper">
+ <label for="edit-titles">Titles: <span class="form-required" title="This field is required.">*</span></label>
+ <textarea cols="60" rows="5" name="titles" id="edit-titles"  class="form-textarea resizable required"></textarea>
+ <div class="description">A list of titles for the breadcrumb links, one on each line.</div>
+</div>
+</span>
+
+<span id="thmr_12" class="thmr_call">
+  <div class="form-item" id="edit-paths-wrapper">
+ <label for="edit-paths">Paths: <span class="form-required" title="This field is required.">*</span></label>
+ <textarea cols="60" rows="5" name="paths" id="edit-paths"  class="form-textarea resizable required"></textarea>
+ <div class="description">A list of Drupal paths for the breadcrumb links, one on each line.</div>
+</div>
+</span>
+
+<span id="thmr_15" class="thmr_call">
+  <fieldset class=" collapsible collapsed"><legend>Placeholder tokens</legend><div class="description">The following placeholder tokens can be used in both paths and titles. When used in a path or title, they will be replaced with the appropriate values.</div><span id="thmr_14" class="thmr_call">
+  <span id="thmr_1" class="thmr_call">
+  <span id="thmr_2" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Token</th><th>Replacement value</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td class="region" colspan="2">Node tokens</td> </tr>
+ <tr class="even"><td>[nid]</td><td>Node ID</td> </tr>
+ <tr class="odd"><td>[type]</td><td>Node type</td> </tr>
+ <tr class="even"><td>[type-name]</td><td>Node type (user-friendly version)</td> </tr>
+ <tr class="odd"><td>[language]</td><td>Node language</td> </tr>
+ <tr class="even"><td>[title]</td><td>Node title</td> </tr>
+ <tr class="odd"><td>[title-raw]</td><td>Unfiltered node title. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[author-uid]</td><td>Node author's user id</td> </tr>
+ <tr class="odd"><td>[author-name]</td><td>Node author's user name</td> </tr>
+ <tr class="even"><td>[author-name-raw]</td><td>Node author's user name. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[author-mail]</td><td>Node author's e-mail.</td> </tr>
+ <tr class="even"><td>[author-mail-raw]</td><td>Node author's e-mail. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term]</td><td>Name of top taxonomy term</td> </tr>
+ <tr class="even"><td>[term-raw]</td><td>Unfiltered name of top taxonomy term. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[term-id]</td><td>ID of top taxonomy term</td> </tr>
+ <tr class="even"><td>[vocab]</td><td>Name of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[vocab-raw]</td><td>Unfiltered name of top term's vocabulary. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[vocab-id]</td><td>ID of top term's vocabulary</td> </tr>
+ <tr class="odd"><td>[yyyy]</td><td>Node creation year (four digit)</td> </tr>
+ <tr class="even"><td>[yy]</td><td>Node creation year (two digit)</td> </tr>
+ <tr class="odd"><td>[month]</td><td>Node creation month (full word)</td> </tr>
+ <tr class="even"><td>[mon]</td><td>Node creation month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[mm]</td><td>Node creation month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[m]</td><td>Node creation month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[ww]</td><td>Node creation week (two digit)</td> </tr>
+ <tr class="even"><td>[date]</td><td>Node creation date (day of month)</td> </tr>
+ <tr class="odd"><td>[day]</td><td>Node creation day (full word)</td> </tr>
+ <tr class="even"><td>[ddd]</td><td>Node creation day (abbreviation)</td> </tr>
+ <tr class="odd"><td>[dd]</td><td>Node creation day (two digit, zero-padded)</td> </tr>
+ <tr class="even"><td>[d]</td><td>Node creation day (one or two digit)</td> </tr>
+ <tr class="odd"><td>[mod-????]</td><td>All tokens for node creation dates can also be used with with the "mod-" prefix; doing so will use the modification date rather than the creation date.</td> </tr>
+ <tr class="even"><td>[menu]</td><td>The name of the menu the node belongs to.</td> </tr>
+ <tr class="odd"><td>[menu-raw]</td><td>The name of the menu the node belongs to. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menupath]</td><td>The menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /.</td> </tr>
+ <tr class="odd"><td>[menupath-raw]</td><td>The unfiltered menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[menu-link-title]</td><td>The text used in the menu as link text for this item.</td> </tr>
+ <tr class="odd"><td>[menu-link-title-raw]</td><td>The unfiltered text used in the menu as link text for this item. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[ogname]</td><td>Title of top group</td> </tr>
+ <tr class="odd"><td>[ogname-raw]</td><td>Unfiltered title of top group. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[og-id]</td><td>ID of top group</td> </tr>
+ <tr class="odd"><td>[og-type]</td><td>Type of top group</td> </tr>
+ <tr class="even"><td>[ogalias]</td><td>URL alias for the top group.</td> </tr>
+ <tr class="odd"><td>[termpath]</td><td>As [term], but including its supercategories separated by /.</td> </tr>
+ <tr class="even"><td>[termpath-raw]</td><td>As [term-raw], but including its supercategories separated by /. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[termalias]</td><td>URL alias for the term.</td> </tr>
+ <tr class="even"><td>[node-teaser]</td><td>The node teaser.</td> </tr>
+ <tr class="odd"><td>[node-body]</td><td>The node body.</td> </tr>
+ <tr class="even"><td>[node-url]</td><td>The node view url for read more links.</td> </tr>
+ <tr class="odd"><td>[node-teaser-raw]</td><td>Unfiltered node teaser. WARNING - raw user input.</td> </tr>
+ <tr class="even"><td>[node-body-raw]</td><td>Unfiltered node body. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK date tokens</td> </tr>
+ <tr class="even"><td>[field_start_date-value]</td><td>The raw date value.</td> </tr>
+ <tr class="odd"><td>[field_start_date-view]</td><td>The formatted date.</td> </tr>
+ <tr class="even"><td>[field_start_date-timestamp]</td><td>The raw date timestamp.</td> </tr>
+ <tr class="odd"><td>[field_start_date-yyyy]</td><td>Date year (four digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-yy]</td><td>Date year (two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-month]</td><td>Date month (full word)</td> </tr>
+ <tr class="even"><td>[field_start_date-mon]</td><td>Date month (abbreviated)</td> </tr>
+ <tr class="odd"><td>[field_start_date-mm]</td><td>Date month (two digit, zero padded)</td> </tr>
+ <tr class="even"><td>[field_start_date-m]</td><td>Date month (one or two digit)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ww]</td><td>Date week (two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-date]</td><td>Date date (YYYY-MM-DD)</td> </tr>
+ <tr class="odd"><td>[field_start_date-datetime]</td><td>Date datetime (YYYY-MM-DDTHH:MM:SS)</td> </tr>
+ <tr class="even"><td>[field_start_date-day]</td><td>Date day (full word)</td> </tr>
+ <tr class="odd"><td>[field_start_date-ddd]</td><td>Date day (abbreviation)</td> </tr>
+ <tr class="even"><td>[field_start_date-dd]</td><td>Date day (two digit, zero-padded)</td> </tr>
+ <tr class="odd"><td>[field_start_date-d]</td><td>Date day (one or two digit)</td> </tr>
+ <tr class="even"><td>[field_start_date-time]</td><td>Time H:i</td> </tr>
+ <tr class="odd"><td>[field_start_date-to-????]</td><td>If the field has a to-date defined, the same tokens exist in the form: [to-????], where ???? is the normal token.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK number tokens</td> </tr>
+ <tr class="odd"><td>[field_site_id-raw]</td><td>Raw number value</td> </tr>
+ <tr class="even"><td>[field_site_id-formatted]</td><td>Formatted number value</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK file tokens</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_uploaded_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_uploaded_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_flv_video-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_flv_video-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-fid]</td><td>File ID</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-description]</td><td>File description</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filename]</td><td>File name</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filepath]</td><td>File path</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filemime]</td><td>File MIME type</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-filesize]</td><td>File size (in bytes)</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-filesize_formatted]</td><td>File size (pretty printed)</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-view]</td><td>Fully formatted HTML file tag</td> </tr>
+ <tr class="even"><td>[field_video_thumbnail-filefield-onlyname]</td><td>File name without extension</td> </tr>
+ <tr class="odd"><td>[field_video_thumbnail-filefield-extension]</td><td>File extension</td> </tr>
+ <tr class="even"><td class="region" colspan="2">CCK text tokens</td> </tr>
+ <tr class="odd"><td>[field_school-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_school-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_booey-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_booey-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td>[field_swf_video-raw]</td><td>Raw, unfiltered text</td> </tr>
+ <tr class="even"><td>[field_swf_video-formatted]</td><td>Formatted and filtered text</td> </tr>
+ <tr class="odd"><td class="region" colspan="2">CCK node reference tokens</td> </tr>
+ <tr class="even"><td>[field_section-nid]</td><td>Referenced node ID</td> </tr>
+ <tr class="odd"><td>[field_section-title]</td><td>Referenced node title</td> </tr>
+ <tr class="even"><td>[field_section-title-raw]</td><td>Referenced node unfiltered title. WARNING - raw user input.</td> </tr>
+ <tr class="odd"><td>[field_section-link]</td><td>Formatted html link to the referenced node.</td> </tr>
+ <tr class="even"><td>[field_section-path]</td><td>Relative path alias to the referenced node.</td> </tr>
+ <tr class="odd"><td>[field_section-url]</td><td>Absolute path alias to the referenced node.</td> </tr>
+ <tr class="even"><td class="region" colspan="2">Global tokens</td> </tr>
+ <tr class="odd"><td>[user-name]</td><td>The name of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[user-id]</td><td>The user ID of the currently logged in user.</td> </tr>
+ <tr class="odd"><td>[user-mail]</td><td>The email address of the currently logged in user.</td> </tr>
+ <tr class="even"><td>[site-url]</td><td>The url of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-name]</td><td>The name of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-slogan]</td><td>The slogan of the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-mission]</td><td>The mission of the current Drupal website.</td> </tr>
+ <tr class="even"><td>[site-mail]</td><td>The contact email address for the current Drupal website.</td> </tr>
+ <tr class="odd"><td>[site-date]</td><td>The current date on the site's server.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+</span>
+
+</fieldset>
+</span>
+
+<span id="thmr_17" class="thmr_call">
+  <fieldset class=" collapsible collapsed"><legend>Special identifiers</legend><div class="description">The following identifiers can be used to achieve a special behavior. Identifiers should be added to the paths area in the following format:  identifier|path.<br />For example: <em>&lt;pathauto&gt;</em>|[ogname-raw]</div><span id="thmr_16" class="thmr_call">
+  <span id="thmr_4" class="thmr_call">
+  <span id="thmr_5" class="thmr_call">
+  <table class="description sticky-enabled">
+ <thead><tr><th>Identifier</th><th>Behaviour</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td>&lt;none&gt;</td><td>This will result in a plain text crumb. This identifier should not be used with the pipe (|) symbol.</td> </tr>
+ <tr class="even"><td>&lt;pathauto&gt;</td><td>Cleans the given path using your pathauto replacement rules.</td> </tr>
+</tbody>
+</table>
+</span>
+
+</span>
+
+</span>
+
+</fieldset>
+</span>
+
+<span id="thmr_20" class="thmr_call">
+  <span id="thmr_18" class="thmr_call">
+  <span id="thmr_19" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit" value="Submit"  class="form-submit" />
+</span>
+
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-1f56e4f999c3e16638754307158f5a78" value="form-1f56e4f999c3e16638754307158f5a78"  />
+<span id="thmr_22" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-custom-breadcrumbs-form-form-token" value="9933bcd9dc040763c52d718f48d76d29"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-custom-breadcrumbs-form" value="custom_breadcrumbs_form"  />
+
+</div></form>
+</span>
+
+";s:11:"show_blocks";b:1;s:13:"show_messages";b:1;s:5:"zebra";s:3:"odd";s:2:"id";i:1;s:9:"directory";s:17:"themes/pushbutton";s:8:"is_admin";b:1;s:8:"is_front";b:0;s:9:"logged_in";b:1;s:12:"db_is_active";b:1;s:4:"user";r:1535;s:4:"left";s:1226:"<span id="thmr_27" class="thmr_call">
+  <span id="thmr_41" class="thmr_call">
+  <div class="block block-user" id="block-user-1">
+  <div class="title"><h3>gemiinii</h3></div>
+  <div class="content"><span id="thmr_40" class="thmr_call">
+  <ul class="menu"><span id="thmr_29" class="thmr_call">
+  <li class="leaf first"><span id="thmr_28" class="thmr_call">
+  <a href="/og">Groups</a></span>
+
+</li>
+</span>
+
+<span id="thmr_31" class="thmr_call">
+  <li class="leaf"><span id="thmr_30" class="thmr_call">
+  <a href="/messages">Messages</a></span>
+
+</li>
+</span>
+
+<span id="thmr_33" class="thmr_call">
+  <li class="leaf"><span id="thmr_32" class="thmr_call">
+  <a href="/group">My Unread</a></span>
+
+</li>
+</span>
+
+<span id="thmr_35" class="thmr_call">
+  <li class="leaf"><span id="thmr_34" class="thmr_call">
+  <a href="/user/1">My account</a></span>
+
+</li>
+</span>
+
+<span id="thmr_37" class="thmr_call">
+  <li class="collapsed"><span id="thmr_36" class="thmr_call">
+  <a href="/node/add">Create content</a></span>
+
+</li>
+</span>
+
+<span id="thmr_39" class="thmr_call">
+  <li class="leaf last"><span id="thmr_38" class="thmr_call">
+  <a href="/logout">Log out</a></span>
+
+</li>
+</span>
+
+</ul></span>
+
+</div>
+</div></span>
+
+</span>
+
+";s:5:"right";s:0:"";s:6:"header";s:0:"";s:6:"footer";s:0:"";s:6:"layout";s:4:"left";s:10:"head_title";s:30:"Add custom breadcrumb | Kosmos";s:9:"base_path";s:1:"/";s:10:"front_page";s:1:"/";s:10:"breadcrumb";s:99:"<span id="thmr_46" class="thmr_call">
+  <div class="breadcrumb"><a href="/">Home</a></div></span>
+
+";s:10:"feed_icons";s:0:"";s:14:"footer_message";s:0:"";s:4:"head";s:286:"<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+    <link href="sites/all/modules/devel/devel_themer_ie_fix.css" rel="stylesheet" type="text/css" media="screen" />
+<![endif]-->
+<link rel="shortcut icon" href="/misc/favicon.ico" type="image/x-icon" />
+";s:4:"help";N;s:8:"language";O:8:"stdClass":12:{s:8:"language";s:2:"en";s:4:"name";s:7:"English";s:6:"native";s:7:"English";s:9:"direction";i:0;s:7:"enabled";i:1;s:7:"plurals";i:0;s:7:"formula";s:0:"";s:6:"domain";s:0:"";s:6:"prefix";s:0:"";s:6:"weight";i:0;s:10:"javascript";s:0:"";s:3:"dir";s:3:"ltr";}s:4:"logo";s:27:"/themes/pushbutton/logo.png";s:8:"messages";s:585:"<span id="thmr_48" class="thmr_call">
+  <div class="messages error">
+ <ul>
+  <li>There is a security update available for your version of Drupal. To ensure the security of your server, you should update immediately! See the <a href="/admin/reports/updates">available updates</a> page for more information.</li>
+  <li>There are security updates available for one or more of your modules or themes. To ensure the security of your server, you should update immediately! See the <a href="/admin/reports/updates">available updates</a> page for more information.</li>
+ </ul>
+</div>
+</span>
+
+";s:7:"mission";s:0:"";s:13:"primary_links";a:3:{s:8:"menu-939";a:3:{s:10:"attributes";a:1:{s:5:"title";s:16:"Mentor & Network";}s:4:"href";s:8:"node/353";s:5:"title";s:16:"MENTOR & NETWORK";}s:8:"menu-666";a:3:{s:10:"attributes";a:1:{s:5:"title";s:18:"Career Development";}s:4:"href";s:8:"node/126";s:5:"title";s:18:"CAREER DEVELOPMENT";}s:8:"menu-911";a:3:{s:10:"attributes";a:1:{s:5:"title";s:22:"Scholarships and Ideas";}s:4:"href";s:8:"node/151";s:5:"title";s:20:"SCHOLARSHIPS & IDEAS";}}s:15:"secondary_links";a:0:{}s:10:"search_box";s:1234:"<span id="thmr_58" class="thmr_call">
+  <form action="/admin/build/custom_breadcrumbs/add"  accept-charset="UTF-8" method="post" id="search-theme-form">
+<div><span id="thmr_49" class="thmr_call">
+  <div id="search" class="container-inline">
+  <span id="thmr_50" class="thmr_call">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text" />
+</div>
+</span>
+
+<span id="thmr_52" class="thmr_call">
+  <span id="thmr_53" class="thmr_call">
+  <input type="submit" name="op" id="edit-submit-1" value="Search"  class="form-submit" />
+</span>
+
+</span>
+
+<input type="hidden" name="form_build_id" id="form-38dd5355e8e3dc39f8291f18f8b8746a" value="form-38dd5355e8e3dc39f8291f18f8b8746a"  />
+<span id="thmr_55" class="thmr_call">
+  <input type="hidden" name="form_token" id="edit-search-theme-form-form-token" value="fc65db8fbfe59680f58e3f28e1b5acb8"  />
+</span>
+
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  />
+</div>
+</span>
+
+
+</div></form>
+</span>
+
+";s:9:"site_name";s:6:"Kosmos";s:11:"site_slogan";s:0:"";s:3:"css";a:1:{s:3:"all";a:2:{s:6:"module";a:21:{s:21:"modules/node/node.css";b:1;s:24:"modules/system/admin.css";b:1;s:27:"modules/system/defaults.css";b:1;s:25:"modules/system/system.css";b:1;s:31:"modules/system/system-menus.css";b:1;s:21:"modules/user/user.css";b:1;s:46:"sites/all/modules/cck/theme/content-module.css";b:1;s:39:"sites/all/modules/ctools/css/ctools.css";b:1;s:31:"sites/all/modules/date/date.css";b:1;s:55:"sites/all/modules/date/date_popup/themes/datepicker.css";b:1;s:54:"sites/all/modules/date/date_popup/themes/timeentry.css";b:1;s:52:"sites/all/modules/devel/krumo/skins/default/skin.css";b:1;s:40:"sites/all/modules/devel/devel_themer.css";b:1;s:37:"sites/all/modules/extlink/extlink.css";b:1;s:41:"sites/all/modules/filefield/filefield.css";b:1;s:33:"sites/all/modules/og/theme/og.css";b:1;s:39:"sites/all/modules/panels/css/panels.css";b:1;s:39:"sites/all/modules/calendar/calendar.css";b:1;s:30:"misc/farbtastic/farbtastic.css";b:1;s:43:"sites/all/modules/admin_menu/admin_menu.css";b:0;s:48:"sites/all/modules/admin_menu/admin_menu.uid1.css";b:0;}s:5:"theme";a:1:{s:27:"themes/pushbutton/style.css";b:1;}}}s:6:"styles";s:2233:"<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.uid1.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/admin.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/theme/content-module.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/ctools/css/ctools.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/date/date.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/date/date_popup/themes/datepicker.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/date/date_popup/themes/timeentry.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/devel/krumo/skins/default/skin.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/devel/devel_themer.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/extlink/extlink.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/filefield/filefield.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/og/theme/og.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/panels/css/panels.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/calendar/calendar.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/misc/farbtastic/farbtastic.css?Q" />
+<link type="text/css" rel="stylesheet" media="all" href="/themes/pushbutton/style.css?Q" />
+";s:7:"scripts";s:3837:"<script type="text/javascript" src="/misc/jquery.js?Q"></script>
+<script type="text/javascript" src="/misc/drupal.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/devel/krumo/krumo.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/devel/devel_themer.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/devel/ui.mouse.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/devel/ui.draggable.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/extlink/extlink.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/panels/js/panels.js?Q"></script>
+<script type="text/javascript" src="/sites/all/modules/swftools/shared/swfobject2/swfobject.js?Q"></script>
+<script type="text/javascript" defer="defer" src="/sites/all/modules/admin_menu/admin_menu.js?Q"></script>
+<script type="text/javascript" src="/misc/tableheader.js?Q"></script>
+<script type="text/javascript" src="/misc/textarea.js?Q"></script>
+<script type="text/javascript" src="/misc/collapse.js?Q"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "thmrStrings": { "themer_info": "Themer info", "toggle_throbber": " \x3cimg src=\"/sites/all/modules/devel/loader-little.gif\" alt=\"loading\" class=\"throbber\" width=\"16\" height=\"16\" style=\"display:none\" /\x3e", "parents": "Parents: ", "function_called": "Function called: ", "template_called": "Template called: ", "candidate_files": "Candidate template files: ", "preprocessors": "Preprocess functions: ", "candidate_functions": "Candidate function names: ", "drupal_api_docs": "link to Drupal API documentation", "source_link_title": "link to source code", "function_arguments": "Function Arguments", "template_variables": "Template Variables", "file_used": "File used: ", "duration": "Duration: ", "api_site": "http://api.drupal.org/", "drupal_version": "6", "source_link": "/devel/source?file=" }, "thmr_popup": "  \x3cdiv id=\"themer-fixeder\"\x3e\n  \x3cdiv id=\"themer-relativer\"\x3e\n  \x3cdiv id=\"themer-popup\"\x3e\n      \x3cdiv class=\"topper\"\x3e\n        \x3cspan class=\"close\"\x3eX\x3c/span\x3e Drupal Themer Information\n      \x3c/div\x3e\n      \x3cdiv id=\"parents\" class=\"row\"\x3e\n\n      \x3c/div\x3e\n      \x3cdiv class=\"info row\"\x3e\n        \x3cdiv class=\"starter\"\x3eClick on any element to see information about the Drupal theme function or template that created it.\x3c/div\x3e\n        \x3cdl\x3e\n          \x3cdt class=\"key-type\"\x3e\n\n          \x3c/dt\x3e\n          \x3cdd class=\"key\"\x3e\n\n          \x3c/dd\x3e\n          \x3cdiv class=\"used\"\x3e\n          \x3c/div\x3e\n          \x3cdt class=\"candidates-type\"\x3e\n\n          \x3c/dt\x3e\n          \x3cdd class=\"candidates\"\x3e\n\n          \x3c/dd\x3e\n          \n          \x3cdt class=\"preprocessors-type\"\x3e\n\n          \x3c/dt\x3e\n          \x3cdd class=\"preprocessors\"\x3e\n\n          \x3c/dd\x3e\n          \n          \x3cdiv class=\"duration\"\x3e\x3c/div\x3e\n        \x3c/dl\x3e\n      \x3c/div\x3e\x3c!-- /info --\x3e\n      \x3cdiv class=\"attributes row\"\x3e\n\n      \x3c/div\x3e\x3c!-- /attributes --\x3e\n    \x3c/div\x3e\x3c!-- /themer-popup --\x3e\n    \x3c/div\x3e\n    \x3c/div\x3e", "extlink": { "extTarget": 0, "extClass": "ext", "extSubdomains": 1, "extExclude": "", "extInclude": "", "extAlert": 0, "extAlertText": "This link will take you to an external web site. We are not responsible for their content.", "mailtoClass": "mailto" }, "admin_menu": { "destination": "destination=admin%2Fbuild%2Fcustom_breadcrumbs%2Fadd", "hash": "28a5e26e7ea2995985deb851d8e83033", "basePath": "/admin_menu", "replacements": { ".admin-menu-users a": "1 / 1" }, "margin_top": 1 } });
+//--><!]]>
+</script>
+";s:4:"tabs";s:0:"";s:5:"title";s:21:"Add custom breadcrumb";s:7:"closure";s:0:"";s:12:"body_classes";s:55:"not-front logged-in page-admin one-sidebar sidebar-left";s:15:"content_profile";O:31:"content_profile_theme_variables":2:{s:3:"uid";s:1:"1";s:6:"_cache";a:0:{}}}s:4:"type";s:3:"tpl";}}
