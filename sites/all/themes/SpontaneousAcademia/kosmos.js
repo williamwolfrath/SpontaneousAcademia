@@ -26,11 +26,32 @@ function firefoxFixes() {
 }
 
 
+function userRegHelp() {
+    // a quick way to get a small help button in the reg form.
+    // this will work using javascript popup anyway, so I don't mind using javascript to add it to the form.
+    //$('<div id="reg-website-help"></div>').insertBefore('form#user-register table#field_profile_websites_values');
+    //$('#reg-website-help').hover(function() {
+    //   console.log('help1');
+    //},
+    //function() {
+    //   console.log('out1'); 
+    //});
+    
+    //$('<div id="reg-affiliations-help"></div>').insertBefore('form#user-register table#field_memberships_affiliations_values');
+    //$('#reg-affiliations-help').hover(function() {
+    //    console.log('help2');
+    //},
+    //function() {
+    //    console.log('out2');
+    //});
+}
+
+
 
 jQuery(document).ready(function($){
    
-    $('#block-menu-primary-links .content ul.menu').droppy({speed: 10});
+    //$('#block-menu-primary-links .content ul.menu').droppy({speed: 10});
     addPictureLinks();
-    firefoxFixes();
-    
+    //firefoxFixes();
+    userRegHelp();
 });

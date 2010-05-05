@@ -25,10 +25,10 @@
     $highlighted_user = user_load($fields['uid']->content);
     $facebook_pic_square = safacebook_get_user_photo_square($fields['uid']->content);
   ?>
-  <a href="/users/<?php print $highlighted_user->name; ?>"><img src="<?php print $facebook_pic_square; ?>" /></a>
+  <a href="/user/<?php print $highlighted_user->uid; ?>"><img src="<?php print $facebook_pic_square; ?>" /></a>
 </div>
 <div class="highlighted-user-name">
-  <a href="/users/<?php print $highlighted_user->name; ?>"><?php print $highlighted_user->name; ?></a>
+  <a href="/user/<?php print $highlighted_user->uid; ?>"><?php print $highlighted_user->name; ?></a>
 </div>
 <div class="highlighted-user-type">
   <?php print $highlighted_user->user_type; ?>

@@ -13,7 +13,7 @@ function satrumba_menu() {
     
     
     $items['trumba'] = array(
-	'title' => '',
+	'title' => 'Events',
 	'description' => 'Main Calendar Page',
 	'page callback' => 'satrumba_main',
 	'access callback' => true,

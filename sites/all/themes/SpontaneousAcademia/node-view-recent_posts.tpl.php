@@ -71,7 +71,13 @@
  </div>
 
   <div class="recent-post-user-name">
-    <?php print $recent_post_user->name; ?>
+    <?php if ( $recent_post_user->name == "SarahFriederich") {
+      print "Sarah Friederich";
+    }
+    else {
+      print $recent_post_user->name; 
+    }
+    ?>
   </div>
   <div class="recent-post-user-type">
      <?php print $recent_post_user->user_type; ?>
@@ -85,9 +91,7 @@
   <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
 <?php endif; ?>
 
-  <div class="path">
-      <?php print str_replace("/", " - ", drupal_get_path_alias($node->path)); ?>
-  </div>
+
   <div class="meta">
   <?php if ($terms): ?>
     <div class="terms terms-inline">

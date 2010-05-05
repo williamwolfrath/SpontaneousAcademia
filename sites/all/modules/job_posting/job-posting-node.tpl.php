@@ -20,11 +20,6 @@
  */
 ?>
 
-<div class="job-posting-reference">
-  <span class="job-posting-label"><?php print t('Reference: '); ?></span>
-  <?php print $reference; ?>
-</div>
-    
 <?php if (!empty($location)): ?>
   <div class="job-posting-location">
     <span class="job-posting-label"><?php print t('Location: '); ?></span>
@@ -44,6 +39,13 @@
     <span class="job-posting-label"><?php print t('Application deadline: '); ?></span>
     <?php print $deadline; ?>
   </div>
+  
+  <?php if (!$page): ?>
+  <div class="job-posting-description">
+    <?php print substr($description, 0, 200) . '...'; ?>
+  </div>
+  <?php endif; ?>
+  
 <?php endif; ?>
     
 <?php if ($page): ?>

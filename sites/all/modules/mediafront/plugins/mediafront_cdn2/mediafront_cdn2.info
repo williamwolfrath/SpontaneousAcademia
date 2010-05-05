@@ -1,0 +1,16 @@
+; $Id: voting_service.info,v 1.6.2.1 2007/10/27 17:32:16 travist Exp $
+name = MediaFront CDN2
+description = Provides support for the CDN2 Video module
+package = "MediaFront : Plugins"
+dependencies[] = mediafront
+dependencies[] = dash_media_player
+dependencies[] = cdn2
+version = VERSION
+core = 6.x
+
+; Information added by drupal.org packaging script on 2010-04-17
+version = "6.x-1.0-beta1"
+core = "6.x"
+project = "mediafront"
+datestamp = "1271534709"
+

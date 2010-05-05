@@ -14,12 +14,8 @@ div#container {
 /*}*/
 
 div.view div.view-content h2 {
-    font-size: 1.3em;
-}
-
-div.block-featured-faculty div.views-field-field-featured-img-fid img {
-    position: absolute;
-    left: -20px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 
@@ -52,7 +48,7 @@ div#primary-links-bottom {
     font-size: 0;
     background: url(images/nav-bottom.gif) top left no-repeat;
 }
-
+div#header div#header-region div#block-menu-primary-links ul.droppy { background: transparent !important; padding-left: 0; }
 
 
 
@@ -61,54 +57,22 @@ div#footer #block-menu-menu-footer-menu ul.menu li.first {
 }
 
 
+.block-faculty-coyne { background: transparent url(images/featured-faculty-bg1.png) no-repeat; }
+ul.quicktabs_tabs.quicktabs-style-zen li { display: inline; width: 100px;  }
+ul.quicktabs_tabs.quicktabs-style-zen { padding-bottom: 0; }
+body.front #main {
+    margin-top: 42px;
+}
+body.front #content-top { border-bottom: 2px; }
+ul.quicktabs_tabs.quicktabs-style-zen li a {  }
 
 
-div.facebook-login {
-    width: 160px;
-    position: absolute;
-    top: 325px;
-    left: 0;
-    height: 34px;
-    /*z-index: 10;*/
-}
 
 
-div.block-featured-faculty {
-   /*display: none;*/
-}
 
-div.block-featured-faculty div.views-row-first {
-    position: relative;
-}
-div.block-featured-faculty div.views-field-title {
-    position: absolute;
-    top: 80px;
-    right: 0;
-    width: 120px;
-    color: #ffffff;
-    font-size: 16pt;
-    text-align: left;
-}
-div.block-featured-faculty div.views-field-body {
-    position: absolute;
-    top: 120px;
-    right: 0;
-    width: 120px;
-    color: #ffffff;
-    font-size: 8pt;
-}
-div.block-featured-faculty div.views-field-field-featured-img-fid {
-    height: 350px;
-}
-div.block-featured-faculty div.views-field-field-featured-img-fid img {
-    position: absolute;
-    left: -20px;
-    background-color: transparent;
-}
-div.block-featured-faculty div.view-featured-faculty {
-    background-color: transparent;
-}
 
+
+.recent-post-user-name { font-size: 11px; color: #666666; }
 
 div.recent-post-user-picture {
     height: 110px;
@@ -147,11 +111,6 @@ div.content-profile-display div.content {
     padding-left: 0px;
 }
 
-
-
-#content-top {
-    min-height: 45px;
-}
 
 
 

@@ -11,7 +11,7 @@ core       = 6.x
 stylesheets[all][]   = style.css
 stylesheets[all][] = droppy.css
 scripts[] = safacebook.js
-scripts[] = jquery.droppy.js
+;scripts[] = jquery.droppy.js
 scripts[] = kosmos.js
 
   ; Set the conditional stylesheets that are processed by IE.
@@ -21,6 +21,7 @@ regions[left]           = left sidebar
 regions[right]          = right sidebar
 regions[navbar]         = navigation bar
 regions[front_content]  = front content
+regions[content_prefix] = content prefix
 regions[content_top]    = content top
 regions[content_bottom] = content bottom
 regions[header]         = header

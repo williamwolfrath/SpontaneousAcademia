@@ -1,4 +1,4 @@
-; $Id: fbconnect.info,v 1.5 2009/06/03 13:51:06 lanets Exp $
+; $Id: fbconnect.info,v 1.6 2010/01/21 13:11:10 vectoroc Exp $
 name= Fbconnect
 description = Allows users to connect with Facebook account
 core = 6.x
@@ -12,4 +12,11 @@ version = "6.x-1.0-beta8"
 core = "6.x"
 project = "fbconnect"
 datestamp = "1244663746"
+
+
+; Information added by drupal.org packaging script on 2010-01-21
+version = "6.x-1.0-beta9"
+core = "6.x"
+project = "fbconnect"
+datestamp = "1264080009"
 

@@ -189,6 +189,9 @@ function jiiwiz_one_restaurant_review_list_item($rr_info)
 //}
 
 function SpontaneousAcademia_preprocess_page(&$vars, $hook) {
+    if ( arg(0) == 'user' && arg(1) == 'register' ) {
+        jquery_ui_add('ui.dialog'); 
+    }
     //global $user;
     //$curr_uri = check_plain(request_uri());
     //log_debug('curr uri: ', $curr_uri);
@@ -280,6 +283,20 @@ function SpontaneousAcademia_preprocess_block(&$vars, $hook) {
   //log_debug('hook is ', $hook);
   //log_debug('vars: ', $vars);
 }
+
+
+// override the display of the deadline for a job posting and add a summary description to the listing
+function SpontaneousAcademia_preprocess_job_posting_node_display(&$vars) {
+    //log_debug('job posting...');
+    //log_debug('deadline: ', $vars['node']->job_posting_deadline);
+    $vars['deadline'] = format_date($vars['node']->job_posting_deadline, 'custom', 'D, M j, Y');
+    $vars['template_file'] = '/sites/all/themes/SpontaneousAcademia/job-posting-node';
+    //$vars['template_file'] = 'job-posting-node';
+    //$vars['template_files'][] = 'job-posting-node';
+    //log_debug('template: ', $vars['template']);
+    //log_debug('vars: ', $vars);
+}
+
 
 // add the user's main role name to the template
 function SpontaneousAcademia_preprocess_user_profile(&$vars) {

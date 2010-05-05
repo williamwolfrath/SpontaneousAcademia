@@ -16,6 +16,17 @@ function ihsuser_menu() {
 
 
 
+function ihsuser_init() {
+    if (  (arg(0) == 'user' && arg(1) == 'register') ||
+	  (arg(0) == 'user' && arg(2) == 'edit' && arg(3) == 'profile') )
+       {
+        jquery_ui_add('ui.dialog');
+    	drupal_add_js(drupal_get_path('module', 'ihsuser') . '/ihsuser_acct.js');
+	drupal_add_css( drupal_get_path('module','ihsuser') . '/ui.all.css' );
+    }
+}
+
+
 
 function ihsuser_main() {
     return "Great success!";
@@ -32,13 +43,25 @@ function ihsuser_user($op, &$edit, &$account) {
 	    //log_debug("ihsuser");
 	    $main_role = '';
 	    foreach ($account->roles as $role) {
-		if (!($role == 'authenticated user')) {
-		    // get the first role that is NOT auth user
+		if (!($role == 'authenticated user') && !($role == "Video Access")) {
+		    // get the first role that is NOT auth user or Video Access
 		    $main_role = $role;
 		}
 	    }
 	    $account->user_type = $main_role;
 	    //log_debug("altered user: ", $account);
 	    break;
+    }
+}
+
+
+
+/* change the destination for a group subscription to go to a Google analytics-enabled special page */
+function ihsuser_form_og_confirm_subscribe_alter(&$form, $form_state) {
+    if (strpos($form['#action'], '?') !== false) {
+	$form['#action'] = $form['#action'] . '&gl=newgroup';
+    }
+    else {
+	$form['#action'] = $form['#action'] . '?gl=newgroup';
     }
 }

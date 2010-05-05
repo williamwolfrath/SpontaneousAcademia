@@ -1,0 +1,12 @@
+; $Id$
+name = MediaFront
+description = A front end media solution for Drupal.
+package = MediaFront
+version = VERSION
+core = 6.x
+; Information added by drupal.org packaging script on 2010-04-17
+version = "6.x-1.0-beta1"
+core = "6.x"
+project = "mediafront"
+datestamp = "1271534709"
+

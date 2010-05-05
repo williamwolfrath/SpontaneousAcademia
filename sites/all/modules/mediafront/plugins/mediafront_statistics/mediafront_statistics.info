@@ -1,0 +1,15 @@
+; $Id: voting_service.info,v 1.6.2.1 2007/10/27 17:32:16 travist Exp $
+name = MediaFront Statistics
+description = Provides media statistics to the MediaFront module such as play counter.
+package = "MediaFront : Plugins"
+dependencies[] = mediafront
+dependencies[] = statistics
+version = VERSION
+core = 6.x
+
+; Information added by drupal.org packaging script on 2010-04-17
+version = "6.x-1.0-beta1"
+core = "6.x"
+project = "mediafront"
+datestamp = "1271534709"
+

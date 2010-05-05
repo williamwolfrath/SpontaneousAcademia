@@ -10,8 +10,21 @@ function ihsgeneral_menu() {
 	'access callback' => true,
 	'type' => MENU_CALLBACK,
     );
+    $items['kosmos-search'] = array(
+	'title' => 'Search',
+	'description' => 'Advanced Search',
+	'page callback' => 'ihsgeneral_kosmos_search',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
  
     return $items;
+}
+
+
+
+function ihsgeneral_kosmos_search() {
+    return drupal_get_form('kosmos_search_form');
 }
 
 
@@ -23,3 +36,51 @@ function ihsgeneral_main() {
 
 
 
+function ihsgeneral_form_job_posting_node_form_alter(&$form, &$form_state) {
+    log_debug('ihsgeneral form alter. ');
+    //log_debug('form: ', $form);
+    $form['required']['job_posting_email']['#type'] = 'hidden';
+    $form['required']['job_posting_applink']['#type'] = 'hidden';
+}
+
+
+
+function ihsgeneral_menu_alter(&$items) {
+    log_debug('is this called?');
+}
+
+
+function kosmos_search_form($form_state) {
+    $form['fields'] = array(
+	'#type' => 'fieldset',
+	'#title' => t('Search'),
+	'#tree' => TRUE,
+    );
+     $form['fields']['term'] = array(
+	'#type' => 'textfield',
+	'#title' => t('Search for'),
+	'#size' => 30,
+	'#maxlength' => 64,
+	'#description' => t(''),
+    );
+     $form['submit'] = array('#type' => 'submit', '#value' => t('Search'));
+     return $form;
+}
+
+
+//function ihsgeneral_menu_alter(&$items) {
+//    log_debug('zxcvzxcvzxcvz');
+//    log_debug('items is ', $items);
+//  // Removing certain local navigation tabs that are either undesired or need to be custom relocated.
+//
+//  // Set these tabs to MENU_CALLBACK, so they still register the path, but just don't show the tab:
+//  //$items['node/%node/track']['type'] = MENU_CALLBACK;
+//  //$items['user/%user/track']['type'] = MENU_CALLBACK;
+//  $items['search/user']['type'] = MENU_CALLBACK;
+//  $items['search/user']['access callback'] = FALSE;
+//  //log_debug('search user: ', $items['search/user']);
+//  
+//  // Fully unset these tabs and their paths, don't want them at all. This breaks the path as well:
+//  //unset($items['user/%user/example']);
+//  unset($items['search/user']);
+//}

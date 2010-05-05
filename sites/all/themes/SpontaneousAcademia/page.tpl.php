@@ -87,6 +87,7 @@
 		<link rel="stylesheet" href="/sites/all/themes/SpontaneousAcademia/style-IE7.css" type="text/css" media="all" />
 	<![endif]-->
 	<!--[if IE 6]>
+	        <script type="text/javascript" src="/unitpngfix.js"></script>
 		<link rel="stylesheet" href="/sites/all/themes/SpontaneousAcademia/style-IE6.css" type="text/css" media="all" />
 	<![endif]-->
   <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US" type="text/javascript"></script> <!-- make sure this loads before others that need it! -->
@@ -96,6 +97,7 @@
 //FB.init("990f0319a7449a516ee2032d33478742");
 </script>
   <?php print $scripts; ?>
+  
   <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
 </head>
 
@@ -103,7 +105,8 @@
 <body class="<?php print $body_classes; ?>">
 
 <script type="text/javascript">
-  FB.init('990f0319a7449a516ee2032d33478742', "/xd_receiver.htm", {"reloadIfSessionStateChanged":true});
+  //FB.init('9eeb90426ff3bfb949986d73aa82d2af', "/xd_receiver.htm", {"reloadIfSessionStateChanged":true});
+  FB.init('<?php print variable_get("safacebook_api_key", ""); ?>', "/xd_receiver.htm");
 </script>
 
 
@@ -139,7 +142,7 @@
           <div id="temp-home-link"><a href="/">&nbsp;</a></div>
 	   <?php if ($is_front): ?>
              <div class="front-page-header-text">
-                 <div class="node"><h2>Liberty.<br/>Academia.<br/>Opportunities and <br/>Advice.</h2>
+                 <div class="node">
                  <div class="content">Advance a free society. Further your research and teaching. Get inspiration and advice. Create a profile and browse our listings of opportunities, resources, events, groups and more.
                  </div>
                  </div>
@@ -161,7 +164,15 @@
       
           <?php //if (!empty($content_top)): ?>
             <div id="content-top" class="clear-block">
-              <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title; ?><span id="feed-icons"><?php print $feed_icons; ?></span></h1><?php endif; ?>
+              <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title; ?>
+		      <span id="feed-icons"><?php print $feed_icons; ?>
+		      <?php if ($is_front): ?>
+			  <a class="feed-icon" href="/recent-updates/feed">
+			      <img width="16" height="16" title="Recent Updates" alt="Recent Updates" src="/misc/feed.png">
+			  </a>
+		      <?php endif; ?>
+		      </span>
+	      </h1><?php endif; ?>
              <?php print $content_top; ?>
             </div>
           <?php //endif; ?>
@@ -179,25 +190,22 @@
         <?php if (!empty($mission)): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
 
         <div id="content">
-          
-          
-          
-          
+          <?php if (!empty($content_prefix)) { print $content_prefix; } ?>
           <?php if (!empty($tabs)): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
           <?php if (!empty($messages)): print $messages; endif; ?>
           <?php if (!empty($help)): print $help; endif; ?>
           
           <?php if ($is_front): ?>
+	    <?php if (!empty($front_content) ): ?>
             <div id="front-content" class="clear-block">
                 <?php print $front_content; ?>
             </div> <!-- /front-content -->
+	    <?php endif; ?>
           <?php endif; ?>
           
           <div id="content-content" class="clear-block">
             
             <?php print $content; ?>
-            
-            
             
           </div> <!-- /content-content -->
           
@@ -237,16 +245,6 @@
   </div> <!-- page-inner -->
   </div> <!-- /page -->
 
-
-  <script type="text/javascript">
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-    try {
-	var pageTracker = _gat._getTracker("UA-12550479-1");
-	pageTracker._trackPageview();
-    } catch(err) {}</script>
 
 </body>
 </html>

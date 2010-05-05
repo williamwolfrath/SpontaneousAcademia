@@ -1,0 +1,1847 @@
+stdClass Object
+(
+    [nid] => 113
+    [uid] => 4
+)
+Interest: geometry
+Term geometry is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=383 WHERE nid=113 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (113, 113, 383) 
+update result: 1 
+Interest: algebra
+Term algebra is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (113, 113, 1, 384) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (113, 113, 384) 
+update result: 1 
+Interest: physics
+Term physics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (113, 113, 2, 385) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (113, 113, 385) 
+update result: 1 
+Interest: dance
+Term dance is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (113, 113, 3, 386) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (113, 113, 386) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 114
+    [uid] => 3
+)
+stdClass Object
+(
+    [nid] => 121
+    [uid] => 13
+)
+Interest: none
+Term none is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=387 WHERE nid=121 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (121, 121, 387) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 128
+    [uid] => 14
+)
+stdClass Object
+(
+    [nid] => 437
+    [uid] => 18
+)
+stdClass Object
+(
+    [nid] => 438
+    [uid] => 19
+)
+stdClass Object
+(
+    [nid] => 4694
+    [uid] => 20
+)
+stdClass Object
+(
+    [nid] => 6821
+    [uid] => 21
+)
+stdClass Object
+(
+    [nid] => 6923
+    [uid] => 22
+)
+Interest: introduction to logic
+Term introduction to logic is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=388 WHERE nid=6923 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (6923, 6923, 388) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 6927
+    [uid] => 23
+)
+Interest: crime and society (history of the criminal justice system)
+Term crime and society (history of the criminal justice system) is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=389 WHERE nid=6927 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (6927, 6927, 389) 
+update result: 1 
+Interest: counter-tradition (history of the devil and the occult)
+Term counter-tradition (history of the devil and the occult) is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (6927, 6927, 1, 390) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (6927, 6927, 390) 
+update result: 1 
+Interest: world history and the origins of modernity
+Term world history and the origins of modernity is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (6927, 6927, 2, 391) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (6927, 6927, 391) 
+update result: 1 
+Interest: utopianism and millenarianism
+Term utopianism and millenarianism is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (6927, 6927, 3, 392) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (6927, 6927, 392) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 6928
+    [uid] => 24
+)
+stdClass Object
+(
+    [nid] => 6931
+    [uid] => 25
+)
+stdClass Object
+(
+    [nid] => 6932
+    [uid] => 26
+)
+stdClass Object
+(
+    [nid] => 6936
+    [uid] => 28
+)
+stdClass Object
+(
+    [nid] => 7115
+    [uid] => 32
+)
+stdClass Object
+(
+    [nid] => 7116
+    [uid] => 33
+)
+stdClass Object
+(
+    [nid] => 7117
+    [uid] => 34
+)
+stdClass Object
+(
+    [nid] => 7118
+    [uid] => 35
+)
+stdClass Object
+(
+    [nid] => 7119
+    [uid] => 36
+)
+stdClass Object
+(
+    [nid] => 7120
+    [uid] => 37
+)
+stdClass Object
+(
+    [nid] => 7121
+    [uid] => 38
+)
+stdClass Object
+(
+    [nid] => 7122
+    [uid] => 39
+)
+stdClass Object
+(
+    [nid] => 7123
+    [uid] => 40
+)
+stdClass Object
+(
+    [nid] => 7124
+    [uid] => 41
+)
+stdClass Object
+(
+    [nid] => 7125
+    [uid] => 42
+)
+stdClass Object
+(
+    [nid] => 7126
+    [uid] => 43
+)
+stdClass Object
+(
+    [nid] => 7127
+    [uid] => 44
+)
+stdClass Object
+(
+    [nid] => 7129
+    [uid] => 45
+)
+stdClass Object
+(
+    [nid] => 7130
+    [uid] => 46
+)
+stdClass Object
+(
+    [nid] => 7131
+    [uid] => 47
+)
+stdClass Object
+(
+    [nid] => 7132
+    [uid] => 48
+)
+stdClass Object
+(
+    [nid] => 7135
+    [uid] => 49
+)
+stdClass Object
+(
+    [nid] => 7140
+    [uid] => 50
+)
+stdClass Object
+(
+    [nid] => 7141
+    [uid] => 51
+)
+stdClass Object
+(
+    [nid] => 7142
+    [uid] => 52
+)
+stdClass Object
+(
+    [nid] => 7143
+    [uid] => 53
+)
+stdClass Object
+(
+    [nid] => 7144
+    [uid] => 54
+)
+Interest: introduction to philosophy
+Term introduction to philosophy is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=393 WHERE nid=7144 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7144, 7144, 393) 
+update result: 1 
+Interest: critical thinking
+Term critical thinking is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7144, 7144, 1, 394) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7144, 7144, 394) 
+update result: 1 
+Interest: greek ethics
+Term greek ethics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7144, 7144, 2, 395) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7144, 7144, 395) 
+update result: 1 
+Interest: aristotelian action theory and its critics
+Term aristotelian action theory and its critics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7144, 7144, 3, 396) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7144, 7144, 396) 
+update result: 1 
+Interest: freedom and the good
+Term freedom and the good is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7144, 7144, 4, 397) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7144, 7144, 397) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7145
+    [uid] => 55
+)
+Interest: introduction to philosophy
+Term introduction to philosophy exists...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=393 WHERE nid=7145 and delta=0 
+update result: 1 
+Interest: introduction to ethics
+Term introduction to ethics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7145, 7145, 1, 398) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7145, 7145, 398) 
+update result: 1 
+Interest: critical thinking
+Term critical thinking exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7145, 7145, 2, 394) 
+update result: 1 
+Interest: ethical issues in health care
+Term ethical issues in health care is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7145, 7145, 3, 399) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7145, 7145, 399) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7146
+    [uid] => 56
+)
+Interest: history of ethical thought
+Term history of ethical thought is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=400 WHERE nid=7146 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7146, 7146, 400) 
+update result: 1 
+Interest: political philosophy
+Term political philosophy exists...
+Term political philosophy exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7146, 7146, 1, 401) 
+update result: 1 
+Interest: metaethics
+Term metaethics exists...
+Term metaethics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7146, 7146, 2, 402) 
+update result: 1 
+Interest: business ethics
+Term business ethics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7146, 7146, 3, 403) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7146, 7146, 403) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7147
+    [uid] => 57
+)
+Interest: phil of punishment
+Term phil of punishment is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=404 WHERE nid=7147 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7147, 7147, 404) 
+update result: 1 
+Interest: business ethics
+Term business ethics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7147, 7147, 1, 403) 
+update result: 1 
+Interest: intro to phil
+Term intro to phil is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7147, 7147, 2, 405) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7147, 7147, 405) 
+update result: 1 
+Interest: intro to ethics
+Term intro to ethics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7147, 7147, 3, 406) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7147, 7147, 406) 
+update result: 1 
+Interest: intro to canadian studies
+Term intro to canadian studies is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7147, 7147, 4, 407) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7147, 7147, 407) 
+update result: 1 
+Interest: logic
+Term logic is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7147, 7147, 5, 408) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7147, 7147, 408) 
+update result: 1 
+Interest: biomedical ethics
+Term biomedical ethics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7147, 7147, 6, 409) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7147, 7147, 409) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7148
+    [uid] => 58
+)
+stdClass Object
+(
+    [nid] => 7149
+    [uid] => 59
+)
+stdClass Object
+(
+    [nid] => 7150
+    [uid] => 60
+)
+Interest: health care ethics
+Term health care ethics is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=410 WHERE nid=7150 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7150, 7150, 410) 
+update result: 1 
+Interest: business ethics
+Term business ethics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7150, 7150, 1, 403) 
+update result: 1 
+Interest: ethics
+Term ethics exists...
+Term ethics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7150, 7150, 2, 411) 
+update result: 1 
+Interest: leadership ethics
+Term leadership ethics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7150, 7150, 3, 412) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7150, 7150, 412) 
+update result: 1 
+Interest: human nature
+Term human nature is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7150, 7150, 4, 413) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7150, 7150, 413) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7151
+    [uid] => 61
+)
+stdClass Object
+(
+    [nid] => 7156
+    [uid] => 62
+)
+stdClass Object
+(
+    [nid] => 7158
+    [uid] => 63
+)
+stdClass Object
+(
+    [nid] => 7164
+    [uid] => 64
+)
+stdClass Object
+(
+    [nid] => 7165
+    [uid] => 65
+)
+Interest: microeconomics
+Term microeconomics exists...
+Term microeconomics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=414 WHERE nid=7165 and delta=0 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7166
+    [uid] => 66
+)
+stdClass Object
+(
+    [nid] => 7167
+    [uid] => 67
+)
+stdClass Object
+(
+    [nid] => 7168
+    [uid] => 68
+)
+Interest: political philosophy
+Term political philosophy exists...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=401 WHERE nid=7168 and delta=0 
+update result: 1 
+Interest: normative ethics
+Term normative ethics exists...
+Term normative ethics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7168, 7168, 1, 415) 
+update result: 1 
+Interest: philosophy of law
+Term philosophy of law is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7168, 7168, 2, 416) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7168, 7168, 416) 
+update result: 1 
+Interest: introduction to philosophy
+Term introduction to philosophy exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7168, 7168, 3, 393) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7169
+    [uid] => 69
+)
+stdClass Object
+(
+    [nid] => 7170
+    [uid] => 70
+)
+Interest: introduction to political theory
+Term introduction to political theory is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=417 WHERE nid=7170 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7170, 7170, 417) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7171
+    [uid] => 71
+)
+stdClass Object
+(
+    [nid] => 7172
+    [uid] => 72
+)
+Interest: econometric analysis
+Term econometric analysis is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=418 WHERE nid=7172 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7172, 7172, 418) 
+update result: 1 
+Interest: economic statistics and econometrics
+Term economic statistics and econometrics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7172, 7172, 1, 419) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7172, 7172, 419) 
+update result: 1 
+Interest: quantitative methodology in the social sciences seminar
+Term quantitative methodology in the social sciences seminar is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7172, 7172, 2, 420) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7172, 7172, 420) 
+update result: 1 
+Interest: the statistics of causal inference in the social sciences
+Term the statistics of causal inference in the social sciences is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7172, 7172, 3, 421) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7172, 7172, 421) 
+update result: 1 
+Interest: introduction to health economics and public policy
+Term introduction to health economics and public policy is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7172, 7172, 4, 422) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7172, 7172, 422) 
+update result: 1 
+Interest: microeconomic analyses for business decisions
+Term microeconomic analyses for business decisions is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7172, 7172, 5, 423) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7172, 7172, 423) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7173
+    [uid] => 73
+)
+stdClass Object
+(
+    [nid] => 7197
+    [uid] => 75
+)
+stdClass Object
+(
+    [nid] => 7199
+    [uid] => 76
+)
+Interest: introduction to statistics
+Term introduction to statistics is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=424 WHERE nid=7199 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7199, 7199, 424) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7200
+    [uid] => 77
+)
+stdClass Object
+(
+    [nid] => 7202
+    [uid] => 78
+)
+stdClass Object
+(
+    [nid] => 7209
+    [uid] => 79
+)
+stdClass Object
+(
+    [nid] => 7317
+    [uid] => 80
+)
+stdClass Object
+(
+    [nid] => 7331
+    [uid] => 81
+)
+stdClass Object
+(
+    [nid] => 7386
+    [uid] => 82
+)
+stdClass Object
+(
+    [nid] => 7416
+    [uid] => 83
+)
+stdClass Object
+(
+    [nid] => 7554
+    [uid] => 84
+)
+stdClass Object
+(
+    [nid] => 7555
+    [uid] => 85
+)
+stdClass Object
+(
+    [nid] => 7560
+    [uid] => 86
+)
+stdClass Object
+(
+    [nid] => 7628
+    [uid] => 87
+)
+stdClass Object
+(
+    [nid] => 7640
+    [uid] => 88
+)
+stdClass Object
+(
+    [nid] => 7642
+    [uid] => 89
+)
+stdClass Object
+(
+    [nid] => 7643
+    [uid] => 90
+)
+Interest: intermediate microeconomics
+Term intermediate microeconomics is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=425 WHERE nid=7643 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7643, 7643, 425) 
+update result: 1 
+Interest: economies in transition
+Term economies in transition is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7643, 7643, 1, 426) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7643, 7643, 426) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7644
+    [uid] => 91
+)
+Interest: financial management and investment
+Term financial management and investment is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=427 WHERE nid=7644 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7644, 7644, 427) 
+update result: 1 
+Interest: industrial organization 
+Term industrial organization  exists...
+Term industrial organization  exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7644, 7644, 1, 428) 
+update result: 1 
+Interest: intermediate microeconomics
+Term intermediate microeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7644, 7644, 2, 425) 
+update result: 1 
+Interest: principals of macroeconomics 
+Term principals of macroeconomics  is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7644, 7644, 3, 429) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7644, 7644, 429) 
+update result: 1 
+Interest: supervising bachelor and master thesis 
+Term supervising bachelor and master thesis  is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7644, 7644, 4, 430) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7644, 7644, 430) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7646
+    [uid] => 92
+)
+Interest: foundations of political economy
+Term foundations of political economy is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=431 WHERE nid=7646 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7646, 7646, 431) 
+update result: 1 
+Interest: advanced public choice
+Term advanced public choice is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7646, 7646, 1, 432) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7646, 7646, 432) 
+update result: 1 
+Interest: economics of organizations and management
+Term economics of organizations and management is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7646, 7646, 2, 433) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7646, 7646, 433) 
+update result: 1 
+Interest: public choice
+Term public choice exists...
+Term public choice exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7646, 7646, 3, 434) 
+update result: 1 
+Interest: state and civil society
+Term state and civil society is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7646, 7646, 4, 435) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7646, 7646, 435) 
+update result: 1 
+Interest: political sociology
+Term political sociology exists...
+Term political sociology exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7646, 7646, 5, 436) 
+update result: 1 
+Interest: evolution, economics, and the brain
+Term evolution, economics, and the brain is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7646, 7646, 6, 437) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7646, 7646, 437) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7649
+    [uid] => 93
+)
+Interest: macroeconomics
+Term macroeconomics exists...
+Term macroeconomics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=438 WHERE nid=7649 and delta=0 
+update result: 1 
+Interest: microeconomics
+Term microeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7649, 7649, 1, 414) 
+update result: 1 
+Interest: management
+Term management is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7649, 7649, 2, 439) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7649, 7649, 439) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7669
+    [uid] => 94
+)
+stdClass Object
+(
+    [nid] => 7688
+    [uid] => 95
+)
+stdClass Object
+(
+    [nid] => 7691
+    [uid] => 96
+)
+stdClass Object
+(
+    [nid] => 7692
+    [uid] => 97
+)
+stdClass Object
+(
+    [nid] => 7711
+    [uid] => 98
+)
+Interest: microeconomics
+Term microeconomics exists...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=414 WHERE nid=7711 and delta=0 
+update result: 1 
+Interest: mathematics for economists
+Term mathematics for economists is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7711, 7711, 1, 440) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7711, 7711, 440) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7712
+    [uid] => 99
+)
+Interest: principles of economics
+Term principles of economics is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=441 WHERE nid=7712 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7712, 7712, 441) 
+update result: 1 
+Interest: intermediate microeconomic theory
+Term intermediate microeconomic theory is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7712, 7712, 1, 442) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7712, 7712, 442) 
+update result: 1 
+Interest: health economics
+Term health economics exists...
+Term health economics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7712, 7712, 2, 443) 
+update result: 1 
+Interest: financial markets
+Term financial markets is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7712, 7712, 3, 444) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7712, 7712, 444) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7713
+    [uid] => 100
+)
+Interest: finance
+Term finance exists...
+Term finance exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=445 WHERE nid=7713 and delta=0 
+update result: 1 
+Interest: money and banking
+Term money and banking is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7713, 7713, 1, 446) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7713, 7713, 446) 
+update result: 1 
+Interest: microeconomics
+Term microeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7713, 7713, 2, 414) 
+update result: 1 
+Interest: macroeconomics
+Term macroeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7713, 7713, 3, 438) 
+update result: 1 
+Interest: quantitative economics
+Term quantitative economics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7713, 7713, 4, 447) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7713, 7713, 447) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7743
+    [uid] => 101
+)
+stdClass Object
+(
+    [nid] => 7791
+    [uid] => 102
+)
+stdClass Object
+(
+    [nid] => 7792
+    [uid] => 103
+)
+stdClass Object
+(
+    [nid] => 7793
+    [uid] => 104
+)
+stdClass Object
+(
+    [nid] => 7794
+    [uid] => 105
+)
+Interest: u.s. history i
+Term u.s. history i is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=448 WHERE nid=7794 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7794, 7794, 448) 
+update result: 1 
+Interest: u.s. history ii
+Term u.s. history ii is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7794, 7794, 1, 449) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7794, 7794, 449) 
+update result: 1 
+Interest: u.s. history 1917-1945
+Term u.s. history 1917-1945 is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7794, 7794, 2, 450) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7794, 7794, 450) 
+update result: 1 
+Interest: u.s. history 1945-present
+Term u.s. history 1945-present is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7794, 7794, 3, 451) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7794, 7794, 451) 
+update result: 1 
+Interest: u.s. history 1828-1865
+Term u.s. history 1828-1865 is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7794, 7794, 4, 452) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7794, 7794, 452) 
+update result: 1 
+Interest: american religious history
+Term american religious history is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7794, 7794, 5, 453) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7794, 7794, 453) 
+update result: 1 
+Interest: american slavery
+Term american slavery is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7794, 7794, 6, 454) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7794, 7794, 454) 
+update result: 1 
+Interest: u.s. history 1492-1763
+Term u.s. history 1492-1763 is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7794, 7794, 7, 455) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7794, 7794, 455) 
+update result: 1 
+Interest: u.s. history 1763-1800
+Term u.s. history 1763-1800 is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7794, 7794, 8, 456) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7794, 7794, 456) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7795
+    [uid] => 106
+)
+Interest: pols 211 - chicago's future
+Term pols 211 - chicago's future is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=457 WHERE nid=7795 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7795, 7795, 457) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7796
+    [uid] => 107
+)
+Interest: evolutionary psychology
+Term evolutionary psychology exists...
+Term evolutionary psychology exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=458 WHERE nid=7796 and delta=0 
+update result: 1 
+Interest: sensation & perception
+Term sensation & perception is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7796, 7796, 1, 459) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7796, 7796, 459) 
+update result: 1 
+Interest: research methods
+Term research methods is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7796, 7796, 2, 460) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7796, 7796, 460) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7797
+    [uid] => 108
+)
+Interest: history
+Term history exists...
+Term history exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=461 WHERE nid=7797 and delta=0 
+update result: 1 
+Interest: economics
+Term economics exists...
+Term economics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7797, 7797, 1, 462) 
+update result: 1 
+Interest: government
+Term government exists...
+Term government exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7797, 7797, 2, 463) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7798
+    [uid] => 109
+)
+stdClass Object
+(
+    [nid] => 7829
+    [uid] => 110
+)
+stdClass Object
+(
+    [nid] => 7830
+    [uid] => 111
+)
+stdClass Object
+(
+    [nid] => 7831
+    [uid] => 113
+)
+Interest: introduction to macroeconomic
+Term introduction to macroeconomic is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=464 WHERE nid=7831 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7831, 7831, 464) 
+update result: 1 
+Interest: graduate macroeconomics
+Term graduate macroeconomics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7831, 7831, 1, 465) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7831, 7831, 465) 
+update result: 1 
+Interest: international finance
+Term international finance is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7831, 7831, 2, 466) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7831, 7831, 466) 
+update result: 1 
+Interest: intermediate macroeconomics
+Term intermediate macroeconomics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7831, 7831, 3, 467) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7831, 7831, 467) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7832
+    [uid] => 114
+)
+stdClass Object
+(
+    [nid] => 7835
+    [uid] => 116
+)
+stdClass Object
+(
+    [nid] => 7838
+    [uid] => 119
+)
+stdClass Object
+(
+    [nid] => 7839
+    [uid] => 120
+)
+Interest: introduction to environmental policy analysis
+Term introduction to environmental policy analysis is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=468 WHERE nid=7839 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7839, 7839, 468) 
+update result: 1 
+Interest: economics of environmental management
+Term economics of environmental management is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7839, 7839, 1, 469) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7839, 7839, 469) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7840
+    [uid] => 121
+)
+stdClass Object
+(
+    [nid] => 7841
+    [uid] => 122
+)
+stdClass Object
+(
+    [nid] => 7842
+    [uid] => 123
+)
+Interest: globalization
+Term globalization exists...
+Term globalization exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=470 WHERE nid=7842 and delta=0 
+update result: 1 
+Interest: law and economics
+Term law and economics exists...
+Term law and economics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7842, 7842, 1, 471) 
+update result: 1 
+Interest: economics of diversity
+Term economics of diversity is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7842, 7842, 2, 472) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7842, 7842, 472) 
+update result: 1 
+Interest: economic principles
+Term economic principles is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7842, 7842, 3, 473) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7842, 7842, 473) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7843
+    [uid] => 124
+)
+stdClass Object
+(
+    [nid] => 7844
+    [uid] => 125
+)
+Interest: foundations of canadian law
+Term foundations of canadian law is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=474 WHERE nid=7844 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7844, 7844, 474) 
+update result: 1 
+Interest: liberal political theory
+Term liberal political theory is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7844, 7844, 1, 475) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7844, 7844, 475) 
+update result: 1 
+Interest: western political theory
+Term western political theory is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7844, 7844, 2, 476) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7844, 7844, 476) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7845
+    [uid] => 126
+)
+stdClass Object
+(
+    [nid] => 7846
+    [uid] => 127
+)
+Interest: corporate finance
+Term corporate finance exists...
+Term corporate finance exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=477 WHERE nid=7846 and delta=0 
+update result: 1 
+Interest: advanced managerial finance
+Term advanced managerial finance is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7846, 7846, 1, 478) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7846, 7846, 478) 
+update result: 1 
+Interest: microeconomics
+Term microeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7846, 7846, 2, 414) 
+update result: 1 
+Interest: macroeconomics
+Term macroeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7846, 7846, 3, 438) 
+update result: 1 
+Interest: money & banking
+Term money & banking is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7846, 7846, 4, 479) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7846, 7846, 479) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7847
+    [uid] => 128
+)
+stdClass Object
+(
+    [nid] => 7848
+    [uid] => 129
+)
+Interest: political philosophy
+Term political philosophy exists...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=401 WHERE nid=7848 and delta=0 
+update result: 1 
+Interest: business ethics
+Term business ethics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7848, 7848, 1, 403) 
+update result: 1 
+Interest: issues in employee and labor relations
+Term issues in employee and labor relations is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7848, 7848, 2, 480) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7848, 7848, 480) 
+update result: 1 
+Interest: global poverty
+Term global poverty is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7848, 7848, 3, 481) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7848, 7848, 481) 
+update result: 1 
+Interest: religion and rationality
+Term religion and rationality is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7848, 7848, 4, 482) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7848, 7848, 482) 
+update result: 1 
+Interest: religion and the future
+Term religion and the future is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7848, 7848, 5, 483) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7848, 7848, 483) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7849
+    [uid] => 130
+)
+Interest: literature
+Term literature exists...
+Term literature exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=484 WHERE nid=7849 and delta=0 
+update result: 1 
+Interest: law-and-literature
+Term law-and-literature exists...
+Term law-and-literature exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7849, 7849, 1, 485) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7850
+    [uid] => 131
+)
+Interest: environment and the roots of globalization
+Term environment and the roots of globalization is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=486 WHERE nid=7850 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7850, 7850, 486) 
+update result: 1 
+Interest: energy and society
+Term energy and society is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7850, 7850, 1, 487) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7850, 7850, 487) 
+update result: 1 
+Interest: people, money and places
+Term people, money and places is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7850, 7850, 2, 488) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7850, 7850, 488) 
+update result: 1 
+Interest: cities, industry and the environment
+Term cities, industry and the environment is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7850, 7850, 3, 489) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7850, 7850, 489) 
+update result: 1 
+Interest: trade and globalization
+Term trade and globalization exists...
+Term trade and globalization exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7850, 7850, 4, 490) 
+update result: 1 
+Interest: food and globalization
+Term food and globalization is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7850, 7850, 5, 491) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7850, 7850, 491) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7851
+    [uid] => 132
+)
+Interest: introductory economics
+Term introductory economics is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=492 WHERE nid=7851 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7851, 7851, 492) 
+update result: 1 
+Interest: economic history
+Term economic history exists...
+Term economic history exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7851, 7851, 1, 493) 
+update result: 1 
+Interest: classical & marxian political economy
+Term classical & marxian political economy is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7851, 7851, 2, 494) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7851, 7851, 494) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7852
+    [uid] => 133
+)
+stdClass Object
+(
+    [nid] => 7853
+    [uid] => 134
+)
+Interest: social choice
+Term social choice is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=495 WHERE nid=7853 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7853, 7853, 495) 
+update result: 1 
+Interest: political institutions & economic growth
+Term political institutions & economic growth is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7853, 7853, 1, 496) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7853, 7853, 496) 
+update result: 1 
+Interest: comparative politics
+Term comparative politics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7853, 7853, 2, 497) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7853, 7853, 497) 
+update result: 1 
+Interest: institutional theory
+Term institutional theory is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7853, 7853, 3, 498) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7853, 7853, 498) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7854
+    [uid] => 135
+)
+Interest: economic development
+Term economic development exists...
+Term economic development exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=499 WHERE nid=7854 and delta=0 
+update result: 1 
+Interest: macroeconomics
+Term macroeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7854, 7854, 1, 438) 
+update result: 1 
+Interest: intermediate macroeconomics
+Term intermediate macroeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7854, 7854, 2, 467) 
+update result: 1 
+Interest: history of economic thought
+Term history of economic thought exists...
+Term history of economic thought exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7854, 7854, 3, 500) 
+update result: 1 
+Interest: monetary and fiscal theory
+Term monetary and fiscal theory is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7854, 7854, 4, 501) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7854, 7854, 501) 
+update result: 1 
+Interest: microeconomics
+Term microeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7854, 7854, 5, 414) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7855
+    [uid] => 136
+)
+stdClass Object
+(
+    [nid] => 7856
+    [uid] => 137
+)
+stdClass Object
+(
+    [nid] => 7858
+    [uid] => 138
+)
+Interest: public policy analysis
+Term public policy analysis exists...
+Term public policy analysis exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=502 WHERE nid=7858 and delta=0 
+update result: 1 
+Interest: public choice
+Term public choice exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7858, 7858, 1, 434) 
+update result: 1 
+Interest: ethics
+Term ethics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7858, 7858, 2, 411) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7859
+    [uid] => 139
+)
+stdClass Object
+(
+    [nid] => 7861
+    [uid] => 140
+)
+Interest: philosophy of science and technology
+Term philosophy of science and technology is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=503 WHERE nid=7861 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7861, 7861, 503) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7862
+    [uid] => 141
+)
+Interest: global economy
+Term global economy is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=504 WHERE nid=7862 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7862, 7862, 504) 
+update result: 1 
+Interest: international macro economics and finance
+Term international macro economics and finance is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7862, 7862, 1, 505) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7862, 7862, 505) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7863
+    [uid] => 142
+)
+Interest: american politics
+Term american politics exists...
+Term american politics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=506 WHERE nid=7863 and delta=0 
+update result: 1 
+Interest: constitutional law 1: public law
+Term constitutional law 1: public law is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7863, 7863, 1, 507) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7863, 7863, 507) 
+update result: 1 
+Interest: constitutional law 2: civil liberties
+Term constitutional law 2: civil liberties is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7863, 7863, 2, 508) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7863, 7863, 508) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7864
+    [uid] => 143
+)
+Interest: environmental economics
+Term environmental economics exists...
+Term environmental economics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=509 WHERE nid=7864 and delta=0 
+update result: 1 
+Interest: history of economic thought
+Term history of economic thought exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7864, 7864, 1, 500) 
+update result: 1 
+Interest: freshman seminar-economics of energy markets
+Term freshman seminar-economics of energy markets is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7864, 7864, 2, 510) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7864, 7864, 510) 
+update result: 1 
+Interest: freshman seminar-adam smith and the scottish enlightenment
+Term freshman seminar-adam smith and the scottish enlightenment is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7864, 7864, 3, 511) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7864, 7864, 511) 
+update result: 1 
+Interest: freshman seminar-complexity and economics: growth, technology, networks, and adaptation
+Term freshman seminar-complexity and economics: growth, technology, networks, and adaptation is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7864, 7864, 4, 512) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7864, 7864, 512) 
+update result: 1 
+Interest: western economic history
+Term western economic history is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7864, 7864, 5, 513) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7864, 7864, 513) 
+update result: 1 
+Interest: kellogg mba: environmental management and sustainability
+Term kellogg mba: environmental management and sustainability is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7864, 7864, 6, 514) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7864, 7864, 514) 
+update result: 1 
+Interest: kellogg mba: sustainability lab
+Term kellogg mba: sustainability lab is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7864, 7864, 7, 515) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7864, 7864, 515) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7865
+    [uid] => 144
+)
+stdClass Object
+(
+    [nid] => 7866
+    [uid] => 145
+)
+stdClass Object
+(
+    [nid] => 7867
+    [uid] => 146
+)
+Interest: social psychology
+Term social psychology exists...
+Term social psychology exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=516 WHERE nid=7867 and delta=0 
+update result: 1 
+Interest: business communication
+Term business communication is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7867, 7867, 1, 517) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7867, 7867, 517) 
+update result: 1 
+Interest: psychology of development
+Term psychology of development is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7867, 7867, 2, 518) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7867, 7867, 518) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7868
+    [uid] => 147
+)
+stdClass Object
+(
+    [nid] => 7871
+    [uid] => 148
+)
+Interest: introductory macroeconomics
+Term introductory macroeconomics is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=519 WHERE nid=7871 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7871, 7871, 519) 
+update result: 1 
+Interest: intermediate microeconomics
+Term intermediate microeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7871, 7871, 1, 425) 
+update result: 1 
+Interest: intermediate macroeconomics
+Term intermediate macroeconomics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7871, 7871, 2, 467) 
+update result: 1 
+Interest: economics of developing areas
+Term economics of developing areas is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7871, 7871, 3, 520) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7871, 7871, 520) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7872
+    [uid] => 149
+)
+stdClass Object
+(
+    [nid] => 7873
+    [uid] => 150
+)
+Interest: applied microeconomics
+Term applied microeconomics exists...
+Term applied microeconomics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=521 WHERE nid=7873 and delta=0 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7874
+    [uid] => 151
+)
+stdClass Object
+(
+    [nid] => 7875
+    [uid] => 152
+)
+Interest: eu trade policy, wto and current trade issues
+Term eu trade policy, wto and current trade issues is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=522 WHERE nid=7875 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7875, 7875, 522) 
+update result: 1 
+Interest: the political economy of eu-asean relations
+Term the political economy of eu-asean relations is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7875, 7875, 1, 523) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7875, 7875, 523) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7876
+    [uid] => 153
+)
+stdClass Object
+(
+    [nid] => 7877
+    [uid] => 154
+)
+Interest: american economic policy
+Term american economic policy is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=524 WHERE nid=7877 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7877, 7877, 524) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7878
+    [uid] => 155
+)
+stdClass Object
+(
+    [nid] => 7880
+    [uid] => 156
+)
+Interest: law & economics
+Term law & economics exists...
+Term law & economics exists in taxonomy, but not the Research Interests vocabulary. Adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=525 WHERE nid=7880 and delta=0 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7882
+    [uid] => 157
+)
+stdClass Object
+(
+    [nid] => 7883
+    [uid] => 158
+)
+stdClass Object
+(
+    [nid] => 7884
+    [uid] => 159
+)
+Interest: introduction to philosophy
+Term introduction to philosophy exists...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=393 WHERE nid=7884 and delta=0 
+update result: 1 
+Interest: ethics
+Term ethics exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7884, 7884, 1, 411) 
+update result: 1 
+Interest: ancient philosophy
+Term ancient philosophy exists...
+Term ancient philosophy exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7884, 7884, 2, 526) 
+update result: 1 
+Interest: symbolic logic
+Term symbolic logic is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7884, 7884, 3, 527) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7884, 7884, 527) 
+update result: 1 
+Interest: traditional logic
+Term traditional logic is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7884, 7884, 4, 528) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7884, 7884, 528) 
+update result: 1 
+Interest: inductive logic
+Term inductive logic is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7884, 7884, 5, 529) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7884, 7884, 529) 
+update result: 1 
+Interest: aristotle
+Term aristotle exists...
+Term aristotle exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7884, 7884, 6, 530) 
+update result: 1 
+Interest: medieval philosophy
+Term medieval philosophy exists...
+Term medieval philosophy exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7884, 7884, 7, 531) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7885
+    [uid] => 160
+)
+Interest: general education
+Term general education is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=532 WHERE nid=7885 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7885, 7885, 532) 
+update result: 1 
+Interest: mathematics
+Term mathematics is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7885, 7885, 1, 533) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7885, 7885, 533) 
+update result: 1 
+Interest: computer sciences
+Term computer sciences is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7885, 7885, 2, 534) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7885, 7885, 534) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7886
+    [uid] => 161
+)
+Interest: ethics and economics of wealth creation
+Term ethics and economics of wealth creation is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=535 WHERE nid=7886 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7886, 7886, 535) 
+update result: 1 
+Interest: philosophy of religion
+Term philosophy of religion exists...
+Term philosophy of religion exists in taxonomy, but not the Research Interests vocabulary. Adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7886, 7886, 1, 536) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7887
+    [uid] => 162
+)
+stdClass Object
+(
+    [nid] => 7888
+    [uid] => 163
+)
+Interest: ethics and economics
+Term ethics and economics is not a taxonomy term - adding...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=537 WHERE nid=7888 and delta=0 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7888, 7888, 537) 
+update result: 1 
+Interest: international economic policy
+Term international economic policy is not a taxonomy term - adding...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7888, 7888, 1, 538) 
+update result: 1 
+Term association inserted into db.
+INSERT INTO {term_node} (nid, vid, tid) values (7888, 7888, 538) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7889
+    [uid] => 164
+)
+Interest: introduction to philosophy
+Term introduction to philosophy exists...
+UPDATE {content_field_courses_tax} SET field_courses_tax_value=393 WHERE nid=7889 and delta=0 
+update result: 1 
+Interest: critical thinking
+Term critical thinking exists...
+INSERT INTO {content_field_courses_tax} (nid, vid, delta, field_courses_tax_value) values (7889, 7889, 1, 394) 
+update result: 1 
+stdClass Object
+(
+    [nid] => 7890
+    [uid] => 165
+)
