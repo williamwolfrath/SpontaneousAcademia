@@ -326,7 +326,7 @@ function og_confirm_subscribe($form_state, $gid, $node, $account) {
    );
  }
  return confirm_form($form, 
-                t('Are you sure you want to join the group %title?', array('%title' => $node->title)),
+                t('Please confirm you would like to join the group %title', array('%title' => $node->title)),
                 'node/'. $node->nid, ' ',
                 t('Join'), t('Cancel'));
 }
