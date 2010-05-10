@@ -674,7 +674,7 @@ function og_approve($node, $account, $token) {
     );
 
     module_invoke_all('og', 'user approve', $node->nid, $account->uid, $message);
-    drupal_goto("node/$node->nid");
+    drupal_goto("node/$node->nid", "gl=newgroup");
   }
 }
 
