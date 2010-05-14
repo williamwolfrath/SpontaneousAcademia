@@ -138,9 +138,10 @@ function ihsgeneral_main() {
 
 
 function ihsgeneral_form_job_posting_node_form_alter(&$form, &$form_state) {
-    log_debug('ihsgeneral form alter. ');
+    //log_debug('ihsgeneral form alter. ');
     //log_debug('form: ', $form);
     $form['required']['job_posting_email']['#type'] = 'hidden';
+    $form['required']['job_posting_email']['#required'] = FALSE;
     $form['required']['job_posting_applink']['#type'] = 'hidden';
 }
 
