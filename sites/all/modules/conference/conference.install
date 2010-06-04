@@ -1,0 +1,86 @@
+<?php
+// $Id: conference.install,v 1.2.2.6.2.2 2009/03/03 09:55:43 zyxware Exp $
+
+/**
+ * Implementation of hook_install().
+ */
+
+function conference_install() {
+  switch ($GLOBALS['db_type']) {
+    case 'mysql':
+    case 'mysqli':
+      db_query("CREATE TABLE {conference} (
+        pnid int(10) NOT NULL default '0',
+        pvid int(10) NOT NULL default '0',
+        ruid int(10) NOT NULL default '0',
+        rnid int(10) NOT NULL default '0',
+        comment1 longtext NOT NULL,
+        comment2 longtext NOT NULL,
+        status int(11) NOT NULL default '0',
+        PRIMARY KEY  (`pnid`,`ruid`, `pvid`)
+        ) TYPE=MyISAM /*!40100 DEFAULT CHARACTER SET utf8 */;"
+      );
+      db_query("CREATE TABLE {conference_decision} (
+        pnid int(10) NOT NULL default '0',
+        decision int(10) NOT NULL default '0',
+        feedback longtext NOT NULL,
+        PRIMARY KEY  (`pnid`)
+        ) TYPE=MyISAM /*!40100 DEFAULT CHARACTER SET utf8 */;"
+      );
+      break;
+    case 'pgsql':
+      db_query("CREATE TABLE {conference} (
+        pnid int NOT NULL default '0',
+        pvid int NOT NULL default '0',
+        ruid int NOT NULL default '0',
+        rnid int NOT NULL default '0',
+        comment1 text NOT NULL, /* changed longtext>text in view of http://drupal.org/node/148528*/
+        comment2 text NOT NULL, /* as above. -MFH,17.7.07 */
+        status int NOT NULL default '0',
+        PRIMARY KEY (pnid,ruid,pvid)
+      )");
+
+      db_query("CREATE TABLE {conference_decision} (
+        pnid int NOT NULL default '0',
+        decision int NOT NULL default '0',
+        feedback text NOT NULL, /* cf. previous remarks */
+        PRIMARY KEY (pnid)
+      )");
+      drupal_set_message( t( 'Warning: pgsql-support has not yet been tested extensively!'),
+      	'warning');
+      break;
+    default:
+	drupal_set_message(t('Error: unknown database type (must be mysql(i) or pgsql).'));
+	return;
+  }
+  db_query("UPDATE {system} SET weight = 5 WHERE name = 'conference'");
+  drupal_set_message(t('conference has created the required tables.'));
+}
+
+/**
+ * Update from pre 1.2 to 1.2 and later series
+ *
+ * Create decision table
+ */
+function conference_update_1() {
+  db_query($q="CREATE TABLE {conference_decision} (
+        pnid int(10) NOT NULL default '0',
+        decision int(10) NOT NULL default '0',
+        feedback longtext NOT NULL,
+        PRIMARY KEY  (`pnid`)
+      ) TYPE=MyISAM /* 40100 DEFAULT CHARACTER SET utf8 */;");
+  return array($q);
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function conference_uninstall() {
+  if (db_table_exists('conference')) {
+    db_query("DROP TABLE {conference}");
+  }
+
+  if (db_table_exists('conference_decision')) {
+    db_query("DROP TABLE {conference_decision}");
+  }
+}

@@ -1,0 +1,26 @@
+; $Id: conference.info,v 1.1.2.3.2.4 2009/06/11 07:50:14 zyxware Exp $
+; MFH: this file created as a "stub"...
+name = "Conference"
+description = "Manage a conference."
+dependencies[] = content
+dependencies[] = text
+dependencies[] = optionwidgets
+dependencies[] = fieldgroup
+dependencies[] = content_permissions
+dependencies[] = content_copy
+package = Project
+core = 6.x
+
+; Information added by drupal.org packaging script on 2009-03-04
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "conference"
+datestamp = "1236168327"
+
+
+; Information added by drupal.org packaging script on 2009-06-15
+version = "6.x-1.2-beta2"
+core = "6.x"
+project = "conference"
+datestamp = "1245065435"
+

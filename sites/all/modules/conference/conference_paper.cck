@@ -1,0 +1,236 @@
+$content[type]  = array (
+        'name' => 'Conference contribution',
+        'type' => 'conference_paper',
+        'description' => 'This is a default content type for submitting a contribution.<br /><br />
+      
+      The node itself may contain only the paper\'s title, and some additional information (authors\' names, affiliations, abstract...), while the contribution itself will usually be attached as a file. The reviewer may be given access to that file without being given access to the node (so the author may remain anonymous to him). <br /><br />
+      
+      Once the conference node access permissions are activated, creation of this content type is restricted to the dedicated \'contributor\' role chosen by the conference manager, and access to the node is by default restricted to it\'s author and the conference manager.',
+        'title_label' => 'Title',
+        'body_label' => 'Body',
+        'min_word_count' => '0',
+        'help' => '',
+        'node_options' => 
+        array (
+          'status' => true,
+          'promote' => false,
+          'sticky' => false,
+          'revision' => false,
+        ),
+        'upload' => '1',
+        'old_type' => 'conference_paper',
+        'orig_type' => '',
+        'module' => 'node',
+        'custom' => '1',
+        'modified' => '1',
+        'locked' => '0',
+        'comment' => '0',
+        'comment_default_mode' => '4',
+        'comment_default_order' => '1',
+        'comment_default_per_page' => '50',
+        'comment_controls' => '3',
+        'comment_anonymous' => 0,
+        'comment_subject_field' => '1',
+        'comment_preview' => '1',
+        'comment_form_location' => '0',
+      );
+      $content[fields]  = array (
+        0 => 
+        array (
+          'label' => 'Paper ID',
+          'field_name' => 'field_paper_id',
+          'type' => 'text',
+          'widget_type' => 'text_textfield',
+          'change' => 'Change basic information',
+          'weight' => '-4',
+          'rows' => 5,
+          'size' => '60',
+          'description' => '',
+          'default_value' => 
+          array (
+            0 => 
+            array (
+              'value' => '',
+              '_error_element' => 'default_value_widget][field_paper_id][0][value',
+            ),
+          ),
+          'default_value_php' => '',
+          'default_value_widget' => NULL,
+          'group' => false,
+          'required' => 0,
+          'multiple' => '0',
+          'text_processing' => '0',
+          'max_length' => '',
+          'allowed_values' => '',
+          'allowed_values_php' => '',
+          'op' => 'Save field settings',
+          'module' => 'text',
+          'widget_module' => 'text',
+          'columns' => 
+          array (
+            'value' => 
+            array (
+              'type' => 'text',
+              'size' => 'big',
+              'not null' => false,
+              'sortable' => true,
+            ),
+          ),
+          'display_settings' => 
+          array (
+            'label' => 
+            array (
+              'format' => 'inline',
+            ),
+            'teaser' => 
+            array (
+              'format' => 'default',
+            ),
+            'full' => 
+            array (
+              'format' => 'default',
+            ),
+            4 => 
+            array (
+              'format' => 'hidden',
+            ),
+          ),
+        ),
+        1 => 
+        array (
+          'label' => 'Keywords',
+          'field_name' => 'field_keywords',
+          'type' => 'text',
+          'widget_type' => 'text_textfield',
+          'change' => 'Change basic information',
+          'weight' => '-3',
+          'rows' => 5,
+          'size' => '60',
+          'description' => 'Put in the Keywords Separated by semicolon',
+          'default_value' => 
+          array (
+            0 => 
+            array (
+              'value' => '',
+              '_error_element' => 'default_value_widget][field_keywords][0][value',
+            ),
+          ),
+          'default_value_php' => '',
+          'default_value_widget' => 
+          array (
+            'field_keywords' => 
+            array (
+              0 => 
+              array (
+                'value' => '',
+                '_error_element' => 'default_value_widget][field_keywords][0][value',
+              ),
+            ),
+          ),
+          'group' => false,
+          'required' => 1,
+          'multiple' => '0',
+          'text_processing' => '0',
+          'max_length' => '',
+          'allowed_values' => '',
+          'allowed_values_php' => '',
+          'op' => 'Save field settings',
+          'module' => 'text',
+          'widget_module' => 'text',
+          'columns' => 
+          array (
+            'value' => 
+            array (
+              'type' => 'text',
+              'size' => 'big',
+              'not null' => false,
+              'sortable' => true,
+            ),
+          ),
+          'display_settings' => 
+          array (
+            'label' => 
+            array (
+              'format' => 'inline',
+            ),
+            'teaser' => 
+            array (
+              'format' => 'default',
+            ),
+            'full' => 
+            array (
+              'format' => 'default',
+            ),
+            4 => 
+            array (
+              'format' => 'default',
+            ),
+          ),
+        ),
+        2 => 
+        array (
+          'label' => 'Submission Type',
+          'field_name' => 'field_submission_type',
+          'type' => 'text',
+          'widget_type' => 'optionwidgets_buttons',
+          'change' => 'Change basic information',
+          'weight' => '-2',
+          'description' => 'Full Paper submission will be allowed only if the Abstract is approved',
+          'default_value' => 
+          array (
+            0 => 
+            array (
+              'value' => 'abstract',
+            ),
+          ),
+          'default_value_php' => '',
+          'default_value_widget' => 
+          array (
+            'field_submission_type' => 
+            array (
+              'value' => 'abstract',
+            ),
+          ),
+          'group' => false,
+          'required' => 1,
+          'multiple' => '0',
+          'text_processing' => '0',
+          'max_length' => '',
+          'allowed_values' => 'abstract|Abstract
+      full|Full Paper',
+          'allowed_values_php' => '',
+          'op' => 'Save field settings',
+          'module' => 'text',
+          'widget_module' => 'optionwidgets',
+          'columns' => 
+          array (
+            'value' => 
+            array (
+              'type' => 'text',
+              'size' => 'big',
+              'not null' => false,
+              'sortable' => true,
+            ),
+          ),
+          'display_settings' => 
+          array (
+            'label' => 
+            array (
+              'format' => 'inline',
+            ),
+            'teaser' => 
+            array (
+              'format' => 'default',
+            ),
+            'full' => 
+            array (
+              'format' => 'default',
+            ),
+            4 => 
+            array (
+              'format' => 'default',
+            ),
+          ),
+        ),
+      );
+

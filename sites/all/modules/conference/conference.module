@@ -1,0 +1,2569 @@
+<?php
+// $Id: conference.module,v 1.5.2.6.2.10 2009/06/11 07:50:14 zyxware Exp $
+$GLOBALS['debug']=0;
+/* ----------------------------------------------------------------------
+   DRUPAL CONFERENCE MODULE - VERSION 3.0 for Drupal 6.x
+   **** Information regarding the current Fork for 6.x ****
+   Please read README.TXT for further informations.
+   ----------------------------------------------------------------------
+
+ Latest history (Oct.2008) : 
+  version 3.0 - fork from 2.2 (Drupal 5.x), heavily rewritten for Drupal 6.x
+
+ Status from 5.x Version: still experimental. Thorough testing (& debugging?!) of node permission management needed.
+ 	(contributor's view/edit/modify/upload with/without timelimit and/or modification required;
+ 	reviewers access to node/uploaded file ; manager's and conf.administrator's access rights ?)
+ TODO: to find what's "TODO", scan for this keyword throughout the code below...
+*/
+
+// define these as constants to ensure they're identical everywhere
+// (submitted and used as $op==...)
+define( 'CONF_ASSIGN_DELETE', t('Delete this assignment'));
+
+/**
+ * Implementation of hook_help().
+ *
+ * Display help and module information
+ *
+ * @param section which section of the site we're displaying help 
+ * @return help text for section
+ */
+function conference_help($path, $arg) {
+  switch ($path) { 
+/*
+  case "admin/modules#description": 
+   return t("Organise your conferences with drupal!");
+ * MFH: This was the only entry in the 4.x versions; it seems of no use
+ * in 5.x (superseeded by the "DESCRIPTION=" entry in conference.info ?)
+ * All of the following are new in v.2 / 5.x :
+ */
+  case 'admin/help#conference':
+/* This text is found on the page admin/help/conference, to which an entry labelled "Conference" points on admin/help.
+ * After this text, the help module displays a section "Conference administration pages" with 2 entires:
+ * "conference settings" => admin/settings/conference, and "configure permissions" => admin/user/permissions#module-conference
+ * and "conf.settings"
+ */
+    return t("<p>The <em>conference</em> module is suited for organizing a conference. More precisely, its main function is to manage submission and reviewing process of contributed papers.</p>
+<p>It provides a role 'administer conference', required to !edit_settings_link. These include the choice of a specific content type used for submitting papers and for writing reviews, respectively. Also, three roles must be chosen among the existing drupal roles: one for paper submission, one for reviewing papers, and one for '<a href='@manage'>conference management</a>' (see below) - for the latter, you will usually <a href='@add_role'>create a role</a> labelled 'conference chair' or similar. In the sequel, a user having one of these roles will be called 'author', 'reviewer' or 'manager', respectively.</p>
+<h2>Content types</h2>
+<h3>The 'paper' type</h3>
+<p>A specific content type must be dedicated to paper submissions. All 'authors', i.e. potential contributors, must be granted permission (by a Drupal admin able to 'administer access control') to create and edit (their own) content of this type. All nodes of that type will be listed as 'submitted papers' on their author's '<a href='@papers'>My papers</a>' page and on the <a href='@manage'>conference management</a> pages. However, the content type is not required to have any specific fields. The conference module can provide a default content type with adequate description and instructions for authors. You may however want to <a href='@add_content_type'>create a specifically structured content type</a> using the <a href='@cck'>CCK module</a> or similar. (The paper itself will usually be submitted as an uploaded file (PDF,...) attached to the 'paper' node. All 'authors' must therefore have the permission to do such file uploads.)</p>
+<p>The conference module also controls acces to nodes of that type, making them available only to the specific author, the assigned reviewer(s), and the conference managers. The managers can activate a 'time limit' after which new submissions are not possible any more. Moreover, if a paper is assigned to a reviewer, it cannot be edited any more by the author, unless a modification is requested.</p>
+<h3>The 'review' type</h3>
+<p>A second specific content type must be dedicated to writing reviews. All nodes of that type will be listed on their author's '<a href='@reviews'>My reviews</a>' page. All 'reviewers' must be able to create and edit (their own) content of that type. Nodes of that type can only be created (and edited) for a specific paper, by a reviewer assigned to that paper, by following a specific link on the <a href='@reviews'>My reviews</a> page or in the assignment notification e-mail. (Of course reviewers must therefore have read access to 'paper' nodes and to uploaded files.) However, the content type is not required to have any specific fields. The conference module can provide a default content type with adequate description and instructions for reviewers. You may however want to <a href='@add_content_type'>create a specifically structured content type</a> using the <a href='@cck'>CCK module</a> or similar, e.g. to add selection fields for rating the paper, etc... The 'manager'(s) can decide if the conference module should provide a field 'comment to the author' which will immediately be visible to the author on his 'My papers' page.</p>
+<h3>The 'manager's task</h3>
+<p>
+The conference managers essentially assign submitted papers to reviewers and decide whether to accept or reject a paper or to request a modified version. The conference module tries to help them as much as possible to accomplish this task. It provides the possibility to send customizable e-mail reminders to reviewers, and notifications to authors. The manager can also activate a 'time limit', which disallows creation of new paper content; only if a modified version is requested for a paper, it can still be posted.
+</p>
+<h3>Author and reviewer roles</h3>
+<p>The roles of 'author' and 'reviewer' mainly provide a link 'My papers' resp. 'My reviews' in the navigation menu. These roles must have permissions to create nodes of the respective content types, to edit those they created, and the reviewer's role must have permission to access 'paper' nodes. However, apart from the manager, only the author of a paper and the reviewer(s) assigned to that paper will be able to access it, and only the reviewer himself and conference manager(s) will be able to access a review. (A field 'comment to the author', which will automatically be shown to the author on his 'my papers' page, <b>may</b> be provided to the reviewer.) Once a reviewer is assigned to a paper, the author cannot modify it any more, unless a modification is required. The conference manager may also activate a <a href='!timelimit'>time limit</a> which disallows posting new papers.
+</p>
+<h2>Actions required by the drupal administrator</h2>
+<p>In addition to installing the conference module, the following steps must be performed, which usually require administrative privileges on the drupal system:</p><ul>
+    <li>attibute the 'manage conference' permission to an adequate role,</li>
+    <li>create the Drupal roles for reviewers and contributors, unless one or both of them can be chosen to be 'authenticated user',</li>
+    <li>attribute these roles to the respective users (!) - which suggests to use - at least for the contributors - a role which is automatically attributed to accounts which can be created automatically on user request. The same could be done for reviewers; in that case the 'my reviews' link could or should be hidden until the user has been assigned to write a review. (TO DO - not yet implemented.)</li>
+    <li>make sure that they can create/access the respective content types, including file upload permission for the contributor (to attach his paper e.g. as PDF to the 'paper' node), and 'access uploaded files' permission to the reviewer. (TO DO: This could (and should) be checked automatically by the conference module when corresponding choices are made on the settings page, but this is not yet implemented.)</li>
+</ul>
+<p>For more information please read your local <a href='@readme'>conference readme file</a> or consult the <a href='@project'>conference project page</a> on drupal.org.</p>",
+      array( '!edit_settings_link' => l( t( 'edit several settings' ), 'admin/settings/conference'),
+        '@manage' => '?q=conference/manage', '@papers' => '?q=conference/papers',// TO DO: convert these (internal) links to the
+        '@add_content_type' => '?q=admin/content/types/add', '@add_role' => '?q=admin/user/roles',// same format than the first one
+        '@cck' => 'http://drupal.org/project/cck',
+        '@readme' => 'sites/all/modules/conference/readme.txt',
+        '@project' => 'http://drupal.org/projects/conference', // project page
+        '@handbook' => 'http://drupal.org/handbook/modules/conference' // handbook (not yet used/available)
+    ));
+    
+  case 'conference': // TO DO: check if a conference is ongoing and print out adequate messages according to user's permissions.
+  // (the ?conference page does not exist yet)
+    return "<p>". t("If you are a potential contributor, you should see a !My_papers_link item in the navigation menu and/or a link allowing you to !create_content_link corresponding to the submission of a paper.",
+        array( '!My_papers_link' => l( t( "'My papers'" ), 'conference/papers'),
+          '!create_content_link' => l( t( 'create content' ), 'node/add' ), // TO DO: determine paper_type and make specific link node/add/paper_type
+        ))
+      ."</p>\n<p>". t("If you are a potential reviewer, you should see a !My_reviews_link item in the navigation menu, and probably have received an e-mail about papers assigned to you for reviewing. You can create and edit a review only by following a specific link, which will exist on your !My_reviews_link page after you have been assigned to review a specific paper.",
+        array( '!My_reviews_link' => l( t( "'My reviews'" ), 'conference/reviews' )))
+      ."</p>\n<p>". t("If you are a so-called 'manager' of the conference, you should see a !Manage_conference_link item in the navigation menu, and be able to administer review assignments and decisions concerning all submitted papers by following that link.",
+        array( '!Manage_conference_link' => l( t( 'Manage conference' ), 'conference/manage' )))
+      ."</p>";
+  
+  case 'admin/content/conference': // this text shows up in the page with this name, here WITH a link "more help" pointing to previous main help page
+    return '<p>'. t("The conference module offers a means to organize the reviewing process of papers submitted to a conference.") .'</p>';
+
+  case 'conference/manage': // this shows up on the "Manage conference" page at this path (here WITHOUT "more help" link)
+    return '<p>'. t("This screen allows you to view and edit assignments of reviewers to conference papers.") .'</p>';
+
+  case 'conference/manage/status/misc':
+  // Displayed on the "Misc settings" subtab of the "Manage conference" page at this path (here w/o "more help" link)
+    return '<p>'. t("This screen allows you to adjust miscallenous settings related to the conference management.") .'</p>';
+  }// end switch
+}// end of conf_help - implicit return(NULL);
+
+/**
+ * Implementation of hook_perm().
+ *
+ * Valid permissions for this module.
+ *
+ * @return array An array of valid permissions for this module.
+ *
+ * NOTE: one could imagine to add here : 'post papers', 'review papers', 'manage conference'...
+ *	instead of using our own "conf_role_xxx" variables/system.
+ *	However, the idea is to let the conference manager(s) manage as much as possible
+ *	without necessarily requiring him to have permissions to attribute user rights.
+ * Also, it may be considered useless to have a drupal permission for these tasks which are each attributed
+ * to a single user role (while drupal permissions exist "in order to" be attributed to several roles.)
+ */
+function conference_perm() {
+  return array('administer conference', 'manage conference', 'author conference', 'review conference', 'create revisions'
+            // 'access conference papers and ratings' // not (yet) used !?
+      );
+}
+
+/**
+ * Implementation of hook_menu().
+ *
+ * see includes/menu.inc for details on the $items[] format
+ */
+function conference_menu() {
+  global $user;
+//  $no_may_cache = 1;
+  // the first two are used only once.
+  // if undefined, the default role -1 will never be matched, so nothing will be displayed
+  $access_paper = (int)isset( $user->roles[ variable_get('conference_role_paper', -1)]);
+  $access_review = (int)isset( $user->roles[ variable_get('conference_role_review', -1)]);
+  $access_management = (int)isset( $user->roles[ variable_get('conference_role_management', 1)]);
+
+  // and the menu items... see include/menu.inc for details
+//  if ($no_may_cache) { // modifications made here will be only visible e.g.
+    // after hitting "Update" on admin/settings/conference
+    // NB: the 'title' of MENU_NORMAL_ITEMs ((omitted) default 'type' if none is specified)
+    // is displayed in the menu and also as page title
+
+    $items['conference/papers'] = array( 
+      'title' => "My papers",
+      'description' => 'Listing of the papers you have submitted.', // shown as popup
+      'page callback' => 'conference_papers',
+      'access callback' => 'user_access', 
+      'access arguments' => array('author conference'),
+    );
+    
+    $items['conference/reviews'] = array(
+      'title' => "My reviews",
+      'description' => 'Listing of the reviews that have been assigned to you.',
+      'page callback' => 'conference_reviews', 
+      'access callback' => 'user_access', 
+      'access arguments' => array('review conference'), 
+    );
+    
+    //timelimit:callback only // what's the title here for if it is overwritten/-ridden in the callback ?
+    $items['conference/timelimit'] = array(
+      'title' => 'Time limit for paper submission exceeded',
+      'page callback' => 'conference_timelimit',
+      'access callback' => 'user_access', 
+      'access arguments' => array('manage conference'),
+      'type' => MENU_CALLBACK
+    );// just defines uri, callback & page title
+    
+    //manage & assign
+    $items['conference/manage'] = array(
+      'title' => 'Manage conference',// displayed in navigation menu & as page title
+      'access callback' => 'user_access',
+      'page callback' => 'conference_manage_assignment',
+      'access arguments' => array('manage conference'),
+    );// was ...management_list in v1.2
+
+    // default local task (1st tab selected for main 'manage' page)
+    $items['conference/manage/assignment'] = array(
+      'title' => 'Assign reviews',
+      'weight' => 1,
+      'access callback' => 'user_access', 
+      //'access arguments' => array($access_management),
+      'access arguments' => array('manage conference'),
+      'type' => MENU_DEFAULT_LOCAL_TASK
+    );
+
+    // callback only: create/edit/delete assignment (should be reached only via a link including &pnid=...)
+    $items['conference/manage/assignment/edit'] = array(
+      'title' => 'Edit assignment',
+      'page callback' => 'drupal_get_form', 
+      'page arguments' => array('conference_manage_assignment_edit'),
+      'weight' => 2,
+      'access callback' => 'user_access', 
+      //'access arguments' => array($access_management),
+      'access arguments' => array('manage conference'),
+      'type' => MENU_CALLBACK
+    );
+    
+    //status & subtabs: remind, timelimit // (NB: MENU_LOCAL_TASK makes subtabs, )
+    $items['conference/manage/status'] = array(
+      'title' => 'Status',
+      'weight' => 1, 
+      'page callback' => 'conference_manage_status',
+      'access callback' => 'user_access',
+      'access arguments' => array('manage conference'), 
+      'type' => MENU_LOCAL_TASK
+    );
+    
+    $items['conference/manage/status/remind'] = array(
+      'title' => 'Send reminder',
+      'description' => 'Send reminder to all or some of the "pending" reviewers',
+      'page callback' => 'drupal_get_form', 
+      'page arguments' => array('conference_manage_status_remind'),
+      'weight' => 1, 
+      'access callback' => 'user_access',
+      'access arguments' => array('manage conference'),
+      'type' => MENU_LOCAL_TASK
+    );
+    
+    $items['conference/manage/status/exceed'] = array(
+      'title' => 'Time limit reached',
+      'description' => "Disable submission of new contributions.",
+      'page callback' => 'drupal_get_form', 
+      'page arguments' => array('conference_manage_status_exceed'),
+      'weight' => 1, 
+      'access callback' => 'user_access',
+      'access arguments' => array('manage conference'),
+      'type' => MENU_LOCAL_TASK 
+    );
+    
+    $items['conference/manage/status/misc'] = array(
+      'title' => 'Misc settings',
+      'description' => "Disable submission of new contributions.",
+      'page callback' => 'drupal_get_form', 
+      'page arguments' => array('conference_manage_status_misc'),
+      'weight' => 2, 
+      'access callback' => 'user_access',
+      //'access arguments' => array($access_management),
+      'access arguments' => array('manage conference'), 
+      'type' => MENU_LOCAL_TASK 
+    );
+    
+    //TODO: change ".../exceed" into something better, e.g. .../{timelimit|deadline|...}
+    //decision // the following 2 are new in 1.3 and 2.1
+    $items['conference/manage/decision'] = array(
+      'title' => 'Decision',
+      'weight' => 2, 
+      'page callback' => 'conference_manage_decision',
+      'access callback' => 'user_access',
+      //'access arguments' => array($access_management),
+      'access arguments' => array('manage conference'), 
+      'type' => MENU_LOCAL_TASK
+    );
+    
+    $items['conference/manage/decision/make'] = array(
+      'title' => 'Make a decision',
+      'page callback' => 'drupal_get_form', 
+      'page arguments' => array('conference_manage_decision_make'), // 5.x version
+      'weight' => 2, 
+      'access callback' => 'user_access',
+      //'access arguments' => array($access_management),
+      'access arguments' => array('manage conference'),
+      'type' => MENU_CALLBACK
+    );
+    
+    // entry for admin/settings (Site configuration)
+    $items['admin/settings/conference'] = array(
+      'title' => 'Conference settings',
+      'page callback' => 'drupal_get_form', 
+      'page arguments' => array('conference_admin_settings'),
+      'description' => "Set up content types, roles, messages etc. relevant to paper submission, review & decision.",
+      'access callback' => 'user_access',
+      'access arguments' => array('administer conference'),
+      'file' => 'conference.admin.inc',
+    );
+
+    // Revisions for the papers 
+    $items['conference/manage/revisions'] = array(
+      'title' => 'Revisions',
+      'page callback' => 'conference_revisions',
+      'weight' => 2, 
+      'description' => "View Revisions of existing papers that were requested",
+      'access callback' => 'user_access',
+      'access arguments' => array('manage conference'),
+      'type' => MENU_LOCAL_TASK
+    );
+    
+  //}
+  return $items;
+};
+
+/**
+ * Return the adequate form item
+ *
+ * This regroups form items which were duplicate in former versions of conference.module,
+ * so that changes are made in a coherent manner. Maybe it is also an issue for other items,
+ * but at present it is restricted to the e-mail notification message's "Subject" and "Body"
+ * which are editable on admin/settings/conference and also on the specific pages.
+ *
+ * The $what parameter is equal to the corresponding variable's name with the leading
+ * 'conference_email_' stripped, such that conference_email('xxx') produces the array
+ * containing '#default_value' => variable_get('conference_email_xxx', DEFAULT_VALUE)
+ *
+ * (The curly braces are a relict from an unreleased beta version where I had created a
+ * corresponding function on its own for each item: You can get back to that state
+ * by deleting what precedes the "function" keyword, and you can get back to the original
+ * version by replacing the function call with the array(...).)
+ * 
+ */
+function conference_email( $what ) {
+  if ( !function_exists("conference_use_variables")) {
+    /**
+     * Intended to produces a "homogeneous" #description for variables that may be used.
+     *
+     * @param $vars : an array or comma separated string of available variables
+     * @param $desc : description to use if a default does not exist or should be superseeded.
+     * 		Note: the $vars 'author' and 'reviewer' are special cases for %username, see below.
+     *		Any other "unknown" variable will just be listed without explanation.
+     * @return : a string  t("You may use the variables: %var1% for xxx, ..., %varN% for zzz.").
+     *
+     * N.B.: Make sure that the blabla printed here corresponds to what conference_mail() really does!
+     * 
+     * TODO: I think %var% would be preferrable to %var - but this would break backwards compatibilty
+     *	with possibly already set (& stored) variables
+     *	unless the database would be fixed by conference_update_N in conference.install ...
+     */
+    function conference_use_variables( $vars, $desc = array()) {
+      if ( !is_array( $vars )) // comma separated string had been given
+        $vars = split( ',', $vars );
+      // remove useless whitespace and variable delimiters
+      $vars = array_map( 'trim', $vars , array_fill(0, count($vars), " \t\r\n\"!'@%" ));
+      $t = array();
+      foreach ( $vars as $var ) {
+       if (isset($desc[ $var ]))
+          $d = @$desc[ $var ];
+        else switch ( $var ) {
+          case 'conference': 
+            $d = "the conference name"; 
+            break; 
+            
+          case 'decision': 
+            $d = "the conference chair's decision"; 
+            break;
+     
+          case 'download': 
+            $d = "the download link(s)"; 
+            break;
+            
+          case 'feedback': 
+            $d = "the 'feedback' (explanation of the decision)"; 
+            break;
+            
+          case 'papers': 
+            $d = "the list of papers"; 
+            break;
+            
+          case 'title': 
+            $d = "the paper's title"; 
+            break;
+            
+          case 'username': 
+            $d = "the user's name"; 
+            break; // this is depreciated
+            
+          case 'author': // here follows a hack: for these variables, the text depends on the
+          case 'reviewer': // variable name, while the latter is finally replaced by 'username'
+          case 'referee': // (see also conference_mail() !)
+            $d = "the $var's name"; $var = 'username'; 
+            break;
+     
+          default: 
+            $d = "the $var's name"; $var = 'username'; 
+            break;
+        }
+        $t[] = "<tt>%$var</tt>". ( $d ? " ". t("for ". $d) : "" );
+      }
+      return t( "You may use the variables " ) . join( ', ', $t) .".";
+    }
+  }// !function_exists("conference_use_variables")
+  switch ( $what ) {
+    case 'assignment_subject': // function conference_email_assignment_subject()
+      return  array(
+        '#type' => 'textfield',
+        '#title' => t('Subject'),
+        '#default_value' => variable_get('conference_email_assignment_subject', '[%conference] Please review the paper "%title".'),
+        '#description' => conference_use_variables('conference,title'),
+        '#weight' => 2
+      );
+    case 'assignment_body': // function conference_email_assignment_body()
+      return  array(
+        '#type' => 'textarea', '#title' => t('Content'),
+        '#description' => conference_use_variables('conference,reviewer,title,download'),//reviewer=>username
+        '#default_value' => variable_get('conference_email_assignment_body', "Dear %username,\nthe conference chair assigned you to review the following paper.Please provide a review in time using our website.\n\nPaper title: %title\nYou can use this link to download the paper:\n\n%download\n\nThank you for your assistance!\n\n--- %conference team\n"),
+        '#cols' => 30, 
+        '#rows' => 5,
+        '#weight' => 3
+      );
+    // TODO: %username is replaced by the Drupal username, it would be nicer to use the "real life" full name
+    // of the person, if available (through user profile,...)
+    // For any such profile field available, there should be a %variable which represents that value.
+    // TODO: there is no t(...) around subject and body; would this be useful?
+    // or should the manager adopt this text to the majority of users?
+    // or should it be translated (by conference_mail()) according to each user's locale settings?
+    case'reminder_subject'://function conference_email_reminder_subject()
+      return  array(
+        '#type' => 'textfield',
+        '#weight' => 2,
+        '#title' => t('Subject'),
+        '#default_value' => variable_get('conference_email_reminder_subject', '[%conference] Reminder'),
+        '#description' => conference_use_variables('conference')
+      );
+
+    case'reminder_body'://function conference_email_reminder_body()
+      return  array(
+        '#type' => 'textarea',
+        '#title' => t('Content'),
+        '#default_value' => variable_get('conference_email_reminder_body', "Dear %username,\nthe conference chair assigned you to review the following papers:\n\n%papers\nAt least some of these papers have not been reviewed until now.Please don't forget to post your reviews in time. Thank you!\n--- %conference team\n"),
+        '#description' => conference_use_variables('conference,reviewer,papers'),//reviewer=>username
+        '#cols' => 30,
+        '#rows' => 5,
+        '#weight' => 3
+      );
+      
+    //notification email to author
+    case'notify_subject':
+      return  array(
+        '#type' => 'textfield',
+        '#weight' => 2,
+        '#title' => t('Subject'),
+        '#default_value' => variable_get('conference_email_notify_subject', '[%conference] New Paper Submission Notification'),
+        '#description' => conference_use_variables('conference,title,author,papers')
+      );
+
+    case'notify_body':
+      return  array(
+        '#type' => 'textarea',
+        '#title' => t('Content'),
+        '#default_value' => variable_get('conference_email_notify_body', "Dear %username,\nYou have subimitted the Paper Titled:\n\n%title\n\nWe will be reviewing the paper and will get back to you regarding our decision.\n\nThank you!\n--- %conference team\n"),
+        '#description' => conference_use_variables('conference,title,author,papers'),//reviewer=>username
+        '#cols' => 30,
+        '#rows' => 5,
+        '#weight' => 3
+      );
+
+    //review complete email to manager
+    case'reviewed_subject':
+      return  array(
+        '#type' => 'textfield',
+        '#weight' => 2,
+        '#title' => t('Subject'),
+        '#default_value' => variable_get('conference_email_reviewed_subject', '[%conference] Paper Review Created Notification'),
+        '#description' => conference_use_variables('conference,title,author,papers')
+      );
+
+    case'reviewed_body':
+      return  array(
+        '#type' => 'textarea',
+        '#title' => t('Content'),
+        '#default_value' => variable_get('conference_email_reviewed_body', "Dear %username,\nThe requested review for the Paper Titled:\n\n%title\n\nHas been created please proceed to take a decision on this.\n\nThank you!\n--- %reviewer_name\n"),
+        '#description' => conference_use_variables('conference,title,author,papers'),//reviewer=>username
+        '#cols' => 30,
+        '#rows' => 5,
+        '#weight' => 3
+      );
+
+    //revision created email to manager
+    case'revision_subject':
+      return  array(
+        '#type' => 'textfield',
+        '#weight' => 2,
+        '#title' => t('Subject'),
+        '#default_value' => variable_get('conference_email_revision_subject', '[%conference] Paper Revision Created Notification'),
+        '#description' => conference_use_variables('conference,title,author,papers')
+      );
+
+    case'revision_body':
+      return  array(
+        '#type' => 'textarea',
+        '#title' => t('Content'),
+        '#default_value' => variable_get('conference_email_revision_body', "Dear %username,\nThe requested modification for the Paper Titled:\n\n%title\n\nHas been created and has been notified, we will proceed to take a decision on this.\n\nThank you!\n--- %conference team\n"),
+        '#description' => conference_use_variables('conference,title,author,papers'),//reviewer=>username
+        '#cols' => 30,
+        '#rows' => 5,
+        '#weight' => 3
+      );
+      
+    case'decision_subject'://function conference_email_decision_subject()
+      return  array(
+        '#type' => 'textfield',
+        '#weight' => 2,
+        '#title' => t('Subject'),
+        '#default_value' => variable_get('conference_email_decision_subject', '[%conference] Information about your paper.'),
+        '#description' => conference_use_variables('conference,decision,title,author'),
+      );
+    case'decision_body'://function conference_email_decision_body()
+      return  array(
+        '#type' => 'textarea',
+        '#weight' => 3,
+        '#title' => t('Content'),
+        '#default_value' => variable_get('conference_email_decision_body', "Dear %username,\n\nThank you for submitting your paper \"%title\".\nThe conference chair made a decision concerning that paper:\n* %decision *\n\n%feedback\n\n--- %conference team"),
+        '#description' => conference_use_variables('conference,author,title,decision,feedback'),//author=>username
+        '#cols' => 30,
+        '#rows' => 5,
+      );
+    // the following 3 could also be integrated into conference_decision()
+    // return array suitable for forms like "email settings", "inform author",... 
+    case 'decision_accept': // function conference_email_decision_accept()
+        $a = array( 
+          '#weight' => 4, 
+          '#title' => t('Information text for accepting a paper'),
+          '#default_value' => variable_get('conference_email_decision_accept', 'Your paper is accepted. Please upload the full paper in your submission')
+      ); 
+      break;
+
+    case 'decision_reject': // function conference_email_decision_reject()
+      $a = array(
+        '#weight' => 6, 
+        '#title' => t('Information text for rejecting a paper'),
+        '#default_value' => variable_get('conference_email_decision_reject', 'Your paper is rejected.')
+      ); 
+      break;
+      
+    case 'decision_modify': // function conference_email_decision_modify()
+      $a = array(
+        '#weight' => 5,
+        '#title' => t('Information text for requesting a modification'),
+        '#default_value' => variable_get('conference_email_decision_modify', 'Please modify your paper by creating a new revision of the current paper.')
+      );
+      break; // TODO: conference module should send notification to manager (and/or reviewer(s)) if modified version is uploaded
+
+    default: 
+      return;//NULL
+  }// end switch $what.
+  // If we're here, it's after the "break" from one of the last 3 cases
+  $a['#type'] = 'textfield';
+  $a['#description'] = t( "The %decision variable will be replaced by this text if appropriate." );
+  return $a; // TODO: write the above line specifically to each case and put the return(...) into the switch{...}
+}
+
+/**
+ * Implementation of hook_node_grants
+ *
+ * TODO : document what's the point in having this code in addition to the node_access table updated above.
+ */
+function conference_node_grants($account, $op) {
+
+  if (!variable_get('conference_grants', 0))
+    return;
+
+  $grants = array();
+  $grants['all'] = array(-1);  // disable default grants
+
+  // allow all users access to node types other than papers and reviews
+  $grants['conference_all'] = array(0);
+  
+  // only creators can access papers and reviews
+  $grants['conference'] = array($account->uid);
+
+  // manager can access everything
+  $role_management= variable_get('conference_role_management', '-1');
+  if (array_key_exists($role_management, $account->roles))
+    $grants['conference_manage'] = array(1);
+
+  return $grants;
+}
+
+/**
+ * List all papers with the assigned reviewers.
+ */
+function conference_manage_assignment() { // was: function conference_management_list ()
+
+  if ( ! $ctype_paper = variable_get('conference_ctype_paper', '')
+    or ! $ctype_review= variable_get('conference_ctype_review', ''))
+    return conference_setup_required();
+
+  // table header
+  $header = array(
+      array(data => t('Title'),       field => 'n.title'      ),
+      array(data => t('User'),        field => 'n.uid'        ),
+      array(data => t('Date'),        field => 'n.created',   sort => 'desc'),
+      array(data => t('Reviewer'),    field => 'c.rnid'       ),
+// del in 1.3
+      array (data => t('Revisions?')    ),
+      array(data => t('Reviewed?')    ),
+      array(data => t('Assignment')   ),
+  );
+  $rows= array();
+
+  // get a paged list of all papers
+  // (TODO: we could avoid loading ALL data of the node here.)
+  $sql = "SELECT * FROM {node} n LEFT JOIN {conference} c ON n.nid = c.pnid WHERE n.type='%s' AND (c.pvid =  n.vid OR c.pvid is NULL OR c.pvid = (SELECT max(c.pvid) FROM {conference} c WHERE c.pnid = n.nid))";
+  $sql .= tablesort_sql($header);
+  $result = pager_query($sql, 25, 5, NULL, $ctype_paper);
+  while ( $item = db_fetch_array( $result )) {
+    // get user information
+    $p_user = user_load( array( 'uid' => $item['uid']));
+    if ($item['pvid'] == $item['vid']) {
+      $r_user = ($item['ruid'] ? user_load(array( 'uid' => $item['ruid'])) : NULL);
+    }
+    else {
+      $r_user = NULL;
+    }
+
+    // choose some operations to display
+    //added vid to keep track of revisions
+    $op = array();
+    if ($r_user) { //Fixed the fact that edit and create was being shown
+      $op[] = l( t( 'edit' ), 'conference/manage/assignment/edit',
+              array ( 'attributes' => array( 'title' => t("edit this assignment") ) , 
+                      'query' => "pnid=$item[nid]&pvid=$item[vid]&ruid=$r_user->uid"
+                    ));
+    } else {
+    $op[]= l( t( 'create' ), 'conference/manage/assignment/edit',
+              array ( 'attributes' => array( 'title' => t("create a new assignment") ), 
+                      'query' => "pnid=$item[nid]&pvid=$item[vid]" 
+                     )); // added by MFH
+    }
+
+    //check for existance of reviews and display the content
+    $total_revisions = db_result( db_query("SELECT count(*) FROM {node_revisions} WHERE nid = %d", $item['nid']));
+
+    // build row
+    $rows[] = array( 
+                l( $item['title'], 'node/'. $item['nid'] ),
+                l( $p_user->name, 'user/'. $p_user->uid),
+                format_date( $item['created']),
+                $r_user ? l( $r_user->name, 'user/'. $r_user->uid) : t('not assigned'),
+                $total_revisions == 1 ? t('No') : l('Yes', 'conference/manage/revisions/'.$item['nid']),
+                $item['rnid'] && $r_user ?  l( t('yes: see review' ), "node/$item[rnid]" ) : t('no'),
+                implode( ', ', $op),
+            );
+  };
+
+  $content = theme('table', $header, $rows) . theme('pager', NULL, 25, 5);
+  print theme( 'page', $content );
+};
+
+/**
+ * Form to create and edit the assignment of a paper to a reviewer.
+ *
+ * In principle we could restrict this to require the pnid given through GET,
+ * and only the reviewer to be selected.
+ */
+function conference_manage_assignment_edit() { //was: function conference_manage_assign ()
+//      drupal_set_message( "conference_management_assign - REQUEST = ".var_export($_REQUEST,true) );
+
+  if ( ! $ctype_paper = variable_get('conference_ctype_paper', 0) // should be the type's name (a string)
+      or($role_review = variable_get('conference_role_review', '') ) === ''
+      ) { // reviewer role could be 'anonymous user' : uid = 0 !
+    return conference_setup_required();
+  }
+  // get parameters: if present edit existing assignment, otherwise create new assignment.
+  $param_pnid = (int) @$_GET['pnid']; // $_GET, since here we test whether we followed a link
+  $param_ruid = (int) @$_GET['ruid']; // 'edit assignment' (both set) or 'create assignment' (only pnid)
+
+  // create an array with all selectable paper-nodes
+  // This is currently only useful for editing an existing assignment by
+  // changing the "reviewer's duty" (replace the assigned paper by another one)
+  // In previous version there was a "free assignment creation form"
+  // but now all should be done through the links on the "...manage..." page,
+  // i.e. (1) assign a (given) paper to a reviewer, (2) delete a given assignment.
+  // Thus, the paper selection should not be used.
+  $papers = array();
+  $rnid = 0;
+  // TO DO : for each of the parameters, make a list if it's not given, else don't.
+  if ($param_pnid AND $param_ruid) { // edit assignment                    // ...ON...WHERE ...
+    $result = db_query("SELECT * FROM {conference} c LEFT JOIN {node} n ON n.nid = c.pnid 
+    	WHERE c.pnid = $param_pnid AND c.ruid = $param_ruid" );
+    $item = db_fetch_object($result);
+    $papers[$item->nid] = $item->title;
+    $rnid = $item->rnid;
+    if ($GLOBAL['debug'])drupal_set_message( "Editing existing assignment for reviewer # $item[ruid], paper '$item[title]'" );
+  } 
+  else {
+    //if($GLOBAL['debug']) drupal_set_message( "Create new assignment..." );
+    $result = db_query("SELECT * FROM {node} n LEFT JOIN {conference} c ON n.nid = c.pnid WHERE n.type='%s'", $ctype_paper );
+    while ( $item = db_fetch_array($result))
+      $papers[$item['nid']]= $item['title'];
+    if ( empty( $papers)) 
+    // not very elegant : treat this case separately and make a query for that singe item
+    if ($param_pnid && isset($papers[$param_pnid]))
+      $papers = array($param_pnid => $papers[$param_pnid]); // retain only that one
+  };
+  // form element: select paper
+  $form['pnid'] = array('#type' => 'select', '#title' => t('Paper'), '#options' => $papers, '#weight' => 0 );
+
+  if ( !$_POST['pnid'] && $param_pnid ) $form['pnid'][ '#default_value' ] = $param_pnid;
+  
+  // create an array with all reviewer-users
+  $reviewer = //$param_ruid ? array( 0 => "nobody (drop this assignment)" ) :
+    array();
+
+  $puid = db_result(db_query("SELECT uid FROM node WHERE nid = %d"), $param_pnid);
+  $result = db_query("SELECT * FROM {users_roles} r LEFT JOIN {users} u ON r.uid = u.uid WHERE r.rid = '%s' AND u.uid != '%s'", $role_review, $puid);
+  while ($item = db_fetch_array($result)) {
+    $reviewer[$item['uid']]= $item['name'];
+  };
+
+  // form element: select reviewer
+  $form['ruid'] = array('#type' => 'select', '#title' => t('Reviewer'),
+    '#options' => $reviewer, '#weight' => 1, '#default_value' => @ $param_ruid,
+  );
+//  if( !$_POST['ruid'] && $param_ruid ) $form['ruid'][ '#default_value' ] = $param_ruid;
+// MFH: check if this if(...) is still needed or should be preferred
+// to the previous "#def..."=> $param_ruid (if the latter does )
+
+  // if there is a review-node (update existing assignment), ask what to do with it.
+  if ($rnid) {
+    $form['update_rnid'] = array('#type' => 'radios',
+      '#title' => t('The assigned reviewer already wrote a review for this paper. You can assign this to another reviewer if required'),
+      '#default_value' => $rnid,
+      '#options' => array( $rnid => t('keep this review'),
+        0 => t('loose this review (no way to assign it again!)')),
+      '#weight' => 2,
+    );
+  } else {
+    $form['assign_multiple_review'] = array (
+      '#type' => 'checkbox',
+      '#title' => t('Allow multiple reviewer assignment for this paper'),
+      '#description' => t('If you check this box and select a different reviwer, a new assignment will be created for the paper'),
+      '#default_value' => FALSE,
+      '#weight' => 2,
+    );
+  }
+  // new in 2.1 & 1.3 :
+  // form element: inform author by email?
+  $form['email']= array(
+    '#type' => 'fieldset',
+    '#weight' => 3,
+    '#title' => t('Inform reviewer by email')
+  );
+  $form['email']['send']= array(
+    '#type' => 'checkbox',
+    '#default_value' => 1,
+    '#weight' => 1,
+    '#title' => t('Send information email about this assignment to the reviewer'),
+  );
+  $form['email']['subject'] = conference_email('assignment_subject');
+  $form['email']['body'] = conference_email('assignment_body');
+  $form['email']['save'] = array(
+    '#type' => 'checkbox',
+    '#default_value' => 1, 
+    '#weight' => 4,
+    '#title' => t('Save email content and subject as default'),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+    '#weight' => 9
+  );
+  if ( $param_ruid AND $param_pnid ) {
+    $form['delete'] = array(
+      '#type' => 'submit',
+      '#value' => CONF_ASSIGN_DELETE,
+      '#weight' => 10
+    );
+    $form['update_ruid'] = array(
+      '#type' => 'hidden',
+      '#value' => $param_ruid
+    );
+  }
+  return $form;
+};
+
+/** 
+ * Callback for conference_manage_assignment_edit
+ *
+ * (was conference_manage_assign_submit in previous version)
+ */
+function conference_manage_assignment_edit_submit($form, &$form_state) {
+   
+  //Get the vid for the current pnid
+  $pvid = db_result(db_query("SELECT vid FROM {node} WHERE nid=%d", $form_state['values']['pnid'] ));
+
+  $op = @ $form_state['values']['op']; // COULD THIS BE EMPTY ?  
+  // form not yet submitted ? (added to fix redirect problems - check if still needed)
+  if ( empty( $form_state['values']['pnid'] ) or empty( $form_state['values']['ruid'] )) {
+    // replace empty by !isset if you want to allow one being set to zero
+    // (e.g. to unassign reviewer but keep existing review...)
+//  if( $GLOBALS['debug']) drupal_set_message("debug : assign_submit called for unsubmitted form",'error');
+    return;
+  }
+// DELETE assignment // NEW IN 1.3 / 2.1
+  if ( $op == CONF_ASSIGN_DELETE ) {
+    // delete assignment
+    // check that reviewer was not changed - to be sure the "right one" will be deleted
+    if ( $form_state['values']['ruid'] != $form_state['values']['update_ruid'] ) {
+      drupal_set_message( t( "To delete the assignment sucessfully, don't play around with the reviewer selection!"), 'error');
+    } 
+    else {
+      db_query("DELETE FROM {conference} WHERE pnid = %d AND pvid = %d AND ruid = %d", // LIMIT 1 useless since primary keys
+      $form_state['values']['pnid'],  $pvid, $form_state['values']['update_ruid']);
+      
+      db_query("DELETE FROM {node_access} WHERE nid = %d AND gid = %d", // LIMIT 1 useless since primary keys
+      $form_state['values']['pnid'],  $form_state['values']['update_ruid']);
+      
+      // make paper again "read/write" until a review is assigned again
+      // - BUT ONLY IF no other reviewer still assigned !
+//      db_query("SELECT COUNT(*) FROM {conference} WHERE pnid = %d AND ruid = %d", // LIMIT 1 useless since primary keys
+//      $form_state['values']['pnid'], $form_state['values']['update_ruid']);
+
+      //Need to correct a possible bug *****
+      db_query("SELECT COUNT(*) FROM {conference} WHERE pnid = %d AND pvid = %d", // LIMIT 1 useless since primary keys
+      $form_state['values']['pnid'], $pvid);
+      
+      db_query("UPDATE {node_access} SET grant_view = 1, grant_update = 1, grant_delete = 1	WHERE nid = %d AND realm = 'conference'", $form_state['values']['pnid']);
+      drupal_set_message(t('The assignment has been deleted.'));
+    }
+    drupal_goto('conference/manage/assignment');
+  }
+  // (here was _briefing_ stuff)
+
+// EDIT/CREATE assignment
+
+  // if there is already an assignment for this paper-nid (pnid) 
+  // and this reviewer-uid (ruid), do nothing.
+  //ruid is the new reviewer
+  //update_ruid is the old reviewer
+  if ( $result = db_query("SELECT * FROM {conference} WHERE pnid = %d AND pvid = %d AND ruid = %d",
+            $form_state['values']['pnid'], $pvid, $form_state['values']['ruid'])
+       and $item = db_fetch_array($result)) { // MFH:FIXME: better : num_rows > 0 ?
+         drupal_set_message(t('The paper you selected is already assigned to this reviewer. Nothing done.'), 'warning');
+         drupal_goto('conference/manage/assignment');
+  }// else : new assignment
+  
+  if ($form_state['values']['update_ruid']) {
+    //check if the reviewer updated to already has review existing for this node which was not discarded
+    $sql = "SELECT count(*) FROM {conference} WHERE pnid = %d AND pvid = %d AND ruid = %d AND rnid != 0";
+    $count = db_result (db_query ($sql,  $form_state['values']['pnid'], $pvid,$form_state['values']['ruid']));
+    
+    if ($count == 0) { //No reviewes exists
+     // this means the form was reached via an "edit&pnid=...&ruid=..." link
+      if ( isset( $form_state['values'][ 'update_rnid' ])) {
+       // a review has already been written
+       if ( $rnid = (int) $form_state['values'][ 'update_rnid' ]) {
+         $msg="kept for the new reviewer."; // choice was: keep existing review
+       }
+       else { // loose review
+         $msg="dissociated from this paper and is no more used for this conference.";
+       }
+       
+       drupal_set_message( t("!The_review written by the previous reviewer has been " . $msg, array( '!The_review' => l( t("The review"), "node/$rnid"))), 'warning');   
+     }
+     else {
+       //check if the new reviewer has written a review
+       //this can occur if the assignment is duplicated to a person who already reviewed it
+       $sql = "SELECT count(*) FROM {conference} WHERE pnid = %d AND pvid = %d AND ruid = %d AND rnid != 0";
+       $count = db_result (db_query ($sql,  $form_state['values']['pnid'], $pvid, $form_state['values']['update_ruid']));
+       
+       if ($count == 0) {
+        $rnid = 0; 
+       }
+       else {
+        drupal_set_message (t("The assigned reviewer had already written the review for this paper"));
+        drupal_goto('conference/manage/assignment');
+       }
+     }
+    } 
+   else 
+     $rnid=0;
+
+     if (($rnid == 0) && ($form_state['values']['assign_multiple_review'] == FALSE)) {
+       db_query("UPDATE {conference} SET ruid = %d, rnid = %d WHERE pnid = %d AND pvid = %d AND ruid = %d", $form_state['values']['ruid'], $rnid, $form_state['values']['pnid'], $pvid, $form_state['values']['update_ruid']);
+       //db_query("UPDATE {node_access} SET grant_view = 1, grant_update = 0, grant_delete = 0, gid = %d  WHERE nid = %d AND realm = 'conference'", $form_state['values']['ruid'], $form_state['values']['pnid']);
+       db_query("DELETE FROM {node_access}  WHERE nid = %d AND realm = 'conference' AND gid = %d",  $form_state['values']['pnid'], $form_state['values']['update_ruid']);
+       db_query("INSERT INTO {node_access} (nid, gid, realm, grant_view, grant_update, grant_delete) VALUES (%d, %d, 'conference', 1, 0, 0)", $form_state['values']['pnid'], $form_state['values']['ruid']);
+     }
+     
+     if (($rnid == 0) && ($form_state['values']['assign_multiple_review'] == TRUE)) {
+       db_query("INSERT INTO {conference} (pnid, pvid, ruid, rnid, comment1, comment2, status) VALUES ( %d, %d, %d, 0, '', '', 0)", $form_state['values']['pnid'], $pvid,$form_state['values']['ruid']);
+       db_query("INSERT INTO {node_access} (nid, gid, realm, grant_view, grant_update, grant_delete) VALUES (%d, %d, 'conference', 1, 0, 0)", $form_state['values']['pnid'], $form_state['values']['ruid']);
+     }
+            
+     if (($count == 0) && ($rnid != 0)){
+       db_query("INSERT INTO {conference} (pnid, pvid, ruid, rnid, comment1, comment2, status) VALUES ( %d, %d, %d, 0, '', '', 0)", $form_state['values']['pnid'], $pvid,$form_state['values']['ruid']);
+       db_query("INSERT INTO {node_access} (nid, gid, realm, grant_view, grant_update, grant_delete) VALUES (%d, %d, 'conference', 1, 0, 0)", $form_state['values']['pnid'], $form_state['values']['ruid']);
+     }
+
+     drupal_set_message(t('Your assignment has been updated.'));
+  } 
+  elseif ( $form_state['values']['pnid'] && $form_state['values']['ruid'] ) { // MFH: added this "if(...)"
+           //create assignment : not yet any review node defined 
+           db_query("INSERT INTO {conference} (pnid, pvid, ruid, rnid, comment1, comment2, status)
+                   VALUES ( %d, %d, %d, 0, '', '', 0)",
+                   $form_state['values']['pnid'],$pvid, $form_state['values']['ruid']);
+           db_query("INSERT INTO {node_access} (nid, gid, realm, grant_view, grant_update, grant_delete) VALUES (%d, %d, 'conference', 1, 0, 0)", $form_state['values']['pnid'], $form_state['values']['ruid']);
+           drupal_set_message(t('Your assignment has been saved.'));
+  } 
+  else {
+           drupal_set_message(t('internal(?) error : pnid or ruid invalid !'), 'error');
+  }
+  
+  if ($form_state['values']['send'] == 1) {
+    conference_send_mail( $form_state['values']['subject'], $form_state['values']['body'], 
+      array('ruid' => $form_state['values']['ruid'], 'pnid' => $form_state['values']['pnid']), 'assign_reviewer');
+    if ($form_state['values']['save'] == 1) {
+      variable_set('conference_email_assignment_subject', $form_state['values']['subject']);
+      variable_set('conference_email_assignment_body' , $form_state['values']['body']);
+    }
+  }
+  // make paper read-only
+  db_query("UPDATE {node_access} SET grant_view = 1, grant_update = 0, grant_delete = 0 WHERE nid = %d AND realm = 'conference'", $form_state['values']['pnid']);
+  drupal_goto('conference/manage/assignment');
+}
+
+/////////// NEW status & decision STUFF IN 1.3
+
+/**
+ * conference_manage_status
+ *
+ * Show the review status of all papers.
+ */
+function conference_manage_status() {
+
+  if ( ! $ctype_paper = variable_get('conference_ctype_paper', 0)
+      or ! $ctype_review = variable_get('conference_ctype_review', 0))
+    conference_setup_required();
+
+  // intro
+  $content = '<p>'. t('The following table only contains papers that are assignend to a reviewer:') .'</p>';
+
+  // table header
+  $header = array(
+    array( 'data' => t('Title'), 'field' => 'n.title' ),
+    array( 'data' => t('User'), 'field' => 'n.uid' ),
+    array( 'data' => t('Assignment'), 'field' => 'c.ruid' ),
+    array( 'data' => t('Review'), 'field' => 'c.rnid', 'sort' => 'desc'),
+  );
+  $rows= array();
+
+  // get a paged list of all papers
+  $sql= "SELECT * FROM {node} n LEFT JOIN {conference} c ON n.nid = c.pnid WHERE n.type='%s' AND c.ruid > 0 AND (c.pvid =  n.vid OR c.pvid = (SELECT max(c.pvid) FROM {conference} c WHERE c.pnid = n.nid))";
+  $sql .= tablesort_sql($header);
+  $result= pager_query($sql, 25, 7, NULL, $ctype_paper);
+  while ($item = db_fetch_object($result)) {
+    // get user information
+    $p_user = user_load( array( 'uid' => $item->uid));
+    if ($item->pvid == $item->vid) {
+      $r_user = ( $item->ruid ? user_load( array( 'uid' => $item->ruid)) : NULL );
+    }
+    else {
+      $r_user = NULL;
+    }
+
+    // build row
+    $rows[] = array(
+      l( $item->title, 'node/'. $item->nid),
+      l( $p_user->name, 'user/'. $p_user->uid),
+      $r_user ? l( $r_user->name, 'user/'. $r_user->uid) : t('not assigned'),
+      $item->rnid && $r_user ? l( t('show'), 'node/'. $item->rnid) : t('not reviewed'),
+    );
+  }
+
+  $content .= theme('table', $header, $rows);
+  $content .= theme('pager', NULL, 25, 7);
+
+  // foot
+  $content .= "<h3>". t("Control conference") ."</h3><ul>\n<li>" 
+    . l( t('Send reminder'), 'conference/manage/status/remind')
+    . t(" to reviewers with pending reviews.") ."</li>\n<li>"
+    . l( t('Time limit reached:'), 'conference/manage/status/exceed')
+    . t(' stop accepting papers.') ."</li>\n</ul>";
+
+  print theme('page', $content);
+}
+
+/**
+ * callback in conf/manage/status to provide form for sending reminder for pending reviews
+ */
+function conference_manage_status_remind() {
+
+/* the following became obsolete since we create the form items
+ * here using the same function than on the settings page.
+  if (!variable_get('conference_email_reminder_subject', '') or
+      !variable_get('conference_email_reminder_body', '')) {
+    drupal_set_message( t(
+      "You did not set a default content or subject of the reminder email. Please check the "
+      . l('conference settings', 'admin/settings/conference'). "."), 'warning');
+  }
+ */
+  // form element: intro
+  
+  $form = array(
+    'intro' => array('#type' => 'item', 
+                    '#weight' => 0, 
+                    '#value' => t("This form allows to send reminder emails to reviewers with pending reviews"),
+        )
+     );
+
+  // get all users with unreviewed papers
+  $users = array();
+  $users_default_value = array();
+  $result = db_query("SELECT * FROM {conference} c LEFT JOIN {users} u ON c.ruid = u.uid WHERE rnid = 0 AND ruid > 0");
+  while ($item = db_fetch_array($result)) {
+    if ( empty( $users[ $item['uid']])) {
+      $users[$item['uid']] = $item['name'];
+      $users_default_value[]= $item['uid'];
+    }
+  }
+
+  // email content and subject
+  $form['email']= array(
+      '#type' => 'fieldset', 
+      '#weight' => 3, 
+      '#title' => t('Reminder email')
+  );
+  $form['email']['subject'] = conference_email('reminder_subject' );
+  $form['email']['body'] = conference_email('reminder_body' );
+  $form['email']['save'] = array(
+    '#type' => 'checkbox', 
+    '#default_value' => 1,
+    '#weight' => 4,
+    '#title' => t('Save email content and subject as default')
+  );
+
+  // form element: select users
+  $form['users'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Send to users'),
+    '#options' => $users,
+    '#default_value' => $users_default_value,
+    '#weight' => 1,
+  );
+  $form['submit']= array(
+    '#type' => 'submit',
+    '#value' => t('send'),
+    '#weight' => 10
+  );
+  return $form;
+}
+
+function conference_manage_status_remind_submit($form, &$form_state) {
+
+  $reminder_subject = $form_state['values']['subject'];
+  $reminder_content = $form_state['values']['body'];
+
+  // require non-empty subject and body - as well for sending as for saving
+  if (!$reminder_subject or !$reminder_content) {
+    drupal_set_message(t('Email subject or body empty - nothing done!'), 'error');
+    return;
+  };
+  if ($form_state['values']['save'] == 1) { // TODO: we could ask for confirmation here
+    // TODO: compare to saved values, if different set up drupal message 'new default saved'
+    variable_set('conference_email_reminder_subject', $reminder_subject);
+    variable_set('conference_email_reminder_body', $reminder_content);
+  };
+  foreach ($form_state['values']['users'] as $uid) {
+    conference_send_mail( $reminder_subject, $reminder_content, array('ruid' => $uid), 'remind_reviewer');
+  };
+  drupal_goto('conference/manage/status');
+}
+
+/**
+ * Callback for local task "Misc settings" in conf/manage/status.
+ *
+ * It is discussable if managers should have permission to alter _cc_manager and _email_address (which culd be done here).
+ */
+function conference_manage_status_misc() {
+  $form = array();
+  $form['conference_show_decision_to_author'] = array( '#type' => 'checkbox',//'#weight' => 0,
+      '#title' => t( "Display decision on the 'My papers' page."),
+      '#description' => t( "Once a decision (accept/reject/modify) is made for a paper, should it be immediately visible to the author on his 'My papers' page? Otherwise, he will only be informed by an e-mail if 'inform author about decision' is checked when the decision is made or changed." ),      
+      '#default_value' => variable_get('conference_show_decision_to_author', 0));
+  $form['conference_decision_locks_review'] = array( '#type' => 'checkbox',//'#weight' => 0,
+      '#title' => t( "Decision makes review read-only"),
+      '#description' => t( "Should reviews become read-only when a decision has been made for the reviewed paper?" ),      
+      '#default_value' => variable_get('conference_decision_locks_review', 0));
+    
+  return system_settings_form( $form );// instead of adding our own Submit button and the _submit() hook
+}
+
+/**
+ * Callback for local task in conf/manage/status:
+ * Display form to toggle time limit & define associated message.
+ *
+ * NB: in previous versions, a warning message told that "update node permissions" was necessary
+ * (which can only be done by admin) - check & explain if/why no more needed.
+ *
+ * Recent changes:
+ * for 5.x, drupal_get_form() went into in hook_menu();
+ * all "print theme(page, $content)" stuff removed here;
+ * removed submit button, _submit(...) hook, _set_message('Status saved') in favour of systems_settings_form()
+ */
+function conference_manage_status_exceed() {
+  $form = array();
+  $form['conference_time_limit'] = array( '#weight' => -1, '#type' => 'checkbox',
+      '#title' => t('Time limit to post and edit papers is exceeded.'),
+      '#default_value' => variable_get('conference_time_limit', 0));
+  $form['conference_time_message'] = array('#weight' => 0, '#type' => 'textarea',
+      '#title' => t('Message to display instead of the creation form'),
+      '#default_value' => variable_get('conference_time_message', t( "Sorry, but we are no more able to accept new papers, since the time limit is exceeded. Only if you were requested to modify an already submitted paper, can do so by following the instructions on the 'My papers' page.")));
+      // TODO: check if these instructions do exist & write them if not
+  return system_settings_form( $form );// instead of adding our own Submit button and the _submit() hook
+}
+
+/**
+ * conference_timelimit_reached
+ *
+ * If the time limit is reached no one can post papers anymore,
+ * except for the case where the conference chair requested a modification of
+ * the useres paper: it must be possible for these users to post a new paper.
+ * This function decides for a uid, if the time limit is "reached".
+ *
+ * (Function not yet needed / written.)
+ * MENU_CALLBACK for URL conference/timelimit
+ *
+ * NB: a drupal_goto() to this URL won't work if &destination=... had been specified
+ *	as it is the case e.g. when following "edit" on admin/content.
+ * Thus, a drupal_set_message( variable_get( 'conference_time_message', ''), 'error');
+ * is maybe preferrable to drupal_goto(here). We should
+ */
+function conference_timelimit() {
+//drupal_set_title( variable_get( 'conference_name', 'Conference'));// define title in hook_menu()
+  $content = '<p>'. variable_get('conference_time_message', '') .'</p>';
+//drupal_set_message($content,'error');
+  print theme('page', $content);
+};
+
+/**
+ * conference_manage_decision
+ *
+ * Show the review status of all papers.
+ *
+ * TODO: The selection of what information is listed on each of the pages
+ * manage/assign, manage/status, manage/decision should be reconsidered.
+ * It would be nice to have all information on one single page:
+ * Paper: Title,Author,Date of submission, Decision+date when made/changed,
+ * Reviewers: name, date of assignment, link to review + date of creation,
+ *	date when (last) reminder has been sent
+ * 
+ */
+function conference_manage_decision() {
+
+  if ( ! $ctype_paper= variable_get('conference_ctype_paper', 0))
+    return conference_setup_required();
+
+  // intro
+  $content = '<p>'. t('The following table contains all submitted papers:') .'</p>';
+
+  // table header
+  $header = array(
+    array('data' => t('Title'), 'field' => 'n.title'),
+    array('data' => t('Author'), 'field' => 'n.uid'),
+    array('data' => t('Reviewer'), 'field' => 'c.ruid'),
+    array('data' => t('Decision'), 'field' => 'd.decision', sort => 'asc'),
+  );
+  $rows= array();
+
+  // get a paged list of all papers
+  $sql = "SELECT  distinct(nid), n.title, n.uid, d.decision  FROM {node} n LEFT JOIN {conference} c ON n.nid = c.pnid LEFT JOIN {conference_decision} d ON n.nid = d.pnid WHERE n.type='%s' AND (c.pvid =  n.vid OR c.pvid is NULL OR c.pvid = (SELECT max(c.pvid) FROM {conference} c WHERE c.pnid = n.nid))";
+  $sql .= tablesort_sql($header);
+  $result = pager_query($sql, 25, 3, NULL, $ctype_paper);
+  while ( $item = db_fetch_object($result)) {    
+    // get user information
+    $p_user = user_load( array( 'uid' => $item->uid ));
+    
+    //There could be multiple reviewers for a single paper, all of them has to be shown in a
+    //Single row rather than duplicate multiple rows
+    $sql = "SELECT distinct (ruid) FROM {conference} c WHERE pnid = $item->nid";
+    $review_users = db_query ($sql);
+    
+    $r_user = NULL;
+    while ($review_user = db_fetch_object($review_users)) {
+      $r_user = user_load(array( 'uid' => $review_user->ruid ));
+      $r_users .= l( $r_user->name, 'user/'. $r_user->uid)."<br />";
+    }
+    
+    //$r_user = ( $item->ruid ? user_load(array( 'uid' => $item->ruid )) : NULL );
+    //format decision
+    $link = 'conference/manage/decision/make/'. $item->nid; // common to all
+    // build row
+    $rows[]= array(
+      l( $item->title, 'node/'. $item->nid),
+      l( $p_user->name, 'user/'. $p_user->uid),
+      //$r_user ? l( $r_user->name, 'user/'. $r_user->uid) : t('not assigned'),
+      $r_user ? $r_users : t('not assigned'),
+      ! $item->decision ? l( t( "make decision" ), $link)
+      : sprintf( "<span style='color:%s'>%s</span> (%s)",//conference_decision( $item->decision, 'colored' )
+    $item->decision==1 ? "green" : ($item->decision==3 ? "red" : "orange"), t($item->decision==1 ? "accepted" : ($item->decision==3 ? "rejected" : "modification requested")), l( t("change"), $link )));
+  }
+  $content .= theme('table', $header, $rows);
+  $content .= theme('pager', NULL, 25, 3);
+  print theme('page', $content);
+}
+
+/**
+ * Form to make or revise a decision.
+ */
+function conference_manage_decision_make( /* $nid */ ) {
+
+//  if( $GLOBALS['debug']) drupal_set_message( "Called conf_dec_make with nid=$nid");
+
+  $your_current_url = "http://" .$_SERVER['HTTP_HOST'] .$_SERVER['REQUEST_URI'];
+  $your_current_url =  rtrim($your_current_url, "/");
+  //Need to find a more graceful way of doing this
+  //drupal_set_message (substr(strrchr($your_current_url, "/"), 1));
+  
+  $nid= substr(strrchr($your_current_url, "/"), 1);//(int)$nid;
+  if (!is_numeric($nid)) {
+    drupal_goto("conference/manage/decision");
+  }
+  // show paper node
+  $paper = node_load( array( 'nid' => $nid));
+  $content = node_view($paper, FALSE, FALSE);
+
+  // show all corresponding reviews
+  $content .= '<h1>'. t('Reviews of this paper') .'</h1><ul>';
+  $result = db_query("SELECT * FROM {conference} c LEFT JOIN {users} u ON u.uid = c.ruid WHERE c.pnid = $nid AND c.ruid AND c.rnid");
+  
+  $review_exists = FALSE;
+  while ( $item = db_fetch_object( $result )) {
+    $review_exists = TRUE;
+    $review = node_load( array( 'nid' => $item->rnid));
+    $content .= '<li><h2>'
+    . ( variable_get( 'conference_hide_title', 0 ) ? '' : $review->title .' - ' )
+    . t('Review by !name', array('!name' => l( $item->name, 'user/'. $item->ruid )))
+    .'</h2>'
+    . node_view($review, FALSE, TRUE)
+    .'</li>';
+  };
+
+  if (($item == FALSE) && ($review_exists == FALSE)) {
+    $content .= '<li><h2><span style="color:red">No Reviews of this paper has been made</span></h2></li>';
+  }
+
+  $content .= '</ul><h1>'. t('Decision') .'</h1>';
+
+  // this is all we have as $content - put it as first 'intro' item into $form
+
+  $form = array( 'intro' => array('#type' => 'item', '#weight' => -99, '#value' => $content ));
+
+  // load previously made decision // Warning : not an array if no previous decision
+
+  $decision = db_fetch_array( db_query("SELECT * FROM {conference_decision} WHERE pnid = $nid" ));
+
+  $form['feedback'] = array(
+    '#type' => 'textarea', 
+    '#title' => t('Feedback'),
+    '#description' => t('This feedback is shown to the author of the paper (explaining the decision).'),
+    '#weight' => 0, 
+    '#cols' => 60, 
+    '#rows' => 5, 
+    '#default_value' => $decision['feedback'],
+  );
+  $form['decision'] = array('#type' => 'radios', '#title' => t('Decision'),
+    '#options' => array(
+        1 => t("accept this paper"), 
+        2 => t("request a modification"), 
+        3 => t("reject this paper")), 
+    '#weight' => 1, 
+    '#default_value' => @$decision['decision'],
+  );
+  $form['sendmail'] = array(
+    '#type' => 'checkbox', 
+    '#title' => 'Inform author my email',
+    '#weight' => 2, 
+    '#default_value' => 1,//empty( $decision['decision']), // default: send if decision did not yet exist
+  );
+  $form['submit']= array('#type' => 'submit', '#weight' => 5, '#value' => t('Submit'));
+  $form['pnid'] = array('#type' => 'hidden', '#value' => $nid);
+  $form['puid'] = array('#type' => 'hidden', '#value' => $paper->uid);
+     
+  // email settings
+  $form['email']= array(
+    '#type' => 'fieldset', '#weight' => 3, '#title' => t('Information email'),
+    'subject' => conference_email('decision_subject'),
+    'body' => conference_email('decision_body'),
+    'text_accept' => conference_email('decision_accept'),
+    'text_modify' => conference_email('decision_modify'),
+    'text_reject' => conference_email('decision_reject'),
+    'save' => array('#type' => 'checkbox', '#default_value' => 1, 
+    '#weight' => 7, '#title' => t('Save these email settings as default'))
+  );
+  return ($form);
+
+}
+
+
+function conference_manage_decision_make_submit($form, &$form_state) {
+
+  // first two basic checks to avoid pathologies
+  if ( ! $form_state['values'][ 'pnid' ] ) { // This should not happen. Maybe the form has not
+    // been submitted (fraud attempt or internal error) ?
+    drupal_set_message( t( "Error: can't make a decision for unknown paper!" ), 'error');
+    drupal_goto('conference/manage/decision/make/'. $form_state['values']['pnid']);
+  }
+  elseif ( ! $form_state['values'][ 'decision' ] ) { // This may happen if none of the radios has
+    // been selected (frequent HTML spec violation)
+    drupal_set_message( t( "You forgot to make the decision!" ), 'error');
+    drupal_goto('conference/manage/decision/make/'. $form_state['values']['pnid']);
+  }
+  
+  /**
+   * It is not required to have $accept, $modify AND $delete, but only the one
+   * needed for the chosen decision - except if the "save" option is selected.
+   * (We could implement the possibility to save only the message
+   * corresponding to the current decision...)
+   */
+  if ( ! $subject = $form_state['values']['subject']
+        and $msg = "You must specify a subject for the email"
+        or ! $content = $form_state['values']['body']
+        and $msg = "You must specify the email message to be sent"
+        or ! $accept = $form_state['values']['text_accept']
+        and $form_state['values']['decision'] == 1
+        && $msg = "You chose to accept the paper but did not give a text for acceptation"
+        || $form_state['values']['save']
+        && $msg = "You chose to save the settings but did not give a text for acceptation"
+        or ! $modify = $form_state['values']['text_modify']
+        and $form_state['values']['decision'] == 2
+        && $msg = "You chose to ask for a modification but did not specify the text for this"
+        || $form_state['values']['save']
+        && $msg = "You chose to save the settings but did not give a text for requesting a modification"
+        or ! $reject = $form_state['values']['text_reject']
+        and $form_state['values']['decision'] == 3
+        && $msg = "You chose to reject the paper but did not specify a text for this"
+        || $form_state['values']['save']
+        && $msg = "You chose to save the settings but did not give a text for rejection"
+    ) {
+    // the exclamation point is part of text to be translated,
+    // but its our choice of formatting this text and not part of the message
+    drupal_set_message( t( $msg .'!' ) .' - '. t('Nothing done.'), 'error');
+    drupal_goto('conference/manage/decision/make/'. $form_state['values']['pnid']);
+  }
+
+  if ( $form_state['values']['save'] ) { // then, after the above, all of these are nonempty
+    variable_set('conference_email_decision_subject' , $subject );
+    variable_set('conference_email_decision_body' , $content );
+    variable_set('conference_email_decision_accept' , $accept );
+    variable_set('conference_email_decision_modify' , $modify );
+    variable_set('conference_email_decision_reject' , $reject );
+  }
+      
+  // insert into database table
+  db_query("REPLACE {conference_decision} (pnid, decision, feedback) VALUES (%d, %d, '%s')",
+  $form_state['values']['pnid'], $form_state['values']['decision'], $form_state['values']['feedback']);
+  // make the paper node read only (MFH: CHECK: is this OK in case if "modif.requested" ???)
+  db_query("UPDATE {node_access} SET grant_update = 0, grant_delete = 0, grant_view = 1 WHERE nid = %d and realm = 'conference'", $form_state['values']['pnid']);//BUGFIX.1382
+  drupal_set_message( t( 'Decision saved.' ));//BUGFIX.1385
+
+  $decision = array( 1 => $accept, 2 => $modify, 3 => $reject );
+  switch ((int) $form_state['values'][ 'decision' ]) {
+    case 1:
+      db_query("UPDATE {node_access} SET grant_update = 1, grant_delete = 0, grant_view = 1 WHERE nid = %d and realm = 'conference'", $form_state['values']['pnid']);
+      $mail_type = 'accept_notify_author';
+      break;
+      
+    case 2:
+      db_query("UPDATE {node_access} SET grant_update = 1, grant_delete = 0, grant_view = 1 WHERE nid = %d and realm = 'conference'", $form_state['values']['pnid']);
+      $mail_type = 'redo_notify_author';
+      break;
+      
+    case 3:
+      $mail_type = 'reject_notify_author';
+      break;
+      
+    default:
+      break;
+  }
+
+  // send mail if necessary
+  if ( $form_state['values']['sendmail'] ) {//BUGFIX.1388
+    conference_send_mail( $subject, $content, array(
+      'puid'  => $form_state['values']['puid'],
+      'pnid'  => $form_state['values']['pnid'],
+      'decision' => $decision[ (int) $form_state['values'][ 'decision' ]],
+      'feedback' => $form_state['values']['feedback'] ), 
+      $mail_type);
+  }
+  drupal_goto('conference/manage/decision');
+}
+
+/////////// END OF NEW status & decision STUFF
+
+/**
+ * List all papers assigned to the current user and display a download link.
+ *
+ * (was: function conference_my_reviews_page())
+ */
+function conference_reviews() {
+  global $user; $uid = $user->uid;
+  if ( ! $ctype_review = variable_get('conference_ctype_review', 0)) {
+    // don't tell the reviewer about the missing setup problem...
+    drupal_set_message( "There are no reviews assigned to you." );
+    return;
+  }
+  $content = t('The following table contains all papers assigned to you:');
+
+  // table header
+  $header = array(
+    array('data' => t('Title' ), 'field' => 'title' ),
+    array('data' => t('Submitted' ), 'field' => 'created' , 'sort' => 'asc'),
+    array('data' => t('Download' )),
+    array('data' => t('Reviewed' )),
+    array('data' => t('Operations' ))
+  );
+  $rows= array();
+
+  // get papers
+  $sql = "SELECT * FROM {conference} c LEFT JOIN {node} n ON c.pnid = n.nid WHERE c.ruid = %d";
+  $sql .= tablesort_sql($header);
+  if ( $result = pager_query($sql, 10, 9, NULL, $uid))
+  while ( $item = db_fetch_object( $result )) {
+    // choose some operations
+    if (! $item->rnid)     
+      $op = l( t("create review"), 'node/add/'. str_replace('_', '-', $ctype_review), 
+              array ( 'attributes' => array('title' => 'Create A Review'), 
+                      'query' => 'pnid='. $item->nid.'&pvid='.$item->vid)
+              );
+    else 
+      $op = l( t("view/edit review"), 'node/'. $item->rnid);
+
+    // search files assinged to the paper node and create a link
+    $files = '';
+    $res_files = db_query("SELECT * FROM {files f}, {upload u} WHERE f.fid = u.fid AND u.vid = (SELECT max(u.vid) FROM {upload u}, {files f} WHERE f.fid = u.fid AND u.nid = ".(int)$item->nid ." ) AND u.nid = ". (int)$item->nid);
+    while ( $file = db_fetch_object( $res_files )) {
+      $files .= ($files ? '<br />':'') ."<a href='". file_create_url($file->filepath) ."'>$file->filename</a>";
+    }
+    $rows[] = array( l ($item->title, "node/$item->nid"), format_date( $item->created ), $files,
+    $item->rnid ? t('yes') : t('no'), $op); // TODO: instead of 'yes', the date would be more informative
+  }
+  $content .= theme('table', $header, $rows);
+  $content .= theme('pager', NULL, 10, 9);
+  print theme('page', $content);
+}
+
+/**
+ * Implementation of hook_form_alter()
+ *
+ * Add some form elements to the node creation/edition form in case of a review ; 
+ * check access condition for creation of review (referring to a given paper)
+ * and for editing of paper or review.
+ *
+ * NB: this fct is called for each form that is displayed, so if there's e.g. a search form
+ *     in the navigation bar, then it's called for every page of the web site!
+ */
+function conference_form_alter(&$form, &$form_state, $form_id) {
+
+  // since this fct is potentially called for each view of any page of the web site,
+  // first check if $form['type'] is set to a type we are concerned with.
+
+  if ( empty( $form['type'] ) or empty( $form['type']['#value'] )
+      or !( $ctype_paper = variable_get('conference_ctype_paper', '')
+          and $form['type']['#value'] == $ctype_paper
+        or  $ctype_review = variable_get('conference_ctype_review', '')
+          and $form['type']['#value'] == $ctype_review )) {
+//  if($GLOBALS['debug'])drupal_set_message("avoided processing of conf_form_alter");
+    return;
+  }
+  
+  //if we are creating a new node Revision should be disabled
+  if (($form['nid']['#value'] == NULL) || ( $form['type']['#value'] == $ctype_review)) {
+    unset( $form['revision_information']);
+  }
+  // now we're sure we're here for either a paper or a review
+
+//  $pnid = isset($_GET['pnid']) ? (int)$_GET['pnid'] // this does not work for e.g. node/99/edit
+//	: (int) preg_replace( '|[^/]*/([0-9]*)/.*|', '\1', $_GET['q']);
+  $pnid = (int) @ $_GET['pnid']; // i.e. we followed the "edit" or "create" link from the my reviews/papers page
+  $pvid = (int) @ $_GET['pvid'];
+  
+  if ($form['type']['#value'] == $ctype_paper) {
+    $form['paper_id'] = array(
+      '#title' => t('Paper ID'),
+      '#type' => 'textfield', 
+      '#default_value' => $form['field_paper_id']['#value'][0]['value'],
+      '#value' => $form['field_paper_id']['#value'][0]['value'],
+      '#attributes' => array ('disabled' => "disabled"), 
+      '#weight' => -3,
+    );
+    
+    if (variable_get ('conference_two_level', FALSE) == FALSE) {
+      unset($form['field_submission_type']);
+    }
+  }
+  // ***** FIRST DEAL WITH PAPERS *****
+
+ if ( $form['type']['#value'] == $ctype_paper ) {
+  
+   unset ($form['buttons']['preview']); //Remove the Preview Button
+  
+  if (!empty($node->revision) || user_access('administer nodes') || user_access ('create revisions')) {
+    $sql = "SELECT  count(*) FROM { conference } c, { node } n where c.pnid = n.nid and c.pvid = n.vid AND n.nid = %d";
+    $has_review = db_result(db_query($sql, $form['nid']['#value']));
+    //We should allow revision for a node only if the current node is reviewed and send back for modification
+    //Otherwise the user just updates the node rather than create a new revision
+    if ($has_review > 0) {
+      $form['revision_information'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Revision information'),
+        '#collapsible' => TRUE,
+        // Collapsed by default when "Create new revision" is unchecked
+        '#collapsed' => !$node->revision,
+        '#weight' => -1,
+      );
+      $form['revision_information']['revision'] = array(
+        '#access' => (user_access('administer nodes') || user_access ('create revisions')),
+        '#type' => 'checkbox',
+        '#title' => t('Create new revision'),
+        '#default_value' => $node->revision,
+      );
+      $form['revision_information']['log'] = array(
+        '#type' => 'textarea',
+        '#title' => t('Log message'),
+        '#rows' => 2,
+        '#description' => t('An explanation of the additions or updates being made to help other authors understand your motivations.'),
+      );
+    }
+  }
+  
+  // time limit exceeded?
+  $time_limit = variable_get('conference_time_limit', 0);
+
+  // if a modification of an existing paper is required, then cancel the time limit
+  if (( $pnid ) || ($form['nid']['#value'] != NULL)) { // this should indicate we followed a link "edit" on the "my papers" page
+    // but the user might also edit the paper in another way (e.g. by going to node/xxx/edit directly)
+    // the second possibility should (maybe(?)) be excluded
+    $item = db_fetch_array( db_query("SELECT * FROM {conference_decision} WHERE pnid = %d LIMIT 1", $form['nid']['#value'] ));
+    
+    //if the decision is not modify revision creation will be disabled
+    if ($item[ 'decision' ] != 2) {
+      unset( $form['revision_information']);
+    }
+    
+    if ( $item[ 'decision' ] == 2 ) {//conference_decision('modify')
+      $form['revision_information']['#collapsed'] = FALSE;
+      if ( $time_limit && $GLOBALS['debug'])
+        drupal_set_message("Time limit ignored since modification requested.", 'warning');
+      $time_limit = 0;
+    }
+  }// end if $pnid
+  if ($time_limit) {
+    // the goto won't work if GET[destination] set, e.g. following "edit" on admin/content
+    if ( $_REQUEST['destination'] ) // in this case the goto won't work
+        drupal_set_message( variable_get( 'conference_time_message', ''), 'error');
+    drupal_goto('conference/timelimit');
+  }
+  // expand file upload fieldset
+  if ( variable_get( 'conference_expand_upload', 0)) {
+    $form['attachments']['#collapsed'] = FALSE;
+  }
+  return; // done (in case of paper)
+ }// end if type = paper
+
+  // ***** NOW DEAL WITH REVIEWS *****
+  unset ($form['buttons']['preview']); //Remove the preview button in review page
+  // if all is OK, we have to add the specific form elements to the review form
+
+    // get/set some variables
+    global $user; $ruid = (int) $user->uid;
+
+    /* (New) creation of a review is only possible by following the "create review"
+     * link on the "my reviews" page (i.e. GET[pnid] should be correctly set), since 
+     * it must a priori be associated to an assigned paper (well, we might provide a
+     * SELECT to choose one of the assigned (and not yet ?) reviewed papers - to be implemented...)
+     * On the other hand, editing a review is not only possible by following a link
+     * on that page (1�), but also (e.g.) by viewing it and then editing it (2�).
+     * In both cases we should check (a) if the pnid is attributed to the ruid
+     * and (b) if a review has not already been written for this pnid/ruid.
+     */
+    if ($pnid) {// (probably) followed the "create review" link on the "My papers" page
+    /* In the first case, (a) and (b) should be satisfied if an up-to-date link has been
+     * followed, but it is possible that the link was bad (e.g. old e-mail or bookmarked
+     * link but deleted or re-assigned paper) or that it's a fraud attempt.
+     * It is clear that (a) should be enforced, and since (at present) we do not allow
+     * multiple reviews for the same pnid/ruid (say, "for database consistency"),
+     * we should in case (b) redirect to the "edit node" page.
+     */ 
+      $paper_id = db_result (db_query ("SELECT field_paper_id_value FROM {content_type_conference_paper} WHERE nid = %d", $pnid));
+      if ( ! $r = db_query( // check if this paper is assigned to this reviewer
+          "SELECT * FROM {conference} WHERE pnid = $pnid AND pvid = $pvid AND ruid = ". (int)$ruid) // LIMIT 1 useless since primary key
+          or ! $item = db_fetch_object( $r )) {
+        drupal_set_message(t('You are not intended to review that paper!'), 'error');
+        drupal_goto('conference/reviews');
+      }
+      if ( $item->rnid ) { // review node already exists : go there
+        drupal_set_message(t('You already wrote the following review for that paper.'), 'warning');
+        drupal_goto('node/'. $item->rnid);
+      }
+      if ( ! $r = db_query("SELECT title FROM {node} WHERE nid = ". $pnid )
+          or ! $paper = db_fetch_object( $r )) {
+        drupal_set_message( t( "The paper you tried to review does not exit any more." ), 'error');
+        drupal_goto('conference/reviews');
+      }
+      $ptitle = $paper->title; $comment1 = $comment2 = '';
+    } 
+    else { // $pnid is not set (through GET) => edit existing review (?)
+    /* In the second case, (b) is not an issue (we ARE editing the(!? or: an?) existing review)
+     * but (a) may be controversial : should the reviewer be able to modify the review he
+     * created e.g. if the paper has been deleted or has been unassigned from him ?
+     * TODO: this should be a choice in settings/conference
+     */
+      if ( ! isset($form['nid']) or ! $nid = (int) @ $form['nid']['#value'] ) {
+        return; // this seems not to be a form of the type we're concerned with
+      }
+      $r = db_query("SELECT * FROM {conference} WHERE rnid = ". $nid); // should be unique
+      if ( ! $entry = db_fetch_array( $r )) {
+          drupal_set_message("Internal error: this review does not exist in the conference table
+          	and is therefore not associated to any paper.", 'error');
+          // TODO: add message in the logs, implement search for the paper if title is "Review of..."
+          // do adequate action (drupal_goto,...)
+          return; // no use in additional form elements if the comments can't be added in conference
+      }
+      $comment1 = $entry['comment1'];
+      $comment2 = $entry['comment2'];
+      if ( ! $pnid = (int)$entry['pnid'] ) { // this means that the conference table is corrupt
+          drupal_set_message("Internal error: this review is not associated to any paper.", 'error');
+          // TODO: add message in the logs, implement search for the paper if title is "Review of..."
+          // do adequate action (drupal_goto,...)
+      }
+      elseif ( ! $r = db_query( "SELECT * FROM {node} WHERE nid = ". (int)$pnid )
+             or ! $paper = db_fetch_object( $r )) {
+          drupal_set_message("This review is referring to a paper which does not exist.", 'error');
+          // TODO: add message in the logs, implement search for the paper if title is "Review of..."
+          // do adequate action (drupal_goto,...)
+      }
+      else {
+        $ptitle = $paper->title;
+        //$ptitle = l ($ptitle, "node/$pnid");
+        if ( $paper->type != $ctype_paper )
+          drupal_set_message("This review is referring to a node which is not of the correct type for papers of this conference.", 'warning');
+      }
+      $paper_id = db_result (db_query ("SELECT field_paper_id_value FROM {content_type_conference_paper} WHERE nid = %d", $pnid));
+    }
+    // theme form elements
+
+    $form['title']['#default_value'] = str_replace( '%s', $ptitle,
+        variable_get('conference_default_title', 'Review of %s'));
+    if (variable_get('conference_hide_title', 0)) {
+        $form['title']['#type'] = 'hidden';
+        $form['title']['#value']= $form['title']['#default_value'];
+        // TODO: check: $default_title must be given
+    };
+
+    //Loetscher: modified to suit AWMC
+    /* comment by MFH: All of the following lines except for the second (hidden $pnid)
+     * had been deleted, i.e. the form element suppressed.
+     * Here once again, should this be implemented as configurable option ?
+     */
+    $form['conference'] = array('#type' => 'fieldset', '#weight' => -99, '#title' => t('Review'));
+    $form['conference']['pnid'] = array('#type' => 'hidden', '#value' => $pnid );      
+    $form['conference']['paperref'] = array('#title' => t('Referring to paper'),
+        '#type' => 'item', '#value' => $ptitle, '#weight' => 0);
+    $form['conference']['paper_id'] = array('#title' => t('Paper ID'),
+        '#type' => 'item', '#value' => $paper_id, '#weight' => 0);    
+    $form['conference']['comment1'] = array('#title' => t('Comments for the manager'),
+        '#type' => 'textarea', '#required' => FALSE, '#default_value' => $comment1 );
+    $form['conference']['comment2'] = array('#title' => t('Comments for the author'),
+        '#type' => 'textarea', '#required' => FALSE, '#default_value' => $comment2 );
+    $form['conference']['send_mail'] = array ('#type' => 'checkbox', '#value' => TRUE, '#title' => 'Send Notification Mail to Manager');
+}
+
+function conference_node_access_records($node) {
+  if (conference_disabling()) {
+    return; 
+  }
+
+  global $user;
+  $ctype_paper = variable_get('conference_ctype_paper', 0);
+  $ctype_review = variable_get('conference_ctype_review', 0);
+
+  if (!(($ctype_paper AND $node->type == $ctype_paper) OR ($ctype_review AND $node->type == $ctype_review))) { 
+    $grants[] = array(
+      'realm' => 'conference_all',
+      'gid' => 0,
+      'grant_view' => TRUE,
+      'grant_update' => FALSE,
+      'grant_delete' => FALSE,
+      'priority' => 0,
+    );
+    return $grants;
+  }
+  else {
+    $grants[] = array(
+      'realm' => 'conference',
+      'gid' => $user->uid,
+      'grant_view' => TRUE,
+      'grant_update' => TRUE,
+      'grant_delete' => TRUE,
+      'priority' => 0,
+    );
+
+    $grants[] = array(
+      'realm' => 'conference_manage',
+      'gid' => $user->uid,
+      'grant_view' => TRUE,
+      'grant_update' => FALSE,
+      'grant_delete' => FALSE,
+      'priority' => 0,
+    );
+    return $grants;
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ *
+ * adds conference stuff to all nodes
+ * NB: this is called
+ * - for any node view 3 times, with $op = 'load','view','alter'
+ * - for any node edit 2 times, with $op = 'load','prepare'
+ *		plus 3 times after submit, with $op = 'load','prepare','validate','submit',('update'|'insert')
+ *		plus 3 times for the new view thereafter
+ * Thus, try to be efficient by 'return'ing as soon as possible.
+ * Once again: this is called for all nodes: a priori, the $node is NOT concerning a conference paper or review!
+ */
+function conference_nodeapi(&$node, $op) {
+  switch ($op) {
+      case 'prepare':
+        //NOTE: I think this could be a problem when there are simultaneous submissions
+        //Need to check it out
+        $ctype_paper = variable_get('conference_ctype_paper', 0);        
+        if ($ctype_paper == $node->type) {
+          $paper_id_prefix = variable_get ('conference_default_paperid_prefix', '');
+          if (!$node->field_paper_id) {
+            $current_max_num = 0;
+            $current_max_id = db_result (db_query ("SELECT (field_paper_id_value) FROM {content_type_conference_paper} ORDER BY field_paper_id_value DESC LIMIT 1"));
+            if ($current_max_id == NULL) {
+              //since there are no new papers just set up the prefix
+              $current_max_id = $paper_id_prefix;
+            }
+            else {
+              //Get the max number and then add one and create a new paper
+              $current_max_num = split ($paper_id_prefix, $current_max_id);
+              $current_max_num[1] = intval ($current_max_num[1]) + 1;
+            }
+            $node->field_paper_id[0]['value'] = $paper_id_prefix.sprintf ("%04d",$current_max_num[1]);
+          }
+        }
+      break;
+      
+    case 'validate':
+      global $user;
+      $nid = $node->nid; // allows safe SQL insertion without %d rewrite callback overload
+      $uid = $user->uid;
+
+      $ctype_paper = variable_get('conference_ctype_paper', 0);
+      $ctype_review = variable_get('conference_ctype_review', 0);
+      $file_info = $_FILES['files'];
+      if ($ctype_paper == $node->type) {
+        //Check for the existance of a file
+        if ((!$node->files) &&  (!$file_info['name']['upload'])) {
+          form_set_error ('upload', "Please attach the abstract as a doc / pdf");
+        }
+
+        //Validate Extensions
+        $extensions = '';
+        //foreach ($user->roles as $rid => $name) {
+          $extensions .= ' '. variable_get("upload_extensions_$user->roles",
+          variable_get('upload_extensions_default', 'jpg jpeg gif png txt html doc xls pdf ppt pps odt ods odp'));
+        //}
+
+        if ($file_info['name']['upload']) {
+          $file = new stdClass();
+          $file->filename = $file_info['name']['upload'];
+          $error = file_validate_extensions($file, $extensions);
+  
+          if (!empty($error)) {
+            form_set_error ('upload', "The Selected File <i>$file->filename</i> could not be uploaded. ".$error[0]);
+          }
+        }
+        
+        //Check for null file upload by giving delete
+        if ($node->files) {
+          $error = TRUE;
+          foreach ($node->files as $file) {
+            if ($file['remove'] == 0) {
+              $error = FALSE;
+            }
+          }
+          
+          if (($error == TRUE) && (!$file_info['name']['upload'])) {
+            form_set_error ('upload', "You cannot delete all the uploaded files from the Current Paper");
+          }
+        }
+        
+        //Check for Submission Type for Two level submissions
+        if (variable_get ('conference_two_level', TRUE) == TRUE) {
+          if ($node->field_submission_type[0]['value'] != 'abstract') {
+            $error = FALSE;
+            if ($node->nid) {
+              $sql_decision = db_result (db_query ("SELECT decision FROM {conference_decision} WHERE pnid = $node->nid"));
+              if ($sql_decision != 1) {
+                $error = TRUE;
+              }
+            }
+            
+            if (!$node->nid || $error) {
+              form_set_error('conference_paper_node_form', "You cannot upload Full Paper unless Abstract is approved" );
+            }
+          }
+        }
+        
+        //If revision is created, the log should not be empty
+        if ($node->revision == 1) {
+          if (strlen (trim ($node->log)) == 0) {
+            form_set_error('conference_paper_node_form', "You cannot leave an empty log during revision" );
+          }
+        }
+      }
+      break;
+      
+    case 'insert':    // --- insert a new node ---
+      // if the node is not of conference type, grant universal view
+      global $user;
+
+      $nid = $node->nid; // allows safe SQL insertion without %d rewrite callback overload
+      $uid = $user->uid;
+      $ctype_paper = variable_get('conference_ctype_paper', 0);
+      $ctype_review = variable_get('conference_ctype_review', 0);
+
+      if (!(($ctype_paper AND $node->type == $ctype_paper) OR ($ctype_review AND $node->type == $ctype_review))) {
+        return;
+      }
+      
+      $file_info = $_FILES['files'];
+      if (($ctype_paper == $node->type)) {
+        $form['subject'] = conference_email ('notify_subject');
+        $form['body'] = conference_email ('notify_body');
+      
+        conference_send_mail( $form['subject']['#default_value'], 
+                              $form['body']['#default_value'], 
+                              array('puid' => $uid , 'pnid' => $node->nid), 
+                              'submit_notify_author');
+                              
+        drupal_set_message ("A Notification mail has been send to you regarding your paper submission");                                      
+      }
+      
+      $data = is_array( $_POST['edit'] ) ? $_POST['edit'] : $_POST;
+      if (($ctype_review == $node->type) && ($data['send_mail'] == TRUE)){
+        $form['subject'] = conference_email ('reviewed_subject');
+        $form['body'] = conference_email ('reviewed_body');
+        conference_send_mail( $form['subject']['#default_value'], 
+                              $form['body']['#default_value'], 
+                              array('muid' => $uid , 'pnid' => $node->nid), 
+                              'reviewed_notify');
+                              
+        drupal_set_message("A notification mail has been send to the Conference Administrator regarding your review");                                
+      }
+      
+      // update node grants
+
+      // The only thing left to do:
+      // In case of review submission, store additional data in the conference table.
+      // in 4.x data was in POST[edit], in 5.x its directly in POST (or CCK problem ?)
+      $data = is_array( $_POST['edit'] ) ? $_POST['edit'] : $_POST;
+      if ( $node->type != $ctype_review or ! $pnid = (int) @ $data['pnid'] ) {
+          return; // we're done
+      }
+      
+      $pvid = (int) @ $_GET['pvid'];
+/*debug
+	drupal_set_message("conf_nodeapi called - op=$op nid=$nid, type = $node->type 
+	  (conf.paper/review=$ctype_paper/$ctype_review)");
+*/
+      // If there exists an assignment, save comments and node id in the conference table.
+      // Maybe this should be relaxed so that managers/admins could modify the additional review data.
+      if ( $r = db_query("SELECT * FROM {conference} WHERE pnid = %d AND ruid = %d", $pnid, $uid)
+          and db_result( db_query("SELECT COUNT(*) FROM {conference} WHERE pnid = %d AND ruid = %d", $pnid, $uid) ) > 0) {
+        db_query("UPDATE {conference} SET rnid = $nid, comment1 = '%s', comment2 = '%s'
+                  WHERE pnid = $pnid AND ruid = $uid AND pvid = $pvid", /* $_POST['edit']['comment1'], $_POST['edit']['comment2'] */
+                  $data['comment1'], $data['comment2'] ); //Loetscher: $_POST['edit'] changed to $data, otherwise comment 1 and 2 data won't be inserted
+      } 
+      else {
+        drupal_set_message( "You were not supposed to write a review on this paper -
+        	the conference table has not been updated!", 'error' );
+      }
+      return;
+
+  case 'update':    // --- update an existing node ---
+    
+    // Only thing we do : if it's a conf_review, update rnid & comments in conf table.
+    // We should first check if node.type = ctype_review, but the first if(...)
+    // will eliminate most cases and in the remaining bad ones the db UPDATE won't do anything
+
+    global $_POST, $user; // if POST[pnid] != 0, data is there, else maybe in POST[edit]
+    $ctype_paper = variable_get('conference_ctype_paper', 0);
+    $ctype_review = variable_get('conference_ctype_review', 0);
+    
+    if (($ctype_review == $node->type) && ($_POST['send_mail'] == TRUE)){
+      $form['subject'] = conference_email ('reviewed_subject');
+      $form['body'] = conference_email ('reviewed_body');
+      conference_send_mail( $form['subject']['#default_value'], 
+                            $form['body']['#default_value'], 
+                            array('muid' => $user->uid , 'pnid' => $node->nid), 
+                            'reviewed_notify');
+                            
+      drupal_set_message("A notification mail has been send to the Conference Administrator regarding your review");
+    }
+    
+    if (($ctype_paper == $node->type) && ($node->revision == 1)){
+        $form['subject'] = conference_email ('revision_subject');
+        $form['body'] = conference_email ('revision_body');
+        conference_send_mail( $form['subject']['#default_value'], 
+                              $form['body']['#default_value'], 
+                              array('puid' => $user->uid , 'pnid' => $node->nid), 
+                              'revision_notify');
+                              
+        drupal_set_message("A notification mail has been send to the Conference Administrator regarding your revision.");                                
+      }
+    
+    if ( ! ( $pnid = (int) @ $_POST['pnid'] and $data = $_POST
+         or $data = @ $_POST['edit'] and is_array( $data ) and $pnid = (int) @ $data['pnid'] ))
+      return;  // ^^^ 4.x vs 5.x or CCK problem ?
+
+    $uid = (int)$user->uid; // MFH: FIXME: ruid = this $user->uid ???
+    // if an administrator edits the node,
+    // why should the ruid become the (current) $user->id ?????
+    
+    // update information in conference table
+    db_query("UPDATE {conference} SET rnid = ". ((int)$node->nid) .", comment1 = '%s', comment2 = '%s' WHERE pnid = $pnid AND ruid = $uid", $data['comment1'], $data['comment2']);
+    return;
+    
+  case 'delete':    // --- delete node ---
+
+    // delete information in conference table
+    // in case it was a paper // TODO: what if review/files did exist ?
+    db_query("DELETE FROM {conference} WHERE pnid = " . ($node->nid = (int)$node->nid));
+    // in case it was a review, set the review node to zero
+    db_query("UPDATE {conference} SET rnid = 0 WHERE rnid = ". $node->nid);
+    // delete node grants
+    db_query("DELETE FROM {node_access} WHERE nid = ". $node->nid ." AND (realm LIKE 'conference%')");
+    db_query("DELETE FROM {conference_decision} WHERE pnid = ". $node->nid);
+    break;
+    
+    // --- view node ---
+  /* NB: this whole case has been removed by Loetscher "to suit AWMC"
+   *     should this be implemented as a configurable options ?
+   */
+  case 'alter': // not 'view' (at least for Drupal 5.x)                       
+    // to have the $node already prepared and be able to append to content
+    // add some extra information to the node body for review nodes
+    $paper_id = db_result (db_query ("SELECT field_paper_id_value FROM {content_type_conference_paper} WHERE nid = %d", $pnid));
+    if ( $ctype_review = variable_get('conference_ctype_review', '')
+        and $node->type == $ctype_review
+        and $result = db_query("SELECT * FROM {conference} AS c LEFT JOIN {node} AS n ON n.nid = c.pnid WHERE c.rnid = ". (int)$node->nid )) {
+          $sql_paper_id = "SELECT field_paper_id_value FROM {content_type_conference_paper} WHERE nid = %d";
+          
+      $node->body .= ($item = db_fetch_object($result))
+        ? theme_item(array('#value' => db_result (db_query ($sql_paper_id, $item->pnid)), '#title' => 'Referring Paper ID' ))
+         . theme_item(array('#value' => l ($item->title, "node/$item->pnid") , '#title' => 'Referring to paper' ))
+         . theme_item(array('#value' => $item->comment1 , '#title' => 'Comments for the manager' ))
+         . theme_item(array('#value' => $item->comment2 , '#title' => 'Comments for the author' ))
+        : '<br /><b>'. t('This review does not belong to any paper!') .'</b>';
+    }
+    break;
+  }
+//  conference_update_access(0); //added by Loetscher to prevent locking of nodes
+}
+
+/**
+ * A page to display information about papers submitted by $user
+ */
+function conference_papers() { // was: function conference_my_papers_page()
+  global $user;
+  $content= '';
+  // get all my papers
+  if ($result = db_query( "SELECT nid,title,created, vid FROM {node} WHERE type = '%s' and uid = %d",
+      variable_get( 'conference_ctype_paper', '' ), $user->uid ))
+    
+    while ($node = db_fetch_object($result)) {
+      // set status
+      if ( variable_get (('conference_show_decision_to_author'), 0) ) {
+        $r = db_query( "SELECT * FROM {conference_decision} WHERE pnid = ". $node->nid );
+        $item = db_fetch_object( $r );
+        
+        switch ($item->decision) {
+          case 1:
+            $color = 'green';
+            $decision = 'This paper is accepted.';
+            $feedback = $item->feedback;
+            break;
+            
+          case 2:
+            $color = 'orange';
+            $decision = 'A modification of this paper is requested. You should post a modified version as a new paper revision.';
+            $feedback = $item->feedback;
+            break;
+            
+          case 3:
+            $color = 'red';
+            $decision = 'This paper has been rejected.';
+            $feedback = $item->feedback;
+            break;
+            
+          default:
+            $color = 'black';
+            $decision = 'Pending';
+            $feedback = NULL;
+            break;
+        }
+        
+        $decision = sprintf("<span style='color:%s'>%s</span>", $color, t($decision));
+      }
+      // check in conference table if assigned or even reviewed
+      // ORDER BY... to be sure to get first the reviews that are already written 
+
+      if ( $r = db_query( "SELECT * FROM {conference} WHERE pnid = ". $node->nid ." AND pvid = ". $node->vid ." ORDER BY rnid DESC" )
+          and $item = db_fetch_object( $r ))
+        $status = ( $item->rnid ? t("reviewed") : t("assigned to a reviewer"));
+      else
+        $status = t('not assigned');// t('not yet assigned to a reviewer');
+
+      // theme information
+      $content .= '<hr />';
+      // TODO: check if theme(item_list...) would not be better
+      $content .= theme_item( array( '#title' => t('Title'), '#value' => l( $node->title, 'node/'. $node->nid )));
+      $content .= theme_item( array( '#title' => t('Submitted'), '#value' => format_date( $node->created )));
+      $content .= theme_item( array( '#title' => t('Review Status'), '#value' => $status));
+      
+      if (!empty($decision)) {
+         $content .= theme_item( array( '#title' => t('Decision Status'), '#value' => $decision));
+      }
+
+      if ( !empty( $item->comment2)) {
+        $content .= theme_item( array('#title' => t('Comments from the reviewer'), '#value' => $item->comment2));
+      }
+      
+      if ( !empty( $feedback)) {
+        $content .= theme_item( array('#title' => t('Comment from the manager'), '#value' => $feedback));
+      }
+  };
+  print theme('page', $content);  
+// TODO: it could be made an option in the settings to allow an author to access reviews of his papers
+}
+
+/**
+ * Send email to author or reviewer ;
+ * replace "conference variables" by their values
+ *
+ * see also: conference_use_variables()
+ */
+function conference_send_mail( $subject, $body, $variables = array(), $mail_type) {
+
+  // %conference name
+  //if( strpos( $subject, '%conference') or strpos( $body, '%conference')) // probably always present
+  $name = variable_get('conference_name', ''); // todo : intelligent default (site_name ? "Conference" ?)
+  $body = str_replace('%conference', $name, $body );
+  $subject = str_replace('%conference', $name, $subject );
+
+  foreach ( $variables as $key => $val ) {
+    switch ( $key ) {
+      case 'pnid': // paper
+        $node = db_fetch_array( db_query("SELECT * FROM {node} n WHERE n.nid = ". (int)$val ));
+        $subject = str_replace( $key = '%title', $val = $node['title'], $subject);
+        
+        $result = db_query("SELECT * FROM {files f}, {upload u} WHERE f.fid = u.fid AND u.vid = ".$node['vid']." AND u.nid = ". $node['nid']);
+        $files = array();
+        while ($file = db_fetch_array($result))
+          $files[] = file_create_url($file['filepath']);
+        $body = str_replace( '%download', implode("\n", $files), $body);
+
+        break; // and do the same replace in body 
+
+      case 'ruid': // reviewer
+        $papers = '';
+        $result = db_query("SELECT * FROM {conference} c LEFT JOIN {node} n ON n.nid = c.pnid WHERE c.ruid = ". (int)$val);
+        for ( $n = 1 ; $node = db_fetch_array($result) ; $n++ ) {
+          $papers .= sprintf("%02d. %s\r\n", $n, $node['title']);
+        };
+        $body = str_replace('%papers', $papers, $body);
+      // drop thru: username replace as for author
+      case 'puid': // author
+        $user = user_load(array('uid' => $val));
+        $email= $user->mail;
+        $subject = str_replace( $key = '%username', $val = $user->name, $subject);
+        break; // and do the same replace in body
+        
+      case 'muid'://manager
+        $reviewer = user_load(array('uid' => $val));
+        $muid = db_result(db_query('SELECT u.uid FROM { role } r , { users_roles } ur , { users } u where r.rid = ur.rid and ur.uid = u.uid and r.rid = "%s"', variable_get('conference_role_management', '')));
+        $user = user_load(array('uid' => $muid));
+        $email= $user->mail;
+        $subject = str_replace( $key = '%username', $val = $user->name, $subject);
+        $from_email = $reviewer->name." <$reviewer->email>";
+        $body = str_replace( '%reviewer_name', $reviewer->name, $body);
+        break;
+        
+      default: 
+        $key = '%'. $key; // decision, feedback (maybe others in future)
+    }
+    $body = str_replace( $key, $val, $body);    
+  }
+  if ( empty( $email )) {
+    drupal_set_message("No e-mail address found - nothing done!", 'error');
+  }
+  else { // NB: no idea if problem in case of isolatin or UTF-n chars in conf.name
+    if (!$from_email) {
+      $from = '"'. str_replace( '"', '', // add quotes around name and strip those in it
+      variable_get('conference_name', variable_get('site_name', '')))
+        .'" <'. reset( split( ',', // use only 1st email in case of list
+      variable_get('conference_email_address', variable_get('site_mail', '')))) .'>';
+    } 
+    else {
+     $from = $from_email;
+    }
+    // TODO: allow for setting of an e-mail of the conference manager
+    // TODO: allow option "send cc to conf.manager" for any conf_email
+    //		or by distinguishing (assign / remind / decision)
+    //		or by theme (implement keywords...)
+    switch ( $header = strtoupper( variable_get('conference_cc_manager', ''))) {
+      case 1:/*BCC*/ case 2:/*CC*/ $header = (( $header==1 ) ? 'BCC' : 'CC' );//drop thru
+      case 'BCC':
+      case 'CC': $header = array( $header => $from ); break;
+      default: $header = array();
+    }
+   //    drupal_mail( "conference-email", $subject, $email, $body, $from, $header );
+    switch ($mail_type) {
+      case 'assign_reviewer':
+        drupal_mail( "conference", 
+                     'assign_reviewer', 
+                     $email, 
+                     user_preferred_language($user), 
+                     array ( 'body' => $body, 
+                             'subject' => $subject,
+                             'header' => $header,
+                           ), 
+                     $from);
+        break;
+        
+      case 'unassign_reviewer':
+        break;
+        
+      case 'submit_notify_author':
+        drupal_mail( "conference", 
+             'submit_notify_author', 
+             $email, 
+             user_preferred_language($user), 
+             array ( 'body' => $body, 
+                     'subject' => $subject,
+                     'header' => $header,
+                   ), 
+             $from);
+        break;
+
+      case 'accept_notify_author':
+        drupal_mail( "conference", 
+             'accept_notify_author', 
+             $email, 
+             user_preferred_language($user), 
+             array ( 'body' => $body, 
+                     'subject' => $subject,
+                     'header' => $header,
+                   ), 
+             $from);
+        break;
+        
+      case 'reject_notify_author':
+        drupal_mail( "conference", 
+             'reject_notify_author', 
+             $email, 
+             user_preferred_language($user), 
+             array ( 'body' => $body, 
+                     'subject' => $subject,
+                     'header' => $header,
+                   ), 
+             $from);
+        break;
+        
+      case 'redo_notify_author':
+        drupal_mail( "conference", 
+             'redo_notify_author', 
+             $email, 
+             user_preferred_language($user), 
+             array ( 'body' => $body, 
+                     'subject' => $subject,
+                     'header' => $header,
+                   ), 
+             $from);
+        break;
+        
+      case 'remind_reviewer':
+        drupal_mail( "conference", 
+                     'remind_reviewer', 
+                     $email, 
+                     user_preferred_language($user), 
+                     array ( 'body' => $body, 
+                             'subject' => $subject,
+                             'header' => $header,
+                           ), 
+                     $from);        
+        break;
+
+      case 'reviewed_notify':
+        drupal_mail( "conference", 
+                     'reviewed_notify', 
+                     $email, 
+                     user_preferred_language($user), 
+                     array ( 'body' => $body, 
+                             'subject' => $subject,
+                             'header' => $header,
+                           ), 
+                     $from);        
+        break;
+        
+    case 'revision_notify':
+        drupal_mail( "conference", 
+                     'revision_notify', 
+                     $email, 
+                     user_preferred_language($user), 
+                     array ( 'body' => $body, 
+                             'subject' => $subject,
+                             'header' => $header,
+                           ), 
+                     $from);        
+        break;
+        
+        
+      default:
+        break;
+    }
+    drupal_set_message( t( 'Sent email to %email', array('%email' => $email)));
+  }
+}
+
+/**
+ * Implementation of hook_mail
+ */
+function conference_mail ($key, &$message, $params) {
+  switch ($key) {
+    case 'assign_reviewer':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      if ($params['header']['BCC'] != NULL) {
+        $message['headers']['BCC'] = $params['header']['BCC'];
+      }
+      else {
+        $message['headers']['CC'] = $params['header']['CC'];
+      }
+      break;
+      
+    case 'remind_reviewer':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      if ($params['header']['BCC'] != NULL) {
+        $message['headers']['BCC'] = $params['header']['BCC'];
+      }
+      else {
+        $message['headers']['CC'] = $params['header']['CC'];
+      }
+      break;
+
+    case 'accept_notify_author':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      if ($params['header']['BCC'] != NULL) {
+        $message['headers']['BCC'] = $params['header']['BCC'];
+      }
+      else {
+        $message['headers']['CC'] = $params['header']['CC'];
+      }
+      break;
+      
+    case 'redo_notify_author':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      if ($params['header']['BCC'] != NULL) {
+        $message['headers']['BCC'] = $params['header']['BCC'];
+      }
+      else {
+        $message['headers']['CC'] = $params['header']['CC'];
+      }
+      break;
+      
+    case 'reject_notify_author':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      if ($params['header']['BCC'] != NULL) {
+        $message['headers']['BCC'] = $params['header']['BCC'];
+      }
+      else {
+        $message['headers']['CC'] = $params['header']['CC'];
+      }
+      break;
+
+    case 'submit_notify_author':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      if ($params['header']['BCC'] != NULL) {
+        $message['headers']['BCC'] = $params['header']['BCC'];
+      }
+      else {
+        $message['headers']['CC'] = $params['header']['CC'];
+      }
+      break;
+
+    case 'reviewed_notify':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      break;
+      
+    case 'revision_notify':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      if ($params['header']['BCC'] != NULL) {
+        $message['headers']['BCC'] = $params['header']['BCC'];
+      }
+      else {
+        $message['headers']['CC'] = $params['header']['CC'];
+      }
+      break;
+      
+    case 'permission_notify_admin':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      if ($params['header']['BCC'] != NULL) {
+        $message['headers']['BCC'] = $params['header']['BCC'];
+      }
+      else {
+        $message['headers']['CC'] = $params['header']['CC'];
+      }
+      break;
+      
+    default:
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_user ()
+ * 
+ * New addtion to support user profiles and other factors when
+ * registering, Not Yet Complete
+ */
+function conference_user($op, &$edit, &$account, $category = NULL) {
+  
+//  switch ($op) {
+//    case 'insert':
+//      $muid = db_fetch_object(db_query('SELECT u.uid, u.name, u.mail FROM { role } r, { users_roles } ur, { users } u where r.rid = ur.rid and ur.uid = u.uid and r.rid = "%s"', variable_get('conference_role_management', '')));
+//      //$conf_manager = user_load(array('uid' => $muid));
+//      $body = "Dear ".$muid->name."\n\nThe user ".$_POST['name']." (".$_POST['mail'].") has requested for following accesses:\n\n";
+//      $webmaster = db_fetch_object(db_query('SELECT u.uid, u.name, u.mail FROM { users } u where u.uid = %d', 1));
+//      $send_mail = FALSE;
+//      $subject = "[IMMM2010] Permission Grant Request";
+//      
+//      if ($_POST['profile_delegate'] == 1) {
+//        $body .= "Delegate Access\n\n";
+//        $send_mail = TRUE;
+//      }
+//      
+//      if ($_POST['profile_paper'] == 1) {
+//        $body .= "Paper Presenter / Author Access\n\n";
+//        $send_mail = TRUE;
+//      }
+//      
+//      if ($_POST['profile_reviewer'] == 1) {
+//        $body .= "Paper Reviewer Access\n\n";
+//        $send_mail = TRUE;
+//      }
+//      
+//      $body .= "Grant the Requests accordingly\n\nThank You\n\n--Webmaster";
+//      
+//      if ($send_mail = TRUE) {
+//        drupal_mail( "conference", 
+//             'permission_notify_admin', 
+//             $muid->mail, 
+//             language_default(), 
+//             array ( 'body' => $body, 
+//                     'subject' => $subject,
+//                   ), 
+//             $_POST['mail']);
+//      }
+//      break;
+//     
+//    case 'validate':
+//      if (is_array($account)) {
+//        $profile_first_name = trim($account['profile_first_name']);
+//        $profile_last_name = trim($account['profile_last_name']);
+//        $profile_address_1 = trim($account['profile_address_1']);
+//        $profile_address_2 = trim($account['profile_address_2']);
+//        $profile_city = trim($account['profile_city']);
+//        $profile_state = trim($account['profile_state']);
+//        $profile_pin = trim ($account['profile_pin']);
+//        $profile_country = trim ($account['country']);
+//        $profile_phone_no = trim ($account['profile_phone_no']);
+//        
+//        if (strlen($profile_first_name) == 0) {
+//          form_set_error ("profile_first_name","First name cannot be blank");
+//        }
+//        
+//        if (strlen($profile_last_name) == 0) {
+//          form_set_error ("profile_last_name","Last name cannot be blank");
+//        }
+//        
+//        if (strlen($profile_address_1) == 0) {
+//          form_set_error ("profile_address_1","Address 1 cannot be blank");
+//        }
+//        
+//        if (strlen($profile_address_2) == 0) {
+//          form_set_error ("profile_address_2","Address 2 cannot be blank");
+//        }
+//        
+//        if (strlen($profile_city) == 0) {
+//          form_set_error ("profile_city","City cannot be blank");
+//        }
+//        
+//        if (strlen($profile_state) == 0) {
+//          form_set_error ("profile_state","State cannot be blank");
+//        }
+//        
+//        if (strlen($profile_pin) == 0) {
+//          form_set_error ("profile_state","PIN cannot be blank");
+//        }
+//              
+//        if (strcmp($account['profile_country'], "Please select a country") == 0 ) {
+//          form_set_error ("profile_country","Please select a country");
+//        }
+//          
+//        if (strlen($profile_phone_no) == 0 ){
+//          form_set_error ("profile_phone_no","Phone number cannot be blank");
+//        } 
+//      }
+//      break;
+//      
+//    case 'submit':
+//      $muid = db_fetch_object(db_query('SELECT u.uid, u.name, u.mail FROM { role } r, { users_roles } ur, { users } u where r.rid = ur.rid and ur.uid = u.uid and r.rid = "%s"', variable_get('conference_role_management', '')));
+//      //$conf_manager = user_load(array('uid' => $muid));
+//      $body = "Dear ".$muid->name."\n\nThe user ".$account->name." (".$account->mail.") has requested to add / remove the following accesses:\n\n";
+//      $webmaster = db_fetch_object(db_query('SELECT u.uid, u.name, u.mail FROM { users } u where u.uid = %d', 1));
+//      $send_mail = FALSE;
+//      $subject = "[IMMM2010] Permission Change Request";
+//      
+//      if ($edit['profile_delegate'] != $account->profile_delegate) {
+//        if ($edit['profile_delegate'] == 1) {
+//          $body .= "Grant Delegate Access\n\n";
+//          $send_mail = TRUE;
+//        }
+//        else {
+//          $body .= "Remove Delegate Access\n\n";
+//          $send_mail = TRUE;
+//        }
+//      }
+//      
+//      if ($edit['profile_paper'] != $account->profile_paper) {
+//        if ($edit['profile_paper'] == 1) {
+//          $body .= "Grant Paper Presenter / Author Access\n\n";
+//          $send_mail = TRUE;
+//        }
+//        else {
+//          $body .= "Remove Paper Presenter / Author Access\n\n";
+//          $send_mail = TRUE;
+//        }        
+//      }
+//      
+//      if ($edit['profile_reviewer'] != $account->profile_reviewer) {
+//        if ($edit['profile_reviewer'] == 1) {
+//          $body .= "Grant Paper Reviewer Access\n\n";
+//          $send_mail = TRUE;
+//        }
+//        else {
+//          $body .= "Remove Paper Reviewer Access\n\n";
+//          $send_mail = TRUE;
+//        }         
+//      }
+//      
+//      $body .= "Grant / Remove the Requests accordingly\n\nThank You\n\n--Webmaster";
+//      
+//      if ($send_mail = TRUE) {
+//        drupal_mail( "conference", 
+//             'permission_notify_admin', 
+//             $muid->mail, 
+//             language_default(), 
+//             array ( 'body' => $body, 
+//                     'subject' => $subject,
+//                   ), 
+//            $account->mail);
+//             
+//        drupal_set_message("A mail has been send to the Conference Admin regarding your permission change");
+//      }
+//      break;
+//      
+//    case 'view':
+//      //need to theme the view
+//      break;
+//      
+//    default:
+//      break;
+//  }
+}
+
+/**
+ * The various revisions of a given paper is shown here
+ *
+ * @param $nid, the current paper for which the revision needs to be displayed
+ *              if kept null it will display all the papers 
+ * @return none
+ */
+function conference_revisions ($nid = NULL) {
+  if ( ! $ctype_paper = variable_get('conference_ctype_paper', '')
+    or ! $ctype_review= variable_get('conference_ctype_review', ''))
+    return conference_setup_required();
+
+  $node_select = "";
+  
+  if ($nid != NULL) {
+    $node_select = " AND n.nid = '$nid'";
+  }
+  // table header
+  $header = array(
+      array(data => t('Title'),       field => 'n.title'      ),
+      array(data => t('User'),        field => 'nr.uid'        ),
+      array(data => t('Date'),        field => 'nr.timestamp',   sort => 'desc'),
+      array(data => t('Reviewer'),    field => 'c.rnid'       ),
+// del in 1.3
+      array (data => t('Reason')    ),
+      array(data => t('Reviewed?')    ),
+  );
+  $rows= array();
+
+  // get a paged list of all papers
+  // (TODO: we could avoid loading ALL data of the node here.)
+  $sql  = "SELECT n.title, nr.uid, c.ruid, nr.log, n.nid, nr.timestamp, nr.vid, c.rnid";  
+  $sql .= " FROM {node} n , ({node_revisions} nr LEFT JOIN {conference} c on nr.vid = c.pvid AND nr.nid = c.pnid)"; 
+  $sql .= " WHERE n.type='%s' AND nr.nid = n.nid ".$node_select;
+  $sql .= tablesort_sql($header);
+  $result = pager_query($sql, 25, 0, NULL, $ctype_paper);
+  while ( $item = db_fetch_array( $result )) {
+    // get user information
+    $p_user = user_load( array( 'uid' => $item['uid']));
+    $r_user = ($item['ruid'] ? user_load(array( 'uid' => $item['ruid'])) : NULL);
+
+    //check for existance of reviews and display the content
+    $total_revisions = db_result( db_query("SELECT count(*) FROM {node_revisions} WHERE nid = %d", $item['nid']));
+
+    // build row
+    $rows[] = array( 
+                l( $item['title'], 'node/'. $item['nid'].'/revisions/'.$item['vid'].'/view' ),
+                l( $p_user->name, 'user/'. $p_user->uid),
+                format_date( $item['timestamp']),
+                $r_user ? l( $r_user->name, 'user/'. $r_user->uid) : t('not assigned'),
+                $item['log'] ? $item['log'] : t('Original submission'),
+                $item['rnid'] ?  l( t('yes: see review' ), "node/$item[rnid]" ) : t('no'),
+            );
+  };
+  $content = theme('table', $header, $rows) . theme('pager', NULL, 25, 5);
+  print theme( 'page', $content );  
+}
+
+function conference_disabling($set = NULL) {
+  static $disabling = FALSE;
+  if ($set !== NULL) {
+    $disabling = $set;
+  }
+  return $disabling;
+} 
+
+
+/**
+ * This function should be called if one of the ctype's or roles is not attributed.
+ * (In principle all of the "user" accessible functions should not be available in that case...)
+ */
+function conference_setup_required() {
+  drupal_set_message( t("Conference setup is not complete."), 'error');
+  global $user;
+  if ( user_access('administer conference')) {
+    drupal_set_message("It seems that some content types and/or roles required for the conference module are not yet set up correctly. Please use this 'conference settings' page to accomplish that job; once you did it, you should be taken back to the page you came from.", 'error');
+    drupal_goto('/admin/settings/conference', $_GET['q']);
+  }
+  print theme( 'page', t("The page or function you tried to access is not yet available, since the conference module used to organize the paper submission and reviewing process is not yet set up properly. You should contact the 'webmaster' of this site and ask him to complete the 'conference settings' page."));
+}
+
+//This list is outdated from 6, but has been kept for review if required
+//Try to maintain a list of bug fixes : line_number.day.month.year (reference to last "published" file)
+//BUGFIX.1382.6.02.07 between "UPDATE..." and "WHERE..." should be . not ,
+//BUGFIX.1385.6.02.07 added missing dot
+//BUGFIX.1388.6.02.07 array keys in '...'
+//BUGFIX.1503.6.02.07 use is_array instead of node->$key=='' (used as array in next line)
+//BUGFIX.1895.17.7.07 added 2nd arg '' to variable_get("..._cc_manager") call
+//BUGFIX.1722.17.7.07 chg. _POST to data (cf Loetscher's comment there) - hope this is not a CCK issue which breaks it w/o CCK...
+//BUGFIX.684.17.7.07 added arg in ..._update_access() and arg(1) in the initial fct. call, + fct call...(0) in L.1784 + if(...) in L.734
+//MODIF.1888.18.7.07 added quotes around $from name + remove those inside
+//BUGFIX.1479.18.7.07 added file_create_url(...)

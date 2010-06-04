@@ -1,0 +1,80 @@
+2008-12-17 Zyxware Technologies <info@zyxware.com>
+
+	* Rewrote the module for 6.x
+	* Improvements include notification to author
+	* Revisions of paper need not be submitted as a new node but as a
+	revision of the current node
+	* More permission control for different roles (author, admin and reviewer)
+	* The paper node creation is done through CCK Macro import and the default
+	content types are provided as a part of the module
+	* The paper node can now store Keywords for a paper.
+	* A unique paper ID is generated for reference.
+
+2007-08-15 (uploaded on 30-aug-07 to http://drupal.org/node/167480,
+		committed to CVS 30.1.2008)
+	Shane Birley has sponsored some patches to the code for this 
+	module, mainly the implementation of the node hooks and a few other 
+	things.  It corrects:
+	* the SQL errors
+	* the uninstall bug
+	* the installation bug
+	* some code is rewritten, specifically with the access control for
+	reviews/papers
+
+[intermediate dates] - some minor updates (cf. CVS):
+	* + file_create_url() in ..._reviews() - see drupal.org/node/160306
+	* changed PGSQL code in conf.install according to
+	  http://drupal.org/node/148528
+
+2007-02-27  Maximilian F. Hasler <firstname.lastname@gmail.com>
+
+	Version for Drupal 5.x (much of the code rewritten).
+
+	Changes include:
+
+	* conference module can optionally provide a paper and/or review
+	  content type
+
+	* conference specific e-mail address can be defined  (as sender
+	  in From: and Reply-To: fields for conference notification e-mails)
+
+	* manager(s) can receive CC or BCC of all e-mails sent
+	  (at present it's the conf. admin who has access to these settings)
+
+
+2007-01-31  Tobias Hoelterhof  <hoelterhof@hoelterhof>
+
+	Some more improvements:
+
+	  * email information to authors and reviewers updated
+
+2007-01-24  Tobias Hoelterhof  <hoelterhof@hoelterhof>
+
+        Improvements:
+	  
+	  * one can make a decision concerning a paper: 1. reject,
+	  2. accept and 3. request a modification. The user is informed my
+	  email.
+
+	  * reminder email: reviewers can be reminded by an email.
+
+	  * node access mechanism: if the conference chair assigned a
+	  paper to a reviewer or has made a decision the corresponding
+	  paper can't be edited anymore by the owner.
+
+	  * time limit reached: if the timlimit for the call for paper is
+	  reached, one needn't update the permissions to create a node of
+	  the paper type (admin/access). Now the conference module inhibit
+	  the creation formular.
+
+	  * time limit exception: if the conference chair requests a
+	  modification of a paper and the time limit is reached, the user
+	  can still create a modified paper.
+
+	  * modified paper: the entrys of the old paper are copied to the
+	  creation formular of the new one. Works only with cck.
+
+	
+2006-12-05  Tobias Hoelterhof <hoelterhof@localhost>
+
+	Version 1.x published at drupal.org.
