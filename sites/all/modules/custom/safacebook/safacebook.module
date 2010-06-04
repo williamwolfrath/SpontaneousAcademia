@@ -380,26 +380,26 @@ function _create_facebook_user_mapping($fbid, $uid) {
 
 
 function safacebook_login_user($fb_user, $curr_uri = "/") {
-    log_debug("login user: fb_user is ", $fb_user);
+    //log_debug("login user: fb_user is ", $fb_user);
     $result = db_query("SELECT * FROM {facebook_mapping} WHERE facebook_id = '%s' ", $fb_user);
     if ($fb_mapping = db_fetch_object($result)) {
 	$site_user = user_load($fb_mapping->uid);
 	//log_debug("site user: ", $site_user);
 	if ( $site_user ) {
 	    user_external_login_register($site_user->name, 'safacebook');
-	    log_debug("user is now logged in");
-	    log_debug('going to uri: ', $curr_uri);
+	    //log_debug("user is now logged in");
+	    //log_debug('going to uri: ', $curr_uri);
 	    drupal_goto($curr_uri);
 	}
 	else {
 	    // user account no longer exists
-	    log_debug("user NOT a member of the site...");
+	    //log_debug("user NOT a member of the site...");
 	    drupal_goto('user/register');
 	}
     }
     else {
 	// user does not exist on the site yet...
-	log_debug("user NOT a member of the site2...");
+	//log_debug("user NOT a member of the site2...");
 	drupal_goto('user/register');
     }
 }
