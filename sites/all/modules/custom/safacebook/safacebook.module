@@ -76,7 +76,7 @@ function safacebook_init() {
     }
     else {
     
-	if ( !( ($user->uid == 1) || ($user->name == 'admin') || ($user->uid == 112) || ($user->uid == 115) ) ) {
+	if ( !( ($user->uid == 1) || ($user->name == 'admin') || (in_array($user->uid, array(112, 115, 217, 275, 276, 277, 278, 279, 280, 281, 306))) ) ) {
 	    //log_debug('NOT an exception...');
 	    $fb = _get_facebook(true); // prevents loading from cache
 	    //log_debug('fb: ', $fb);
