@@ -97,7 +97,9 @@
 //FB.init("990f0319a7449a516ee2032d33478742");
 </script>
   <?php print $scripts; ?>
-  
+  <?php if ($is_front): ?>
+    <script type="text/javascript" src="http://www.trumba.com/scripts/spuds.js"></script>
+  <?php endif; ?>
   <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
 </head>
 
