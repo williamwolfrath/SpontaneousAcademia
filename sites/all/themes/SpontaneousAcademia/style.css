@@ -490,6 +490,8 @@ body.front #main {
 body.page-user #main {
     width: 530px;
 }
+body.page-user #edit-submit { margin-top: 20px; }
+body.page-user #user-login li.openid-link { margin: 10px 0; }
 ul.quicktabs_tabs.quicktabs-style-zen { border-bottom: 1px solid #cccccc; }
 ul.quicktabs_tabs.quicktabs-style-garland  { background:url("images/tabs-bg.gif") repeat-x scroll center bottom #544a65; }
 ul.quicktabs_tabs.quicktabs-style-garland li.active a {
@@ -1208,7 +1210,7 @@ div#trumba-promo {
     width: 150px;
 }
 a.twUpcomingDescription { font-family: Trebuchet MS, Verdana, sans-serif; font-weight: normal; }
-
+div.twUpcomingHead { color: white; }
 
 
 

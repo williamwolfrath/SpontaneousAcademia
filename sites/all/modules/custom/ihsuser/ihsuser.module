@@ -65,3 +65,13 @@ function ihsuser_form_og_confirm_subscribe_alter(&$form, $form_state) {
 	$form['#action'] = $form['#action'] . '?gl=newgroup';
     }
 }
+
+
+
+
+function ihsuser_form_user_login_alter(&$form, $form_state) {
+    $form['facebook'] = array(
+	'#value' => '<fb:login-button v="2" onlogin="window.location=window.location.href + \'?login=fb\'"><fb:intl>Connect with Facebook</fb:intl></fb:login-button>',
+	'#weight' => 100,
+    );
+}

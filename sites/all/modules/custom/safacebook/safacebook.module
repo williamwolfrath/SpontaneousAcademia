@@ -58,6 +58,8 @@ function safacebook_init() {
     global $user;
     //log_debug("current user obj: ", $user);
     $curr_uri = check_plain(request_uri());
+    dd('current uri:');
+    dd($curr_uri);
     //log_debug('curr uri: ', $curr_uri);
     //log_debug('curr uri starts with ', substr($curr_uri,0,14));
     
@@ -76,47 +78,70 @@ function safacebook_init() {
     }
     else {
     
-	if ( !( ($user->uid == 1) || ($user->name == 'admin') || (in_array($user->uid, array(112, 115, 217, 275, 276, 277, 278, 279, 280, 281, 306))) ) ) {
-	    //log_debug('NOT an exception...');
-	    $fb = _get_facebook(true); // prevents loading from cache
-	    //log_debug('fb: ', $fb);
-	    $fb_user=$fb->get_loggedin_user();
-	    //log_debug('fb user: ', $fb_user);
-	
-	    if ( user_is_logged_in() ) {
-	        if (!$fb_user) {
-	            //log_debug("no FB user, logging out...");
-	            //log_debug("curr ui is ", $curr_uri);
-	            //if ( !($curr_uri == "/logout") ) {
-			//log_debug("The URI is NOT logout...");
-			//drupal_goto('logout');
-			//user_logout();
-		    //}
-		}
-	    }
-	    else {
-	        //log_debug("user is not logged in...");
-	        // don't let anonymous users go to the /user page
-	        if ( $curr_uri == "/user" ) {
-		    //log_debug('1111');
-		    drupal_goto("/");
-	        }
-	        if ($fb_user) {  // if connected to Facebook...
-	            //log_debug("trying to log in user...");
-	            if (!($curr_uri == '/user/register') ) {  // don't log them in if they're trying to register
-			safacebook_login_user($fb_user, $curr_uri);  // in safacebook module
-		    }
-		}
-		else {  // user not connected to facebook. don't let them register
-		    if (substr($curr_uri,0,14) == '/user/register') {
-			if (isset($_REQUEST['destination'])) {
-			    unset($_REQUEST['destination']);
-			}
-			drupal_goto('');
+	$login_type = $_GET['login'];
+	if ($login_type) {
+	    $_SESSION['login_type'] = $login_type;
+	    dd($_SESSION);
+	    if (!user_is_logged_in()) {
+		dd('user is NOT logged in');
+		if ($login_type == "fb") {
+		    dd('fb login type');
+		    $fb = _get_facebook(true); // prevents loading from cache
+		    $fb_user=$fb->get_loggedin_user();
+		    dd('fb user obj: ');
+		    dd($fb_user);
+		    if ($fb_user) {
+			dd('user is logged into facebook. logging in user');
+			safacebook_login_user($fb_user);
 		    }
 		}
 	    }
 	}
+	else {
+	    dd('no type');
+	}
+	
+	//if ( !( ($user->uid == 1) || ($user->name == 'admin') || (in_array($user->uid, array(112, 115, 217, 275, 276, 277, 278, 279, 280, 281, 306))) ) ) {
+	//    //log_debug('NOT an exception...');
+	//    $fb = _get_facebook(true); // prevents loading from cache
+	//    //log_debug('fb: ', $fb);
+	//    $fb_user=$fb->get_loggedin_user();
+	//    //log_debug('fb user: ', $fb_user);
+	//
+	//    if ( user_is_logged_in() ) {
+	//        if (!$fb_user) {
+	//            //log_debug("no FB user, logging out...");
+	//            //log_debug("curr ui is ", $curr_uri);
+	//            //if ( !($curr_uri == "/logout") ) {
+	//		//log_debug("The URI is NOT logout...");
+	//		//drupal_goto('logout');
+	//		//user_logout();
+	//	    //}
+	//	}
+	//    }
+	//    else {
+	//        //log_debug("user is not logged in...");
+	//        // don't let anonymous users go to the /user page
+	//        if ( $curr_uri == "/user" ) {
+	//	    //log_debug('1111');
+	//	    //drupal_goto("/");
+	//        }
+	//        if ($fb_user) {  // if connected to Facebook...
+	//            //log_debug("trying to log in user...");
+	//            if (!($curr_uri == '/user/register') ) {  // don't log them in if they're trying to register
+	//		safacebook_login_user($fb_user, $curr_uri);  // in safacebook module
+	//	    }
+	//	}
+	//	else {  // user not connected to facebook. don't let them register
+	//	    if (substr($curr_uri,0,14) == '/user/register') {
+	//		if (isset($_REQUEST['destination'])) {
+	//		    unset($_REQUEST['destination']);
+	//		}
+	//		drupal_goto('');
+	//	    }
+	//	}
+	//    }
+	//}
 	
     }
     //log_debug('exiting init...');
@@ -183,7 +208,7 @@ function safacebook_form_user_profile_form_alter(&$form, $form_state) {
     //log_debug('form: ', $form);
     global $user;
     if ( !( ($user->uid == 1) || ($user->name == 'admin') || ($user->uid == 112) || ($user->uid == 115) ) ) {
-	$form['account']['pass']['#type'] = 'hidden';
+	//$form['account']['pass']['#type'] = 'hidden';
     }
 }
 
