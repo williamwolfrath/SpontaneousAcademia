@@ -48,6 +48,24 @@
  * @see template_preprocess_node()
  */
 ?>
+<?php // need to make up for the fact that organic groups still shows posts in private groups to anonymous users; access control seems to not be working
+      // or it is conflicting with another access module. This is a last resort to hide the posts on the front page
+?>
+<?php //dd($node);
+if ($node->og_groups) {
+  $keys = array_keys($node->og_groups);
+  //dd($keys);
+  $ng = node_load($keys[0]);
+  //dd('got a node group: ');
+  //dd($ng);
+  $priv = $ng->og_private;
+  //dd($priv);
+}
+else {
+  //dd('no node group');
+}
+?>
+<?php if ($priv != 1): ?>
 <div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
 
 <div class="recent-post-user-picture-wrapper">
@@ -114,3 +132,4 @@
   <?php //print $links; ?>
 </div>
 </div>
+<?php endif; ?>
