@@ -1700,3 +1700,10 @@ div.view-new-opportunities .views-exposed-widget .form-submit { position: relati
 #opportunities-tabs ul.opportunities-views li a:link, #opportunities-tabs ul.opportunities-views li a:visited { color: #777777; }
 .view-new-opportunities label, .view-new-opportunities-alpha label { font-size: 13px; }
 #opportunities-tabs ul.opportunities-views li a.active-tab { background: transparent url(images/tabactive.gif) repeat-x; position: relative; top: 1px; color: #333333; }
+
+
+/* @group login options */
+#login-options-block { margin-left: -200px; text-align: center; }
+/*body.page-user #edit-name-wrapper, body.page-user #edit-pass-wrapper, */
+body.page-user #edit-submit-login { display: none; }
+body.page-user #login-form-name-password-fields { display: none; }
