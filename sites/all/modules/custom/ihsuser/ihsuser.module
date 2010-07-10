@@ -73,7 +73,7 @@ function ihsuser_gauth() {
 
 function _add_login_mapping($uid, $auth_name) {
     $lmapping = new stdClass();
-    $lmapping->auth_name = $auth_type;
+    $lmapping->auth_name = $auth_name;
     $lmapping->uid = $uid;
     drupal_write_record('login_mapping', $lmapping);
 }
@@ -146,6 +146,7 @@ function ihsuser_form_user_login_alter(&$form, $form_state) {
 // Alter the registration form
 function ihsuser_form_user_register_alter(&$form, &$form_state) {
     // Add your own function to the array of validation callbacks
+    //$form['account']['pass']['#type'] = 'hidden';
     $form['#submit'][] = 'ihsuser_user_register_submit';
 }
 
@@ -163,6 +164,8 @@ function ihsuser_user_register_submit($form, &$form_state) {
 	    }
 	}
     }
+    dd($form_state);
+    user_external_login_register($form_state['user']->name, 'ihsuser');
     
 }
 
