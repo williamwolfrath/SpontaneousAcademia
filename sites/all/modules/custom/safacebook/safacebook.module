@@ -58,8 +58,8 @@ function safacebook_init() {
     global $user;
     //log_debug("current user obj: ", $user);
     $curr_uri = check_plain(request_uri());
-    dd('current uri:');
-    dd($curr_uri);
+    //dd('current uri:');
+    //dd($curr_uri);
     //log_debug('curr uri: ', $curr_uri);
     //log_debug('curr uri starts with ', substr($curr_uri,0,14));
     
@@ -81,24 +81,24 @@ function safacebook_init() {
 	$login_type = $_GET['login'];
 	if ($login_type) {
 	    $_SESSION['login_type'] = $login_type;
-	    dd($_SESSION);
+	    //dd($_SESSION);
 	    if (!user_is_logged_in()) {
-		dd('user is NOT logged in');
+		//dd('user is NOT logged in');
 		if ($login_type == "fb") {
-		    dd('fb login type');
+		    //dd('fb login type');
 		    $fb = _get_facebook(true); // prevents loading from cache
 		    $fb_user=$fb->get_loggedin_user();
-		    dd('fb user obj: ');
-		    dd($fb_user);
+		    //dd('fb user obj: ');
+		    //dd($fb_user);
 		    if ($fb_user) {
-			dd('user is logged into facebook. logging in user');
+			//dd('user is logged into facebook. logging in user');
 			safacebook_login_user($fb_user);
 		    }
 		}
 	    }
 	}
 	else {
-	    dd('no type');
+	    //dd('no type');
 	}
 	
 	//if ( !( ($user->uid == 1) || ($user->name == 'admin') || (in_array($user->uid, array(112, 115, 217, 275, 276, 277, 278, 279, 280, 281, 306))) ) ) {
@@ -195,7 +195,10 @@ function safacebook_link_alter(&$node, &$links) {
 
 
 function safacebook_form_user_register_alter(&$form, $form_state) {
-    $form['user_registration_help']['#value'] = '<div id="fb-escape"><p>Click <a onclick="FB.Connect.logout(function() { reload(); }); return false;" href="#"><img id="fb_logout_image" src="http://static.ak.fbcdn.net/images/fbconnect/logout-buttons/logout_small.gif" alt="Connect" /></a> to disconnect from Facebook and return to the site if you do not want to register.</p></div>';
+    $auth_type = $_SESSION['login_type'];
+    if ( $auth_type && $auth_type == 'fb' ) {
+	$form['user_registration_help']['#value'] = '<div id="fb-escape"><p>Click <a onclick="FB.Connect.logout(function() { reload(); }); return false;" href="#"><img id="fb_logout_image" src="http://static.ak.fbcdn.net/images/fbconnect/logout-buttons/logout_small.gif" alt="Connect" /></a> to disconnect from Facebook and return to the site if you do not want to register.</p></div>';
+    }
    //log_debug("form id: ", $form);
     //$fb = _get_facebook();
     //$form['account']['name']['#default_value'] = 'default name';
@@ -406,8 +409,12 @@ function _create_facebook_user_mapping($fbid, $uid) {
 
 function safacebook_login_user($fb_user, $curr_uri = "/") {
     //log_debug("login user: fb_user is ", $fb_user);
+    dd('safacebook login user');
+    dd('fbuser is ');
+    dd($fb_user);
     $result = db_query("SELECT * FROM {facebook_mapping} WHERE facebook_id = '%s' ", $fb_user);
     if ($fb_mapping = db_fetch_object($result)) {
+	dd($fb_mapping);
 	$site_user = user_load($fb_mapping->uid);
 	//log_debug("site user: ", $site_user);
 	if ( $site_user ) {
@@ -425,6 +432,9 @@ function safacebook_login_user($fb_user, $curr_uri = "/") {
     else {
 	// user does not exist on the site yet...
 	//log_debug("user NOT a member of the site2...");
+	$_SESSION['login_type'] = 'fb';
+	dd('here?');
+	dd($_SESSION);
 	drupal_goto('user/register');
     }
 }
