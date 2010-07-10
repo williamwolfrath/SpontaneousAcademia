@@ -3,59 +3,41 @@
 
 function ihsuser_install() {
 	// Use schema API to create database table.
-	//drupal_install_schema('');
-	//drupal_set_message('Tables have been installed.');
+	drupal_install_schema('ihsuser');
+	drupal_set_message('Tables have been installed.');
 }
 
 function ihsuser_uninstall() {
 	// Use schema API to destroy database table.
-	//drupal_uninstall_schema('');
-	//drupal_set_message('Tables have been removed.');
+	drupal_uninstall_schema('ihsuser');
+	drupal_set_message('Tables have been removed.');
 }
 
 
 function ihsuser_schema() {
-    $schema[''] = array(
-		'description' => t(''),
+    $schema['login_mapping'] = array(
+		'description' => t('Indicates how a user first connected when registering.'),
 		'fields' => array(
-			'mid' => array(
+			'uid' => array(
 				'type' => 'int',
 				'unsigned' => TRUE,
 				'not null' => TRUE,
 				'default' => 0,
 				'description' => t('The User id')
 			),
-			'tid' => array(
-				'type' => 'int',
-				'unsigned' => TRUE,
+			'auth_name' => array(
+				'type' => 'varchar',
 				'not null' => TRUE,
-				'default' => 0,
-				'description' => t('The Transaction id')
-			),
-			'expire_date' => array(
-				'description' => t('the date of payment'),
-				'type' => 'datetime',
-				'not null' => false,
-			),
-			'cron' => array(
-				'type' => 'int',
-				'unsigned' => TRUE,
-				'size' => "tiny",
-				'not null' => TRUE,
-				'default' => 0,
-			),
-			'is_cancel' => array(
-				'type' => 'int',
-				'size' => 'tiny',
-				'unsigned' => TRUE,
-				'not null' => TRUE,
-				'default' => 0,
+				'default' => '',
+				'length' => 20,
+				'description' => t('The authentication method'),
 			),
 		),
 		'primary key' => array(
-			'mid',
-		),
+			'uid',
+		)
 	);
+
 	return $schema;
         
 }

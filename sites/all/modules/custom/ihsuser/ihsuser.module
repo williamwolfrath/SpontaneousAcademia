@@ -10,6 +10,14 @@ function ihsuser_menu() {
 	'access callback' => true,
 	'type' => MENU_CALLBACK,
     );
+    
+    $items['gauth'] = array(
+	'title' => 'Google Open ID',
+	'description' => '',
+	'page callback' => 'ihsuser_gauth',
+	'access callback' => true,
+	'type' => MENU_CALLBACK,
+    );
  
     return $items;
 }
@@ -25,6 +33,52 @@ function ihsuser_init() {
 	drupal_add_css( drupal_get_path('module','ihsuser') . '/ui.all.css' );
     }
 }
+
+
+
+function ihsuser_gauth() {
+    if(!isset($_GET['gauth'])) {
+	drupal_set_message('There is no user registered with that Google email address', 'warning');
+	drupal_goto('user');
+    }
+    $email = $_GET['gauth'];
+    // login user with this email
+    $result = db_result(db_query("SELECT uid FROM {users} WHERE mail = '%s'", $email));
+    if ($result) {
+	$site_user = user_load($result);
+	//dd("site user: ");
+	//dd($site_user);
+	if ( $site_user ) {
+	    user_external_login_register($site_user->name, 'ihsuser');
+	    //log_debug("user is now logged in");
+	    //log_debug('going to uri: ', $curr_uri);
+	    drupal_goto('user');
+	}
+	else {
+	    // user account no longer exists
+	    //log_debug("user NOT a member of the site...");
+	    drupal_goto('user/register');
+	}
+    }
+    else {
+	// user does not exist on the site yet...
+	//log_debug("user NOT a member of the site2...");
+	$_SESSION['login_type'] = 'google';
+	drupal_goto('user/register');
+    }
+}
+
+
+
+
+function _add_login_mapping($uid, $auth_name) {
+    $lmapping = new stdClass();
+    $lmapping->auth_name = $auth_type;
+    $lmapping->uid = $uid;
+    drupal_write_record('login_mapping', $lmapping);
+}
+
+
 
 
 
@@ -51,6 +105,15 @@ function ihsuser_user($op, &$edit, &$account) {
 	    $account->user_type = $main_role;
 	    //log_debug("altered user: ", $account);
 	    break;
+	case 'insert':
+	    $auth_name = $_SESSION['login_type'];
+	    if ($auth_name) {
+		_add_login_mapping($edit['uid'], $auth_name);
+	    }
+	    break;
+	case 'delete':
+	    db_query("DELETE FROM {login_mapping} WHERE uid='%d'", $account->uid);
+	    break;
     }
 }
 
@@ -70,8 +133,51 @@ function ihsuser_form_og_confirm_subscribe_alter(&$form, $form_state) {
 
 
 function ihsuser_form_user_login_alter(&$form, $form_state) {
-    $form['facebook'] = array(
-	'#value' => '<fb:login-button v="2" onlogin="window.location=window.location.href + \'?login=fb\'"><fb:intl>Connect with Facebook</fb:intl></fb:login-button>',
-	'#weight' => 100,
-    );
+//    $form['facebook'] = array(
+//	'#value' => '<fb:login-button v="2" onlogin="window.location=window.location.href + \'?login=fb\'"><fb:intl>Connect with Facebook</fb:intl></fb:login-button>',
+//	'#weight' => 100,
+//    );
+    //dd('login form alter');
+    //dd($form);
+    //$form['name']['#type'] = 'hidden';
+}
+
+
+// Alter the registration form
+function ihsuser_form_user_register_alter(&$form, &$form_state) {
+    // Add your own function to the array of validation callbacks
+    $form['#submit'][] = 'ihsuser_user_register_submit';
+}
+
+// Perform your own validation
+function ihsuser_user_register_submit($form, &$form_state) {
+    //dd("sim salla bim");
+    //dd($form_state);
+    //gl=newkosmos&gl=newgroup
+    $form_state['redirect'] = array('<front>', "gl=newkosmos");
+    if ($form_state['user']->og_register) {
+	foreach ($form_state['user']->og_register as $reg_group=>$val) {
+	    if ($val > 0) {
+		$form_state['redirect'] = array('<front>', "gl=newkosmos&gl=newgroup");
+		break;
+	    }
+	}
+    }
+    
+}
+
+
+
+function ihsuser_menu_alter(&$items) {
+    $items['user/register']['type'] = MENU_CALLBACK;
+}
+
+
+function ihsuser_theme() {
+  return array(
+    'user_login' => array(
+      'arguments' => array('form' => NULL),
+      'template' => 'spontaneous-user-login',  // following convention, replace underscores with dashes
+    )
+  );
 }
