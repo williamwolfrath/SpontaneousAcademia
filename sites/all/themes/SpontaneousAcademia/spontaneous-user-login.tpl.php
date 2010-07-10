@@ -6,6 +6,7 @@
  <div class="description"><a href="http://openid.net/" class="ext">What is OpenID?</a><span class="ext"></span></div>
 </div>
  
+<div id="login-form-name-password-fields">
 <div id="edit-name-wrapper" class="form-item">
  <label for="edit-name">Username: <span title="This field is required." class="form-required">*</span></label>
  <input type="text" class="form-text required" value="" size="60" id="edit-name" name="name" maxlength="60">
@@ -17,6 +18,7 @@
  <input type="password" class="form-text required" size="60" maxlength="128" id="edit-pass" name="pass">
  <div class="description">Enter the password that accompanies your username.</div>
 </div>
+</div>
 
 <input name="form_build_id" id="<?php print $form['form_build_id']['#id']; ?>" value="<?php print $form['form_build_id']['#value']; ?>" type="hidden">
 <input type="hidden" value="user_login" id="edit-user-login" name="form_id">
@@ -24,11 +26,10 @@
 
 
 
-<input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" />
+<input type="submit" name="op" id="edit-submit-login" value="Log in"  class="form-submit" />
 
 </div></form>
-
-<br/><br/>
+<br/>
 <div id="login-options-block">
 <fb:login-button v="2" onlogin="window.location=window.location.href + '?login=fb'"><fb:intl>Connect with Facebook</fb:intl></fb:login-button>
 <br/><br/>
