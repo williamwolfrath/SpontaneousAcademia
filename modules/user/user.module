@@ -2370,7 +2370,7 @@ function user_register_submit($form, &$form_state) {
         drupal_set_message(t('Thank you for registering'));
       }
       else {
-        drupal_set_message(t('Your password and further instructions have been sent to your e-mail address.'));
+        //drupal_set_message(t('Your password and further instructions have been sent to your e-mail address.'));
         $form_state['redirect'] = '';
         return;
       }
