@@ -48,10 +48,14 @@ function userRegHelp() {
 
 
 
+
 jQuery(document).ready(function($){
    
     //$('#block-menu-primary-links .content ul.menu').droppy({speed: 10});
     addPictureLinks();
     //firefoxFixes();
     userRegHelp();
+
+    //$('a[href^=/user/register]').parent().parent().hide();
+    $('form#user-login').parent().siblings('.tabs').hide();
 });
