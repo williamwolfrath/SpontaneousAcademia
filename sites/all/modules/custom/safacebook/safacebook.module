@@ -162,6 +162,10 @@ function safacebook_user($op, &$edit, &$account) {
 	    $fb = _get_facebook();
 	    $fb_user=$fb->get_loggedin_user();
 	    _create_facebook_user_mapping($fb_user, $edit['uid']);
+	    $auth_name = $_SESSION['login_type'];
+	    if ($auth_name) {
+		_add_login_mapping($edit['uid'], $auth_name);
+	    }
 	   //log_debug("facebook user created...");
 	    break;
 	case 'load':  // add any pertinent facebook account details to user object
@@ -409,12 +413,12 @@ function _create_facebook_user_mapping($fbid, $uid) {
 
 function safacebook_login_user($fb_user, $curr_uri = "/") {
     //log_debug("login user: fb_user is ", $fb_user);
-    dd('safacebook login user');
-    dd('fbuser is ');
-    dd($fb_user);
+    //dd('safacebook login user');
+    //dd('fbuser is ');
+    //dd($fb_user);
     $result = db_query("SELECT * FROM {facebook_mapping} WHERE facebook_id = '%s' ", $fb_user);
     if ($fb_mapping = db_fetch_object($result)) {
-	dd($fb_mapping);
+	//dd($fb_mapping);
 	$site_user = user_load($fb_mapping->uid);
 	//log_debug("site user: ", $site_user);
 	if ( $site_user ) {
@@ -433,8 +437,8 @@ function safacebook_login_user($fb_user, $curr_uri = "/") {
 	// user does not exist on the site yet...
 	//log_debug("user NOT a member of the site2...");
 	$_SESSION['login_type'] = 'fb';
-	dd('here?');
-	dd($_SESSION);
+	//dd('here?');
+	//dd($_SESSION);
 	drupal_goto('user/register');
     }
 }
