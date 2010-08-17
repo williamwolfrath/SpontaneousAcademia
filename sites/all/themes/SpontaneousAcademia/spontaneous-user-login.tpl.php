@@ -1,3 +1,5 @@
+Creating a Kosmos account:
+
 <form id="user-login" method="post" accept-charset="UTF-8" action="/user">
 
 <div><div id="edit-openid-identifier-wrapper" class="form-item">
@@ -31,15 +33,21 @@
 </div></form>
 <br/>
 <div id="login-options-block">
-<fb:login-button v="2" onlogin="window.location=window.location.href + '?login=fb'"><fb:intl>Connect with Facebook</fb:intl></fb:login-button>
+<div class="login-options-header">Connect with Facebook</div>
+<fb:login-button v="2" onlogin="window.location=window.location.href + '?login=fb'"><fb:intl>Connect with Facebook</fb:intl></fb:login-button><br/>
+Facebook members can log onto third-party websites with their Facebook identity.  Privacy settings from your Facebook account will follow you around the web, protecting your information.
 <br/><br/>
 
+<div class="login-options-header">OpenID and Google</div>
 <form action="/lightopenid/googleauth.php?login" method="post">
     <input type="image" src="/sites/all/themes/SpontaneousAcademia/images/google_login_button.jpg">
 </form>
 <div class="item-list"><ul><li class="openid-link first"><a href="/%2523">Log in using OpenID</a></li>
 <li class="user-link last"><a href="/%2523">Cancel OpenID login</a></li>
 </ul></div>
+Don't have a Facebook account? Prefer not to link your Kosmos account with Facebook?<br/>
+
+Create your login through OpenID.  Similar in concept to Facebook Connect, OpenID allows you to use an existing account (such as Yahoo, flickr, etc) to sign in to multiple websites without needing to create new passwords. You can also sign in using your Google account. With OpenID and Google, you control how much of your information is shared with the websites you visit.
 </div>
 
 
