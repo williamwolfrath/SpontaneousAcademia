@@ -164,7 +164,7 @@ function ihsuser_user_register_submit($form, &$form_state) {
 	    }
 	}
     }
-    dd($form_state);
+    //dd($form_state);
     user_external_login_register($form_state['user']->name, 'ihsuser');
     
 }
