@@ -1703,7 +1703,7 @@ div.view-new-opportunities .views-exposed-widget .form-submit { position: relati
 
 
 /* @group login options */
-#login-options-block { margin-left: -200px; text-align: center; }
 /*body.page-user #edit-name-wrapper, body.page-user #edit-pass-wrapper, */
+body.page-user .login-options-header { color: black; text-decoration: underline; padding-bottom: 5px; }
 body.page-user #edit-submit-login { display: none; }
 body.page-user #login-form-name-password-fields { display: none; }

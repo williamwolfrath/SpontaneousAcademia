@@ -327,3 +327,14 @@ function SpontaneousAcademia_breadcrumb($breadcrumb) {
         }
     }
 }
+
+
+
+function SpontaneousAcademia_theme() {
+  return array(
+    'user_login' => array(
+      'arguments' => array('form' => NULL),
+      'template' => 'spontaneous-user-login',  // following convention, replace underscores with dashes
+    )
+  );
+}
