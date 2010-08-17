@@ -6,11 +6,11 @@ function facebookInit() {
             return false;  
         });
         
-    $('a[href^=/user/register]')
-        .click(function() {
-            FB.Connect.requireSession();
-            return false;  
-        });
+    //$('a[href^=/user/register]')
+    //    .click(function() {
+    //        FB.Connect.requireSession();
+    //        return false;  
+    //    });
 }
 
 jQuery(document).ready(function($) {
