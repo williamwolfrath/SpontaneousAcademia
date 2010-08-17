@@ -289,7 +289,12 @@ function SpontaneousAcademia_preprocess_block(&$vars, $hook) {
 function SpontaneousAcademia_preprocess_job_posting_node_display(&$vars) {
     //log_debug('job posting...');
     //log_debug('deadline: ', $vars['node']->job_posting_deadline);
-    $vars['deadline'] = format_date($vars['node']->job_posting_deadline, 'custom', 'D, M j, Y');
+    if ( $vars['node']->job_posting_expires != 0) {
+        $vars['deadline'] = format_date($vars['node']->job_posting_deadline, 'custom', 'D, M j, Y');
+    }
+    else {
+        $vars['deadline'] = NULL;
+    }
     $vars['template_file'] = '/sites/all/themes/SpontaneousAcademia/job-posting-node';
     //$vars['template_file'] = 'job-posting-node';
     //$vars['template_files'][] = 'job-posting-node';
