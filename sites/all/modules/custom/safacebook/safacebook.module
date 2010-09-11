@@ -215,7 +215,7 @@ function safacebook_form_user_profile_form_alter(&$form, $form_state) {
     //log_debug('form: ', $form);
     global $user;
     if ( !( ($user->uid == 1) || ($user->name == 'admin') || ($user->uid == 112) || ($user->uid == 115) ) ) {
-	//$form['account']['pass']['#type'] = 'hidden';
+	    $form['account']['pass']['#type'] = 'hidden';
     }
 }
 
