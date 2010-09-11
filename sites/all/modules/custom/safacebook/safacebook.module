@@ -201,7 +201,7 @@ function safacebook_link_alter(&$node, &$links) {
 function safacebook_form_user_register_alter(&$form, $form_state) {
     $auth_type = $_SESSION['login_type'];
     if ( $auth_type && $auth_type == 'fb' ) {
-	$form['user_registration_help']['#value'] = '<div id="fb-escape"><p>Click <a onclick="FB.Connect.logout(function() { reload(); }); return false;" href="#"><img id="fb_logout_image" src="http://static.ak.fbcdn.net/images/fbconnect/logout-buttons/logout_small.gif" alt="Connect" /></a> to disconnect from Facebook and return to the site if you do not want to register.</p></div>';
+	$form['user_registration_help']['#value'] = '<div id="fb-escape"><p>Click <a onclick="FB.Connect.logout(function() { reload(); }); return false;" href="#"><img id="fb_logout_image" src="http://static.ak.fbcdn.net/images/fbconnect/logout-buttons/logout_small.gif" alt="Connect" /></a> to disconnect from Facebook and return to the site if you do not want to register.</p></div><div>Click <a href="/user-login">here</a> to login if you registered without Facebook or Google.</div>';
     }
    //log_debug("form id: ", $form);
     //$fb = _get_facebook();
