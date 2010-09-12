@@ -386,7 +386,23 @@ function safacebook_theme() {
             'template' => 'tmpl/active-users',
             'arguments' => array('active_users'=>$active_user_list),
         ),
+       'kosmos_user_picture' => array(
+	    'arguments' => array('account' => NULL, 'fbid' => 0),
+       ),
     );
+}
+
+
+// display the user picture depending on whether or not they have uploaded one to replace their facebook pic
+// used by most templates and code that show posts
+function theme_kosmos_user_picture($account, $fbid) {
+    if ( $account->picture ) {
+	$picture = theme('user_picture', $account);
+        return "<a href=\"/user/$account->uid\">$picture</a>";
+    }
+    else {
+        return "<a href=\"/user/$account->uid\"><fb:profile-pic uid=\"$fbid\"  size=\"square\" facebook-logo=\"true\" linked=\"false\"></fb:profile-pic></a>";
+    }
 }
 
 
