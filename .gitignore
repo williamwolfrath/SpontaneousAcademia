@@ -1,3 +1,4 @@
 sites/default/settings.php
 site_backups
 sites/default/files/tmp/*
+solr
