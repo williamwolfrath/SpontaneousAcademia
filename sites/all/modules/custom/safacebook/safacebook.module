@@ -70,6 +70,18 @@ function safacebook_init() {
     
     //log_debug('the http referrer is ', $_SERVER["HTTP_REFERER"]);
     
+    // if user is logged in via FB, but has logged out of FB in another tab/window,
+    // change their login type so the logout link changes
+    if ($_SESSION['login_type'] == 'fb') {
+	$fb = _get_facebook(true); // prevents loading from cache
+	$fb_user=$fb->get_loggedin_user();
+	if (!$fb_user) {
+	    $_SESSION['login_type'] = 'drupal';
+	    module_load_include('inc', 'user', 'user.pages');
+	    // put popup here saying you are being logged out.
+	    user_logout();
+	}
+    }
     
     // ALSO check the user role. if IHS staff, ignore. can maybe store the role
     // in the session upon user load
