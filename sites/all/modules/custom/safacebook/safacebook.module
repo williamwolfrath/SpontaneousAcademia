@@ -407,12 +407,20 @@ function safacebook_theme() {
 
 // display the user picture depending on whether or not they have uploaded one to replace their facebook pic
 // used by most templates and code that show posts
-function theme_kosmos_user_picture($account, $fbid) {
+function theme_kosmos_user_picture($account, $fbid, $width=NULL) {
     if ( $account->picture ) {
-	$picture = theme('user_picture', $account);
+	if ($width == 100) {
+	    $picture = theme('imagecache', 'profile100w', $account->picture, $account->name);
+	}
+	else {
+	    $picture = theme('user_picture', $account);
+	}
         return "<a href=\"/user/$account->uid\">$picture</a>";
     }
     else {
+	if ($width) {
+	    return "<a href=\"/user/$account->uid\"><fb:profile-pic uid=\"$fbid\"  size=\"normal\" width=\"$width\" facebook-logo=\"true\" linked=\"false\"></fb:profile-pic></a>";
+	}
         return "<a href=\"/user/$account->uid\"><fb:profile-pic uid=\"$fbid\"  size=\"square\" facebook-logo=\"true\" linked=\"false\"></fb:profile-pic></a>";
     }
 }
