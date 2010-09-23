@@ -2,7 +2,7 @@
 
 
 //$profile = content_profile_load('profile', 4);
-$vocab = 7;
+$vocab = 8;
 
 $result = db_query("SELECT n.nid, uid FROM {content_field_courses_tax} as c inner join {node} as n on c.nid=n.nid");
 while ($u = db_fetch_object($result)) {
@@ -13,7 +13,8 @@ while ($u = db_fetch_object($result)) {
         if ( $profile->field_courses_taught ) {
         
         foreach ( $profile->field_courses_taught as $i ) {
-                $term = strtolower($i['value']);
+                //$term = strtolower($i['value']);
+                $term = $i['value'];
                 if ( $term != "" ) {
                         print "term: " . $term . "\n";
                         $exists = taxonomy_get_term_by_name($term);
@@ -45,8 +46,10 @@ while ($u = db_fetch_object($result)) {
                         else {
                                 $add = TRUE;
                                 print "Term $term exists...\n";
-                                foreach ($exists as $term) {
-                                        if ($term->vid == $vocab) {
+                                print_r($exists);
+                                foreach ($exists as $term2) {
+                                        print("exsting term vid: " . $term2->vid . "\n");
+                                        if ($term2->vid == $vocab) {
                                                 $add = FALSE;
                                                 break;
                                         }
@@ -76,7 +79,7 @@ while ($u = db_fetch_object($result)) {
                                         print "Term association inserted into db.\n";
                                 }
                                 else {
-                                    $tid = $term->tid;
+                                    $tid = $term2->tid;
                                     if ($delta == 0) {
                                             $mysql = "UPDATE {content_field_courses_tax} SET field_courses_tax_value=$tid WHERE nid=$profile->nid and delta=0";
                                             print "$mysql \n"; 
