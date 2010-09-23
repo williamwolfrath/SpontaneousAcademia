@@ -36,18 +36,18 @@ function ihsgeneral_kosmos_search($type = 'apachesolr_search') {
     $results = '';
    //dd($_POST);
     if (!isset($_POST['form_id'])) {
-	dd('here?');
+	//dd('here?');
 	if (empty($type)) {
 	    drupal_goto('search/apachesolr_search');
 	}
 	// START MODIFICATION
 	$keys = trim(kosmos_get_keys());
-	dd($keys);
+	//dd($keys);
 	// END
 	$filters = '';
-	dd('type is ' . $type);
-	dd('GET is ' );
-	dd($_GET);
+	//dd('type is ' . $type);
+	//dd('GET is ' );
+	//dd($_GET);
 	if ($type == 'apachesolr_search' && isset($_GET['filters'])) {
 	    $filters = trim($_GET['filters']);
 	   //dd('the filters are ' . $filters);
@@ -74,27 +74,28 @@ function ihsgeneral_kosmos_search($type = 'apachesolr_search') {
 	}
     }
    //dd('down here');
-    return drupal_get_form('kosmos_search_form', NULL, $keys, $type) . $results;
+    return drupal_get_form('kosmos_search_page_form', NULL, $keys, $type) . $results;
 }
 
 
 function ihsgeneral_kosmos_people_search($type = 'apachesolr_search') {
    //dd('kosmos search function');
+   //dd('kosmos people search function');
     $results = '';
    //dd($_POST);
     if (!isset($_POST['form_id'])) {
-	dd('here?');
+	//dd('here?');
 	if (empty($type)) {
 	    drupal_goto('search/apachesolr_search');
 	}
 	// START MODIFICATION
 	$keys = trim(kosmos_get_keys());
-	dd($keys);
+	//dd('keys: ' . $keys);
 	// END
 	$filters = '';
-	dd('type is ' . $type);
-	dd('GET is ' );
-	dd($_GET);
+	//dd('type is ' . $type);
+	//dd('GET is ' );
+	//dd($_GET);
 	if ($type == 'apachesolr_search' && isset($_GET['filters'])) {
 	    $filters = trim($_GET['filters']);
 	   //dd('the filters are ' . $filters);
@@ -108,7 +109,8 @@ function ihsgeneral_kosmos_people_search($type = 'apachesolr_search') {
 	    watchdog('search','%keys (@type).', array('%keys' => $log,'@type' => t('Search')), WATCHDOG_NOTICE, l(t('results'), 'search/'. $type .'/'. $keys));
  
 	    // START MODIFICATION
-	    $results = search_data($keys, 'kosmos');
+	    //dd('calling search_data...');
+	    $results = search_data($keys, 'kosmos_people');
 	    // END
  
 	    if ($results) {
@@ -144,7 +146,7 @@ function kosmos_search($op = 'search', $keys = NULL) {
    //dd('kosmos REG search');
   switch ($op) {
     case 'name':
-      return t('Profile Search');
+      return t('Kosmos Search');
  
     case 'reset':
       apachesolr_clear_last_index('apachesolr_search');
@@ -194,8 +196,9 @@ function kosmos_people_search($op = 'search', $keys = NULL) {
       return apachesolr_index_status('apachesolr_search');
  
     case 'search':
-      //$filters = isset($_GET['filters']) ? $_GET['filters'] : '';
-      $filters = 'type:profile';
+      $filters = isset($_GET['filters']) ? $_GET['filters'] : 'type:profile';
+      //dd('filters is ' . $filters);
+      //$filters = 'type:profile' . $filters;
       $solrsort = isset($_GET['solrsort']) ? $_GET['solrsort'] : '';
       $page = isset($_GET['page']) ? $_GET['page'] : 0;
       try {
@@ -228,6 +231,25 @@ function ihsgeneral_form_search_block_form_alter(&$form, $form_state) {
 
 
 
+// change the exposed forms in the people search so that they submit to the panels page they're on
+// otherwise they submit to the page view or front page
+function ihsgeneral_form_alter(&$form, $form_state, $form_id) {
+    //dsm($form);
+    if($form['taxonomy']['#title'] == 'Vocabularies') {
+        $form['taxonomy']['#title'] = 'Categories';
+    }
+    
+    if ($form_id == 'views_exposed_form') {
+	$form['submit']['#value'] = 'Search';
+	if ( ($form['#id'] == 'views-exposed-form-tax-people-search-panel-pane-1') ||
+	    ($form['#id'] == 'views-exposed-form-tax-people-search-panel-pane-2') ||
+	    ($form['#id'] == 'views-exposed-form-tax-people-search-panel-pane-3') ) {
+	    $form['#action'] = url($_GET['q']);
+	}
+    }
+}
+
+
 function ihsgeneral_main() {
     return "Great success!";
 }
@@ -249,16 +271,16 @@ function ihsgeneral_form_og_confirm_subscribe_alter(&$form, &$form_state) {
     //log_debug('form is ', $form);
     //log_debug('form state is ', $form_state);
     $form['#submit'] = array('_ihs_og_subscribe_form_submit');
-    dpm($form);
-    dpm($form_state);
+   // dpm($form);
+    //dpm($form_state);
     //log_debug('form is NOW ', $form);
 }
 
 
 function _ihs_og_subscribe_form_submit($form, &$form_state) {
-    dpm('my submit');
+    //dpm('my submit');
     $return = og_subscribe_user($form_state['values']['gid'], $form_state['values']['account'], $form_state['values']['request']);
-    dpm($return);
+    //dpm($return);
     if (!empty($return['message'])) {
 	drupal_set_message($return['message']);
     }
@@ -297,6 +319,21 @@ function kosmos_search_form($form_state) {
 	'#description' => t(''),
     );
      $form['submit'] = array('#type' => 'submit', '#value' => t(''));
+     //dd($form);
+     //dd('adsfasdfa');
+     return $form;
+}
+
+
+function kosmos_search_page_form($form_state) {
+     $form['terms'] = array(
+	'#type' => 'textfield',
+	'#title' => t(''),
+	'#size' => 15,
+	'#maxlength' => 64,
+	'#description' => t(''),
+    );
+     $form['submit'] = array('#type' => 'submit', '#value' => t('Search'));
      //dd($form);
      //dd('adsfasdfa');
      return $form;

@@ -72,9 +72,12 @@ function safacebook_init() {
     
     // if user is logged in via FB, but has logged out of FB in another tab/window,
     // change their login type so the logout link changes
+    //dd($_SESSION);
     if ($_SESSION['login_type'] == 'fb') {
 	$fb = _get_facebook(true); // prevents loading from cache
 	$fb_user=$fb->get_loggedin_user();
+	//dd('fb user obj: ');
+	//dd($fb_user);
 	if (!$fb_user) {
 	    $_SESSION['login_type'] = 'drupal';
 	    module_load_include('inc', 'user', 'user.pages');
@@ -100,8 +103,6 @@ function safacebook_init() {
 		    //dd('fb login type');
 		    $fb = _get_facebook(true); // prevents loading from cache
 		    $fb_user=$fb->get_loggedin_user();
-		    //dd('fb user obj: ');
-		    //dd($fb_user);
 		    if ($fb_user) {
 			//dd('user is logged into facebook. logging in user');
 			safacebook_login_user($fb_user);
@@ -226,8 +227,11 @@ function safacebook_form_user_profile_form_alter(&$form, $form_state) {
     //log_debug('user profile form alter');
     //log_debug('form: ', $form);
     global $user;
-    if ( !( ($user->uid == 1) || ($user->name == 'admin') || ($user->uid == 112) || ($user->uid == 115) ) ) {
+    $auth_type = $_SESSION['login_type'];
+    if ( $auth_type && ($auth_type == 'fb' || $auth_type == 'google') ) {
+	if ( !( ($user->uid == 1) || ($user->name == 'admin') || ($user->uid == 112) || ($user->uid == 115) ) ) {
 	    $form['account']['pass']['#type'] = 'hidden';
+	}
     }
 }
 
@@ -548,6 +552,16 @@ function _get_facebook_user_photo_square_from_cache($uid) {
 
 function _get_facebook($reset = false) {
     static $fb;
+    
+    if ($reset) {
+	$api_key = variable_get('safacebook_api_key', '');
+	$secret = variable_get('safacebook_secret', '');
+	//log_debug('api key is ', $api_key);
+	//log_debug('secret is ', $secret);
+	$fb=new Facebook($api_key,$secret);
+	//dd('returning new fb');
+	return $fb;
+    }
     
     //log_debug("get_facebook function. reset is ", $reset);
     //log_debug("current static facebook object: ", $fb);

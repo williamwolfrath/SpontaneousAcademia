@@ -1,0 +1,14 @@
+name = Apache Solr panels
+description = Integrates Apache Solr Search with Panels.
+dependencies[] = apachesolr_search
+dependencies[] = ctools
+package = Apache Solr
+core = 6.x
+version = 6.x-1.0-dev
+
+; Information added by drupal.org packaging script on 2010-08-28
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "apachesolr_panels"
+datestamp = "1282953771"
+

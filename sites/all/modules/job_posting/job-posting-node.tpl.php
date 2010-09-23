@@ -67,10 +67,5 @@
     <?php print $description; ?>
   </div>
   
-  <?php if (!empty($joblink)): ?>
-    <div class="job-posting-link">
-      <?php print $joblink; ?>
-    </div>
-  <?php endif; ?>
 <?php endif; ?>
 
