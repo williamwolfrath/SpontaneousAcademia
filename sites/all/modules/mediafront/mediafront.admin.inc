@@ -18,17 +18,26 @@ function mediafront_admin_page() {
  */
 function mediafront_presets_overview() {
   $presets = mediafront_preset_get_presets();
-  $header = array(t('Preset Name'), t('Description'), array('data' => t('Operations'), 'colspan' => '2'));
-  $rows = array(); 
-  foreach( $presets as $pid => $preset ) {
-      $row = array();
-      $row[] = check_plain($preset->name);
-      $row[] = array('data' => filter_xss_admin($preset->description), 'class' => 'description');
-      $row[] = array('data' => l(t('edit'), 'admin/build/mediafront/preset/manage/'. $preset->name));
-      $row[] = array('data' => l(t('delete'), 'admin/build/mediafront/preset/manage/'. $preset->name .'/delete'));
-      $rows[] = $row;  
+  if( count( $presets ) > 0 ) {
+    $header = array(t('Preset Name'), t('Description'), array('data' => t('Operations'), 'colspan' => '2'));
+    $rows = array();
+    foreach( $presets as $pid => $preset ) {
+        $row = array();
+        $row[] = check_plain($preset['name']);
+        $row[] = array('data' => filter_xss_admin($preset['description']), 'class' => 'description');
+        $row[] = array('data' => l(t('edit'), 'admin/build/mediafront/preset/manage/'. $preset['name']));
+        
+        if( !$preset['default'] ) {
+          $row[] = array('data' => l(t('delete'), 'admin/build/mediafront/preset/manage/'. $preset['name'] .'/delete'));
+        }
+
+        $rows[] = $row;
+    }
+    return theme('table', $header, $rows);
   }
-  return theme('table', $header, $rows);
+  else {
+    return 'No presets.  To add a new preset, click on the <strong>Add Preset</strong> button.';
+  }
 }
 
 function mediafront_preset_form(&$form_state, $preset) {
@@ -40,16 +49,17 @@ function mediafront_preset_form(&$form_state, $preset) {
    );
 
    // Set up the parameters for the player.
-   $params = array( 'admin' => true, 'player' => $preset->player, 'preset' => $preset->name );
-   $params = $preset->settings ? array_merge( $preset->settings, $params ) : $params;  
+   $preset = (array)$preset;
+   $params = array( 'admin' => true, 'player' => $preset['player'], 'preset' => $preset['name'] );
+   $params = $preset['settings'] ? array_merge( $preset['settings'], $params ) : $params;
 
    $form['preview']['player'] = array(
       '#type' => 'markup',
-      '#value' => mediafront_get_player($params) . '<br/><div class="mediadebug"></div>'
+      '#value' => mediafront_get_player($params)
    );
 
    // Get all of the settings for this player.
-   $preset->settings = mediafront_get_settings( $preset->player, $params ); 
+   $preset['settings'] = mediafront_get_settings( $preset['player'], $params );
 
    $form['settings'] = array(
       '#type' => 'fieldset',
@@ -68,22 +78,22 @@ function mediafront_preset_form(&$form_state, $preset) {
    );
    $form['settings']['preset']['pid'] = array(
       '#type' => 'value',
-      '#value' => $preset->pid,
+      '#value' => $preset['pid'],
    );   
    $form['settings']['preset']['name'] = array(
       '#type' => 'value',
-      '#value' => $preset->name,
+      '#value' => $preset['name'],
    );   
    $form['settings']['preset']['description'] = array(
       '#type' => 'textfield',
       '#title' => t('Description'),
       '#description' => t('Add a brief description to your preset name.'),
-      '#default_value' => $preset->description,
+      '#default_value' => $preset['description'],
       '#weight' => -9,
    );
    $form['settings']['preset']['player'] = array(
       '#type' => 'value',
-      '#value' => $preset->player,
+      '#value' => $preset['player'],
    );    
    
    $form['settings']['player_settings'] = array(
@@ -108,8 +118,8 @@ function mediafront_preset_form(&$form_state, $preset) {
    $result = mediafront_preset_get_presets();
    $presets = array();
    foreach( $result as $pid => $otherPreset ) {
-      if( $otherPreset->name != $preset->name ) {
-         $presets[$otherPreset->name] = $otherPreset->name;
+      if( $otherPreset['name'] != $preset['name'] ) {
+         $presets[$otherPreset['name']] = $otherPreset['name'];
       }
    }
 
@@ -118,7 +128,7 @@ function mediafront_preset_form(&$form_state, $preset) {
       '#multiple' => TRUE,
       '#title' => t('Make this preset the Control Bar for'),
       '#description' => t('Select which preset you would like to control using this preset.'),
-      '#default_value' => $preset->connect['iscontroller'],
+      '#default_value' => $preset['connect']['iscontroller'],
       '#options' => $presets
    );
 
@@ -127,7 +137,7 @@ function mediafront_preset_form(&$form_state, $preset) {
       '#multiple' => TRUE,
       '#title' => t('Make this preset the Playlist for'),
       '#description' => t('Select which preset you would like to play this playlist.'),
-      '#default_value' => $preset->connect['isplaylist'],
+      '#default_value' => $preset['connect']['isplaylist'],
       '#options' => $presets
    );
    
@@ -160,38 +170,39 @@ function mediafront_preset_validate($form, &$form_state) {
  * Submit handler for the preset form.
  */
 function mediafront_preset_submit($form, &$form_state) {
-  $preset->pid = $form_state['values']['pid'];
-  $preset->name = $form_state['values']['name'];
-  $preset->description = $form_state['values']['description'];
-  $preset->player = $form_state['values']['player']; 
-  $preset->connect = array(
+  $preset = array();
+  $preset['pid'] = $form_state['values']['pid'];
+  $preset['name'] = $form_state['values']['name'];
+  $preset['description'] = $form_state['values']['description'];
+  $preset['player'] = $form_state['values']['player'];
+  $preset['connect'] = array(
      'iscontroller' => $form_state['values']['iscontroller'],
      'isplaylist' => $form_state['values']['isplaylist']
   );
   
   // Now set the player settings that are only different from the defaults.  
-  $preset->settings = mediafront_get_params( $preset->player, $form_state['values'], false );
+  $preset['settings'] = mediafront_get_params( $preset['player'], $form_state['values'], false );
 
   // Save this preset.
   mediafront_preset_save( $preset );
-  $form_state['redirect'] = 'admin/build/mediafront/preset/manage/' . $preset->name;
+  $form_state['redirect'] = 'admin/build/mediafront/preset/manage/' . $preset['name'];
 }
 
 /**
  * Button sumit function: handle the 'Delete' button on the preset form.
  */
 function mediafront_preset_delete_submit($form, &$form_state) {
-  $preset->name = $form_state['values']['name'];
-  $form_state['redirect'] = 'admin/build/mediafront/preset/manage/' . $preset->name . '/delete';
+  $preset['name'] = $form_state['values']['name'];
+  $form_state['redirect'] = 'admin/build/mediafront/preset/manage/' . $preset['name'] . '/delete';
 }
 
 /**
  * Menu callback; delete a single preset.
  */
 function mediafront_preset_delete_confirm(&$form_state, $preset) {
-  $form['name'] = array('#type' => 'value', '#value' => $preset->name);
-  $message = t('Are you sure you want to delete the preset %name?', array('%name' => $preset->name));
-  $caption .= '<p>' . t('This action cannot be undone.') . '</p>';
+  $form['name'] = array('#type' => 'value', '#value' => $preset['name']);
+  $message = t('Are you sure you want to delete the preset %name?', array('%name' => $preset['name']));
+  $caption = '<p>' . t('This action cannot be undone.') . '</p>';
   return confirm_form($form, $message, 'admin/build/mediafront/preset', $caption, t('Delete'));
 }
 
@@ -274,6 +285,7 @@ function mediafront_create_preset_validate($form, &$form_state) {
  */
 function mediafront_create_preset_submit($form, &$form_state) {
   $preset = $form_state['values'];
+  $preset['name'] = strtolower( $preset['name'] );
   mediafront_preset_save($preset);
   $form_state['redirect'] = 'admin/build/mediafront/preset/manage/' . $preset['name'];
 }

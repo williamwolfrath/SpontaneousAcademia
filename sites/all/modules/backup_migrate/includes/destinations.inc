@@ -1,5 +1,5 @@
 <?php
-// $Id: destinations.inc,v 1.1.2.1.2.23 2009/10/17 19:53:20 ronan Exp $
+// $Id: destinations.inc,v 1.1.2.1.2.25 2009/12/14 05:06:42 ronan Exp $
 
 
 /**
@@ -257,14 +257,14 @@ function backup_migrate_ui_destination_display_files($destination_id = NULL) {
     $headers = array(
       array('data' => 'Filename', 'field' => 'filename'),
       array('data' => 'Date', 'field' => 'filetime'),
-      array('data' => 'Age',  'field' => 'filetime'),
+      array('data' => 'Age',  'field' => 'filetime', 'sort' => 'desc'),
       array('data' => 'Size', 'field' => 'filesize'),
       t('Operations'),
     );
 
     $sort_order = tablesort_get_order($headers);
-    $sort_key   = $sort_order['sql'] ? $sort_order['sql'] : 'filename';
-    $sort_dir   = tablesort_get_sort($headers) == 'asc' ? SORT_ASC : SORT_DESC;
+    $sort_key   = $sort_order['sql'] ? $sort_order['sql'] : 'filetime';
+    $sort_dir   = tablesort_get_sort($headers) == 'desc' ? SORT_DESC : SORT_ASC;
 
     $files      = $destination->list_files();
 
@@ -486,13 +486,23 @@ class backup_migrate_destination extends backup_migrate_item {
   function ops() {
     return $this->supported_ops;
   }
-
+  
   /**
    * Does this destination support the given operation.
    */
   function op($op) {
     $ops = (array)$this->ops();
     return in_array($op, $ops);
+  }
+
+  /**
+   * Remove the given op from the support list.
+   */
+  function remove_op($op) {
+    $key = array_search($op, $this->supported_ops);
+    if ($key !== FALSE) {
+      unset($this->supported_ops[$key]);
+    }
   }
 
   function get_name() {

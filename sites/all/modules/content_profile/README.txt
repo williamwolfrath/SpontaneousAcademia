@@ -1,4 +1,4 @@
-$Id: README.txt,v 1.1.2.9 2009/11/03 14:20:17 fago Exp $
+$Id: README.txt,v 1.1.2.11 2010/01/12 12:08:49 fago Exp $
 
 
 -----------------------
@@ -21,6 +21,19 @@ Installation
    you to mark a content type as profile.
  * When you edit a profile content type there will be a further tab "Content profile",
    which provides content profile specific settings.
+   
+
+ Warning:
+---------
+ The module uses drupal's content or "nodes" for user profiles, so the access
+ permissions applied to view the content profiles are the regular node related
+ permissions.
+ That means the "access user profiles" permission of the user module still
+ applies only to the user account pages at "user/UID" but not to content profiles,
+ which can be viewed at node/NID too. Still you can use any regular node access
+ module to restrict access to your content profiles, e.g. you may use the Content
+ Access module for that (http://drupal.org/project/content_access).
+
 
 
 Content profiles per role:
@@ -151,6 +164,7 @@ the form of one or more content profile into the user registration page.
 Installation 
 ------------
  * Activiate the module.
+ * Be sure to read the usage notes below!
  
  
  Usage:
@@ -205,7 +219,12 @@ Installation
 
  * Putting file uploads on the registration form is not supported and probably won't work right.
  
+ * The CCK "Add more fields" feature is only working for users with javascript turned on in the
+   registration form. Users without javascript won't be able to add more fields. Interested developers
+   can find the related issue (in drupal itself) here: http://drupal.org/node/634984
  
+ 
+  
 -----------------------
 Content Profile Tokens
 -----------------------

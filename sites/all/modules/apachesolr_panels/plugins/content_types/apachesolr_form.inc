@@ -127,9 +127,14 @@ function apachesolr_panels_apachesolr_form_content_type_edit_form_submit(&$form,
 }
 
 /**
- * Form alter the submit/validate onto our customized search form.
+ * Implementation of hook_form_FORM_ID_alter().
  */
 function apachesolr_panels_form_apachesolr_panels_search_form_alter(&$form, &$form_state) {
   $form['#validate'] = array('search_form_validate');
   $form['#submit'] = array('search_form_submit');
+
+  // Support the Apache Solr Autocomplete module if it exists.
+  if (module_exists('apachesolr_autocomplete')) {
+    $form['basic']['inline']['keys']['#autocomplete_path'] = 'apachesolr_autocomplete';
+  }
 }

@@ -1,5 +1,5 @@
 <?php
-// $Id: crud.inc,v 1.1.2.6 2009/10/17 18:47:19 ronan Exp $
+// $Id: crud.inc,v 1.1.2.9 2009/12/09 22:07:42 ronan Exp $
 
 /**
  * @file
@@ -252,7 +252,7 @@ class backup_migrate_item {
    */  
   function delete() {
     $keys = (array)$this->get_primary_key();
-    db_query("DELETE FROM {$this->db_table} WHERE $keys[0] = '%s'", $this->get_id());
+    db_query("DELETE FROM {{$this->db_table}} WHERE $keys[0] = '%s'", $this->get_id());
   }
 
 
@@ -277,8 +277,10 @@ class backup_migrate_item {
     $out = array();
     // Return fields as specified in the schema.
     $schema = $this->get_schema();
-    foreach ($schema['fields'] as $field => $info) {
-      $out[$field] = $this->get($field);
+    if (!empty($schema['fields']) && is_array($schema['fields'])) {
+      foreach ($schema['fields'] as $field => $info) {
+        $out[$field] = $this->get($field);
+      }
     }
     return $out;
   }
@@ -392,15 +394,16 @@ class backup_migrate_item {
 
     $item_id = $this->get_id();
 
-    if (@$this->storage == BACKUP_MIGRATE_STORAGE_DB) {
+    if (@$this->storage == BACKUP_MIGRATE_STORAGE_DB || @$this->storage == BACKUP_MIGRATE_STORAGE_OVERRIDEN) {
       $out['edit'] = l(t("edit"), "admin/content/backup_migrate/$this->type_name/list/edit/$item_id");
-      $out['delete'] = l(t("delete"), "admin/content/backup_migrate/$this->type_name/list/delete/$item_id");
     }
-    else {
+    else if (@$this->storage == BACKUP_MIGRATE_STORAGE_NONE) {
       $out['edit'] = l(t("override"), "admin/content/backup_migrate/$this->type_name/list/edit/$item_id");
     }
-
-    if (@$this->storage == BACKUP_MIGRATE_STORAGE_OVERRIDEN) {
+    if (@$this->storage == BACKUP_MIGRATE_STORAGE_DB) {
+      $out['delete'] = l(t("delete"), "admin/content/backup_migrate/$this->type_name/list/delete/$item_id");
+    }
+    else if (@$this->storage == BACKUP_MIGRATE_STORAGE_OVERRIDEN) {
       $out['delete'] = l(t("revert"), "admin/content/backup_migrate/$this->type_name/list/delete/$item_id");
     }
 

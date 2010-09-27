@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.1.2.3.4.1 2008/10/29 02:38:35 arthuregg Exp $
+// $Id: README.txt,v 1.1.2.3.4.2 2008/12/31 00:09:52 arthuregg Exp $
 
 SWFObject_api Module
 
@@ -49,4 +49,17 @@ Advanced Usage
  $param['class']
 
  You can change the "No flash detected" message with
- $param['no_flash']
+ $param['no_flash'] = t('No flash for you');
+ 
+ You can also pass text and a drupal filter to the no_flash option:
+ $param['no_flash'] = array( 
+   'text' => t('This is your text'),
+   'filter' => 3, // drupal filter id
+  );
+  
+  You can pass php to this variable as well.
+  
+ 
+ 
+ 
+ 

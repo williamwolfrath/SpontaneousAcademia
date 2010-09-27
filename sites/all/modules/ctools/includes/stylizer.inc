@@ -1,5 +1,5 @@
 <?php
-// $Id: stylizer.inc,v 1.1.2.10 2010/07/26 17:24:29 merlinofchaos Exp $
+// $Id: stylizer.inc,v 1.1.2.11 2010/08/25 20:22:22 merlinofchaos Exp $
 /**
  * @file
  * Create customized CSS and images from palettes created by user input.
@@ -1649,4 +1649,56 @@ function ctools_stylizer_padding_apply_style(&$stylesheet, $selector, $settings)
     $stylesheet .= $selector . " {\n" . $css . "}\n";
   }
 
+}
+
+/**
+ * Check to see that a directory exists.
+ *
+ * This is an exact copy of core's, but without the stupid drupal_set_message
+ * because we need this to be silent.
+ *
+ * @todo this should probably be in another file.
+ */
+function ctools_file_check_directory(&$directory, $mode = 0, $form_item = NULL) {
+  $directory = rtrim($directory, '/\\');
+
+  // Check if directory exists.
+  if (!is_dir($directory)) {
+    if (($mode & FILE_CREATE_DIRECTORY) && @mkdir($directory)) {
+      @chmod($directory, 0775); // Necessary for non-webserver users.
+    }
+    else {
+      if ($form_item) {
+        form_set_error($form_item, t('The directory %directory does not exist.', array('%directory' => $directory)));
+      }
+      return FALSE;
+    }
+  }
+
+  // Check to see if the directory is writable.
+  if (!is_writable($directory)) {
+    if (($mode & FILE_MODIFY_PERMISSIONS) && @chmod($directory, 0775)) {
+      drupal_set_message(t('The permissions of directory %directory have been changed to make it writable.', array('%directory' => $directory)));
+    }
+    else {
+      form_set_error($form_item, t('The directory %directory is not writable', array('%directory' => $directory)));
+      watchdog('file system', 'The directory %directory is not writable, because it does not have the correct permissions set.', array('%directory' => $directory), WATCHDOG_ERROR);
+      return FALSE;
+    }
+  }
+
+  if ((file_directory_path() == $directory || file_directory_temp() == $directory) && !is_file("$directory/.htaccess")) {
+    $htaccess_lines = "SetHandler Drupal_Security_Do_Not_Remove_See_SA_2006_006\nOptions None\nOptions +FollowSymLinks";
+    if (($fp = fopen("$directory/.htaccess", 'w')) && fputs($fp, $htaccess_lines)) {
+      fclose($fp);
+      chmod($directory .'/.htaccess', 0664);
+    }
+    else {
+      $variables = array('%directory' => $directory, '!htaccess' => '<br />'. nl2br(check_plain($htaccess_lines)));
+      form_set_error($form_item, t("Security warning: Couldn't write .htaccess file. Please create a .htaccess file in your %directory directory which contains the following lines: <code>!htaccess</code>", $variables));
+      watchdog('security', "Security warning: Couldn't write .htaccess file. Please create a .htaccess file in your %directory directory which contains the following lines: <code>!htaccess</code>", $variables, WATCHDOG_ERROR);
+    }
+  }
+
+  return TRUE;
 }

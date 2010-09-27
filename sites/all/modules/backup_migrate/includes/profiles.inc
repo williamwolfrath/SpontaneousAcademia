@@ -1,5 +1,5 @@
 <?php
-// $Id: profiles.inc,v 1.1.2.1.2.19 2009/08/22 19:58:13 ronan Exp $
+// $Id: profiles.inc,v 1.1.2.1.2.20 2009/11/27 19:29:40 ronan Exp $
 
 
 /**
@@ -222,6 +222,20 @@ class backup_migrate_profile extends backup_migrate_item {
       }
     }
     return $row;
+  }
+
+  /**
+   * Set the source of this setings profile. Takes either a source object or source id.
+   */
+  function set_source($source) {
+    if (is_object($source)) {
+      $this->source = $source;
+      $this->source_id = $source->get_id();
+    }
+    else {
+      $this->source_id = $source;
+      unset($this->source);
+    }
   }
 
   /**

@@ -1,5 +1,5 @@
 <?php
-// $Id: custom.inc,v 1.9.2.11 2010/07/09 14:37:58 merlinofchaos Exp $
+// $Id: custom.inc,v 1.9.2.14 2010/09/10 18:25:13 merlinofchaos Exp $
 
 /**
  * @file
@@ -69,6 +69,7 @@ function _ctools_default_content_type_content_type() {
     'description' => t('Create a completely custom piece of HTML content.'),
     'edit form' => 'ctools_custom_content_type_edit_form',
     'all contexts' => TRUE,
+    'check editable' => 'ctools_custom_content_type_editable',
   );
 
   return $info;
@@ -118,6 +119,7 @@ function ctools_custom_content_type_get_conf($subtype, $conf) {
         $settings = $content->settings;
         $settings['custom_type'] = 'fixed';
         $settings['content'] = $content;
+        $settings['admin_title'] = $content->admin_title;
       }
       else {
         $content = ctools_export_crud_new('ctools_custom_content');
@@ -142,6 +144,14 @@ function ctools_custom_content_type_get_conf($subtype, $conf) {
   }
 
   return $settings;
+}
+
+function ctools_custom_content_type_editable($content_type, $subtype, $conf) {
+  if ($subtype['name'] == 'custom' && !empty($conf['name'])) {
+    return FALSE;
+  }
+
+  return TRUE;
 }
 
 /**
@@ -256,10 +266,19 @@ function ctools_custom_content_type_edit_form(&$form, &$form_state) {
   $form['body_field']['format'] = filter_form($settings['format'], 1, $parents);
 
   if (!empty($form_state['contexts'])) {
+    // Set extended description if both CCK and Token modules are enabled, notifying of unlisted keywords
+    if (module_exists('content') && module_exists('token')) {
+      $description = t('If checked, context keywords will be substituted in this content. Note that CCK fields may be used as keywords using patterns like <em>%node:field_name-formatted</em>.');
+    } elseif (!module_exists('token')) {
+      $description = t('If checked, context keywords will be substituted in this content. More keywords will be available if you install the Token module, see http://drupal.org/project/token.');
+    } else {
+      $description = t('If checked, context keywords will be substituted in this content.');
+    }
+
     $form['substitute'] = array(
       '#type' => 'checkbox',
       '#title' => t('Use context keywords'),
-      '#description' => t('If checked, context keywords will be substituted in this content.'),
+      '#description' => $description,
       '#default_value' => !empty($settings['substitute']),
     );
     $form['contexts'] = array(
@@ -282,7 +301,7 @@ function ctools_custom_content_type_edit_form(&$form, &$form_state) {
     $form['contexts']['context'] = array('#value' => theme('table', $header, $rows));
   }
 
-  if (!user_access('administer custom content')) {
+  if (!user_access('administer custom content') || !module_exists('ctools_custom_content')) {
     return;
   }
 

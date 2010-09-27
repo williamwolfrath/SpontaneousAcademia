@@ -166,7 +166,7 @@ function kosmos_search($op = 'search', $keys = NULL) {
           $filters,
           $solrsort,
           // START MODIFICATION
-          'kosmos-search', $page);
+          'search-kosmos', $page);
           // END
         return $results;
       }
@@ -355,10 +355,18 @@ function kosmos_people_search_form($form_state) {
 }
 
 
-function kosmos_search_form_submit($form, $form_state) {
-   //dd('submit function');
+function kosmos_search_page_form_submit($form, $form_state) {
+    //dd('submit function');
     //dd($form['#post']['terms']);
-    drupal_goto('kosmos-search/' . $form['#post']['terms']);
+    drupal_goto('search-kosmos/' . $form['#post']['terms']);
+}
+
+
+// some redundancy here with all these similar submits - going to rework when I have time...
+function kosmos_search_form_submit($form, $form_state) {
+    //dd('submit function');
+    //dd($form['#post']['terms']);
+    drupal_goto('search-kosmos/' . $form['#post']['terms']);
 }
 
 
@@ -374,13 +382,18 @@ function ihsgeneral_block($op='list', $delta=0) {
     switch ($op) {
     case 'list':
       $block[0]['info'] = t('Kosmos Search Block');
+      $block[1]['info'] = t('Kosmos Search Form and Results');
       return $block;
     case 'view':
       switch ($delta) {
         case 0: 
-          $block['subject'] = t('Kosmos Search');
-          $block['content'] = drupal_get_form('kosmos_search_form');
+	    $block['subject'] = t('Kosmos Search');
+	    $block['content'] = drupal_get_form('kosmos_search_form');
           break;
+	case 1:
+	    $block['subject'] = t('Kosmos Search');
+	    $block['content'] = ihsgeneral_kosmos_search();
+	    break;
       }
       return $block;
   }

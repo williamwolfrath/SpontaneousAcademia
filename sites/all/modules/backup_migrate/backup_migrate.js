@@ -1,26 +1,28 @@
-// $Id: backup_migrate.js,v 1.1.2.1.2.4 2009/07/08 04:07:00 ronan Exp $
+// $Id: backup_migrate.js,v 1.1.2.1.2.5 2009/11/18 17:51:09 ronan Exp $
 
 Drupal.backup_migrate = {
   callbackURL : "",  
   autoAttach  : function() {
-    if ($("#edit-save-settings").length && !$("#edit-save-settings").attr("checked")) {
-      // Disable input and hide its description.
-      // Set display none instead of using hide(), because hide() doesn't work when parent is hidden.
-      $('div.backup-migrate-save-options').css('display', 'none');
+    if (Drupal.settings.backup_migrate !== undefined) {
+      if ($("#edit-save-settings").length && !$("#edit-save-settings").attr("checked")) {
+        // Disable input and hide its description.
+        // Set display none instead of using hide(), because hide() doesn't work when parent is hidden.
+        $('div.backup-migrate-save-options').css('display', 'none');
+      }
+  
+      $("#edit-save-settings").bind("click", function() {
+        if (!$("#edit-save-settings").attr("checked")) {
+          $("div.backup-migrate-save-options").slideUp('slow');
+        }
+        else {
+          // Save unchecked; enable input.
+          $("div.backup-migrate-save-options").slideDown('slow');
+        }
+      });
+  
+      $('#edit-filters-exclude-tables').after('<div class="description backup-migrate-checkbox-link"><a href="javascript:Drupal.backup_migrate.selectToCheckboxes(\''+ 'exclude_tables' +'\');">'+ Drupal.settings.backup_migrate.checkboxLinkText +'</a></div>');
+      $('#edit-filters-nodata-tables').after('<div class="description backup-migrate-checkbox-link"><a href="javascript:Drupal.backup_migrate.selectToCheckboxes(\''+ 'nodata_tables' +'\');">'+ Drupal.settings.backup_migrate.checkboxLinkText +'</a></div>');
     }
-
-    $("#edit-save-settings").bind("click", function() {
-      if (!$("#edit-save-settings").attr("checked")) {
-        $("div.backup-migrate-save-options").slideUp('slow');
-      }
-      else {
-        // Save unchecked; enable input.
-        $("div.backup-migrate-save-options").slideDown('slow');
-      }
-    });
-
-    $('#edit-exclude-tables').after('<div class="description backup-migrate-checkbox-link"><a href="javascript:Drupal.backup_migrate.selectToCheckboxes(\''+ 'exclude_tables' +'\');">'+ Drupal.settings.backup_migrate.checkboxLinkText +'</a></div>');
-    $('#edit-nodata-tables').after('<div class="description backup-migrate-checkbox-link"><a href="javascript:Drupal.backup_migrate.selectToCheckboxes(\''+ 'nodata_tables' +'\');">'+ Drupal.settings.backup_migrate.checkboxLinkText +'</a></div>');
   },
 
   processCheckboxes : function(ctxt) {
@@ -39,7 +41,7 @@ Drupal.backup_migrate = {
   },
 
   selectToCheckboxes : function(field) {
-    var field_id = 'edit-'+ field.replace('_', '-');
+    var field_id = 'edit-filters-'+ field.replace('_', '-') ;
     var $select = $('#'+ field_id);
     var $checkboxes = $('<div></div>').addClass('backup-migrate-tables-checkboxes');
     $('option', $select).each(function(i) {

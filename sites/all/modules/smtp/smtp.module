@@ -1,5 +1,5 @@
 <?php
-// $Id: smtp.module,v 1.17.2.8 2008/09/23 22:03:01 oadaeh Exp $
+// $Id: smtp.module,v 1.17.2.21 2010/08/04 17:52:04 franz Exp $
 
 /**
  * @file
@@ -38,12 +38,21 @@ function smtp_menu() {
     'title'            => 'SMTP Authentication Support',
     'page callback'    => 'drupal_get_form',
     'page arguments'   => array('smtp_admin_settings'),
-    'access arguments' => array('administer site configuration'),
+    'access arguments' => array('administer smtp module'),
     'description'      => 'Allows the sending of site e-mail through an SMTP server of your choice.',
   );
 
   return $items;
 }  //  End of smtp_menu().
+
+
+
+/**
+ * Implementation of hook_perm().
+ */
+function smtp_perm() {
+  return array('administer smtp module');
+}  //  End of smtp_perm().
 
 
 
@@ -55,21 +64,27 @@ function smtp_menu() {
  */
 function smtp_admin_settings() {
   // Override the smtp_library variable.
-  if (variable_get('smtp_on', 0)) {
-    $smtp_path = drupal_get_filename('module', 'smtp');
-    if ($smtp_path) {
-      variable_set('smtp_library', $smtp_path);
-      drupal_set_message(t('SMTP.module is active.'));
-    }
-    // If drupal can't find the path to the module, display an error.
-    else {
-      drupal_set_message(t("SMTP.module error: Can't find file."), 'error');
-    }
+  if (module_exists('mimemail') &&
+      strpos(variable_get('smtp_library', ''), 'mimemail')) {
+    // don't touch smtp_library
   }
-  // If this module is turned off, delete the variable.
   else {
-    variable_del('smtp_library');
-    drupal_set_message(t('SMTP.module is INACTIVE.'));
+    if (variable_get('smtp_on', 0)) {
+      $smtp_path = drupal_get_filename('module', 'smtp');
+      if ($smtp_path) {
+        variable_set('smtp_library', $smtp_path);
+        drupal_set_message(t('SMTP.module is active.'));
+      }
+      // If drupal can't find the path to the module, display an error.
+      else {
+        drupal_set_message(t("SMTP.module error: Can't find file."), 'error');
+      }
+    }
+    // If this module is turned off, delete the variable.
+    else {
+      variable_del('smtp_library');
+      drupal_set_message(t('SMTP.module is INACTIVE.'));
+    }
   }
 
   $form['onoff'] = array(
@@ -143,10 +158,10 @@ function smtp_admin_settings() {
     '#description'   => t('SMTP Username.'),
   );
   $form['auth']['smtp_password'] = array(
-    '#type'          => 'textfield',
+    '#type'          => 'password',
     '#title'         => t('Password'),
     '#default_value' => variable_get('smtp_password', ''),
-    '#description'   => t('SMTP password.'),
+    '#description'   => t('SMTP password. Leave blank if you don\'t wish to change it.'),
   );
 
   $form['email_options'] = array(
@@ -220,6 +235,11 @@ function smtp_admin_settings_validate($form, &$form_state) {
   if ($form_state['values']['smtp_from'] && !valid_email_address($form_state['values']['smtp_from'])) {
     form_set_error('smtp_from', t('The provided from e-mail address is not valid.'));
   }
+  // A little hack. When form is presentend, the password is not shown (Drupal way of doing).
+  // So, if user submits the form without changing the password, we mus prevent it from being reset.
+  if (empty($form_state['values']['smtp_password'])) {
+    unset($form_state['values']['smtp_password']);
+  }
 }  //  End of smtp_admin_settings_validate().
 
 
@@ -233,7 +253,7 @@ function smtp_admin_settings_validate($form, &$form_state) {
  *
  * @see drupal_mail_send()
  */
-function drupal_mail_wrapper($message) {
+function smtp_drupal_mail_wrapper($message) {
   $id       = $message['id'];
   $to       = $message['to'];
   $from     = $message['from'];
@@ -276,6 +296,21 @@ function drupal_mail_wrapper($message) {
     $from_name = variable_get('site_name', '');
   }
 
+  //Hack to fix reply-to issue.
+  $properfrom = variable_get('site_mail', '');
+  if (!empty($properfrom)) {
+    $headers['From'] = $properfrom;
+  }
+  if (!isset($headers['Reply-To']) || empty($headers['Reply-To'])) {
+    if (strpos($from, '<')) {
+      $reply = preg_replace('/>.*/', '', preg_replace('/.*</','',$from));
+    }
+    else {
+      $reply = $from;
+    }
+    $headers['Reply-To'] = $reply;
+  }
+
   // Blank value will let the e-mail address appear.
 
   if ($from == NULL || $from == '') {
@@ -300,10 +335,10 @@ function drupal_mail_wrapper($message) {
     }
   }
  */
-  if (preg_match('/^".*"\s*<.*>$/', $from)) {
+  if (preg_match('/^"?.*"?\s*<.*>$/', $from)) {
     // . == Matches any single character except line break characters \r and \n.
     // * == Repeats the previous item zero or more times.
-    $from_name = preg_replace('/"(.*)"(.*)/i',   '$1', $from); // It gives: Name
+    $from_name = preg_replace('/"?([^("\s)]*)"?.*$/', '$1', $from); // It gives: Name
     $from      = preg_replace("/(.*)\<(.*)\>/i", '$2', $from); // It gives: name@domain.tld
   }
   elseif (!valid_email_address($from)) {
@@ -353,56 +388,79 @@ function drupal_mail_wrapper($message) {
         break;
 
       case 'content-type':
-        if (strpos(drupal_strtolower($value), 'text/plain') !== FALSE) {
-          // The message includes only a plain text part.
-          $mail->IsHTML(FALSE);
+  // Parse several values on the Content-type header, storing them in an array like
+  // key=value -> $vars['key']='value'
+  $vars = explode('; ', $value);
+  foreach ($vars as $i => $var) {
+    if ($cut = strpos($var, '=')) {
+      $new_var = drupal_strtolower(drupal_substr($var, $cut + 1));
+      $new_key = drupal_substr($var, 0, $cut);
+      unset($vars[$i]);
+      $vars[$new_key] = $new_var;
+    }
+  }
 
-          // Set the charset based on the provided value, if there is one.
-          $charset = _smtp_get_substring($value, 'charset', '=', ';');
-          if ($charset) {
-            $mail->CharSet = $charset;
-          }
+        // Set the charset based on the provided value, if there is one.
+        $charset = $vars['charset'];
+        if ($charset) {
+          $mail->CharSet = $charset;
+        }
+  switch ($vars[0]) {
+    case 'text/plain':
+            // The message includes only a plain text part.
+            $mail->IsHTML(FALSE);
+            $content_type = 'text/plain';
+      break;
+          case 'text/html':
+            // The message includes only an HTML part.
+            $mail->IsHTML(TRUE);
+            $content_type = 'text/html';
+          break;
+          case 'multipart/related':
+            // Get the boundary ID from the Content-Type header.
+            $boundary = _smtp_get_substring($value, 'boundary', '"', '"');
+            
+            // The message includes an HTML part w/inline attachments.
+            $mail->ContentType = $content_type = 'multipart/related; boundary="'. $boundary .'"';
+          break;
+          case 'multipart/alternative':
+            // The message includes both a plain text and an HTML part.
+            $mail->ContentType = $content_type = 'multipart/alternative';
 
-          $content_type = 'text/plain';
-        }
-        elseif (strpos(drupal_strtolower($value), 'text/html') !== FALSE) {
-          // The message includes only an HTML part.
-          $mail->IsHTML(TRUE);
-          $content_type = 'text/html';
-        }
-        elseif (strpos(drupal_strtolower($value), 'multipart/related') !== FALSE) {
-          // The message includes an HTML part w/inline attachments.
-          $mail->ContentType = $content_type = 'multipart/related';
-        }
-        elseif (strpos(drupal_strtolower($value), 'multipart/alternative') !== FALSE) {
-          // The message includes both a plain text and an HTML part.
-          $mail->ContentType = $content_type = 'multipart/alternative';
+            // Get the boundary ID from the Content-Type header.
+            $boundary = _smtp_get_substring($value, 'boundary', '"', '"');
+          break;
+          case 'multipart/mixed':
+            // The message includes one or more attachments.
+            $mail->ContentType = $content_type = 'multipart/mixed';
 
-          // Get the boundary ID from the Content-Type header.
-          $boundary = _smtp_get_substring($value, 'boundary', '"', '"');
-        }
-        elseif (strpos(drupal_strtolower($value), 'multipart/mixed') !== FALSE) {
-          // The message includes one or more attachments.
-          $mail->ContentType = $content_type = 'multipart/mixed';
+            // Get the boundary ID from the Content-Type header.
+            $boundary = _smtp_get_substring($value, 'boundary', '"', '"');
+          break;
+          default:
+            // Everything else is unsuppored by PHPMailer.
+            drupal_set_message(t('The Content-Type of your message is not supported by PHPMailer and will be sent as text/plain instead.'), 'error');
+            watchdog('smtp', 'The Content-Type of your message is not supported by PHPMailer and will be sent as text/plain instead.', array(), WATCHDOG_ERROR);
 
-          // Get the boundary ID from the Content-Type header.
-          $boundary = _smtp_get_substring($value, 'boundary', '"', '"');
-        }
-        else {
-          // Everything else is unsuppored by PHPMailer.
-          drupal_set_message(t('The Content-Type of your message is not supported by PHPMailer and will be sent as text/plain instead.'), 'error');
-          watchdog('smtp', 'The Content-Type of your message is not supported by PHPMailer and will be sent as text/plain instead.', array(), WATCHDOG_ERROR);
-
-          // Force the Content-Type to be text/plain.
-          $mail->IsHTML(FALSE);
-          $content_type = 'text/plain';
-        }
+            // Force the Content-Type to be text/plain.
+            $mail->IsHTML(FALSE);
+            $content_type = 'text/plain';
+  }
         break;
 
       case 'reply-to':
         // Only add a "reply-to" if it's not the same as "return-path".
         if ($value != $headers['Return-Path']) {
-          $mail->AddReplyTo($value);
+          if (strpos($value, '<') !== FALSE) {
+            $replyToParts = explode('<', $value);
+            $replyToName = trim($replyToParts[0]);
+            $replyToName = trim($replyToName, '"');
+            $replyToAddr = rtrim($replyToParts[1], '>');
+            $mail->AddReplyTo($replyToAddr, $replyToName);
+          }
+          else {
+            $mail->AddReplyTo($value);
+          }
         }
         break;
 
@@ -594,7 +652,7 @@ function drupal_mail_wrapper($message) {
 
           if (file_exists($file_path)) {
             if (!$mail->AddAttachment($file_path, $file_name, $file_encoding, $filetype)) {
-              drupal_set_message('Attahment could not be found or accessed.');
+              drupal_set_message(t('Attahment could not be found or accessed.'));
             }
           }
           else {
@@ -615,7 +673,7 @@ function drupal_mail_wrapper($message) {
             $file_path               = file_save_data($attachment, $attachment_new_filename, FILE_EXISTS_RENAME);
 
             if (!$mail->AddAttachment($file_path, $file_name)) { // , $file_encoding, $filetype);
-              drupal_set_message('Attachment could not be found or accessed.');
+              drupal_set_message(t('Attachment could not be found or accessed.'));
             }
           }
         }
@@ -672,7 +730,7 @@ function drupal_mail_wrapper($message) {
 
   $mail->SmtpClose();
   return TRUE;
-}  //  End of drupal_mail_wrapper().
+}  //  End of smtp_drupal_mail_wrapper().
 
 
 
@@ -788,3 +846,69 @@ function _smtp_get_substring($source, $target, $beginning_character, $ending_cha
 
   return $substring;
 }  //  End of _smtp_get_substring().
+
+if (!strpos(variable_get('smtp_library', ''), 'mimemail') &&
+      !function_exists('drupal_mail_wrapper') ) {
+
+  function drupal_mail_wrapper($message) {
+    return smtp_drupal_mail_wrapper($message);
+  }
+}
+
+if (module_exists('mimemail')) {
+/**
+ * hook_mailengine for SMTP/MIMEMAIL integration
+ *
+ * @param $op
+ *   The operation to perform on the message.
+ * @param $message
+ *   The message to be sent.
+ * @return
+ *   Returns TRUE if the operation was successful or FALSE if it was not.
+ */
+function smtp_mailengine($op, $message = array()) {
+  //default values
+  $message = array_merge( array(
+      'address' => '',
+      'subject' => '',
+      'body' => '',
+      'sender' => '',
+      'headers' => '',
+      ), $message);
+  switch ($op) {
+    case 'name':
+      return t('SMTP');
+
+    case 'description':
+      return t("SMTP mailing engine using SMTP authenticaion.");
+
+    case 'settings': //not implemented
+      return FALSE;
+
+    case 'multiple':
+    case 'single':
+    case 'send':
+      if (!is_array($message['address'])) {
+        $message['address'] = array($message['address']);
+      }
+      $status = TRUE;
+      $message['headers']['Content-Type'] = str_replace('multipart/alternative', 'multipart/mixed', $message['headers']['Content-Type']);
+      foreach ($message['address'] as $to) {
+        $status = smtp_drupal_mail_wrapper(
+          array(
+              'id' => $message['id'],
+              'to' => $to,
+              'from' => $message['headers']['From'],
+              'language' => $message['language'] ? $message['language'] : '',
+              'subject'  => $message['subject'],
+              'body'     => str_replace("\r", '', $message['body']),
+              'headers'  => $message['headers'],
+            )
+        ) && $status;
+      }
+      return $status;
+  }
+  return FALSE;
+}
+
+} // if (!module_exists('mimemail'))

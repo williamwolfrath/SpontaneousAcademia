@@ -1,0 +1,71 @@
+# $Id: get_content_type.pot,v 1.1.4.1 2008/03/03 18:14:23 nancyw Exp $ 
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from file: get_content_type.info,v 1.1 2008/01/30 18:04:40 nancyw
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2008-01-30 13:37-0500\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: get_content_type.module:53
+msgid "There were no nodes found of the @type type."
+msgstr ""
+
+#: get_content_type.module:67
+msgid "Content types"
+msgstr ""
+
+#: get_content_type.module:68
+msgid "Choose the content types you wish to display."
+msgstr ""
+
+#: get_content_type.module:74
+msgid "Show teaser"
+msgstr ""
+
+#: get_content_type.module:75
+msgid "Show the content in teaser format."
+msgstr ""
+
+#: get_content_type.module:82
+msgid "How many per page"
+msgstr ""
+
+#: get_content_type.module:83
+msgid "The display will be formatted into a series of pages with this many posts per page."
+msgstr ""
+
+#: get_content_type.module:90
+msgid "Show my selections"
+msgstr ""
+
+#: get_content_type.module:129
+msgid "List nodes of a specified type."
+msgstr ""
+
+#: get_content_type.module:144
+msgid "The get_content_type module fills an oversight by the D5 developers. When they moved the part of CCK (sometimes called CCK-Lite) into core for creating new content types, they forgot the analog to \"taxonomy/term/xxx,\" that is \"node/type/xxx.\" This simple module provides that function."
+msgstr ""
+
+#: get_content_type.module:0
+msgid "get_content_type"
+msgstr ""
+
+#: get_content_type.info:0
+msgid "Get Content Type"
+msgstr ""
+
+#: get_content_type.info:0
+msgid "Selects nodes by content type and displays them."
+msgstr ""
+

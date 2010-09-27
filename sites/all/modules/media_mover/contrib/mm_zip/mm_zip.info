@@ -4,9 +4,9 @@ description = Provides Zip compression for Media Mover files
 package = "Media Mover"
 core = 6.x
 dependencies[] = media_mover_api
-; Information added by drupal.org packaging script on 2009-10-13
-version = "6.x-1.0-beta4"
+; Information added by drupal.org packaging script on 2010-04-18
+version = "6.x-1.0-beta7"
 core = "6.x"
 project = "media_mover"
-datestamp = "1255453564"
+datestamp = "1271631907"
 

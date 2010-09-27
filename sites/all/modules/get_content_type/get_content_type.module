@@ -1,5 +1,5 @@
 <?php
-// $Id: get_content_type.module,v 1.1.4.4 2008/10/31 02:00:58 nancyw Exp $
+// $Id: get_content_type.module,v 1.1.4.7 2010/05/08 14:32:09 nancyw Exp $
 /**
  * @file
  * Provide URL-based node type query.
@@ -10,27 +10,53 @@
  *  @param $type - the content type to display. Passed through filter_xss.
  *  @param $teaser - show just the teaser (value: TRUE, default) or full node (value: FALSE) or a title list (value: list).
  *  @param $show_per_page - how many nodes to show per page, defaults to post settings value.
- *  @param $sort - sorting order. 'date' is sticky, created (default), 'title' is by title.
+ *  @param $sort - sorting order.
+ *    'date' is sticky, created (default), 'title' is by title, 'user' is by uid and date, 'oldest' is oldest first.
+ *  @param $userid - limit to user. If numeric, is uid, otherwise, is username.
  *  @return - themed nodes list.
  *
  *  Note: the $teaser and $sort parameters may also be in translated form.
+ *  Note: All parameters, except type, may also be given as query parameters.
+ *    That is node/type/page+story?userid=NancyDru&show_per_page=25
  */
-function node_get_by_type($type = NULL, $teaser = TRUE, $show_per_page = 0, $sort = 'date') {
+function node_get_by_type($type = NULL, $teaser = TRUE, $show_per_page = 0, $sort = 'date', $userid = NULL) {
   $output = NULL;
+  $options = array('teaser' => $teaser, 'show_per_page' => $show_per_page, 'sort' => $sort, 'userid' => $userid);
+  $options = array_merge($options, $_GET);
+  unset($options['q']);
+  $wheres = array('status = 1');
+  $args = array();
   if (!$type) {
     return drupal_get_form('get_content_type_form');
   }
 
-  if ($show_per_page) {
-    $nodes_per_page = filter_xss($show_per_page);
+  if ($options['show_per_page']) {
+    $nodes_per_page = filter_xss($options['show_per_page']);
   }
   else {
     $nodes_per_page = variable_get('default_nodes_main', 10);
   }
 
+  if (!empty($options['userid'])) {
+    if(is_numeric($options['userid'])) {
+      $args[] = $options['userid'];
+      $wheres[] = 'n.uid = %d';
+    }
+    else {
+      $uid = db_result(db_query("SELECT uid FROM {users} WHERE LOWER(name) = '%s'", drupal_strtolower($options['userid'])));
+      if ($uid === FALSE) {
+        drupal_set_message(t('The requested user name (%name) was not found.', array('%name' => $options['userid'])), 'error');
+      }
+      else {
+        $args[] = $uid;
+        $wheres[] = 'n.uid = %d';
+      }
+    }
+  }
+
   // Check the teaser param value.
   $list = FALSE;
-  switch (drupal_strtolower($teaser)) {
+  switch (drupal_strtolower($options['teaser'])) {
     case '0':
     case t('FALSE'):
     case 'FALSE':
@@ -46,12 +72,22 @@ function node_get_by_type($type = NULL, $teaser = TRUE, $show_per_page = 0, $sor
       $teaser = TRUE;
       break;
   }
-  
+
   // Set ORDER BY clause based on request.
-  switch (drupal_strtolower($sort)) {
+  switch (drupal_strtolower($options['sort'])) {
     case t('title'):
     case 'title':
       $order = 'n.title ASC';
+      break;
+
+    case t('user'):
+    case 'user':
+      $order = 'n.uid ASC, n.sticky DESC, n.created DESC';
+      break;
+
+    case t('oldest'):
+    case 'oldest':
+      $order = 'n.sticky DESC, n.created ASC';
       break;
 
     default:
@@ -61,23 +97,26 @@ function node_get_by_type($type = NULL, $teaser = TRUE, $show_per_page = 0, $sor
 
   $types = explode(' ', filter_xss($type));
   $names = $descriptions = array();
+  $show_description = variable_get('get_content_type_show_desc', 0);
   foreach ($types as $t) {
     $stuff = node_get_types('type', $t);
-    $names[] = $stuff->name;
-    $descriptions[$stuff->name] = theme('type_description', $stuff);
+    $names[] = check_plain($stuff->name);
+    if ($show_description) {
+      $descriptions[$stuff->name] = theme('type_description', $stuff);
+    }
   }
   $count = count($names);
   switch ($count) {
     case 1:
-      $title = t('!0 Content', array('!0' => $names[0]));
+      $title = $names[0];
       break;
 
     case 2:
-      $title = t('!0 and !1 Content', array('!0' => $names[0], '!1' => $names[1]));
+      $title = t('!first_type and !second_type', array('!first_type' => $names[0], '!second_type' => $names[1]));
       break;
 
     default:
-      $title = t('!0 and !1 Content', array('!0' => implode(', ', array_slice($names, 0, $count - 1)) .', ', '!1' => $names[$count - 1]));
+      $title = t('!first_type and !other_types', array('!first_type' => implode(', ', array_slice($names, 0, $count - 1)) .', ', '!other_types' => $names[$count - 1]));
   }
   drupal_set_title($title);
   if ($descriptions) {
@@ -87,9 +126,14 @@ function node_get_by_type($type = NULL, $teaser = TRUE, $show_per_page = 0, $sor
 
   // Process the type string.
   $type_list = implode("', '", $types);
+  $wheres[] = "n.type IN (". db_placeholders($types, 'text') .")";
+  $args = array_merge($args, $types);
 
   // Select nodes of the requested type.
-  $results = pager_query(db_rewrite_sql("SELECT n.nid FROM {node} n WHERE n.status=1 AND n.type IN ('$type_list') ORDER BY $order"), $nodes_per_page);
+  $query = "SELECT n.nid FROM {node} n "
+    . 'WHERE ' . implode(' AND ', $wheres) . ' '
+    . "ORDER BY $order";
+  $results = pager_query(db_rewrite_sql($query), $nodes_per_page, 0, NULL, $args);
   $nodes_found = array();
 
   while ($item = db_fetch_array($results)) {
@@ -107,11 +151,12 @@ function node_get_by_type($type = NULL, $teaser = TRUE, $show_per_page = 0, $sor
   drupal_add_feed(url('node/type/'. $type .'/feed'), t('RSS - !type', array('!type' => $stuff->name)));
   if ($nodes_found) {
     $output .= theme('node_list', $nodes_found);
-    return $output . theme('pager', NULL, $nodes_per_page);
+    $output .= theme('pager', NULL, $nodes_per_page);
   }
-  else { 
-    return t('There were no nodes found of the @type type.', array('@type' => $type));
+  else {
+    $output .= t('There were no nodes found of the @type type.', array('@type' => $type));
   }
+  return $output;
 }
 
 /**
@@ -141,7 +186,7 @@ function node_get_by_type_feed($type) {
  */
 function get_content_type_form() {
   $form = array();
-  
+
   $node_types = node_get_types('names');
   $form['types'] = array(
     '#type' => 'checkboxes',
@@ -151,29 +196,32 @@ function get_content_type_form() {
     '#required' => TRUE,
     );
 
-  $form['teaser'] = array(
-    '#type' => 'radios',
-    '#options' => array('TRUE' => t('Teaser'), 'FALSE' => t('Full node'), 'List' => t('As a list of titles')),
-    '#title' => t('Show teaser'),
-    '#description' => t('Show the content in teaser format.'),
-    '#default_value' => TRUE,
-    '#required' => TRUE,
-    );
-
   $form['how_many'] = array(
     '#type' => 'textfield',
+    '#size' => 8,
     '#title' => t('How many per page'),
     '#description' => t('The display will be formatted into a series of pages with this many posts per page.'),
     '#default_value' => variable_get('default_nodes_main', 10),
     '#required' => TRUE,
     );
 
+  $form['teaser'] = array(
+    '#type' => 'radios',
+    '#options' => array('TRUE' => t('Teaser'), 'FALSE' => t('Full node'), 'List' => t('As a list of titles')),
+    '#title' => t('Display format'),
+    '#description' => t('This controls how the selected content will be displayed.'),
+    '#default_value' => 'TRUE',
+    '#required' => TRUE,
+    '#attributes' => array('class' => 'container-inline'),
+    );
+
   $form['sort'] = array(
     '#type' => 'radios',
     '#options' => array('date' => t('By sticky and created date (descending)'), 'title' => t('Alphabetically by title')),
     '#title' => t('Sort Order'),
-    '#default_value' => TRUE,
+    '#default_value' => 'date',
     '#required' => TRUE,
+    '#attributes' => array('class' => 'container-inline'),
     );
 
   $form['submit'] = array(
@@ -195,7 +243,7 @@ function get_content_type_form_submit($form, &$form_state) {
       $types[] = $type;
     }
   }
-  
+
   $form_state['redirect'] = 'node/type/'. implode(' ', $types) .'/'. $form_state['values']['teaser'] .'/'. $form_state['values']['how_many'] .'/'. $form_state['values']['sort'];
 }
 
@@ -217,7 +265,35 @@ function get_content_type_theme() {
  *  @return - themed HTML string for use in an item_list.
  */
 function theme_type_description($type) {
-  return '<strong>'. $type->name .'</strong>: <em>'. $type->description .'</em>';  
+  return '<strong>'. $type->name .'</strong>: <em>'. $type->description .'</em>';
+}
+
+/**
+ * Implementation of hook_form_alter().
+ * Admin > Content > Post settings.
+ */
+function get_content_type_form_alter(&$form, $form_state, $form_id) {
+  switch ($form_id) {
+    case 'node_configure':
+      $form['type_list'] = array(
+        '#type' => 'fieldset',
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,
+        '#title' => t('Node type list'),
+        '#description' => t('This controls the display for "!url_text"', array('!url_text' => 'node/type/<em>xxx</em>')),
+        );
+
+      $form['type_list']['get_content_type_show_desc'] = array(
+        '#type' => 'radios',
+        '#options' => array(1 => t('Yes'), 0 => t('No')),
+        '#title' => t('Show content type description'),
+        '#default_value' => variable_get('get_content_type_show_desc', 0),
+        '#attributes' => array('class' => 'container-inline'),
+        );
+
+      // Make the buttons come last.
+      $form['buttons']['#weight'] = 99;
+  }
 }
 
 /**
@@ -227,14 +303,14 @@ function get_content_type_menu() {
   $items = array();
 
   $items['node/type'] = array(
-    'title' => 'List nodes of a specified type.',
+    'title' => 'List nodes of a specified type',
     'page callback' => 'node_get_by_type',
     'access arguments' => array('access content'),
     'type' => MENU_CALLBACK,
     );
 
   $items['node/type/%/feed'] = array(
-    'title' => 'List nodes of a specified type.',
+    'title' => 'List nodes of a specified type',
     'page callback' => 'node_get_by_type_feed',
     'page arguments' => array(2),
     'access arguments' => array('access content'),
@@ -253,4 +329,18 @@ function get_content_type_help($path, $args) {
     case 'admin/help#get_content_type':
       return t('The get_content_type module fills an oversight by the D5 developers. When they moved the part of CCK (sometimes called CCK-Lite) into core for creating new content types, they forgot the analog to "taxonomy/term/xxx," that is "node/type/xxx." This simple module provides that function.');
   }
+}
+
+/**
+ * Implementation of hook_content_list().
+ * Called by CCK. See http://drupal.org/node/596428
+ * @param $row - the array of data passed from CCK's content_types_overview().
+ * @param $header - the array of header labels. This must be altered by reference.
+ * @return - the modified row.
+ */
+function get_content_type_content_list($row, &$header) {
+  // Can't use the name in $row[0] because it was modified.
+  $type = $row[1];
+  $row[0] = l(node_get_types('name', $type), "node/type/$type", array('attributes' => array('title' => "Display all $type nodes")));
+  return $row;
 }

@@ -1,5 +1,5 @@
 <?php
-// $Id: schedules.inc,v 1.1.2.1.2.14 2009/08/22 19:58:13 ronan Exp $
+// $Id: schedules.inc,v 1.1.2.1.2.15 2009/11/26 21:16:59 ronan Exp $
 
 /**
  * @file
@@ -331,7 +331,11 @@ class backup_migrate_schedule extends backup_migrate_item {
    */
   function cron() {
     $now = time();
-    if ($this->is_enabled() && $this->last_run < ($now - ($this->period))) {
+
+    // Add a small negative buffer (1% of the entire period) to the time to account for slight difference in cron run length.
+    $wait_time = $this->period - ($this->period * variable_get('backup_migrate_schedule_buffer', 0.01));
+
+    if ($this->is_enabled() && ($now - $this->last_run) >= $wait_time) {
       if ($settings = $this->get_profile()) {
         $settings->destination_id = $this->destination_id;
         $settings->source_id = $this->source_id;

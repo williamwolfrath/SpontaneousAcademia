@@ -1,5 +1,5 @@
 <?php
-// $Id: swfobject_api.module,v 1.2.2.20.2.1 2008/10/29 02:38:35 arthuregg Exp $
+// $Id: swfobject_api.module,v 1.2.2.20.2.4 2008/12/31 17:33:43 arthuregg Exp $
 
 /**
  * @file
@@ -8,6 +8,11 @@
  *
  * Please see the README.txt file for more information on this module.
  */
+
+
+/* *********************************************** */
+/* Drupal Hook Functions                           */
+/* *********************************************** */
 
 /**
  * Implementation of hook_help().
@@ -21,12 +26,14 @@ function swfobject_api_help($path, $arg) {
   }
 }
 
+
 /**
  * Implementation of hook_perm().
  */
 function swfobject_api_perm() {
   return array('administer swfobject');
 }
+
 
 /**
  * Implementation of hook_menu().
@@ -42,37 +49,10 @@ function swfobject_api_menu() {
   return $items;
 }
 
-/**
- * Menu callback: SWFObject API configuration form.
- */
-function swfobject_api_settings_form() {
-  $form = array();
-
-  $form['swfobject_api_settings'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Settings'),
-    '#tree' => TRUE,
-  );
-  $form['swfobject_api_settings']['swfoa_version'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Default minimum version required'),
-    '#description' => t('This value can be overridden via the theme call.'),
-    '#default_value' => variable_get('swfoa_express', '6'),
-    '#required' => TRUE,
-  );
-  $form['swfobject_api_settings']['swfoa_express'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Enable express install.'),
-    '#description' => t('Express install allows player upgrades without having to leave the site. Only versions 6.0.65 and above are supported.'),
-    '#default_value' => variable_get('swfoa_express', FALSE),
-  );
-  $form['submit'] = array('#type' => 'submit', '#value' => t('Save settings'));
-
-  return system_settings_form($form);
-}
 
 /**
  * Implementation of hook_theme().
+ * @return array
  */
 function swfobject_api_theme() {
   return array(
@@ -88,55 +68,118 @@ function swfobject_api_theme() {
   );
 }
 
+
+/* *********************************************** */
+/* Configuration Functions                         */
+/* *********************************************** */
+
 /**
+ * Menu callback: SWFObject API configuration form.
+ * @return array
+ *   drupal form array
+ */
+function swfobject_api_settings_form() {
+  $form = array();
+  $form['swfoa_settings_version'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Default minimum Flash version required'),
+    '#description' => t('This value can be overridden via the theme call.'),
+    '#default_value' => variable_get('swfoa_settings_version', '6'),
+    '#required' => TRUE,
+  );
+  $form['swfoa_settings_express'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable express install.'),
+    '#description' => t('Express install allows player upgrades without having to leave the site. Only versions 6.0.65 and above are supported.'),
+    '#default_value' => variable_get('swfoa_settings_express', FALSE),
+  );
+  return system_settings_form($form);
+}
+
+
+/* *********************************************** */
+/* Internal Functions                              */
+/* *********************************************** */
+
+/**
+ * Ensure that the necessary JS files are loaded.
+ *
+ * This function automatically checks to make sure that the JS files are only
+ * loaded once.
+ * @param array $settings
+ */
+function swfobject_api_ensure_swfobject($settings = array()) {
+  static $done = FALSE;
+  if (! $done) {
+    // Load the swfobject library and our add-on to activate it.
+    drupal_add_js(drupal_get_path('module', 'swfobject_api') .'/swfobject.js', 'module', 'header');
+    // Load the JS which creates loads the params into the page
+    drupal_add_js(drupal_get_path('module', 'swfobject_api') .'/swfobject_api.js', 'module', 'footer');
+    $done = TRUE;
+  }
+  drupal_add_js($settings, 'setting', 'footer', FALSE, TRUE, FALSE);
+}
+
+
+/* *********************************************** */
+/* Theme Functions                                 */
+/* *********************************************** */
+
+ /**
  * Theme function to add a flash file to the page.
- * 
- * The actual returned HTML from this function is minimal.  Its main effect is
- * side effects to setup the Javascript properly.
- * 
+ *
+ * The actual returned HTML from this function is minimal.  Its main purpose is
+ * to setup the Javascript properly on content which is cached by input filters
+ *
  * @ingroup themeable
- * @param $url 
+ * @param $url
  *   A web accessible url to the flash file.
- * @param $params 
+ * @param $params
  *   An associative array of parameters that describe the SWF.
- * @param $vars 
+ * @param $vars
  *   An associative array of variables to pass through to the SWF flashvars value.
- * @param $id 
+ * @param $id
  *   An id to appened to the so object.
- * @param $attributes 
+ * @param $attributes
  *   Associative array of attributes to apply to the resulting flash tag (embed, object, etc.)
  */
 function theme_swfobject_api($url, $params = array(), $vars = array(), $id = NULL, $attributes = array()) {
+  // keep track of each div ID
   static $swfobject_id = 1;
 
-  _swfobject_api_ensure_swfobject();
- 
   // Build the base params.
   $base_params = array(
     'width' => '100%',
     'height' => '100%',
     'no_flash' => t('Sorry, you need to install flash to see this content.'),
-    'version' => variable_get('swfoa_version', '6'),
+    'version' => variable_get('swfoa_settings_version', '6'),
     'type' => 'movie',
-    'bg_color' => '#FFFFFF',
-    'express_redirect' => variable_get('swfoa_express', TRUE) ? drupal_get_path('module', 'swfobject_api') .'/expressinstall.swf' : 'false',
+    'bgcolor' => '#FFFFFF',
+    'express_redirect' => variable_get('swfoa_settings_express', TRUE) ? drupal_get_path('module', 'swfobject_api') .'/expressinstall.swf' : 'false',
     'class' => '',
   );
 
   // Merge in default parameters.
   $params += $base_params;
 
+  // Increment the div id to allow for multiple players on the page
   $div_id = empty($id) ? 'swfobject-'. $swfobject_id++ : $id;
-  
+
+  // are the no_flash parameters being passed with a filter?
+  if (is_array($params['no_flash'])) {
+    $params['no_flash'] = check_markup($params['no_flash']['text'], $params['no_flash']['filter']);
+  }
+
+  // assign param data to the specific parameters
   $height = $params['height'];
   $width = $params['width'];
   $express_redirect = $params['express_redirect'];
   $version = $params['version'];
-  $bg_color = $params['bg_color'];
+  $bgcolor = $params['bgcolor'];
   $no_flash = $params['no_flash'];
   $class = implode(' ', array($params['class'], 'swfobject'));
   unset($params['height'], $params['width'], $params['express_redirect'], $params['version'], $params['bg_color'], $params['no_flash'], $params['class']);
-  
+
   $settings['swfobject_api']['files'][$div_id] = array(
     'url' => $url,
     'params' => $params,
@@ -146,32 +189,13 @@ function theme_swfobject_api($url, $params = array(), $vars = array(), $id = NUL
     'width' => $width,
     'express_redirect' => $express_redirect,
     'version' => $version,
-    'bg_color' => $bg_color,
+    'bgcolor' => $bg_color,
   );
-  
-  drupal_add_js($settings, 'setting', 'footer', FALSE, TRUE, FALSE);
 
-  // Return the placeholder HTML that will normally get 
+  // add the JS to the page
+  swfobject_api_ensure_swfobject($settings);
+
+  // Return the placeholder HTML that will normally get
   // replaced with flash content.
   return "<div id=\"$div_id\" class=\"{$class}\">{$no_flash}</div>\n";
-}
-
-/**
- * Ensure that the necessary JS files are loaded.
- * 
- * This function automatically checks to make sure that the JS files are only
- * loaded once.
- */
-function _swfobject_api_ensure_swfobject() {
-  static $done = FALSE;
-  
-  if ($done) {
-    return;
-  }
-  
-  // Load the swfobject library and our add-on to activate it.
-  drupal_add_js(drupal_get_path('module', 'swfobject_api') .'/swfobject.js', 'module', 'footer');
-  drupal_add_js(drupal_get_path('module', 'swfobject_api') .'/swfobject_api.js', 'module', 'footer');
-
-  $done = TRUE;
 }

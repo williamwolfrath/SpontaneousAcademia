@@ -1,5 +1,5 @@
 <?php
-// $Id: backup_migrate.module,v 1.1.2.25.2.1.2.29 2009/10/27 02:51:03 ronan Exp $
+// $Id: backup_migrate.module,v 1.1.2.25.2.1.2.31 2009/12/09 22:07:42 ronan Exp $
 
 
 /**
@@ -332,6 +332,16 @@ function backup_migrate_ui_manual_quick_backup_form(&$form_state) {
   return $form;
 }
 
+
+/**
+ * Validate the quick backup form.
+ */
+function backup_migrate_ui_manual_quick_backup_form_validate($form, &$form_state) {
+  if ($form_state['values']['source_id'] == $form_state['values']['destination_id']) {
+    form_set_error('destination_id', t('A source cannot be backed up to itself. Please pick a different destination for this backup.'));
+  }
+}
+
 /**
  * Submit the quick backup form.
  */
@@ -464,14 +474,16 @@ function backup_migrate_ui_manual_backup_form(&$form_state, $profile = array()) 
       '#value' => t('Save Without Backing Up'),
     );
   }
+  $form['#validate'] = array('backup_migrate_ui_manual_quick_backup_form_validate');
 
   $form[] = array(
     '#type' => 'submit',
-    '#value' => t('Backup Database'),
+    '#value' => t('Backup now'),
     '#weight' => 100,
   );
   return $form;
 }
+
 
 /**
  * Submit the form. Save the values as defaults if desired and output the backup file.
@@ -493,7 +505,7 @@ function backup_migrate_ui_manual_backup_form_submit($form, &$form_state) {
   }
 
   // Perform the actual backup if that is what was selected.
-  if ($form_state['values']['op'] == t('Backup Database') && user_access('perform backup')) {
+  if ($form_state['values']['op'] == t('Backup now') && user_access('perform backup')) {
     backup_migrate_ui_manual_backup_perform($profile);
   }
   $form_state['redirect'] = "admin/content/backup_migrate/export/advanced";
@@ -558,7 +570,7 @@ function backup_migrate_ui_manual_restore_form() {
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Restore Database'),
+    '#value' => t('Restore now'),
   );
   if (user_access('access backup files')) {
     $form[] = array(
@@ -657,7 +669,7 @@ function backup_migrate_perform_backup(&$settings) {
 /**
  * Restore from a file in the given destination.
  */
-function backup_migrate_perform_restore($destination_id, $file_id, $settings = array()) {
+function backup_migrate_perform_restore($destination_id, $file, $settings = array()) {
   backup_migrate_include('files', 'filters');
   timer_start('backup_migrate_restore');
 
@@ -675,22 +687,24 @@ function backup_migrate_perform_restore($destination_id, $file_id, $settings = a
   // Register shutdown callback.
   register_shutdown_function('backup_migrate_shutdown', $settings);
 
-  // Load the file from the destination.
-  $file = backup_migrate_destination_get_file($destination_id, $file_id);
-  if (!$file) {
-    _backup_migrate_message("Could not restore because the file could not be loaded from the destination.", array(), 'error');
-    backup_migrate_cleanup();
-    return FALSE;
+  if (!is_object($file)) {
+    // Load the file from the destination.
+    $file = backup_migrate_destination_get_file($destination_id, $file);
+    if (!$file) {
+      _backup_migrate_message("Could not restore because the file could not be loaded from the destination.", array(), 'error');
+      backup_migrate_cleanup();
+      return FALSE;
+    }
   }
 
   // Filter the file and perform the restore.
   $file = backup_migrate_filters_restore($file, $settings);
   if (!$file) {
     if (_backup_migrate_check_timeout()) {
-      backup_migrate_restore_fail('Could not restore the database because the script timed out. Try increasing your PHP <a href="!url">max_execution_time setting</a>.', array('!url' => 'http://www.php.net/manual/en/info.configuration.php#ini.max-execution-time'), 'error');
+      backup_migrate_restore_fail('Could not perform the restore because the script timed out. Try increasing your PHP <a href="!url">max_execution_time setting</a>.', array('!url' => 'http://www.php.net/manual/en/info.configuration.php#ini.max-execution-time'), 'error');
     }
     else {
-      backup_migrate_restore_fail("Could not restore the database.", array(), 'error');
+      backup_migrate_restore_fail("Could not perform the restore.", array(), 'error');
     }
     backup_migrate_cleanup();
     return FALSE;
@@ -717,24 +731,6 @@ function backup_migrate_perform_restore($destination_id, $file_id, $settings = a
 
   // No errors. Return the file.
   return $file;
-}
-
-/**
- * Restore from a file in the given destination.
- */
-function backup_migrate_perform_restore_file($file, $settings) {
-  backup_migrate_include('files');
-
-  // If not in 'safe mode', increase the maximum execution time:
-  if (!ini_get('safe_mode') && ini_get('max_execution_time') < variable_get('backup_migrate_restore_max_time', 1200)) {
-    set_time_limit(variable_get('backup_migrate_restore_max_time', 1200));
-  }
-
-  $settings->source_id = empty($settings->source_id) ? 'db' : $settings->source_id;
-  $settings->source = backup_migrate_get_destination($settings->source_id);
-  $num = backup_migrate_db_restore($settings->source, $file, $settings);
-
-  return $num;
 }
 
 /**

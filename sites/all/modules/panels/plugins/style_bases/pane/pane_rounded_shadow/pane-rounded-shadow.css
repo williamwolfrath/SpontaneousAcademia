@@ -15,7 +15,7 @@
 
 %style .rounded-shadow-background {
   margin: 10px;
-  background: url(rounded-shadow-background.png) repeat;
+  background: %background url(rounded-shadow-background.png) repeat;
 }
 
 %style .rounded-shadow-wrap-corner {
@@ -77,6 +77,10 @@
 
 %style .rounded-shadow-wrap-corner .rounded-shadow-right-edge {
   padding: 3px 19px;
+}
+
+%style .panel-pane {
+  position: relative; top: -6px;
 }
 
 /*

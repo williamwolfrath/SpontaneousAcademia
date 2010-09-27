@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.1.2.1.2.1.2.2 2009/03/11 23:55:14 ronan Exp $
+// $Id: README.txt,v 1.1.2.1.2.1.2.3 2009/12/09 22:07:42 ronan Exp $
 
 -------------------------------------------------------------------------------
 Backup and Migrate 2 for Drupal 6.x
@@ -30,6 +30,12 @@ INSTALLATION:
 
 OPTIONAL:
 * Enable token.module to allow token replacement in backup file names.
+
+LIGHTTPD USERS:
+Add the following code to your lighttp.conf to secure your backup directories:
+  $HTTP["url"] =~ "^/sites/default/files/backup_migrate/" {
+       url.access-deny = ( "" )
+  }
 
 -------------------------------------------------------------------------------
 

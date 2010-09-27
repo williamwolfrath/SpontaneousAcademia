@@ -1,5 +1,5 @@
 <?php
-/* $Id: css.inc,v 1.10.2.4 2010/07/16 20:44:31 merlinofchaos Exp $ */
+/* $Id: css.inc,v 1.10.2.5 2010/08/25 20:22:22 merlinofchaos Exp $ */
 
 /*
  * @file
@@ -191,7 +191,14 @@ function ctools_css_add_css($filename = NULL, $type = 'module', $media = 'all', 
       drupal_add_css($filename, $type, $media, $preprocess);
       break;
     case FILE_DOWNLOADS_PRIVATE:
-      $url = file_create_url($filename);
+      $path = file_create_path($filename);
+      if ($path) {
+        $url = file_create_url($path);
+      }
+      else {
+        $url = $filename;
+      }
+
       $output = '<link type="text/css" rel="stylesheet" media="' . $media . '" href="' . $url . '" />'."\n";
       drupal_set_html_head($output);
   }
